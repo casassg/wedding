@@ -3,7 +3,7 @@
 <head>
     {{- partial "head.html" . -}}
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-cream text-gray-800 font-sans">
     {{- partial "nav.html" . -}}
     
     <main>
@@ -13,6 +13,6 @@
     {{- partial "footer.html" . -}}
     
     <!-- Custom JS -->
-    <script src="/js/main.js"></script>
+    <script src="{{ "js/main.js" | relURL }}"></script>
 </body>
 </html>

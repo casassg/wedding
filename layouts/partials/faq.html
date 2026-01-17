@@ -1,64 +1,78 @@
 <!-- FAQ Section -->
-<section id="faq" class="py-24 px-6 bg-white">
-    <div class="max-w-3xl mx-auto">
+<section id="faq" class="py-24 px-6 bg-white relative">
+    <!-- Decorative Dots -->
+    <div class="absolute left-4 top-20 text-lavender/20 text-6xl opacity-50 font-hand -rotate-12 hidden md:block">?</div>
+    <div class="absolute right-10 bottom-20 text-rose/20 text-8xl opacity-50 font-hand rotate-12 hidden md:block">?</div>
+
+    <div class="max-w-3xl mx-auto relative z-10">
         <div class="text-center mb-16">
-            <span class="text-lavender font-bold uppercase tracking-widest text-sm">{{ i18n "questions" }}</span>
-            <h2 class="font-serif text-4xl md:text-5xl mt-4">{{ i18n "faq_title" }}</h2>
+            <span class="text-lavender font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "questions" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "faq_title" }}</h2>
         </div>
         
         <div class="space-y-4">
             <!-- FAQ Item 1 -->
-            <div class="faq-item card-shadow bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition">
-                    <span class="font-semibold text-gray-800 pr-4">{{ i18n "faq_q1" }}</span>
-                    <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+            <div class="faq-item card-shadow bg-cream rounded-2xl overflow-hidden hover:bg-white transition-colors duration-300">
+                <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between">
+                    <span class="font-bold text-gray-800 pr-4 font-sans text-lg">{{ i18n "faq_q1" }}</span>
+                    <div class="w-8 h-8 rounded-full bg-lavender/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+                    </div>
                 </button>
-                <div class="faq-answer hidden px-6 pb-5">
-                    <p class="text-gray-600 leading-relaxed">{{ i18n "faq_a1" }}</p>
+                <div class="faq-answer hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "faq_a1" }}</p>
                 </div>
             </div>
             
             <!-- FAQ Item 2 -->
-            <div class="faq-item card-shadow bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition">
-                    <span class="font-semibold text-gray-800 pr-4">{{ i18n "faq_q2" }}</span>
-                    <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+            <div class="faq-item card-shadow bg-cream rounded-2xl overflow-hidden hover:bg-white transition-colors duration-300">
+                <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between">
+                    <span class="font-bold text-gray-800 pr-4 font-sans text-lg">{{ i18n "faq_q2" }}</span>
+                    <div class="w-8 h-8 rounded-full bg-lavender/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+                    </div>
                 </button>
-                <div class="faq-answer hidden px-6 pb-5">
-                    <p class="text-gray-600 leading-relaxed">{{ i18n "faq_a2" }}</p>
+                <div class="faq-answer hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "faq_a2" }}</p>
                 </div>
             </div>
             
             <!-- FAQ Item 3 -->
-            <div class="faq-item card-shadow bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition">
-                    <span class="font-semibold text-gray-800 pr-4">{{ i18n "faq_q3" }}</span>
-                    <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+            <div class="faq-item card-shadow bg-cream rounded-2xl overflow-hidden hover:bg-white transition-colors duration-300">
+                <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between">
+                    <span class="font-bold text-gray-800 pr-4 font-sans text-lg">{{ i18n "faq_q3" }}</span>
+                    <div class="w-8 h-8 rounded-full bg-lavender/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+                    </div>
                 </button>
-                <div class="faq-answer hidden px-6 pb-5">
-                    <p class="text-gray-600 leading-relaxed">{{ i18n "faq_a3" }}</p>
+                <div class="faq-answer hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "faq_a3" }}</p>
                 </div>
             </div>
             
             <!-- FAQ Item 4 -->
-            <div class="faq-item card-shadow bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition">
-                    <span class="font-semibold text-gray-800 pr-4">{{ i18n "faq_q4" }}</span>
-                    <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+            <div class="faq-item card-shadow bg-cream rounded-2xl overflow-hidden hover:bg-white transition-colors duration-300">
+                <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between">
+                    <span class="font-bold text-gray-800 pr-4 font-sans text-lg">{{ i18n "faq_q4" }}</span>
+                    <div class="w-8 h-8 rounded-full bg-lavender/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+                    </div>
                 </button>
-                <div class="faq-answer hidden px-6 pb-5">
-                    <p class="text-gray-600 leading-relaxed">{{ i18n "faq_a4" }}</p>
+                <div class="faq-answer hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "faq_a4" }}</p>
                 </div>
             </div>
             
             <!-- FAQ Item 5 -->
-            <div class="faq-item card-shadow bg-gray-50 rounded-xl overflow-hidden">
-                <button class="faq-question w-full px-6 py-5 text-left flex items-center justify-between hover:bg-gray-100 transition">
-                    <span class="font-semibold text-gray-800 pr-4">{{ i18n "faq_q5" }}</span>
-                    <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+            <div class="faq-item card-shadow bg-cream rounded-2xl overflow-hidden hover:bg-white transition-colors duration-300">
+                <button class="faq-question w-full px-8 py-6 text-left flex items-center justify-between">
+                    <span class="font-bold text-gray-800 pr-4 font-sans text-lg">{{ i18n "faq_q5" }}</span>
+                    <div class="w-8 h-8 rounded-full bg-lavender/20 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-plus text-lavender faq-icon transition-transform"></i>
+                    </div>
                 </button>
-                <div class="faq-answer hidden px-6 pb-5">
-                    <p class="text-gray-600 leading-relaxed">{{ i18n "faq_a5" }}</p>
+                <div class="faq-answer hidden px-8 pb-6">
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "faq_a5" }}</p>
                 </div>
             </div>
         </div>

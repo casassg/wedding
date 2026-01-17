@@ -1,23 +1,23 @@
 <!-- Footer -->
-<footer class="py-16 bg-white border-t border-gray-100">
+<footer class="py-16 bg-cream border-t border-marigold/10">
     <div class="max-w-4xl mx-auto px-6 text-center">
-        <h2 class="font-serif text-4xl mb-4">L <span class="text-rose">&</span> G</h2>
-        <p class="text-gray-400 text-sm tracking-widest uppercase mb-6">
-            {{ .Site.Params.location }} <span class="mx-2">•</span> {{ .Site.Language.Params.dateShort }}
+        <h2 class="font-hand text-5xl mb-4 text-gray-800">L <span class="text-rose">&</span> G</h2>
+        <p class="text-gray-400 text-sm tracking-widest uppercase mb-6 font-sans">
+            {{ .Site.Params.location }} <span class="mx-2 text-rose">•</span> {{ .Site.Language.Params.dateShort }}
         </p>
         
         <!-- Decorative Divider -->
         <div class="flex items-center justify-center mb-8 space-x-4">
-            <div class="h-px w-12 bg-gradient-to-r from-transparent to-gray-300"></div>
-            <i class="fa-regular fa-heart text-rose"></i>
-            <div class="h-px w-12 bg-gradient-to-l from-transparent to-gray-300"></div>
+            <div class="h-1 w-12 bg-rose/20 rounded-full"></div>
+            <i class="fa-regular fa-heart text-rose animate-pulse"></i>
+            <div class="h-1 w-12 bg-rose/20 rounded-full"></div>
         </div>
         
-        <p class="text-gray-500 text-sm mb-8">
+        <p class="text-gray-500 text-sm mb-8 font-sans">
             {{ i18n "footer_message" }}
         </p>
         
-        <p class="text-gray-300 text-xs">
+        <p class="text-gray-400 text-xs font-sans">
             {{ i18n "made_with_love" }}
         </p>
     </div>

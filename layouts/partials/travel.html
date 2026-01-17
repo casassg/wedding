@@ -1,25 +1,25 @@
 <!-- Travel & Logistics Section -->
-<section id="travel" class="py-24 px-6 bg-white">
+<section id="travel" class="py-16 md:py-24 px-6 bg-cream">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-            <span class="text-clay font-bold uppercase tracking-widest text-sm">{{ i18n "logistics" }}</span>
-            <h2 class="font-serif text-4xl md:text-5xl mt-4">{{ i18n "travel_info" }}</h2>
+            <span class="text-clay font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "travel_info" }}</h2>
         </div>
         
         <div class="grid md:grid-cols-2 gap-8">
             <!-- Getting There Card -->
-            <div class="card-shadow bg-gradient-to-br from-sage/30 to-white p-8 rounded-xl">
+            <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300">
                 <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-ocean text-white rounded-lg flex items-center justify-center mr-4">
+                    <div class="w-12 h-12 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
                         <i class="fa-solid fa-plane-arrival text-xl"></i>
                     </div>
-                    <h3 class="font-serif text-2xl">{{ i18n "getting_there" }}</h3>
+                    <h3 class="font-hand text-3xl text-gray-800">{{ i18n "getting_there" }}</h3>
                 </div>
-                <p class="text-gray-600 leading-relaxed mb-4">
+                <p class="text-gray-600 leading-relaxed mb-4 font-sans">
                     {{ i18n "getting_there_desc" }}
                 </p>
                 <div class="bg-marigold/10 border-l-4 border-marigold p-4 rounded-r-lg">
-                    <p class="text-sm text-amber-800">
+                    <p class="text-sm text-gray-700 font-sans font-medium">
                         <i class="fa-solid fa-circle-info mr-2 text-marigold"></i>
                         {{ i18n "more_details_soon" }}
                     </p>
@@ -27,23 +27,27 @@
             </div>
             
             <!-- Transportation Card -->
-            <div class="card-shadow bg-gradient-to-br from-sage/30 to-white p-8 rounded-xl">
+            <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-leaf/30 transition-all duration-300">
                 <div class="flex items-center mb-6">
-                    <div class="w-12 h-12 bg-leaf text-white rounded-lg flex items-center justify-center mr-4">
+                    <div class="w-12 h-12 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
                         <i class="fa-solid fa-bus text-xl"></i>
                     </div>
-                    <h3 class="font-serif text-2xl">{{ i18n "transportation" }}</h3>
+                    <h3 class="font-hand text-3xl text-gray-800">{{ i18n "transportation" }}</h3>
                 </div>
-                <p class="text-gray-600 leading-relaxed">
+                <p class="text-gray-600 leading-relaxed font-sans">
                     {{ i18n "transportation_desc" }}
                 </p>
-                <ul class="mt-4 space-y-2 text-gray-600">
+                <ul class="mt-4 space-y-2 text-gray-600 font-sans">
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check text-leaf mt-1 mr-3"></i>
+                        <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-leaf/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-check text-leaf text-xs"></i>
+                        </div>
                         <span>{{ i18n "transport_church_venue" }}</span>
                     </li>
                     <li class="flex items-start">
-                        <i class="fa-solid fa-check text-leaf mt-1 mr-3"></i>
+                        <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-leaf/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-check text-leaf text-xs"></i>
+                        </div>
                         <span>{{ i18n "transport_venue_city" }}</span>
                     </li>
                 </ul>
@@ -51,14 +55,14 @@
         </div>
         
         <!-- Dress Code Banner -->
-        <div class="mt-12 card-shadow bg-gray-800 text-white p-8 rounded-xl text-center">
+        <div class="mt-12 card-shadow bg-white p-8 rounded-3xl text-center border-2 border-lavender/20">
             <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="w-16 h-16 bg-lavender rounded-full flex items-center justify-center">
-                    <i class="fa-solid fa-shirt text-2xl text-white"></i>
+                <div class="w-16 h-16 bg-lavender/20 text-lavender rounded-full flex items-center justify-center animate-float">
+                    <i class="fa-solid fa-shirt text-2xl"></i>
                 </div>
                 <div class="text-center md:text-left">
-                    <h3 class="font-serif text-2xl mb-2">{{ i18n "dress_code" }}</h3>
-                    <p class="text-gray-300">{{ i18n "dress_code_desc" }}</p>
+                    <h3 class="font-hand text-3xl mb-2 text-gray-800">{{ i18n "dress_code" }}</h3>
+                    <p class="text-gray-600 font-sans">{{ i18n "dress_code_desc" }}</p>
                 </div>
             </div>
         </div>

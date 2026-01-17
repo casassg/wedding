@@ -1,44 +1,48 @@
 <!-- Spain 2027 Celebration Section -->
-<section id="spain" class="py-24 px-6 bg-gradient-to-br from-clay/10 via-marigold/10 to-sage/30">
-    <div class="max-w-4xl mx-auto">
+<section id="spain" class="py-16 md:py-24 px-6 bg-gradient-to-br from-clay/5 via-marigold/5 to-sage/20 relative overflow-hidden">
+    <!-- Decorative Blobs -->
+    <div class="absolute top-20 left-10 w-64 h-64 bg-clay/10 rounded-full mix-blend-multiply filter blur-2xl animate-float"></div>
+    <div class="absolute bottom-10 right-10 w-64 h-64 bg-marigold/10 rounded-full mix-blend-multiply filter blur-2xl animate-float-delayed"></div>
+
+    <div class="max-w-4xl mx-auto relative z-10">
         <div class="text-center mb-12">
-            <span class="text-clay font-bold uppercase tracking-widest text-sm">{{ i18n "also_save" }}</span>
-            <h2 class="font-serif text-4xl md:text-5xl mt-4">{{ i18n "spain_celebration" }}</h2>
+            <span class="text-clay font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "also_save" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "spain_celebration" }}</h2>
         </div>
         
-        <div class="card-shadow bg-white p-8 md:p-12 rounded-2xl relative overflow-hidden">
+        <div class="card-shadow bg-white p-8 md:p-12 rounded-3xl relative overflow-hidden">
             <!-- Decorative Background -->
-            <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-marigold/20 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-marigold/10 to-transparent rounded-full -translate-y-1/2 translate-x-1/2"></div>
             
             <div class="relative z-10">
                 <div class="flex flex-col md:flex-row md:items-center mb-8">
-                    <div class="w-20 h-20 bg-gradient-to-br from-clay to-marigold text-white rounded-2xl flex items-center justify-center mb-4 md:mb-0 md:mr-6 shadow-lg">
+                    <div class="w-20 h-20 bg-gradient-to-br from-clay to-marigold text-white rounded-2xl flex items-center justify-center mb-4 md:mb-0 md:mr-6 shadow-lg transform -rotate-3">
                         <i class="fa-solid fa-wine-glass text-3xl"></i>
                     </div>
                     <div>
-                        <h3 class="font-serif text-3xl mb-2">{{ i18n "spain_title" }}</h3>
-                        <p class="text-clay font-semibold uppercase tracking-wide text-sm">{{ i18n "spain_date" }}</p>
+                        <h3 class="font-hand text-4xl mb-2 text-gray-800">{{ i18n "spain_title" }}</h3>
+                        <p class="text-clay font-bold uppercase tracking-wide text-sm font-sans">{{ i18n "spain_date" }}</p>
                     </div>
                 </div>
                 
-                <p class="text-gray-600 leading-relaxed text-lg mb-6">
+                <p class="text-gray-600 leading-relaxed text-lg mb-6 font-sans">
                     {{ i18n "spain_desc" }}
                 </p>
                 
                 <div class="grid sm:grid-cols-2 gap-4 mb-6">
-                    <div class="flex items-center p-4 bg-sage/50 rounded-lg">
-                        <i class="fa-solid fa-location-dot text-clay mr-3"></i>
-                        <span class="text-gray-700">{{ i18n "spain_location" }}</span>
+                    <div class="flex items-center p-4 bg-sage/30 rounded-xl">
+                        <i class="fa-solid fa-location-dot text-clay mr-3 text-xl"></i>
+                        <span class="text-gray-700 font-sans font-medium">{{ i18n "spain_location" }}</span>
                     </div>
-                    <div class="flex items-center p-4 bg-sage/50 rounded-lg">
-                        <i class="fa-solid fa-utensils text-marigold mr-3"></i>
-                        <span class="text-gray-700">{{ i18n "spain_vibe" }}</span>
+                    <div class="flex items-center p-4 bg-marigold/10 rounded-xl">
+                        <i class="fa-solid fa-utensils text-marigold mr-3 text-xl"></i>
+                        <span class="text-gray-700 font-sans font-medium">{{ i18n "spain_vibe" }}</span>
                     </div>
                 </div>
                 
-                <div class="p-4 bg-marigold/10 border border-marigold/30 rounded-lg">
-                    <p class="text-clay text-sm">
-                        <i class="fa-solid fa-heart mr-2 text-rose"></i>
+                <div class="p-5 bg-cream border border-marigold/20 rounded-xl">
+                    <p class="text-clay text-sm font-sans font-medium flex items-center">
+                        <i class="fa-solid fa-heart mr-3 text-rose text-lg"></i>
                         {{ i18n "spain_for_who" }}
                     </p>
                 </div>
