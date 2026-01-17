@@ -49,24 +49,28 @@
     function initFAQ() {
         const faqItems = document.querySelectorAll('.faq-item');
         
+        // Remove hidden class on init - CSS handles visibility via max-height
+        faqItems.forEach(item => {
+            const answer = item.querySelector('.faq-answer');
+            if (answer) {
+                answer.classList.remove('hidden');
+            }
+        });
+        
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
-            const answer = item.querySelector('.faq-answer');
             
-            if (question && answer) {
+            if (question) {
                 question.addEventListener('click', () => {
                     // Close all other items
                     faqItems.forEach(otherItem => {
                         if (otherItem !== item) {
                             otherItem.classList.remove('active');
-                            const otherAnswer = otherItem.querySelector('.faq-answer');
-                            if (otherAnswer) otherAnswer.classList.add('hidden');
                         }
                     });
                     
                     // Toggle current item
                     item.classList.toggle('active');
-                    answer.classList.toggle('hidden');
                 });
             }
         });
