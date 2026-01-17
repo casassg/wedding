@@ -38,14 +38,14 @@ body {
 .card-shadow {
     box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.05);
     border: 2px solid rgba(0,0,0,0.05);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: white;
     border-radius: 24px;
 }
 
 .card-shadow:hover {
-    transform: translateY(-8px) rotate(1deg);
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.08);
 }
 
 /* Animations */
@@ -103,10 +103,6 @@ html {
 @media (max-width: 768px) {
     .hero-gradient {
         background-attachment: scroll;
-    }
-    
-    .card-shadow:hover {
-        transform: none;
     }
 }
 
