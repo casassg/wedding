@@ -1,0 +1,52 @@
+<!-- Details Section -->
+<section id="details" class="py-24 px-6 bg-sage/50">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-rose font-bold uppercase tracking-widest text-sm">{{ i18n "the_details" }}</span>
+            <h2 class="font-serif text-4xl md:text-5xl mt-4">{{ i18n "join_us" }}</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Date Card -->
+            <div class="card-shadow bg-white p-10 rounded-xl text-center flex flex-col items-center">
+                <div class="w-16 h-16 bg-lavender text-white rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-regular fa-calendar-check text-2xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl mb-4">{{ i18n "when" }}</h3>
+                <p class="font-bold text-gray-800">{{ i18n "date_friday" }}</p>
+                <p class="text-gray-500 text-sm mt-1">{{ i18n "date_arrival" }}</p>
+                <div class="w-8 h-px bg-lavender my-4"></div>
+                <p class="font-bold text-gray-800">{{ i18n "date_saturday" }}</p>
+                <p class="text-gray-500 text-sm mt-1">{{ i18n "date_wedding" }}</p>
+            </div>
+
+            <!-- Ceremony Card -->
+            <div class="card-shadow bg-white p-10 rounded-xl text-center flex flex-col items-center md:scale-105 z-10 ring-2 ring-rose/50">
+                <div class="w-16 h-16 bg-rose text-white rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-church text-2xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl mb-4">{{ i18n "ceremony" }}</h3>
+                <p class="font-bold text-gray-800">{{ i18n "catholic_ceremony" }}</p>
+                <p class="text-gray-500 text-sm mt-1">{{ i18n "church_location" }}</p>
+                <div class="w-8 h-px bg-rose my-4"></div>
+                <p class="text-rose font-semibold text-sm uppercase tracking-wide">{{ i18n "ceremony_time" }}</p>
+            </div>
+
+            <!-- Celebration Card -->
+            <div class="card-shadow bg-white p-10 rounded-xl text-center flex flex-col items-center">
+                <div class="w-16 h-16 bg-marigold text-white rounded-full flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-champagne-glasses text-2xl"></i>
+                </div>
+                <h3 class="font-serif text-2xl mb-4">{{ i18n "celebration" }}</h3>
+                <p class="font-bold text-gray-800">Marina Copan</p>
+                <p class="text-gray-500 text-sm mt-1">Convention Center</p>
+                <div class="w-8 h-px bg-marigold my-4"></div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Marina+Copan+Honduras" 
+                   target="_blank" 
+                   class="text-xs font-bold uppercase tracking-widest text-marigold hover:text-clay hover:underline transition">
+                    {{ i18n "view_map" }} <i class="fa-solid fa-arrow-up-right-from-square ml-1"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>

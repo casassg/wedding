@@ -1,0 +1,82 @@
+# Spanish translations for Laura & Gerard Wedding
+
+# Meta
+meta_description: "Laura y Gerard se casan el 19 de diciembre de 2026 en Copan Ruinas, Honduras. ¡Reserva la fecha!"
+
+# Navigation
+nav_home: "Inicio"
+nav_details: "Detalles"
+nav_travel: "Viaje"
+nav_spain: "España 2027"
+nav_faq: "Preguntas"
+
+# Hero
+save_the_date: "Reserva la Fecha"
+
+# Welcome
+welcome: "Bienvenidos"
+were_getting_married: "¡Nos casamos!"
+welcome_message: "Estamos deseando celebrar nuestro día especial con todos vosotros en el precioso pueblo de Copan Ruinas, Honduras. Acompañadnos en un fin de semana de amor, risas y recuerdos inolvidables."
+
+# Details
+the_details: "Los Detalles"
+join_us: "Acompañadnos en Honduras"
+when: "Cuándo"
+date_friday: "Viernes, 18 de Diciembre"
+date_arrival: "Llegada y bienvenida"
+date_saturday: "Sábado, 19 de Diciembre"
+date_wedding: "Día de la boda"
+ceremony: "Ceremonia"
+catholic_ceremony: "Ceremonia Católica"
+church_location: "Copan Ruinas, Honduras"
+ceremony_time: "Por la tarde"
+celebration: "Celebración"
+view_map: "Ver Mapa"
+
+# Travel
+logistics: "Logística"
+travel_info: "Viaje y Transporte"
+getting_there: "Cómo llegar"
+getting_there_desc: "Estamos planeando organizar autobuses desde el aeropuerto SAP (San Pedro Sula) el viernes 18 de diciembre al mediodía. Los autobuses harán paradas en hoteles de San Pedro Sula para los que lleguen antes."
+more_details_soon: "Compartiremos más detalles próximamente."
+transportation: "Transporte"
+transportation_desc: "¡No os preocupéis por moveros - nosotros nos encargamos!"
+transport_church_venue: "Transporte de la iglesia al Centro de Convenciones Marina Copan"
+transport_venue_city: "Autobús de vuelta al centro de la ciudad por la noche"
+dress_code: "Código de Vestimenta"
+dress_code_desc: "Traje formal, corbata opcional. ¡Vestíos para celebrar!"
+
+# Spain
+also_save: "También Reserva la Fecha"
+spain_celebration: "Celebración en España"
+spain_title: "Cena en Cataluña"
+spain_date: "2027 - Fecha por confirmar"
+spain_desc: "Para los que no puedan viajar a Honduras, o para quien quiera celebrar con nosotros otra vez, organizaremos una cena relajada en una preciosa masía en Cataluña."
+spain_location: "Una masía en Cataluña"
+spain_vibe: "Cena, cervezas y amigos"
+spain_for_who: "Una celebración tranquila - sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos sois bienvenidos!"
+
+# FAQ
+questions: "¿Preguntas?"
+faq_title: "Preguntas Frecuentes"
+faq_q1: "¿Cómo llego a Copan Ruinas?"
+faq_a1: "Daremos más detalles próximamente. Nuestro plan es organizar autobuses desde el aeropuerto SAP (San Pedro Sula) el viernes 18 de diciembre al mediodía, con paradas en hoteles de San Pedro Sula para los que lleguen antes."
+faq_q2: "¿Habrá transporte durante la boda?"
+faq_a2: "¡Sí! Proporcionaremos transporte desde la iglesia en Copan Ruinas hasta el Centro de Convenciones Marina Copan para la celebración. Por la noche, habrá un autobús de vuelta al centro de la ciudad."
+faq_q3: "¿Cuál es el código de vestimenta?"
+faq_a3: "Traje formal, corbata opcional. Vestíos cómodos pero elegantes - ¡habrá baile!"
+faq_q4: "¿Qué pasa con la celebración en España?"
+faq_a4: "En 2027, organizaremos una cena informal en una masía en Cataluña. Sin ceremonia - solo cena, cervezas y amigos. ¡Es para los que no puedan viajar a Honduras y para quien quiera celebrar con nosotros otra vez!"
+faq_q5: "¿Hay lista de bodas?"
+faq_a5: "Todavía no - lo actualizaremos más adelante. ¡Vuestra presencia es el mejor regalo!"
+
+# Countdown
+countdown_title: "Cuenta atrás para el gran día..."
+days: "Días"
+hours: "Horas"
+minutes: "Minutos"
+seconds: "Segundos"
+
+# Footer
+footer_message: "¡Estamos deseando celebrar con vosotros!"
+made_with_love: "Hecho con amor"

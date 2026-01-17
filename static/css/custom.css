@@ -1,0 +1,151 @@
+/* Custom styles for Laura & Gerard Wedding */
+
+/* Base styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    scroll-behavior: smooth;
+}
+
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Hero gradient - placeholder until real image is added */
+.hero-gradient {
+    background: linear-gradient(
+        135deg,
+        rgba(157, 142, 181, 0.9) 0%,   /* lavender */
+        rgba(224, 108, 117, 0.8) 50%,  /* rose */
+        rgba(242, 169, 59, 0.9) 100%   /* marigold */
+    ),
+    linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.5)
+    );
+    /* Uncomment and replace URL when you have your hero image:
+    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), 
+                url('/images/hero.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    */
+}
+
+/* Glass morphism navigation */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Card shadows with hover effect */
+.card-shadow {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-shadow:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* FAQ accordion */
+.faq-item .faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+}
+
+/* Animations */
+@keyframes pulse-slow {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
+}
+
+/* Scroll reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Smooth scrolling for anchor links */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #E06C75;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #D95D82;
+}
+
+/* Selection color */
+::selection {
+    background: rgba(224, 108, 117, 0.3);
+    color: inherit;
+}
+
+/* Mobile menu transition */
+#mobile-menu {
+    transition: max-height 0.3s ease;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero-gradient {
+        background-attachment: scroll;
+    }
+    
+    .card-shadow:hover {
+        transform: none;
+    }
+}
+
+/* Print styles */
+@media print {
+    nav, #countdown, .faq-question {
+        display: none;
+    }
+    
+    .card-shadow {
+        box-shadow: none;
+        border: 1px solid #ddd;
+    }
+}

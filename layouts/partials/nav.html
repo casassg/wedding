@@ -1,0 +1,52 @@
+<!-- Navigation -->
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-gray-100">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="#home" class="font-serif text-2xl font-bold tracking-tighter text-gray-800 hover:text-clay transition">L & G</a>
+        
+        <!-- Desktop Navigation -->
+        <div class="hidden md:flex space-x-8 uppercase text-xs font-bold tracking-widest">
+            <a href="#home" class="hover:text-clay transition">{{ i18n "nav_home" }}</a>
+            <a href="#details" class="hover:text-clay transition">{{ i18n "nav_details" }}</a>
+            <a href="#travel" class="hover:text-clay transition">{{ i18n "nav_travel" }}</a>
+            <a href="#spain" class="hover:text-clay transition">{{ i18n "nav_spain" }}</a>
+            <a href="#faq" class="hover:text-clay transition">{{ i18n "nav_faq" }}</a>
+        </div>
+        
+        <!-- Language Switcher -->
+        <div class="flex items-center space-x-4">
+            <div class="hidden sm:flex space-x-2 text-xs font-bold uppercase tracking-widest">
+                {{ range .Site.Home.AllTranslations }}
+                <a href="{{ .Permalink }}" 
+                   class="{{ if eq $.Lang .Lang }}text-clay{{ else }}text-gray-400 hover:text-gray-800{{ end }} transition">
+                    {{ .Language.LanguageName }}
+                </a>
+                {{ if ne .Lang "ca" }}<span class="text-gray-300">|</span>{{ end }}
+                {{ end }}
+            </div>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-800 hover:text-clay transition">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 px-6 py-4">
+        <div class="flex flex-col space-y-4 uppercase text-sm font-bold tracking-widest">
+            <a href="#home" class="hover:text-clay transition">{{ i18n "nav_home" }}</a>
+            <a href="#details" class="hover:text-clay transition">{{ i18n "nav_details" }}</a>
+            <a href="#travel" class="hover:text-clay transition">{{ i18n "nav_travel" }}</a>
+            <a href="#spain" class="hover:text-clay transition">{{ i18n "nav_spain" }}</a>
+            <a href="#faq" class="hover:text-clay transition">{{ i18n "nav_faq" }}</a>
+            <div class="flex space-x-4 pt-2 border-t border-gray-100">
+                {{ range .Site.Home.AllTranslations }}
+                <a href="{{ .Permalink }}" 
+                   class="{{ if eq $.Lang .Lang }}text-clay{{ else }}text-gray-400{{ end }} hover:text-clay transition">
+                    {{ .Language.LanguageName }}
+                </a>
+                {{ end }}
+            </div>
+        </div>
+    </div>
+</nav>

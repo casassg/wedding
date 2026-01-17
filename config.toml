@@ -1,0 +1,46 @@
+baseURL = "/"
+languageCode = "en"
+title = "Laura & Gerard"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+# Disable unused features for lightweight site
+disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
+
+[params]
+  weddingDate = "2026-12-19T16:00:00"
+  weddingYear = "2026"
+  location = "Copán Ruinas, Honduras"
+  venue = "Marina Copan Convention Center"
+  church = "Copán Ruinas"
+  contactEmail = "hello@lauraygerard.com"
+
+[languages]
+  [languages.en]
+    languageName = "EN"
+    weight = 1
+    title = "Laura & Gerard | December 19th"
+    [languages.en.params]
+      dateFormat = "December 19th, 2026"
+      dateShort = "12.19.2026"
+  
+  [languages.es]
+    languageName = "ES"
+    weight = 2
+    title = "Laura & Gerard | 19 de Diciembre"
+    [languages.es.params]
+      dateFormat = "19 de Diciembre, 2026"
+      dateShort = "19.12.2026"
+  
+  [languages.ca]
+    languageName = "CA"
+    weight = 3
+    title = "Laura & Gerard | 19 de Desembre"
+    [languages.ca.params]
+      dateFormat = "19 de Desembre, 2026"
+      dateShort = "19.12.2026"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

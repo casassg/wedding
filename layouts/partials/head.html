@@ -1,0 +1,48 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ .Title }}</title>
+<meta name="description" content="{{ i18n "meta_description" }}">
+
+<!-- Open Graph -->
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ i18n "meta_description" }}">
+<meta property="og:type" content="website">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Caveat:wght@400;700&display=swap" rel="stylesheet">
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    'sage': '#E9EFE9',      /* Softer background green */
+                    'cream': '#FFFEFA',     /* Icing white */
+                    'leaf': '#8FA876',      /* Cookie stem green */
+                    'rose': '#E06C75',      /* Floral pink */
+                    'lavender': '#9D8EB5',  /* Soft purple */
+                    'marigold': '#F2A93B',  /* Pollen yellow */
+                    'clay': '#D97757',      /* Terracotta orange */
+                    'ocean': '#4A6FA5',     /* Keep for contrast */
+                },
+                fontFamily: {
+                    'sans': ['Montserrat', 'sans-serif'],
+                    'hand': ['Caveat', 'cursive'],
+                },
+                borderRadius: {
+                    '4xl': '2rem',
+                    'blob': '40% 60% 70% 30% / 40% 50% 60% 50%',
+                }
+            }
+        }
+    }
+</script>
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Custom Styles -->
+<link rel="stylesheet" href="/css/custom.css">

@@ -1,0 +1,22 @@
+<!-- Hero Header -->
+<header id="home" class="relative min-h-screen flex items-center justify-center hero-gradient text-white overflow-hidden">
+    <div class="text-center z-10 px-4">
+        <h2 class="uppercase tracking-[0.5em] text-sm mb-4 font-light opacity-90">{{ i18n "save_the_date" }}</h2>
+        <h1 class="font-serif text-5xl sm:text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight">Laura <span class="text-marigold">&</span> Gerard</h1>
+        <div class="w-24 h-1 bg-gradient-to-r from-rose via-marigold to-lavender mx-auto mb-6"></div>
+        <p class="text-lg sm:text-xl md:text-2xl font-light tracking-widest uppercase">
+            {{ .Site.Language.Params.dateFormat }} <span class="mx-2 text-marigold">—</span> {{ .Site.Params.location }}
+        </p>
+    </div>
+    
+    <!-- Decorative Elements -->
+    <div class="absolute top-20 left-10 w-32 h-32 border border-white/10 rounded-full animate-pulse-slow"></div>
+    <div class="absolute bottom-40 right-10 w-20 h-20 border border-marigold/20 rounded-full animate-pulse-slow"></div>
+    
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+        <a href="#welcome" class="text-white/80 hover:text-white transition">
+            <i class="fa-solid fa-chevron-down text-2xl"></i>
+        </a>
+    </div>
+</header>
