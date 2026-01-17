@@ -48,41 +48,6 @@ body {
     box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.05);
 }
 
-/* FAQ accordion */
-.faq-item {
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.faq-item:hover {
-    border-color: #E9EFE9;
-}
-
-.faq-item .faq-answer {
-    max-height: 0;
-    overflow: hidden;
-    opacity: 0;
-    padding-top: 0;
-    padding-bottom: 0;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s ease,
-                padding 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-item.active .faq-answer {
-    max-height: 500px;
-    opacity: 1;
-    padding-bottom: 1.5rem;
-}
-
-.faq-item .faq-icon {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.faq-item.active .faq-icon {
-    transform: rotate(45deg);
-}
-
 /* Animations */
 @keyframes float {
     0% { transform: translateY(0px); }

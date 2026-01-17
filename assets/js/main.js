@@ -44,39 +44,6 @@
     setInterval(updateCountdown, 1000);
 
     // ===================
-    // FAQ Accordion
-    // ===================
-    function initFAQ() {
-        const faqItems = document.querySelectorAll('.faq-item');
-        
-        // Remove hidden class on init - CSS handles visibility via max-height
-        faqItems.forEach(item => {
-            const answer = item.querySelector('.faq-answer');
-            if (answer) {
-                answer.classList.remove('hidden');
-            }
-        });
-        
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
-            
-            if (question) {
-                question.addEventListener('click', () => {
-                    // Close all other items
-                    faqItems.forEach(otherItem => {
-                        if (otherItem !== item) {
-                            otherItem.classList.remove('active');
-                        }
-                    });
-                    
-                    // Toggle current item
-                    item.classList.toggle('active');
-                });
-            }
-        });
-    }
-
-    // ===================
     // Mobile Menu Toggle
     // ===================
     function initMobileMenu() {
@@ -178,7 +145,6 @@
     // Initialize Everything
     // ===================
     document.addEventListener('DOMContentLoaded', () => {
-        initFAQ();
         initMobileMenu();
         initScrollAnimations();
         initSmoothScroll();
