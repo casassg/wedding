@@ -4,7 +4,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     scroll-behavior: smooth;
-    background-color: #FFFEFA; /* Cream background */
+    background-color: #FFFEF8; /* Cream background */
     color: #4A5568;
 }
 
@@ -14,7 +14,7 @@ body {
 
 /* Playful Hero */
 .hero-gradient {
-    background: #FFFEFA;
+    background: #FFFEF8;
     position: relative;
 }
 
@@ -91,22 +91,22 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: #FFFEFA;
+    background: #FFFEF8;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #E06C75;
+    background: #E8837C;
     border-radius: 5px;
-    border: 2px solid #FFFEFA;
+    border: 2px solid #FFFEF8;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #D95D82;
+    background: #E5793B;
 }
 
 /* Selection color */
 ::selection {
-    background: rgba(224, 108, 117, 0.2);
+    background: rgba(232, 131, 124, 0.2);
     color: inherit;
 }
 
