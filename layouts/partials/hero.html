@@ -26,16 +26,11 @@
             Laura <span id="ampersand-easter-egg" class="text-rose inline-block hover:scale-110 transition-transform duration-300 cursor-default select-none">&</span> Gerard
         </h1>
         
-        <div class="inline-block relative">
-            <div class="absolute -inset-1 bg-gradient-to-r from-rose via-marigold to-lavender rounded-full blur opacity-40"></div>
-            <div class="relative px-8 py-4 bg-white/95 ring-1 ring-white/20 rounded-full leading-none flex items-top justify-start space-x-6 backdrop-blur-sm">
-                <p class="text-xl md:text-2xl font-bold tracking-widest uppercase text-gray-800 font-sans">
-                    {{ .Site.Language.Params.dateFormat }} 
-                    <span class="mx-3 text-marigold">•</span> 
-                    {{ .Site.Params.location }}
-                </p>
-            </div>
-        </div>
+        <p class="text-xl md:text-2xl font-bold tracking-widest uppercase text-white font-sans drop-shadow-lg">
+            {{ .Site.Language.Params.dateFormat }} 
+            <span class="mx-3 text-marigold">•</span> 
+            {{ .Site.Params.location }}
+        </p>
 
         <!-- Save the Date Button -->
         <div class="mt-8">
