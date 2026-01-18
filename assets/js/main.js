@@ -24,14 +24,21 @@
                            path.includes('/ca/') ? 'ca' : 'en';
 
         // Detect browser's preferred language
+        // Priority: Catalan > then first supported language found
         const browserLangs = navigator.languages || [navigator.language || 'en'];
+        const supportedLangs = browserLangs.map(l => l.toLowerCase().split('-')[0]);
+        
         let preferredLang = 'en'; // default fallback
-
-        for (const lang of browserLangs) {
-            const code = lang.toLowerCase().split('-')[0];
-            if (code === 'es') { preferredLang = 'es'; break; }
-            if (code === 'ca') { preferredLang = 'ca'; break; }
-            if (code === 'en') { preferredLang = 'en'; break; }
+        
+        // Always prefer Catalan if it's anywhere in the supported list
+        if (supportedLangs.includes('ca')) {
+            preferredLang = 'ca';
+        } else {
+            // Otherwise, use the first supported language
+            for (const code of supportedLangs) {
+                if (code === 'es') { preferredLang = 'es'; break; }
+                if (code === 'en') { preferredLang = 'en'; break; }
+            }
         }
 
         // Redirect if browser language differs from current page language
