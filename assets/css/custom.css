@@ -36,7 +36,7 @@ body {
 
 /* Playful Card styles */
 .card-shadow {
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(0,0,0,0.05);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: white;
@@ -44,13 +44,13 @@ body {
 }
 
 .card-shadow:hover {
-    transform: scale(1.02);
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.08);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
 }
 
 /* Glass Card variant for colored backgrounds */
 .card-glass {
-    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
     border: 2px solid rgba(255, 255, 255, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     background: rgba(255, 255, 255, 0.9);
@@ -60,8 +60,8 @@ body {
 }
 
 .card-glass:hover {
-    transform: scale(1.02);
-    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
 }
 
 /* Animations */
