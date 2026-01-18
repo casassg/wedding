@@ -321,6 +321,7 @@
         if (!el) return;
 
         const timestamp = parseInt(el.dataset.timestamp, 10) * 1000;
+        const label = el.dataset.label || 'Last updated';
         const now = Date.now();
         const diff = now - timestamp;
 
@@ -344,7 +345,7 @@
             relativeTime = 'just now';
         }
 
-        el.textContent = relativeTime;
+        el.textContent = `${label} ${relativeTime}`;
     }
 
     // ===================
