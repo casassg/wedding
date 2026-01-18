@@ -7,9 +7,49 @@
     'use strict';
 
     // ===================
+    // Language Detection (runs immediately, before DOMContentLoaded)
+    // ===================
+    function initLanguageDetection() {
+        // Skip if user has manually selected a language before
+        if (localStorage.getItem('lang-selected')) return;
+
+        // Only run on homepage URLs
+        const path = window.location.pathname;
+        const homepagePaths = ['/wedding/', '/wedding/en/', '/wedding/es/', '/wedding/ca/'];
+        const isHomepage = homepagePaths.includes(path) || path === '/wedding';
+        if (!isHomepage) return;
+
+        // Determine current language from URL
+        const currentLang = path.includes('/es/') ? 'es' :
+                           path.includes('/ca/') ? 'ca' : 'en';
+
+        // Detect browser's preferred language
+        const browserLangs = navigator.languages || [navigator.language || 'en'];
+        let preferredLang = 'en'; // default fallback
+
+        for (const lang of browserLangs) {
+            const code = lang.toLowerCase().split('-')[0];
+            if (code === 'es') { preferredLang = 'es'; break; }
+            if (code === 'ca') { preferredLang = 'ca'; break; }
+            if (code === 'en') { preferredLang = 'en'; break; }
+        }
+
+        // Redirect if browser language differs from current page language
+        if (preferredLang !== currentLang) {
+            const baseUrl = '/wedding/';
+            const newUrl = preferredLang === 'en' ? baseUrl : baseUrl + preferredLang + '/';
+            window.location.replace(newUrl);
+        }
+    }
+
+    // Run language detection immediately
+    initLanguageDetection();
+
+    // ===================
     // Countdown Timer
     // ===================
-    const weddingDate = new Date("Dec 19, 2026 16:00:00").getTime();
+    // Wedding: Dec 19, 2026 at 4:00 PM in Copán Ruinas, Honduras (UTC-6)
+    const weddingDate = new Date("2026-12-19T16:00:00-06:00").getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
