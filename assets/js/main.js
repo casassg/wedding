@@ -281,10 +281,12 @@
         let touchTimer = null;
         ampersand.addEventListener('touchstart', (e) => {
             if (isHeartMode) return;
+            e.preventDefault(); // Prevent context menu
             touchTimer = setTimeout(triggerEasterEgg, HOVER_DURATION);
-        }, { passive: true });
+        });
 
-        ampersand.addEventListener('touchend', () => {
+        ampersand.addEventListener('touchend', (e) => {
+            e.preventDefault();
             if (touchTimer) {
                 clearTimeout(touchTimer);
                 touchTimer = null;
@@ -296,6 +298,11 @@
                 clearTimeout(touchTimer);
                 touchTimer = null;
             }
+        });
+
+        // Prevent context menu on long press
+        ampersand.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
         });
     }
 
