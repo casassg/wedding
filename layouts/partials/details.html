@@ -1,39 +1,35 @@
 <!-- Details Section -->
-<section id="details" class="py-16 md:py-24 px-6 bg-sage/30 relative overflow-hidden">
-    <!-- Background Blob -->
-    <div class="absolute top-0 right-0 w-96 h-96 bg-leaf/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 -translate-y-1/2 translate-x-1/2"></div>
-    <div class="absolute bottom-0 left-0 w-96 h-96 bg-lavender/10 rounded-full mix-blend-multiply filter blur-3xl opacity-50 translate-y-1/2 -translate-x-1/2"></div>
-
+<section id="details" class="py-16 md:py-24 px-6 bg-leaf relative overflow-hidden">
     <div class="max-w-6xl mx-auto relative z-10">
         <div class="text-center mb-12 md:mb-16">
-            <span class="text-rose font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "join_us" }}</h2>
+            <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "join_us" }}</h2>
         </div>
         
         <div class="grid md:grid-cols-3 gap-6 md:gap-8">
             <!-- Date Card -->
-            <div class="card-shadow bg-white p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-lavender/30 transition-all duration-300">
-                <div class="w-12 h-12 bg-lavender/20 text-lavender rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+            <div class="card-glass p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-lavender/30 transition-all duration-300">
+                <div class="w-12 h-12 bg-lavender/30 text-lavender rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
                     <i class="fa-regular fa-calendar-check text-xl"></i>
                 </div>
                 <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "when" }}</h3>
                 <p class="font-bold text-gray-800 font-sans text-lg">{{ i18n "date_friday" }}</p>
-                <p class="text-gray-500 text-sm mt-1 font-sans">{{ i18n "date_arrival" }}</p>
-                <div class="w-12 h-1 bg-lavender/30 my-4 rounded-full"></div>
+                <p class="text-gray-600 text-sm mt-1 font-sans">{{ i18n "date_arrival" }}</p>
+                <div class="w-12 h-1 bg-lavender/40 my-4 rounded-full"></div>
                 <p class="font-bold text-gray-800 font-sans text-lg">{{ i18n "date_saturday" }}</p>
-                <p class="text-gray-500 text-sm mt-1 font-sans">{{ i18n "date_wedding" }}</p>
+                <p class="text-gray-600 text-sm mt-1 font-sans">{{ i18n "date_wedding" }}</p>
             </div>
 
             <!-- Ceremony Card -->
-            <div class="card-shadow bg-white p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-rose/30 transition-all duration-300">
-                <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+            <div class="card-glass p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-rose/30 transition-all duration-300">
+                <div class="w-12 h-12 bg-rose/30 text-rose rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
                     <i class="fa-solid fa-church text-xl"></i>
                 </div>
                 <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "ceremony" }}</h3>
                 <p class="font-bold text-gray-800 font-sans text-lg">{{ i18n "church_name" }}</p>
-                <p class="text-gray-500 text-sm mt-1 font-sans">{{ i18n "church_location" }}</p>
-                <div class="w-12 h-1 bg-rose/30 my-4 rounded-full"></div>
-                <p class="text-rose font-bold text-sm uppercase tracking-wide font-sans bg-rose/10 px-4 py-1 rounded-full mb-4">{{ i18n "ceremony_time" }}</p>
+                <p class="text-gray-600 text-sm mt-1 font-sans">{{ i18n "church_location" }}</p>
+                <div class="w-12 h-1 bg-rose/40 my-4 rounded-full"></div>
+                <p class="text-rose font-bold text-sm uppercase tracking-wide font-sans bg-rose/20 px-4 py-1 rounded-full mb-4">{{ i18n "ceremony_time" }}</p>
                 <a href="https://maps.app.goo.gl/3GoVE9yFq715tp7F9" 
                    target="_blank" 
                    class="text-xs font-bold uppercase tracking-widest text-rose hover:text-clay hover:underline transition font-sans flex items-center">
@@ -42,14 +38,14 @@
             </div>
 
             <!-- Celebration Card -->
-            <div class="card-shadow bg-white p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-marigold/30 transition-all duration-300">
-                <div class="w-12 h-12 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+            <div class="card-glass p-6 md:p-10 rounded-3xl text-center flex flex-col items-center group hover:border-marigold/30 transition-all duration-300">
+                <div class="w-12 h-12 bg-marigold/30 text-marigold rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-champagne-glasses text-xl"></i>
                 </div>
                 <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "celebration" }}</h3>
                 <p class="font-bold text-gray-800 font-sans text-lg">{{ i18n "venue_name" }}</p>
-                <p class="text-gray-500 text-sm mt-1 font-sans">{{ i18n "convention_center" }}</p>
-                <div class="w-12 h-1 bg-marigold/30 my-4 rounded-full"></div>
+                <p class="text-gray-600 text-sm mt-1 font-sans">{{ i18n "convention_center" }}</p>
+                <div class="w-12 h-1 bg-marigold/40 my-4 rounded-full"></div>
                 <a href="https://maps.app.goo.gl/HVyuTEbAo1hVCLpY9" 
                    target="_blank" 
                    class="text-xs font-bold uppercase tracking-widest text-marigold hover:text-clay hover:underline transition font-sans flex items-center">

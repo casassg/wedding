@@ -1,25 +1,25 @@
 <!-- Countdown Section -->
-<section id="countdown" class="py-24 px-6 bg-sage/50 text-gray-800">
+<section id="countdown" class="py-24 px-6 bg-rose">
     <div class="max-w-4xl mx-auto text-center">
-        <h2 class="font-hand text-5xl md:text-6xl mb-4 text-gray-800">{{ i18n "countdown_title" }}</h2>
-        <p class="text-gray-500 mb-12 font-sans">{{ .Site.Language.Params.dateFormat }}</p>
+        <h2 class="font-hand text-5xl md:text-6xl mb-4 text-white">{{ i18n "countdown_title" }}</h2>
+        <p class="text-white/80 mb-12 font-sans">{{ .Site.Language.Params.dateFormat }}</p>
         
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="timer">
-            <div class="p-6 bg-white border-2 border-lavender/20 rounded-3xl shadow-sm hover:scale-105 transition-transform duration-300">
+            <div class="card-glass p-6 rounded-3xl hover:scale-105 transition-transform duration-300">
                 <span id="days" class="text-4xl md:text-5xl font-bold block text-lavender font-sans">00</span>
-                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block font-sans">{{ i18n "days" }}</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mt-2 block font-sans">{{ i18n "days" }}</span>
             </div>
-            <div class="p-6 bg-white border-2 border-rose/20 rounded-3xl shadow-sm hover:scale-105 transition-transform duration-300">
+            <div class="card-glass p-6 rounded-3xl hover:scale-105 transition-transform duration-300">
                 <span id="hours" class="text-4xl md:text-5xl font-bold block text-rose font-sans">00</span>
-                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block font-sans">{{ i18n "hours" }}</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mt-2 block font-sans">{{ i18n "hours" }}</span>
             </div>
-            <div class="p-6 bg-white border-2 border-marigold/20 rounded-3xl shadow-sm hover:scale-105 transition-transform duration-300">
+            <div class="card-glass p-6 rounded-3xl hover:scale-105 transition-transform duration-300">
                 <span id="minutes" class="text-4xl md:text-5xl font-bold block text-marigold font-sans">00</span>
-                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block font-sans">{{ i18n "minutes" }}</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mt-2 block font-sans">{{ i18n "minutes" }}</span>
             </div>
-            <div class="p-6 bg-white border-2 border-leaf/20 rounded-3xl shadow-sm hover:scale-105 transition-transform duration-300">
+            <div class="card-glass p-6 rounded-3xl hover:scale-105 transition-transform duration-300">
                 <span id="seconds" class="text-4xl md:text-5xl font-bold block text-leaf font-sans">00</span>
-                <span class="text-xs uppercase tracking-widest text-gray-400 mt-2 block font-sans">{{ i18n "seconds" }}</span>
+                <span class="text-xs uppercase tracking-widest text-gray-500 mt-2 block font-sans">{{ i18n "seconds" }}</span>
             </div>
         </div>
     </div>

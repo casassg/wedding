@@ -48,6 +48,22 @@ body {
     box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.08);
 }
 
+/* Glass Card variant for colored backgrounds */
+.card-glass {
+    box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.08);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 24px;
+}
+
+.card-glass:hover {
+    transform: scale(1.02);
+    box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
 /* Animations */
 @keyframes float {
     0% { transform: translateY(0px); }
