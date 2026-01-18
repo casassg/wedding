@@ -80,6 +80,91 @@ hours: "Hores"
 minutes: "Minuts"
 seconds: "Segons"
 
+# Traveling Page
+nav_traveling: "Viatjar"
+
+# Hero
+traveling_title: "Viatjar a Hondures"
+traveling_subtitle: "Tot el que necessites saber per arribar a Copán Ruinas per la nostra celebració de casament."
+traveling_back_home: "Tornar a l'Inici"
+
+# Getting There
+traveling_getting_there: "Com Arribar"
+traveling_getting_there_intro: "Copán Ruinas està ubicat a l'oest d'Hondures, a prop de la frontera amb Guatemala. L'aeroport principal més proper és San Pedro Sula (SAP)."
+traveling_from_europe: "Des d'Europa"
+traveling_from_europe_desc: "Vola a San Pedro Sula (SAP) via Madrid o Amsterdam. [Air Europa](https://www.aireuropa.com/) ofereix vols directes des de Madrid (MAD) a San Pedro Sula els dilluns, dimecres i divendres. KLM connecta via Amsterdam."
+traveling_from_us: "Des dels EUA i Canadà"
+traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des dels principals aeroports dels EUA. United vola des de Houston (IAH), American des de Miami (MIA) i Dallas (DFW), i Spirit des de Fort Lauderdale (FLL)."
+traveling_to_copan: "San Pedro Sula a Copán"
+traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Estem planejant organitzar transport grupal - més detalls properament!"
+
+# Getting Around Copán
+traveling_getting_around: "Moure's per Copán"
+traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure't."
+traveling_walking_title: "Caminant"
+traveling_walking_desc: "El centre del poble és compacte i es pot recórrer a peu. La majoria dels hotels són a 10-15 minuts caminant de l'església (Parroquia San José Obrero) - no necessites transport per la cerimònia!"
+traveling_tuktuk_title: "Tuk-tuks"
+traveling_tuktuk_desc: "Els tuk-tuks de tres rodes són a tot arreu i molt econòmics (normalment L20-40 / $1-2 per viatge). Només para'n un o demana al teu hotel que en truqui un. Perfectes per anar a atraccions fora del centre."
+
+# Why Copán
+traveling_why_copan: "Per Què Copán?"
+traveling_why_copan_intro: "Copán Ruinas és un encantador poble colonial ubicat a les muntanyes de l'oest d'Hondures, famós per les seves antigues ruïnes maies i el seu ambient relaxat."
+traveling_unesco: "Patrimoni de la Humanitat"
+traveling_unesco_desc: "El Lloc Arqueològic de Copán és una de les ciutats maies més importants mai descobertes, coneguda pel seu notable art escultòric i textos jeroglífics."
+traveling_colonial: "Encant Colonial"
+traveling_colonial_desc: "El poble en si és una preciosa vila colonial amb carrers empedrats, edificis colorits, excel·lents restaurants i un ambient relaxat."
+traveling_weather: "Clima Perfecte"
+traveling_weather_desc: "A 700m d'altitud, Copán gaudeix d'un agradable clima subtropical. Les temperatures de desembre fan una mitjana de 20-28°C - perfecte per una celebració!"
+
+# Things to Do in Copán
+traveling_things_to_do: "Què Fer a Copán"
+traveling_things_to_do_intro: "Més enllà de les festivitats del casament, hi ha molt per explorar a Copán Ruinas i els seus voltants."
+traveling_ruins_title: "Ruïnes de Copán"
+traveling_ruins_desc: "Explora l'antiga ciutat maia amb la seva famosa Escalinata dels Jeroglífics, Gran Plaça i elaborades esteles. No et perdis el museu d'escultures!"
+traveling_macaw_title: "Macaw Mountain"
+traveling_macaw_desc: "Un parc d'aus i reserva natural llar de guacamais vermells rescatats, tucans i altres aus tropicals en un preciós entorn selvàtic."
+traveling_hotsprings_title: "Aigües Termals Luna Jaguar"
+traveling_hotsprings_desc: "Aigües termals naturals a uns 20km del poble, ubicades en una exuberant vall. Perfectes per relaxar-se després d'explorar les ruïnes."
+traveling_chocolate_title: "Tea & Chocolate Place"
+traveling_chocolate_desc: "Aprèn sobre la història del cacau i fes el teu propi xocolata en aquest taller pràctic. Una experiència deliciosa i educativa!"
+traveling_cafe_title: "Café San Rafael"
+traveling_cafe_desc: "Visita una finca de cafè en funcionament per aprendre sobre la producció del cafè, amb degustacions de cafè cultivat localment."
+traveling_butterflies_title: "Mariposario"
+traveling_butterflies_desc: "Un santuari de papallones on pots caminar entre centenars de papallones de colors en un jardí tancat."
+traveling_sunflowers_title: "Camps de Gira-sols"
+traveling_sunflowers_desc: "Camps de gira-sols de temporada a prop del poble ideals per fotos precioses - la disponibilitat al desembre pot variar, però val la pena preguntar!"
+traveling_shopping_title: "Artesanies Locals"
+traveling_shopping_desc: "Explora ceràmica d'inspiració maia, joieria de jade, tèxtils i records artesanals a les botigues i mercats del poble."
+view_on_maps: "Veure a Maps"
+
+# Explore Honduras
+traveling_explore: "Explora Hondures"
+traveling_explore_intro: "Si tens temps extra abans o després del casament, Hondures ofereix aventures increïbles."
+traveling_roatan_title: "Roatán"
+traveling_roatan_desc: "Un paradís caribeny amb busseig i snorkel de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana). T'esperen platges d'arena blanca i aigües turqueses!"
+traveling_utila_title: "Utila"
+traveling_utila_desc: "Una illa popular entre motxillers coneguda per certificacions de busseig econòmiques i trobades amb taurons balena (temporades març-abril i agost-octubre)."
+traveling_cayos_title: "Cayos Cochinos"
+traveling_cayos_desc: "Una prístina àrea marina protegida amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de boes roses i pobles pesquers garífunes - National Geographic l'anomena 'el somni d'un biòleg marí'."
+traveling_ceiba_title: "La Ceiba"
+traveling_ceiba_desc: "La ciutat d'entrada a les Illes de la Badia, coneguda pel seu carnaval i accés a les aventures a la selva del Parc Nacional Pico Bonito."
+traveling_tela_title: "Tela"
+traveling_tela_desc: "Una ciutat de platja caribenya amb dues atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines i vida salvatge, i el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), un dels més grans de Llatinoamèrica."
+traveling_yojoa_title: "Llac de Yojoa"
+traveling_yojoa_desc: "El llac més gran d'Hondures, envoltat de boscos nuvolosos i llar de més de 400 espècies d'aus. Ideal per amants de la natura."
+traveling_valle_title: "Valle de Ángeles"
+traveling_valle_desc: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per les seves artesanies, carrers empedrats, boscos de pins i mercats de cap de setmana."
+traveling_gracias_title: "Gracias i Aigües Termals"
+traveling_gracias_desc: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque - el pic més alt d'Hondures."
+traveling_comayagua_title: "Comayagua"
+traveling_comayagua_desc: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures amb impressionant arquitectura colonial espanyola, el rellotge més antic d'Amèrica i precioses celebracions de Setmana Santa."
+learn_more: "Més informació"
+
+# Where to Stay
+traveling_where_to_stay: "On Allotjar-se"
+traveling_accommodation_intro: "Copán Ruinas té una varietat d'opcions d'allotjament per a diferents pressupostos i preferències."
+traveling_accommodation_soon: "Estem treballant en recomanacions d'hotels i possiblement tarifes grupals. Detalls properament!"
+
 # Footer
 footer_message: ""
 made_with_love: "Fet amb <3 per Gerard i Laura"

@@ -1,0 +1,390 @@
+{{ define "main" }}
+<!-- Hero Section -->
+<section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-ocean section-colored">
+    <div class="max-w-4xl mx-auto text-center">
+        <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/80 hover:text-white transition mb-8 font-sans">
+            <i class="fa-solid fa-arrow-left mr-2"></i>
+            {{ i18n "traveling_back_home" }}
+        </a>
+        <h1 class="font-hand text-6xl md:text-8xl text-white mb-6">{{ i18n "traveling_title" }}</h1>
+        <p class="text-xl text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_subtitle" }}</p>
+    </div>
+</section>
+
+<!-- Getting There Section -->
+<section class="py-16 md:py-24 px-6 bg-white">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_getting_there" }}</h2>
+            <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_getting_there_intro" }}</p>
+        </div>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- From Europe Card -->
+            <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-ocean/30 transition-all duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-plane text-xl"></i>
+                    </div>
+                    <h3 class="font-hand text-3xl text-gray-800">{{ i18n "traveling_from_europe" }}</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed font-sans">
+                    {{ i18n "traveling_from_europe_desc" | markdownify }}
+                </p>
+            </div>
+            
+            <!-- From US/Canada Card -->
+            <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
+                        <i class="fa-solid fa-plane-arrival text-xl"></i>
+                    </div>
+                    <h3 class="font-hand text-3xl text-gray-800">{{ i18n "traveling_from_us" }}</h3>
+                </div>
+                <p class="text-gray-600 leading-relaxed font-sans">
+                    {{ i18n "traveling_from_us_desc" | markdownify }}
+                </p>
+            </div>
+        </div>
+        
+        <!-- To Copán Banner -->
+        <div class="mt-12 card-shadow bg-white p-8 rounded-3xl border-2 border-leaf/20">
+            <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
+                <div class="w-16 h-16 bg-leaf/20 text-leaf rounded-full flex items-center justify-center shrink-0 animate-float">
+                    <i class="fa-solid fa-bus text-2xl"></i>
+                </div>
+                <div class="text-center md:text-left">
+                    <h3 class="font-hand text-3xl mb-2 text-gray-800">{{ i18n "traveling_to_copan" }}</h3>
+                    <p class="text-gray-600 font-sans">{{ i18n "traveling_to_copan_desc" }}</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Getting Around Copán -->
+        <div class="mt-12">
+            <h3 class="font-hand text-4xl text-center mb-8 text-gray-800">{{ i18n "traveling_getting_around" }}</h3>
+            <p class="text-center text-gray-600 font-sans max-w-2xl mx-auto mb-8">{{ i18n "traveling_getting_around_intro" }}</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Walking -->
+                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
+                            <i class="fa-solid fa-person-walking text-xl"></i>
+                        </div>
+                        <h3 class="font-hand text-3xl text-gray-800">{{ i18n "traveling_walking_title" }}</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "traveling_walking_desc" }}</p>
+                </div>
+                
+                <!-- Tuk-tuks -->
+                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-clay/30 transition-all duration-300">
+                    <div class="flex items-center mb-6">
+                        <div class="w-12 h-12 bg-clay/20 text-clay rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
+                            <i class="fa-solid fa-taxi text-xl"></i>
+                        </div>
+                        <h3 class="font-hand text-3xl text-gray-800">{{ i18n "traveling_tuktuk_title" }}</h3>
+                    </div>
+                    <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "traveling_tuktuk_desc" }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Copán Section -->
+<section class="py-16 md:py-24 px-6 bg-lavender section-colored">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_why_copan" }}</h2>
+            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_why_copan_intro" }}</p>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- UNESCO Card -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-lavender/30 transition-all duration-300 text-center">
+                <div class="w-16 h-16 bg-lavender/20 text-lavender rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-landmark text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_unesco" }}</h3>
+                <p class="text-gray-600 font-sans">{{ i18n "traveling_unesco_desc" }}</p>
+            </div>
+            
+            <!-- Colonial Charm Card -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300 text-center">
+                <div class="w-16 h-16 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-city text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_colonial" }}</h3>
+                <p class="text-gray-600 font-sans">{{ i18n "traveling_colonial_desc" }}</p>
+            </div>
+            
+            <!-- Weather Card -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300 text-center">
+                <div class="w-16 h-16 bg-marigold/20 text-marigold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
+                    <i class="fa-solid fa-sun text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_weather" }}</h3>
+                <p class="text-gray-600 font-sans">{{ i18n "traveling_weather_desc" }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Things to Do in Copán Section -->
+<section class="py-16 md:py-24 px-6 bg-white">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-leaf font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_things_to_do" }}</h2>
+            <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_things_to_do_intro" }}</p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Copán Ruins -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-ocean/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-monument text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_ruins_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_ruins_desc" }}</p>
+                <a href="https://maps.app.goo.gl/62WmwehnssCwsYZQ9" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-ocean hover:text-ocean/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Macaw Mountain -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-leaf/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-feather text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_macaw_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_macaw_desc" }}</p>
+                <a href="https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-leaf hover:text-leaf/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Luna Jaguar Hot Springs -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-marigold/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-hot-tub-person text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_hotsprings_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_hotsprings_desc" }}</p>
+                <a href="https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-marigold hover:text-marigold/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Tea & Chocolate Place -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-clay/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-clay/20 text-clay rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-mug-hot text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_chocolate_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_chocolate_desc" }}</p>
+                <a href="https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-clay hover:text-clay/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Café San Rafael -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-rose/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-seedling text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_cafe_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_cafe_desc" }}</p>
+                <a href="https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-rose hover:text-rose/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Mariposario -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-lavender/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-lavender/20 text-lavender rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-dove text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_butterflies_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_butterflies_desc" }}</p>
+                <a href="https://maps.app.goo.gl/uMWkrikVVQT1GP618" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-lavender hover:text-lavender/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Sunflower Fields -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-marigold/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-sun-plant-wilt text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_sunflowers_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_sunflowers_desc" }}</p>
+                <a href="https://maps.app.goo.gl/JGNCeucsXwKCnWQN6" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-marigold hover:text-marigold/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+            
+            <!-- Local Artesanías -->
+            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-ocean/30 transition-all duration-300 flex flex-col">
+                <div class="w-12 h-12 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mb-4 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-bag-shopping text-xl"></i>
+                </div>
+                <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ i18n "traveling_shopping_title" }}</h3>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ i18n "traveling_shopping_desc" }}</p>
+                <a href="https://maps.app.goo.gl/s52ejd71yUUCpuiJ6" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-ocean hover:text-ocean/70 transition-colors">
+                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Explore Honduras Section -->
+<section class="py-16 md:py-24 px-6 bg-rose section-colored">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_explore" }}</h2>
+            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_explore_intro" }}</p>
+        </div>
+        
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Roatán -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-ocean/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-water text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_roatan_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_roatan_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Roat%C3%A1n" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-ocean hover:text-ocean/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Utila -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-leaf/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+                    <i class="fa-solid fa-fish text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_utila_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_utila_desc" }}</p>
+                <a href="https://en.wikipedia.org/wiki/Utila" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-leaf hover:text-leaf/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- La Ceiba -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-masks-theater text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_ceiba_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_ceiba_desc" }}</p>
+                <a href="https://en.wikipedia.org/wiki/La_Ceiba" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-marigold hover:text-marigold/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Lago de Yojoa -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-ocean/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+                    <i class="fa-solid fa-dove text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_yojoa_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_yojoa_desc" }}</p>
+                <a href="https://en.wikipedia.org/wiki/Lake_Yojoa" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-ocean hover:text-ocean/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Valle de Angeles -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-clay/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-clay/20 text-clay rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-store text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_valle_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_valle_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-clay hover:text-clay/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Cayos Cochinos -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+                    <i class="fa-solid fa-umbrella-beach text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_cayos_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_cayos_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Cayos_Cochinos" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-rose hover:text-rose/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Tela -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-leaf/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-umbrella-beach text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_tela_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_tela_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Tela" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-leaf hover:text-leaf/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Gracias & Hot Springs -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-marigold/20 text-marigold rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
+                    <i class="fa-solid fa-spa text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_gracias_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_gracias_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Gracias,_Honduras" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-marigold hover:text-marigold/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+            
+            <!-- Comayagua -->
+            <div class="card-glass p-8 rounded-3xl group hover:border-ocean/30 transition-all duration-300 flex flex-col">
+                <div class="w-14 h-14 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center mb-6 group-hover:-rotate-12 transition-transform">
+                    <i class="fa-solid fa-church text-2xl"></i>
+                </div>
+                <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ i18n "traveling_comayagua_title" }}</h3>
+                <p class="text-gray-600 font-sans flex-grow">{{ i18n "traveling_comayagua_desc" | markdownify }}</p>
+                <a href="https://en.wikipedia.org/wiki/Comayagua" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-ocean hover:text-ocean/70 transition-colors">
+                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Where to Stay Section -->
+<section class="py-16 md:py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-rose font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_where_to_stay" }}</h2>
+            <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
+        </div>
+        
+        <div class="card-shadow bg-cream p-8 md:p-12 rounded-3xl text-center border-2 border-rose/20">
+            <div class="w-20 h-20 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
+                <i class="fa-solid fa-bed text-3xl"></i>
+            </div>
+            <p class="text-xl text-gray-600 font-sans">{{ i18n "traveling_accommodation_soon" }}</p>
+        </div>
+        
+        <!-- Back to Home Link -->
+        <div class="text-center mt-12">
+            <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-gray-600 hover:text-rose transition font-sans">
+                <i class="fa-solid fa-arrow-left mr-2"></i>
+                {{ i18n "traveling_back_home" }}
+            </a>
+        </div>
+    </div>
+</section>
+{{ end }}

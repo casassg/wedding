@@ -80,6 +80,91 @@ hours: "Hours"
 minutes: "Minutes"
 seconds: "Seconds"
 
+# Traveling Page
+nav_traveling: "Traveling"
+
+# Hero
+traveling_title: "Traveling to Honduras"
+traveling_subtitle: "Everything you need to know about getting to Copán Ruinas for our wedding celebration."
+traveling_back_home: "Back to Home"
+
+# Getting There
+traveling_getting_there: "Getting There"
+traveling_getting_there_intro: "Copán Ruinas is located in western Honduras, close to the Guatemala border. The nearest major airport is San Pedro Sula (SAP)."
+traveling_from_europe: "From Europe"
+traveling_from_europe_desc: "Fly to San Pedro Sula (SAP) via Madrid or Amsterdam. [Air Europa](https://www.aireuropa.com/) offers direct flights from Madrid (MAD) to San Pedro Sula on Mondays, Wednesdays, and Fridays. KLM connects through Amsterdam."
+traveling_from_us: "From US & Canada"
+traveling_from_us_desc: "Several airlines fly to San Pedro Sula (SAP) from major US hubs. United flies from Houston (IAH), American from Miami (MIA) and Dallas (DFW), and Spirit from Fort Lauderdale (FLL)."
+traveling_to_copan: "San Pedro Sula to Copán"
+traveling_to_copan_desc: "From the airport, it's approximately a 3-4 hour drive to Copán Ruinas. We're planning to arrange group transportation - more details coming soon!"
+
+# Getting Around Copán
+traveling_getting_around: "Getting Around Copán"
+traveling_getting_around_intro: "Copán Ruinas is a small, walkable town. Here's what you need to know about getting around."
+traveling_walking_title: "Walking"
+traveling_walking_desc: "The town center is compact and walkable. Most hotels are within a 10-15 minute walk to the church (Parroquia San José Obrero) - no transportation needed for the ceremony!"
+traveling_tuktuk_title: "Tuk-tuks"
+traveling_tuktuk_desc: "Three-wheeled tuk-tuks are everywhere and super affordable (usually L20-40 / $1-2 per ride). Just flag one down or ask your hotel to call one. Perfect for getting to attractions outside the center."
+
+# Why Copán
+traveling_why_copan: "Why Copán?"
+traveling_why_copan_intro: "Copán Ruinas is a charming colonial town nestled in the mountains of western Honduras, famous for its ancient Maya ruins and laid-back atmosphere."
+traveling_unesco: "UNESCO World Heritage"
+traveling_unesco_desc: "The Copán Archaeological Site is one of the most important Maya cities ever discovered, known for its remarkable sculptural art and hieroglyphic texts."
+traveling_colonial: "Colonial Charm"
+traveling_colonial_desc: "The town itself is a beautiful colonial village with cobblestone streets, colorful buildings, excellent restaurants, and a relaxed vibe."
+traveling_weather: "Perfect Weather"
+traveling_weather_desc: "At 700m elevation, Copán enjoys a pleasant subtropical climate. December temperatures average 20-28°C (68-82°F) - perfect for a celebration!"
+
+# Things to Do in Copán
+traveling_things_to_do: "Things to Do in Copán"
+traveling_things_to_do_intro: "Beyond the wedding festivities, there's plenty to explore in and around Copán Ruinas."
+traveling_ruins_title: "Copán Ruins"
+traveling_ruins_desc: "Explore the ancient Maya city with its famous Hieroglyphic Stairway, Great Plaza, and intricate stelae. Don't miss the sculpture museum!"
+traveling_macaw_title: "Macaw Mountain"
+traveling_macaw_desc: "A bird park and nature reserve home to rescued scarlet macaws, toucans, and other tropical birds in a beautiful forest setting."
+traveling_hotsprings_title: "Luna Jaguar Hot Springs"
+traveling_hotsprings_desc: "Natural hot springs about 20km from town, set in a lush valley. Perfect for relaxing after exploring the ruins."
+traveling_chocolate_title: "Tea & Chocolate Place"
+traveling_chocolate_desc: "Learn about cacao history and make your own chocolate in this hands-on workshop. A delicious and educational experience!"
+traveling_cafe_title: "Café San Rafael"
+traveling_cafe_desc: "Visit a working coffee farm to learn about coffee production from bean to cup, with tastings of locally grown coffee."
+traveling_butterflies_title: "Mariposario"
+traveling_butterflies_desc: "A butterfly sanctuary where you can walk among hundreds of colorful butterflies in an enclosed garden."
+traveling_sunflowers_title: "Sunflower Fields"
+traveling_sunflowers_desc: "Seasonal sunflower fields near town make for beautiful photos - December timing may vary, but worth checking!"
+traveling_shopping_title: "Local Artesanías"
+traveling_shopping_desc: "Browse handcrafted Maya-inspired pottery, jade jewelry, textiles, and souvenirs in the town's shops and markets."
+view_on_maps: "View on Maps"
+
+# Explore Honduras
+traveling_explore: "Explore Honduras"
+traveling_explore_intro: "If you have extra time before or after the wedding, Honduras offers incredible adventures."
+traveling_roatan_title: "Roatán"
+traveling_roatan_desc: "A Caribbean island paradise with world-class diving and snorkeling on the [Mesoamerican Barrier Reef](https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System). White sand beaches and turquoise waters await!"
+traveling_utila_title: "Utila"
+traveling_utila_desc: "A backpacker-friendly island known for budget diving certification and whale shark encounters (March-April and August-October seasons)."
+traveling_cayos_title: "Cayos Cochinos"
+traveling_cayos_desc: "A pristine marine protected area with [two small islands and 13 coral cays](https://en.wikipedia.org/wiki/Cayos_Cochinos). Home to pink boas and Garifuna fishing villages - National Geographic calls it 'a marine biologist's dream.'"
+traveling_ceiba_title: "La Ceiba"
+traveling_ceiba_desc: "The gateway city to the Bay Islands, known for its carnival and access to Pico Bonito National Park's rainforest adventures."
+traveling_tela_title: "Tela"
+traveling_tela_desc: "A Caribbean beach town with two must-see attractions: [Punta Sal National Park](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park) with pristine beaches and wildlife, and [Lancetilla Botanical Garden](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), one of Latin America's largest."
+traveling_yojoa_title: "Lago de Yojoa"
+traveling_yojoa_desc: "Honduras's largest lake, surrounded by cloud forests and home to over 400 bird species. Great for nature lovers and birdwatchers."
+traveling_valle_title: "Valle de Angeles"
+traveling_valle_desc: "A charming [colonial mountain town](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles) just 30 minutes from Tegucigalpa. Famous for handicrafts, cobblestone streets, pine forests, and weekend markets."
+traveling_gracias_title: "Gracias & Hot Springs"
+traveling_gracias_desc: "A charming [colonial town](https://en.wikipedia.org/wiki/Gracias,_Honduras) founded in 1536 with natural hot springs, historic churches, and access to Celaque National Park - Honduras's highest peak."
+traveling_comayagua_title: "Comayagua"
+traveling_comayagua_desc: "Honduras's [former capital](https://en.wikipedia.org/wiki/Comayagua) with stunning Spanish colonial architecture, the oldest clock in the Americas, and beautiful Holy Week celebrations."
+learn_more: "Learn more"
+
+# Where to Stay
+traveling_where_to_stay: "Where to Stay"
+traveling_accommodation_intro: "Copán Ruinas has a variety of accommodation options to suit different budgets and preferences."
+traveling_accommodation_soon: "We're working on hotel recommendations and may arrange group rates. Details coming soon!"
+
 # Footer
 footer_message: ""
 made_with_love: "Made with <3 by Gerard and Laura"

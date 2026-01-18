@@ -81,6 +81,91 @@ hours: "Horas"
 minutes: "Minutos"
 seconds: "Segundos"
 
+# Traveling Page
+nav_traveling: "Viajar"
+
+# Hero
+traveling_title: "Viajar a Honduras"
+traveling_subtitle: "Todo lo que necesitas saber para llegar a Copán Ruinas para nuestra celebración de boda."
+traveling_back_home: "Volver al Inicio"
+
+# Getting There
+traveling_getting_there: "Cómo Llegar"
+traveling_getting_there_intro: "Copán Ruinas está ubicado en el oeste de Honduras, cerca de la frontera con Guatemala. El aeropuerto principal más cercano es San Pedro Sula (SAP)."
+traveling_from_europe: "Desde Europa"
+traveling_from_europe_desc: "Vuela a San Pedro Sula (SAP) vía Madrid o Ámsterdam. [Air Europa](https://www.aireuropa.com/) ofrece vuelos directos desde Madrid (MAD) a San Pedro Sula los lunes, miércoles y viernes. KLM conecta vía Ámsterdam."
+traveling_from_us: "Desde EE.UU. y Canadá"
+traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde los principales aeropuertos de EE.UU. United vuela desde Houston (IAH), American desde Miami (MIA) y Dallas (DFW), y Spirit desde Fort Lauderdale (FLL)."
+traveling_to_copan: "San Pedro Sula a Copán"
+traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en coche hasta Copán Ruinas. Estamos planeando organizar transporte grupal - ¡más detalles próximamente!"
+
+# Getting Around Copán
+traveling_getting_around: "Moverse por Copán"
+traveling_getting_around_intro: "Copán Ruinas es un pueblo pequeño y fácil de recorrer a pie. Esto es lo que necesitas saber para moverte."
+traveling_walking_title: "Caminando"
+traveling_walking_desc: "El centro del pueblo es compacto y se puede recorrer a pie. La mayoría de los hoteles están a 10-15 minutos caminando de la iglesia (Parroquia San José Obrero) - ¡no necesitas transporte para la ceremonia!"
+traveling_tuktuk_title: "Tuk-tuks"
+traveling_tuktuk_desc: "Los tuk-tuks de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Solo para uno o pide a tu hotel que llame uno. Perfectos para ir a atracciones fuera del centro."
+
+# Why Copán
+traveling_why_copan: "¿Por Qué Copán?"
+traveling_why_copan_intro: "Copán Ruinas es un encantador pueblo colonial ubicado en las montañas del oeste de Honduras, famoso por sus antiguas ruinas mayas y su ambiente relajado."
+traveling_unesco: "Patrimonio de la Humanidad"
+traveling_unesco_desc: "El Sitio Arqueológico de Copán es una de las ciudades mayas más importantes jamás descubiertas, conocida por su notable arte escultórico y textos jeroglíficos."
+traveling_colonial: "Encanto Colonial"
+traveling_colonial_desc: "El pueblo en sí es una hermosa villa colonial con calles empedradas, edificios coloridos, excelentes restaurantes y un ambiente relajado."
+traveling_weather: "Clima Perfecto"
+traveling_weather_desc: "A 700m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C - ¡perfecto para una celebración!"
+
+# Things to Do in Copán
+traveling_things_to_do: "Qué Hacer en Copán"
+traveling_things_to_do_intro: "Más allá de las festividades de la boda, hay mucho que explorar en Copán Ruinas y sus alrededores."
+traveling_ruins_title: "Ruinas de Copán"
+traveling_ruins_desc: "Explora la antigua ciudad maya con su famosa Escalinata de los Jeroglíficos, Gran Plaza y elaboradas estelas. ¡No te pierdas el museo de esculturas!"
+traveling_macaw_title: "Macaw Mountain"
+traveling_macaw_desc: "Un parque de aves y reserva natural hogar de guacamayas rojas rescatadas, tucanes y otras aves tropicales en un hermoso entorno selvático."
+traveling_hotsprings_title: "Aguas Termales Luna Jaguar"
+traveling_hotsprings_desc: "Aguas termales naturales a unos 20km del pueblo, ubicadas en un exuberante valle. Perfectas para relajarse después de explorar las ruinas."
+traveling_chocolate_title: "Tea & Chocolate Place"
+traveling_chocolate_desc: "Aprende sobre la historia del cacao y haz tu propio chocolate en este taller práctico. ¡Una experiencia deliciosa y educativa!"
+traveling_cafe_title: "Café San Rafael"
+traveling_cafe_desc: "Visita una finca de café en funcionamiento para aprender sobre la producción del café, con degustaciones de café cultivado localmente."
+traveling_butterflies_title: "Mariposario"
+traveling_butterflies_desc: "Un santuario de mariposas donde puedes caminar entre cientos de mariposas coloridas en un jardín cerrado."
+traveling_sunflowers_title: "Campos de Girasoles"
+traveling_sunflowers_desc: "Campos de girasoles de temporada cerca del pueblo ideales para fotos hermosas - la disponibilidad en diciembre puede variar, ¡pero vale la pena preguntar!"
+traveling_shopping_title: "Artesanías Locales"
+traveling_shopping_desc: "Explora cerámica de inspiración maya, joyería de jade, textiles y recuerdos artesanales en las tiendas y mercados del pueblo."
+view_on_maps: "Ver en Maps"
+
+# Explore Honduras
+traveling_explore: "Explora Honduras"
+traveling_explore_intro: "Si tienes tiempo extra antes o después de la boda, Honduras ofrece aventuras increíbles."
+traveling_roatan_title: "Roatán"
+traveling_roatan_desc: "Un paraíso caribeño con buceo y snorkel de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano). ¡Te esperan playas de arena blanca y aguas turquesas!"
+traveling_utila_title: "Utila"
+traveling_utila_desc: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
+traveling_cayos_title: "Cayos Cochinos"
+traveling_cayos_desc: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
+traveling_ceiba_title: "La Ceiba"
+traveling_ceiba_desc: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
+traveling_tela_title: "Tela"
+traveling_tela_desc: "Una ciudad playera caribeña con dos atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas y vida silvestre, y el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla), uno de los más grandes de Latinoamérica."
+traveling_yojoa_title: "Lago de Yojoa"
+traveling_yojoa_desc: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
+traveling_valle_title: "Valle de Ángeles"
+traveling_valle_desc: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
+traveling_gracias_title: "Gracias y Aguas Termales"
+traveling_gracias_desc: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
+traveling_comayagua_title: "Comayagua"
+traveling_comayagua_desc: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
+learn_more: "Más información"
+
+# Where to Stay
+traveling_where_to_stay: "Dónde Alojarse"
+traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de alojamiento para diferentes presupuestos y preferencias."
+traveling_accommodation_soon: "Estamos trabajando en recomendaciones de hoteles y posiblemente tarifas grupales. ¡Detalles próximamente!"
+
 # Footer
 footer_message: ""
 made_with_love: "Hecho con <3 por Gerard y Laura"
