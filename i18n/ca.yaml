@@ -36,6 +36,11 @@ venue_name: "Centro de Convenciones Marina Copán"
 convention_center: "Centre de Convencions"
 view_map: "Veure Mapa"
 
+# RSVP
+rsvp_label: "Confirmar Assistència"
+rsvp_title: "RSVP"
+rsvp_coming_soon: "Aviat compartirem un formulari de confirmació perquè ens digueu si veniu!"
+
 # Travel
 logistics: "Logística"
 travel_info: "Viatge i Transport"
