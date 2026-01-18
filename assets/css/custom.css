@@ -129,6 +129,57 @@ html {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
 }
 
+/* Easter Egg: Ampersand to Heart */
+#ampersand-easter-egg {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#ampersand-easter-egg.heart-mode {
+    animation: heartPulse 0.6s ease-out;
+}
+
+@keyframes heartPulse {
+    0% { transform: scale(1); }
+    30% { transform: scale(1.4); }
+    50% { transform: scale(1.2); }
+    70% { transform: scale(1.35); }
+    100% { transform: scale(1.1); }
+}
+
+/* Confetti particle styles */
+.confetti-particle {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: confettiFall 3s ease-out forwards;
+}
+
+.confetti-particle.circle {
+    border-radius: 50%;
+}
+
+.confetti-particle.square {
+    border-radius: 2px;
+}
+
+.confetti-particle.heart::before {
+    content: '❤';
+    font-size: 12px;
+}
+
+@keyframes confettiFall {
+    0% {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-150px) rotate(720deg) scale(0.5);
+    }
+}
+
 /* Print styles */
 @media print {
     nav, #countdown, .faq-question {
