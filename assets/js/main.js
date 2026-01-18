@@ -307,6 +307,40 @@
     }
 
     // ===================
+    // Relative Time for Last Updated
+    // ===================
+    function initLastUpdated() {
+        const el = document.getElementById('last-updated');
+        if (!el) return;
+
+        const timestamp = parseInt(el.dataset.timestamp, 10) * 1000;
+        const now = Date.now();
+        const diff = now - timestamp;
+
+        // Calculate relative time
+        const seconds = Math.floor(diff / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+
+        let relativeTime;
+        if (days > 30) {
+            const date = new Date(timestamp);
+            relativeTime = date.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });
+        } else if (days > 0) {
+            relativeTime = days === 1 ? '1 day ago' : `${days} days ago`;
+        } else if (hours > 0) {
+            relativeTime = hours === 1 ? '1 hour ago' : `${hours} hours ago`;
+        } else if (minutes > 0) {
+            relativeTime = minutes === 1 ? '1 minute ago' : `${minutes} minutes ago`;
+        } else {
+            relativeTime = 'just now';
+        }
+
+        el.textContent = relativeTime;
+    }
+
+    // ===================
     // Initialize Everything
     // ===================
     document.addEventListener('DOMContentLoaded', () => {
@@ -315,6 +349,7 @@
         initSmoothScroll();
         initNavScroll();
         initAmpersandEasterEgg();
+        initLastUpdated();
     });
 
 })();
