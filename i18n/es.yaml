@@ -58,11 +58,11 @@ dress_code_desc: "Formal. ¡Vengan guapos y preparados para bailar!"
 # Spain
 also_save: "También Reserva la Fecha"
 spain_celebration: "Celebración en España"
-spain_title: "Cena en Cataluña"
-spain_date: "2027 - Fecha por confirmar"
-spain_desc: "Para los que no puedan viajar a Honduras, o para quien quiera celebrar con nosotros otra vez, organizaremos una cena relajada en una preciosa masía en Cataluña."
-spain_location: "Una masía en Cataluña"
-spain_vibe: "Cena, cervezas y amigos"
+spain_title: "Cena en España"
+spain_date: "Principios de 2027"
+spain_desc: "Estamos planeando una cena relajada con familia y amigos en algún lugar cerca de Barcelona. ¡Más detalles pronto!"
+spain_location: "Cerca de Barcelona"
+spain_vibe: "Cena relajada con familia y amigos"
 spain_for_who: "Una celebración tranquila - sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos son bienvenidos!"
 
 # FAQ
@@ -77,7 +77,7 @@ faq_a3: "¡Claro que sí! Habrá autobuses desde la Parroquia San José Obrero h
 faq_q4: "¿Cuál es el código de vestimenta?"
 faq_a4: "Formal. Queremos que todos se vean guapos y elegantes para celebrar juntos. ¡Vengan preparados para bailar y disfrutar!"
 faq_q5: "¿Qué pasa si no puedo ir a Honduras?"
-faq_a5: "No te preocupes, ¡sabemos que es difícil! Por eso en 2027, organizaremos una cena relajada en una masía en Cataluña. Sin ceremonia - solo cena, cervezas y amigos. Es nuestra forma de celebrar con los que no puedan viajar a Honduras."
+faq_a5: "No te preocupes, ¡sabemos que es difícil! Por eso a principios de 2027, organizaremos una cena relajada en algún lugar cerca de Barcelona. Sin ceremonia - solo cena y amigos. ¡Más detalles pronto!"
 
 # Countdown
 countdown_title: "Cuenta atrás para el gran día..."

@@ -57,11 +57,11 @@ dress_code_desc: "Formal. Come looking your best and ready to dance!"
 # Spain
 also_save: "Also Save the Date"
 spain_celebration: "Spain Celebration"
-spain_title: "Dinner in Catalonia"
-spain_date: "2027 - Date to be announced"
-spain_desc: "For those who can't make the trip to Honduras, or for anyone who wants to celebrate with us again, we're hosting a relaxed dinner at a beautiful masia in Catalonia."
-spain_location: "A masia in Catalonia"
-spain_vibe: "Dinner, beers & friends"
+spain_title: "Dinner in Spain"
+spain_date: "Early 2027"
+spain_desc: "We're planning a relaxed dinner with family and friends somewhere near Barcelona. More details soon!"
+spain_location: "Near Barcelona"
+spain_vibe: "Relaxed dinner with family & friends"
 spain_for_who: "A low-key celebration - no ceremony, just great food, drinks, and the people we love. Everyone is welcome!"
 
 # FAQ
@@ -76,7 +76,7 @@ faq_a3: "Yes! We'll provide buses from Parroquia San José Obrero to Centro de C
 faq_q4: "What's the dress code?"
 faq_a4: "Formal. We want everyone to look their best to celebrate together. Come ready to dance and have fun!"
 faq_q5: "What if I can't make it to Honduras?"
-faq_a5: "No worries, we understand it's difficult! This is why in 2027, we'll host a relaxed dinner at a masia in Catalonia. No ceremony - just dinner, beers, and friends. It's our way of celebrating with those who can't travel to Honduras."
+faq_a5: "No worries, we understand it's difficult! This is why in early 2027, we'll host a relaxed dinner somewhere near Barcelona. No ceremony - just dinner and friends. More details soon!"
 
 # Countdown
 countdown_title: "Counting down to our big day..."

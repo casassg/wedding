@@ -57,11 +57,11 @@ dress_code_desc: "Formal. Veniu guapos i preparats per ballar!"
 # Spain
 also_save: "També Reserva la Data"
 spain_celebration: "Celebració a Espanya"
-spain_title: "Sopar a Catalunya"
-spain_date: "2027 - Data per confirmar"
-spain_desc: "Per als que no puguin viatjar a Hondures, o per qui vulgui celebrar amb nosaltres una altra vegada, organitzarem un sopar relaxat en una preciosa masia a Catalunya."
-spain_location: "Una masia a Catalunya"
-spain_vibe: "Sopar, cerveses i amics"
+spain_title: "Sopar a Espanya"
+spain_date: "Principis de 2027"
+spain_desc: "Estem planejant un sopar relaxat amb família i amics en algun lloc a prop de Barcelona. Més detalls aviat!"
+spain_location: "A prop de Barcelona"
+spain_vibe: "Sopar relaxat amb família i amics"
 spain_for_who: "Una celebració tranquil·la - sense cerimònia, només bon menjar, beguda i la gent que estimem. Tothom és benvingut!"
 
 # FAQ
@@ -76,7 +76,7 @@ faq_a3: "Sí! Proporcionarem autobusos des de la Parroquia San José Obrero fins
 faq_q4: "Quin és el codi de vestimenta?"
 faq_a4: "Formal. Volem que tots us veieu guapos i elegants per celebrar junts. Veniu preparats per ballar i gaudir!"
 faq_q5: "Què passa si no puc anar a Hondures?"
-faq_a5: "No pateixis, sabem que és difícil! Per això el 2027, organitzarem un sopar relaxat en una masia a Catalunya. Sense cerimònia - només sopar, cerveses i amics. És la nostra manera de celebrar amb els que no puguin viatjar a Hondures."
+faq_a5: "No pateixis, sabem que és difícil! Per això a principis de 2027, organitzarem un sopar relaxat en algun lloc a prop de Barcelona. Sense cerimònia - només sopar i amics. Més detalls aviat!"
 
 # Countdown
 countdown_title: "Compte enrere pel gran dia..."
