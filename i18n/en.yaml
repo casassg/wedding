@@ -81,5 +81,5 @@ minutes: "Minutes"
 seconds: "Seconds"
 
 # Footer
-footer_message: "We can't wait to celebrate with you!"
-made_with_love: "Made with love"
+footer_message: ""
+made_with_love: "Made with <3 by Gerard and Laura"
