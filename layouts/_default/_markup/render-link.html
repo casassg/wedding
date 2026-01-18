@@ -1,0 +1,8 @@
+{{- $isExternal := strings.HasPrefix .Destination "http" -}}
+<a href="{{ .Destination | safeURL }}"
+    {{- if $isExternal }} target="_blank" rel="noopener noreferrer"{{ end -}}
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+    class="text-rose hover:underline">
+    {{- .Text | safeHTML -}}
+</a>
+{{- /* vim: set ts=4 sw=4 et: */ -}}
