@@ -22,7 +22,6 @@
     </div>
 
     <div class="text-center z-10 px-4">
-        <h2 class="font-hand text-3xl md:text-4xl mb-4 text-marigold -rotate-2 drop-shadow-lg">{{ i18n "save_the_date" }}</h2>
         <h1 class="font-sans font-black text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight text-white tracking-tight drop-shadow-lg">
             Laura <span id="ampersand-easter-egg" class="text-rose inline-block hover:scale-110 transition-transform duration-300 cursor-default select-none">&</span> Gerard
         </h1>
@@ -36,6 +35,16 @@
                     {{ .Site.Params.location }}
                 </p>
             </div>
+        </div>
+
+        <!-- Save the Date Button -->
+        <div class="mt-8">
+            <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Laura+%26+Gerard%27s+Wedding&dates=20261219T160000/20261220T020000&location=Copan+Ruinas,+Honduras&details=Wedding+ceremony+and+celebration" 
+               target="_blank"
+               class="inline-flex items-center px-8 py-4 bg-marigold hover:bg-marigold/90 text-white font-hand text-2xl md:text-3xl rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
+                <i class="fa-regular fa-calendar-plus mr-3"></i>
+                {{ i18n "save_the_date_btn" }}
+            </a>
         </div>
     </div>
     
