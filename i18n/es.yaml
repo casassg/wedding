@@ -67,19 +67,9 @@ spain_location: "Cataluña"
 spain_vibe: "Cena relajada con familia y amigos"
 spain_for_who: "Una celebración tranquila - sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos son bienvenidos!"
 
-# FAQ
+# FAQ (preguntas/respuestas movidas a data/es/faq.yaml)
 questions: "¿Preguntas?"
 faq_title: "Preguntas Frecuentes"
-faq_q1: "¿Por qué Copan?"
-faq_a1: "Copan es [Patrimonio de la Humanidad de la UNESCO](https://whc.unesco.org/es/list/129/) y una de las ciudades mayas antiguas más importantes. Fue la capital de un gran reino maya del siglo V al IX y es famosa por su impresionante arte escultórico y la Escalinata de los Jeroglíficos - el texto maya más largo conocido. Queríamos que nuestros invitados vivieran algo verdaderamente único e inolvidable."
-faq_q2: "¿Cómo llego a Copan Ruinas?"
-faq_a2: "Vuela al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) e intenta llegar antes del mediodía del viernes 18 de diciembre - hay 4 horas en autobús hasta Copan. Estamos planeando organizar autobuses desde el aeropuerto, con paradas en hoteles de San Pedro Sula para los que lleguen antes. Para los que vengan de España, Air Europa tiene un [vuelo directo desde Madrid](https://www.google.com/travel/flights/search?tfs=CBwQAholEgoyMDI2LTEyLTExKABqDAgDEggvbS8wNTZfeXIHCAESA1NBUEABSAFwAYIBCwj___________8BmAEC&tfu=EgYIABAAGAA) cada lunes, miércoles y viernes."
-faq_q3: "¿Habrá transporte durante la boda?"
-faq_a3: "¡Claro que sí! Habrá autobuses desde la Parroquia San José Obrero hasta el Centro de Convenciones Marina Copán después de la ceremonia. Por la noche, habrá un autobús circulando regularmente entre el local y el centro de la ciudad hasta el final del evento."
-faq_q4: "¿Cuál es el código de vestimenta?"
-faq_a4: "Formal. Queremos que todos se vean guapos y elegantes para celebrar juntos. ¡Vengan preparados para bailar y disfrutar!"
-faq_q5: "¿Qué pasa si no puedo ir a Honduras?"
-faq_a5: "No te preocupes, ¡sabemos que es difícil! Por eso a principios de 2027, organizaremos una cena relajada en algún lugar de Cataluña. Sin ceremonia - solo cena y amigos. ¡Más detalles pronto!"
 
 # Countdown
 countdown_title: "Cuenta atrás para el gran día..."
@@ -124,48 +114,14 @@ traveling_colonial_desc: "El pueblo en sí es una hermosa villa colonial con cal
 traveling_weather: "Clima Perfecto"
 traveling_weather_desc: "A 700m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C - ¡perfecto para una celebración!"
 
-# Things to Do in Copán
+# Things to Do in Copán (lugares movidos a data/es/copan_places.yaml)
 traveling_things_to_do: "Qué Hacer en Copán"
 traveling_things_to_do_intro: "Más allá de las festividades de la boda, hay mucho que explorar en Copán Ruinas y sus alrededores."
-traveling_ruins_title: "Ruinas de Copán"
-traveling_ruins_desc: "Explora la antigua ciudad maya con su famosa Escalinata de los Jeroglíficos, Gran Plaza y elaboradas estelas. ¡No te pierdas el museo de esculturas!"
-traveling_macaw_title: "Macaw Mountain"
-traveling_macaw_desc: "Un parque de aves y reserva natural hogar de guacamayas rojas rescatadas, tucanes y otras aves tropicales en un hermoso entorno selvático."
-traveling_hotsprings_title: "Aguas Termales Luna Jaguar"
-traveling_hotsprings_desc: "Aguas termales naturales a unos 20km del pueblo, ubicadas en un exuberante valle. Perfectas para relajarse después de explorar las ruinas."
-traveling_chocolate_title: "Tea & Chocolate Place"
-traveling_chocolate_desc: "Aprende sobre la historia del cacao y haz tu propio chocolate en este taller práctico. ¡Una experiencia deliciosa y educativa!"
-traveling_cafe_title: "Café San Rafael"
-traveling_cafe_desc: "Visita una finca de café en funcionamiento para aprender sobre la producción del café, con degustaciones de café cultivado localmente."
-traveling_butterflies_title: "Mariposario"
-traveling_butterflies_desc: "Un santuario de mariposas donde puedes caminar entre cientos de mariposas coloridas en un jardín cerrado."
-traveling_sunflowers_title: "Campos de Girasoles"
-traveling_sunflowers_desc: "Campos de girasoles de temporada cerca del pueblo ideales para fotos hermosas - la disponibilidad en diciembre puede variar, ¡pero vale la pena preguntar!"
-traveling_shopping_title: "Artesanías Locales"
-traveling_shopping_desc: "Explora cerámica de inspiración maya, joyería de jade, textiles y recuerdos artesanales en las tiendas y mercados del pueblo."
 view_on_maps: "Ver en Maps"
 
-# Explore Honduras
+# Explore Honduras (lugares movidos a data/es/honduras_places.yaml)
 traveling_explore: "Explora Honduras"
 traveling_explore_intro: "Si tienes tiempo extra antes o después de la boda, Honduras ofrece aventuras increíbles."
-traveling_roatan_title: "Roatán"
-traveling_roatan_desc: "Un paraíso caribeño con buceo y snorkel de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano). ¡Te esperan playas de arena blanca, aguas turquesas y un [santuario de perezosos](https://roatan.online/roatan-sloth-sanctuary)!"
-traveling_utila_title: "Utila"
-traveling_utila_desc: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
-traveling_cayos_title: "Cayos Cochinos"
-traveling_cayos_desc: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
-traveling_ceiba_title: "La Ceiba"
-traveling_ceiba_desc: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
-traveling_tela_title: "Tela"
-traveling_tela_desc: "Una ciudad playera caribeña con dos atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas y vida silvestre, y el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla), uno de los más grandes de Latinoamérica."
-traveling_yojoa_title: "Lago de Yojoa"
-traveling_yojoa_desc: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
-traveling_valle_title: "Valle de Ángeles"
-traveling_valle_desc: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
-traveling_gracias_title: "Gracias y Aguas Termales"
-traveling_gracias_desc: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
-traveling_comayagua_title: "Comayagua"
-traveling_comayagua_desc: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
 learn_more: "Más información"
 
 # Where to Stay

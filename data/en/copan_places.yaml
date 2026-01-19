@@ -1,0 +1,47 @@
+- id: ruins
+  title: "Copán Ruins"
+  description: "Explore the ancient Maya city with its famous Hieroglyphic Stairway, Great Plaza, and intricate stelae. Don't miss the sculpture museum!"
+  icon: "fa-solid fa-monument"
+  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+
+- id: macaw
+  title: "Macaw Mountain"
+  description: "A bird park and nature reserve home to rescued scarlet macaws, toucans, and other tropical birds in a beautiful forest setting."
+  icon: "fa-solid fa-feather"
+  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+
+- id: hotsprings
+  title: "Luna Jaguar Hot Springs"
+  description: "Natural hot springs about 20km from town, set in a lush valley. Perfect for relaxing after exploring the ruins."
+  icon: "fa-solid fa-hot-tub-person"
+  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+
+- id: chocolate
+  title: "Tea & Chocolate Place"
+  description: "Learn about cacao history and make your own chocolate in this hands-on workshop. A delicious and educational experience!"
+  icon: "fa-solid fa-mug-hot"
+  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+
+- id: cafe
+  title: "Café San Rafael"
+  description: "Visit a working coffee farm to learn about coffee production from bean to cup, with tastings of locally grown coffee."
+  icon: "fa-solid fa-seedling"
+  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+
+- id: butterflies
+  title: "Mariposario"
+  description: "A butterfly sanctuary where you can walk among hundreds of colorful butterflies in an enclosed garden."
+  icon: "fa-solid fa-dove"
+  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+
+- id: sunflowers
+  title: "Sunflower Fields"
+  description: "Seasonal sunflower fields near town make for beautiful photos - December timing may vary, but worth checking!"
+  icon: "fa-solid fa-sun-plant-wilt"
+  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+
+- id: shopping
+  title: "Local Artesanías"
+  description: "Browse handcrafted Maya-inspired pottery, jade jewelry, textiles, and souvenirs in the town's shops and markets."
+  icon: "fa-solid fa-bag-shopping"
+  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"

@@ -55,8 +55,17 @@ git push origin main
 │   └── js/main.js            # Vanilla JavaScript
 ├── content/
 │   └── _index.{en,es,ca}.md  # Homepage content per language
+├── data/                      # Structured data (multilingual)
+│   ├── en/                   # English data files
+│   │   ├── faq.yaml         # FAQ questions/answers
+│   │   ├── copan_places.yaml # Things to do in Copán
+│   │   └── honduras_places.yaml # Explore Honduras places
+│   ├── es/                   # Spanish data files
+│   │   └── ...
+│   └── ca/                   # Catalan data files
+│       └── ...
 ├── i18n/
-│   └── {en,es,ca}.yaml       # Translation strings
+│   └── {en,es,ca}.yaml       # Translation strings (UI labels only)
 ├── layouts/
 │   ├── _default/baseof.html  # Base HTML template
 │   ├── index.html            # Homepage template
@@ -167,6 +176,57 @@ Custom colors and fonts are defined in `layouts/partials/head.html`:
 2. Add same key to `i18n/es.yaml` (Spanish)
 3. Add same key to `i18n/ca.yaml` (Catalan)
 4. Use in template: `{{ i18n "new_key" }}`
+
+### Working with Data Files
+
+Data files in `data/{lang}/` store structured, multilingual content that is looped over in templates. Use data files for lists of items (FAQ, places, etc.) rather than i18n files.
+
+**Accessing data in templates:**
+```html
+{{- $faq := index .Site.Data .Site.Language.Lang "faq" -}}
+{{- range $faq -}}
+  <p>{{ .question }}</p>
+  <p>{{ .answer | markdownify }}</p>
+{{- end -}}
+```
+
+**Adding a new FAQ item:**
+1. Edit `data/en/faq.yaml` - add new item to the list
+2. Edit `data/es/faq.yaml` - add same item in Spanish
+3. Edit `data/ca/faq.yaml` - add same item in Catalan
+
+**FAQ data structure (`data/{lang}/faq.yaml`):**
+```yaml
+- question: "Your question here?"
+  answer: "Answer with [markdown links](https://example.com) supported."
+```
+
+**Adding a new Copán place:**
+1. Edit `data/en/copan_places.yaml` - add new place
+2. Edit `data/es/copan_places.yaml` - add same place in Spanish  
+3. Edit `data/ca/copan_places.yaml` - add same place in Catalan
+
+**Copán places data structure (`data/{lang}/copan_places.yaml`):**
+```yaml
+- id: unique_id
+  title: "Place Name"
+  description: "Description with [markdown](https://link.com) support."
+  icon: "fa-solid fa-icon-name"  # FontAwesome icon class
+  maps_url: "https://maps.app.goo.gl/..."  # Google Maps link
+```
+
+**Adding a new Honduras place:**
+Same process as Copán places, but edit `data/{lang}/honduras_places.yaml`:
+
+```yaml
+- id: unique_id
+  title: "Place Name"
+  description: "Description with [markdown](https://link.com) support."
+  icon: "fa-solid fa-icon-name"  # FontAwesome icon class
+  wiki_url: "https://en.wikipedia.org/wiki/..."  # Wikipedia link
+```
+
+**Note:** Colors cycle automatically in templates (ocean, leaf, marigold, clay, rose, lavender). No need to specify colors in data files.
 
 ### Card Component Pattern
 

@@ -1,0 +1,47 @@
+- id: ruins
+  title: "Ruinas de Copán"
+  description: "Explora la antigua ciudad maya con su famosa Escalinata de los Jeroglíficos, Gran Plaza y elaboradas estelas. ¡No te pierdas el museo de esculturas!"
+  icon: "fa-solid fa-monument"
+  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+
+- id: macaw
+  title: "Macaw Mountain"
+  description: "Un parque de aves y reserva natural hogar de guacamayas rojas rescatadas, tucanes y otras aves tropicales en un hermoso entorno selvático."
+  icon: "fa-solid fa-feather"
+  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+
+- id: hotsprings
+  title: "Aguas Termales Luna Jaguar"
+  description: "Aguas termales naturales a unos 20km del pueblo, ubicadas en un exuberante valle. Perfectas para relajarse después de explorar las ruinas."
+  icon: "fa-solid fa-hot-tub-person"
+  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+
+- id: chocolate
+  title: "Tea & Chocolate Place"
+  description: "Aprende sobre la historia del cacao y haz tu propio chocolate en este taller práctico. ¡Una experiencia deliciosa y educativa!"
+  icon: "fa-solid fa-mug-hot"
+  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+
+- id: cafe
+  title: "Café San Rafael"
+  description: "Visita una finca de café en funcionamiento para aprender sobre la producción del café, con degustaciones de café cultivado localmente."
+  icon: "fa-solid fa-seedling"
+  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+
+- id: butterflies
+  title: "Mariposario"
+  description: "Un santuario de mariposas donde puedes caminar entre cientos de mariposas coloridas en un jardín cerrado."
+  icon: "fa-solid fa-dove"
+  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+
+- id: sunflowers
+  title: "Campos de Girasoles"
+  description: "Campos de girasoles de temporada cerca del pueblo ideales para fotos hermosas - la disponibilidad en diciembre puede variar, ¡pero vale la pena preguntar!"
+  icon: "fa-solid fa-sun-plant-wilt"
+  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+
+- id: shopping
+  title: "Artesanías Locales"
+  description: "Explora cerámica de inspiración maya, joyería de jade, textiles y recuerdos artesanales en las tiendas y mercados del pueblo."
+  icon: "fa-solid fa-bag-shopping"
+  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"

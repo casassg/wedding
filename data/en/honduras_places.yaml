@@ -1,0 +1,53 @@
+- id: roatan
+  title: "Roatán"
+  description: "A Caribbean island paradise with world-class diving and snorkeling on the [Mesoamerican Barrier Reef](https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System). White sand beaches, turquoise waters, and a [sloth sanctuary](https://roatan.online/roatan-sloth-sanctuary) await!"
+  icon: "fa-solid fa-water"
+  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+
+- id: utila
+  title: "Utila"
+  description: "A backpacker-friendly island known for budget diving certification and whale shark encounters (March-April and August-October seasons)."
+  icon: "fa-solid fa-fish"
+  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+
+- id: ceiba
+  title: "La Ceiba"
+  description: "The gateway city to the Bay Islands, known for its carnival and access to Pico Bonito National Park's rainforest adventures."
+  icon: "fa-solid fa-masks-theater"
+  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+
+- id: yojoa
+  title: "Lago de Yojoa"
+  description: "Honduras's largest lake, surrounded by cloud forests and home to over 400 bird species. Great for nature lovers and birdwatchers."
+  icon: "fa-solid fa-dove"
+  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+
+- id: valle
+  title: "Valle de Angeles"
+  description: "A charming [colonial mountain town](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles) just 30 minutes from Tegucigalpa. Famous for handicrafts, cobblestone streets, pine forests, and weekend markets."
+  icon: "fa-solid fa-store"
+  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+
+- id: cayos
+  title: "Cayos Cochinos"
+  description: "A pristine marine protected area with [two small islands and 13 coral cays](https://en.wikipedia.org/wiki/Cayos_Cochinos). Home to pink boas and Garifuna fishing villages - National Geographic calls it 'a marine biologist's dream.'"
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+
+- id: tela
+  title: "Tela"
+  description: "A Caribbean beach town with two must-see attractions: [Punta Sal National Park](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park) with pristine beaches and wildlife, and [Lancetilla Botanical Garden](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), one of Latin America's largest."
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+
+- id: gracias
+  title: "Gracias & Hot Springs"
+  description: "A charming [colonial town](https://en.wikipedia.org/wiki/Gracias,_Honduras) founded in 1536 with natural hot springs, historic churches, and access to Celaque National Park - Honduras's highest peak."
+  icon: "fa-solid fa-spa"
+  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+
+- id: comayagua
+  title: "Comayagua"
+  description: "Honduras's [former capital](https://en.wikipedia.org/wiki/Comayagua) with stunning Spanish colonial architecture, the oldest clock in the Americas, and beautiful Holy Week celebrations."
+  icon: "fa-solid fa-church"
+  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"

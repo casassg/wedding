@@ -1,0 +1,53 @@
+- id: roatan
+  title: "Roatán"
+  description: "Un paraíso caribeño con buceo y snorkel de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano). ¡Te esperan playas de arena blanca, aguas turquesas y un [santuario de perezosos](https://roatan.online/roatan-sloth-sanctuary)!"
+  icon: "fa-solid fa-water"
+  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+
+- id: utila
+  title: "Utila"
+  description: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
+  icon: "fa-solid fa-fish"
+  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+
+- id: ceiba
+  title: "La Ceiba"
+  description: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
+  icon: "fa-solid fa-masks-theater"
+  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+
+- id: yojoa
+  title: "Lago de Yojoa"
+  description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
+  icon: "fa-solid fa-dove"
+  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+
+- id: valle
+  title: "Valle de Ángeles"
+  description: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
+  icon: "fa-solid fa-store"
+  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+
+- id: cayos
+  title: "Cayos Cochinos"
+  description: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+
+- id: tela
+  title: "Tela"
+  description: "Una ciudad playera caribeña con dos atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas y vida silvestre, y el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla), uno de los más grandes de Latinoamérica."
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+
+- id: gracias
+  title: "Gracias y Aguas Termales"
+  description: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
+  icon: "fa-solid fa-spa"
+  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+
+- id: comayagua
+  title: "Comayagua"
+  description: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
+  icon: "fa-solid fa-church"
+  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"

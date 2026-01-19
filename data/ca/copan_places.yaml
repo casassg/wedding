@@ -1,0 +1,47 @@
+- id: ruins
+  title: "Ruïnes de Copán"
+  description: "Explora l'antiga ciutat maia amb la seva famosa Escalinata dels Jeroglífics, Gran Plaça i elaborades esteles. No et perdis el museu d'escultures!"
+  icon: "fa-solid fa-monument"
+  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+
+- id: macaw
+  title: "Macaw Mountain"
+  description: "Un parc d'aus i reserva natural llar de guacamais vermells rescatats, tucans i altres aus tropicals en un preciós entorn selvàtic."
+  icon: "fa-solid fa-feather"
+  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+
+- id: hotsprings
+  title: "Aigües Termals Luna Jaguar"
+  description: "Aigües termals naturals a uns 20km del poble, ubicades en una exuberant vall. Perfectes per relaxar-se després d'explorar les ruïnes."
+  icon: "fa-solid fa-hot-tub-person"
+  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+
+- id: chocolate
+  title: "Tea & Chocolate Place"
+  description: "Aprèn sobre la història del cacau i fes el teu propi xocolata en aquest taller pràctic. Una experiència deliciosa i educativa!"
+  icon: "fa-solid fa-mug-hot"
+  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+
+- id: cafe
+  title: "Café San Rafael"
+  description: "Visita una finca de cafè en funcionament per aprendre sobre la producció del cafè, amb degustacions de cafè cultivat localment."
+  icon: "fa-solid fa-seedling"
+  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+
+- id: butterflies
+  title: "Mariposario"
+  description: "Un santuari de papallones on pots caminar entre centenars de papallones de colors en un jardí tancat."
+  icon: "fa-solid fa-dove"
+  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+
+- id: sunflowers
+  title: "Camps de Gira-sols"
+  description: "Camps de gira-sols de temporada a prop del poble ideals per fotos precioses - la disponibilitat al desembre pot variar, però val la pena preguntar!"
+  icon: "fa-solid fa-sun-plant-wilt"
+  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+
+- id: shopping
+  title: "Artesanies Locals"
+  description: "Explora ceràmica d'inspiració maia, joieria de jade, tèxtils i records artesanals a les botigues i mercats del poble."
+  icon: "fa-solid fa-bag-shopping"
+  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"

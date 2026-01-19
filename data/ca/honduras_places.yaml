@@ -1,0 +1,53 @@
+- id: roatan
+  title: "Roatán"
+  description: "Un paradís caribeny amb busseig i snorkel de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana). T'esperen platges d'arena blanca, aigües turqueses i un [santuari de peresosos](https://roatan.online/roatan-sloth-sanctuary)!"
+  icon: "fa-solid fa-water"
+  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+
+- id: utila
+  title: "Utila"
+  description: "Una illa popular entre motxillers coneguda per certificacions de busseig econòmiques i trobades amb taurons balena (temporades març-abril i agost-octubre)."
+  icon: "fa-solid fa-fish"
+  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+
+- id: ceiba
+  title: "La Ceiba"
+  description: "La ciutat d'entrada a les Illes de la Badia, coneguda pel seu carnaval i accés a les aventures a la selva del Parc Nacional Pico Bonito."
+  icon: "fa-solid fa-masks-theater"
+  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+
+- id: yojoa
+  title: "Llac de Yojoa"
+  description: "El llac més gran d'Hondures, envoltat de boscos nuvolosos i llar de més de 400 espècies d'aus. Ideal per amants de la natura."
+  icon: "fa-solid fa-dove"
+  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+
+- id: valle
+  title: "Valle de Ángeles"
+  description: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per les seves artesanies, carrers empedrats, boscos de pins i mercats de cap de setmana."
+  icon: "fa-solid fa-store"
+  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+
+- id: cayos
+  title: "Cayos Cochinos"
+  description: "Una prístina àrea marina protegida amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de boes roses i pobles pesquers garífunes - National Geographic l'anomena 'el somni d'un biòleg marí'."
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+
+- id: tela
+  title: "Tela"
+  description: "Una ciutat de platja caribenya amb dues atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines i vida salvatge, i el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), un dels més grans de Llatinoamèrica."
+  icon: "fa-solid fa-umbrella-beach"
+  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+
+- id: gracias
+  title: "Gracias i Aigües Termals"
+  description: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque - el pic més alt d'Hondures."
+  icon: "fa-solid fa-spa"
+  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+
+- id: comayagua
+  title: "Comayagua"
+  description: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures amb impressionant arquitectura colonial espanyola, el rellotge més antic d'Amèrica i precioses celebracions de Setmana Santa."
+  icon: "fa-solid fa-church"
+  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"

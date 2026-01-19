@@ -66,19 +66,9 @@ spain_location: "Catalunya"
 spain_vibe: "Sopar relaxat amb família i amics"
 spain_for_who: "Una celebració tranquil·la - sense cerimònia, només bon menjar, beguda i la gent que estimem. Tothom és benvingut!"
 
-# FAQ
+# FAQ (preguntes/respostes mogudes a data/ca/faq.yaml)
 questions: "Preguntes?"
 faq_title: "Preguntes Freqüents"
-faq_q1: "Per què Copan?"
-faq_a1: "Copan és [Patrimoni de la Humanitat de la UNESCO](https://whc.unesco.org/es/list/129/) i una de les ciutats maies antigues més importants. Va ser la capital d'un gran regne maia del segle V al IX i és famosa pel seu impressionant art escultòric i l'Escalinata dels Jeroglífics - el text maia més llarg conegut. Volíem que els nostres convidats visquessin alguna cosa veritablement única i inoblidable."
-faq_q2: "Com arribo a Copan Ruinas?"
-faq_a2: "Vola a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) i intenta arribar abans del migdia del divendres 18 de desembre - hi ha 4 hores d'autobús fins a Copan. Estem planejant organitzar autobusos des de l'aeroport, amb parades a hotels de San Pedro Sula pels que arribin abans. Per als que vinguin d'Espanya, Air Europa té un [vol directe des de Madrid](https://www.google.com/travel/flights/search?tfs=CBwQAholEgoyMDI2LTEyLTExKABqDAgDEggvbS8wNTZfeXIHCAESA1NBUEABSAFwAYIBCwj___________8BmAEC&tfu=EgYIABAAGAA) cada dilluns, dimecres i divendres."
-faq_q3: "Hi haurà transport durant el casament?"
-faq_a3: "Sí! Proporcionarem autobusos des de la Parroquia San José Obrero fins al Centro de Convenciones Marina Copán després de la cerimònia. A la nit, hi haurà un autobús circulant regularment entre el local i el centre de la ciutat fins al final de l'event."
-faq_q4: "Quin és el codi de vestimenta?"
-faq_a4: "Formal. Volem que tots us veieu guapos i elegants per celebrar junts. Veniu preparats per ballar i gaudir!"
-faq_q5: "Què passa si no puc anar a Hondures?"
-faq_a5: "No pateixis, sabem que és difícil! Per això a principis de 2027, organitzarem un sopar relaxat en algun lloc de Catalunya. Sense cerimònia - només sopar i amics. Més detalls aviat!"
 
 # Countdown
 countdown_title: "Compte enrere pel gran dia..."
@@ -123,48 +113,14 @@ traveling_colonial_desc: "El poble en si és una preciosa vila colonial amb carr
 traveling_weather: "Clima Perfecte"
 traveling_weather_desc: "A 700m d'altitud, Copán gaudeix d'un agradable clima subtropical. Les temperatures de desembre fan una mitjana de 20-28°C - perfecte per una celebració!"
 
-# Things to Do in Copán
+# Things to Do in Copán (llocs moguts a data/ca/copan_places.yaml)
 traveling_things_to_do: "Què Fer a Copán"
 traveling_things_to_do_intro: "Més enllà de les festivitats del casament, hi ha molt per explorar a Copán Ruinas i els seus voltants."
-traveling_ruins_title: "Ruïnes de Copán"
-traveling_ruins_desc: "Explora l'antiga ciutat maia amb la seva famosa Escalinata dels Jeroglífics, Gran Plaça i elaborades esteles. No et perdis el museu d'escultures!"
-traveling_macaw_title: "Macaw Mountain"
-traveling_macaw_desc: "Un parc d'aus i reserva natural llar de guacamais vermells rescatats, tucans i altres aus tropicals en un preciós entorn selvàtic."
-traveling_hotsprings_title: "Aigües Termals Luna Jaguar"
-traveling_hotsprings_desc: "Aigües termals naturals a uns 20km del poble, ubicades en una exuberant vall. Perfectes per relaxar-se després d'explorar les ruïnes."
-traveling_chocolate_title: "Tea & Chocolate Place"
-traveling_chocolate_desc: "Aprèn sobre la història del cacau i fes el teu propi xocolata en aquest taller pràctic. Una experiència deliciosa i educativa!"
-traveling_cafe_title: "Café San Rafael"
-traveling_cafe_desc: "Visita una finca de cafè en funcionament per aprendre sobre la producció del cafè, amb degustacions de cafè cultivat localment."
-traveling_butterflies_title: "Mariposario"
-traveling_butterflies_desc: "Un santuari de papallones on pots caminar entre centenars de papallones de colors en un jardí tancat."
-traveling_sunflowers_title: "Camps de Gira-sols"
-traveling_sunflowers_desc: "Camps de gira-sols de temporada a prop del poble ideals per fotos precioses - la disponibilitat al desembre pot variar, però val la pena preguntar!"
-traveling_shopping_title: "Artesanies Locals"
-traveling_shopping_desc: "Explora ceràmica d'inspiració maia, joieria de jade, tèxtils i records artesanals a les botigues i mercats del poble."
 view_on_maps: "Veure a Maps"
 
-# Explore Honduras
+# Explore Honduras (llocs moguts a data/ca/honduras_places.yaml)
 traveling_explore: "Explora Hondures"
 traveling_explore_intro: "Si tens temps extra abans o després del casament, Hondures ofereix aventures increïbles."
-traveling_roatan_title: "Roatán"
-traveling_roatan_desc: "Un paradís caribeny amb busseig i snorkel de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana). T'esperen platges d'arena blanca, aigües turqueses i un [santuari de peresosos](https://roatan.online/roatan-sloth-sanctuary)!"
-traveling_utila_title: "Utila"
-traveling_utila_desc: "Una illa popular entre motxillers coneguda per certificacions de busseig econòmiques i trobades amb taurons balena (temporades març-abril i agost-octubre)."
-traveling_cayos_title: "Cayos Cochinos"
-traveling_cayos_desc: "Una prístina àrea marina protegida amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de boes roses i pobles pesquers garífunes - National Geographic l'anomena 'el somni d'un biòleg marí'."
-traveling_ceiba_title: "La Ceiba"
-traveling_ceiba_desc: "La ciutat d'entrada a les Illes de la Badia, coneguda pel seu carnaval i accés a les aventures a la selva del Parc Nacional Pico Bonito."
-traveling_tela_title: "Tela"
-traveling_tela_desc: "Una ciutat de platja caribenya amb dues atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines i vida salvatge, i el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), un dels més grans de Llatinoamèrica."
-traveling_yojoa_title: "Llac de Yojoa"
-traveling_yojoa_desc: "El llac més gran d'Hondures, envoltat de boscos nuvolosos i llar de més de 400 espècies d'aus. Ideal per amants de la natura."
-traveling_valle_title: "Valle de Ángeles"
-traveling_valle_desc: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per les seves artesanies, carrers empedrats, boscos de pins i mercats de cap de setmana."
-traveling_gracias_title: "Gracias i Aigües Termals"
-traveling_gracias_desc: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque - el pic més alt d'Hondures."
-traveling_comayagua_title: "Comayagua"
-traveling_comayagua_desc: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures amb impressionant arquitectura colonial espanyola, el rellotge més antic d'Amèrica i precioses celebracions de Setmana Santa."
 learn_more: "Més informació"
 
 # Where to Stay
