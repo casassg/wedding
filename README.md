@@ -47,3 +47,48 @@ Pushes to `main` automatically deploy to GitHub Pages via GitHub Actions.
 - English (default)
 - Spanish (`/es/`)
 - Catalan (`/ca/`)
+
+## Content Management
+
+### FAQ & Places
+
+FAQ questions/answers and places (Copán, Honduras) are stored in the `data/` folder for easy editing:
+
+```
+data/
+├── en/                    # English
+│   ├── faq.yaml          # FAQ questions/answers
+│   ├── copan_places.yaml # Things to do in Copán
+│   └── honduras_places.yaml # Explore Honduras
+├── es/                    # Spanish
+└── ca/                    # Catalan
+```
+
+**To add/edit FAQ items:** Edit `data/{en,es,ca}/faq.yaml`
+
+```yaml
+- question: "Your question?"
+  answer: "Answer with [markdown links](https://example.com) supported."
+```
+
+**To add/edit Copán places:** Edit `data/{en,es,ca}/copan_places.yaml`
+
+```yaml
+- id: unique_id
+  title: "Place Name"
+  description: "Description with markdown support."
+  icon: "fa-solid fa-icon-name"
+  maps_url: "https://maps.app.goo.gl/..."
+```
+
+**To add/edit Honduras places:** Edit `data/{en,es,ca}/honduras_places.yaml`
+
+```yaml
+- id: unique_id
+  title: "Place Name"
+  description: "Description with markdown support."
+  icon: "fa-solid fa-icon-name"
+  wiki_url: "https://en.wikipedia.org/wiki/..."
+```
+
+**Note:** Remember to update all 3 language files when making changes.
