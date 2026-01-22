@@ -3,7 +3,10 @@
   description: "Un paraíso caribeño con buceo y snorkel de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano). ¡Te esperan playas de arena blanca, aguas turquesas y un [santuario de perezosos](https://roatan.online/roatan-sloth-sanctuary)!"
   icon: "fa-solid fa-water"
   long_description: ""
-  tips: []
+  tips:
+    - "🏊 Mejor snorkel en playa West Bay - el arrecife está a nado corto de la orilla"
+    - "🛳️ Evita comprar cuando llegan cruceros - los precios se duplican o triplican"
+    - "🦟 Aplica repelente DEET a menudo - las pulgas de arena pican sin aviso"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
@@ -13,7 +16,10 @@
   description: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
   icon: "fa-solid fa-fish"
   long_description: ""
-  tips: []
+  tips:
+    - "🦈 Temporada de tiburón ballena: marzo-abril y agosto-octubre"
+    - "💰 La Isla de la Bahía más económica para certificación de buceo"
+    - "⛴️ Ferry desde La Ceiba dos veces al día"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Utila"
@@ -23,7 +29,10 @@
   description: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
   icon: "fa-solid fa-masks-theater"
   long_description: ""
-  tips: []
+  tips:
+    - "⛴️ Puerta a las Islas de la Bahía - ferries salen dos veces al día a Roatán"
+    - "🎭 Famoso carnaval en mayo - la fiesta más grande de Centroamérica"
+    - "🌿 Parque Nacional Pico Bonito tiene excelentes caminatas en selva"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/La_Ceiba"
@@ -33,7 +42,10 @@
   description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
   icon: "fa-solid fa-dove"
   long_description: "Ubicado a 80km de San Pedro Sula, este impresionante lago ofrece múltiples atracciones: senderos ecológicos del Parque Los Naranjos, Hotel Finca Las Glorias para comida local, paseos en bote Honduyate, parque acuático Lagolandia, y Los Domos de Agualpa con vistas espectaculares al lago."
-  tips: []
+  tips:
+    - "🍺 Visita D&D Brewery - la primera cervecería artesanal de Honduras"
+    - "🐟 Prueba la tilapia frita 'Estilo Lago de Yojoa' en restaurantes de la carretera"
+    - "🐦 Más de 400 especies de aves - ¡trae binoculares!"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
@@ -67,7 +79,10 @@
   description: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
   icon: "fa-solid fa-store"
   long_description: ""
-  tips: []
+  tips:
+    - "🛍️ Mejores artesanías cerca de Tegucigalpa - los mercados de fin de semana son los más animados"
+    - "☕ Excursión perfecta desde la capital - solo 30 minutos"
+    - "🌲 Clima fresco de montaña - trae una chaqueta ligera"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
@@ -77,7 +92,10 @@
   description: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
   icon: "fa-solid fa-umbrella-beach"
   long_description: ""
-  tips: []
+  tips:
+    - "🐍 Hogar de boas rosadas endémicas - no existen en ningún otro lugar del mundo"
+    - "🤿 Área marina protegida - snorkel y buceo prístinos"
+    - "🏘️ Visita auténticas aldeas pesqueras garífunas"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
@@ -87,7 +105,10 @@
   description: "Una ciudad playera caribeña con atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas, el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla) (el más grande de Latinoamérica, a solo 5 min), además de resorts y clubes de playa."
   icon: "fa-solid fa-umbrella-beach"
   long_description: "Tela ofrece hermosas playas caribeñas y experiencias diversas. Punta Sal (Parque Nacional Jeannette Kawas) tiene playas prístinas y vida silvestre. Playa Miami tiene aguas tranquilas perfectas para familias. El Jardín Botánico Lancetilla, fundado en 1926, abarca 1,600 hectáreas con más de 1,500 especies de plantas - a solo 5 minutos del pueblo. Indura Resort ofrece lujo y golf, mientras La Ensenada Beach Club y Hotel Telamar brindan relajación frente al mar."
-  tips: []
+  tips:
+    - "🏖️ Punta Sal tiene playas prístinas y vida silvestre - reserva un tour en bote"
+    - "🌿 Jardín Botánico Lancetilla es el más grande de Latinoamérica - a solo 5 min"
+    - "🥥 Prueba coco fresco de vendedores playeros y pan de coco garífuna"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Tela"
@@ -130,7 +151,10 @@
   description: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
   icon: "fa-solid fa-spa"
   long_description: ""
-  tips: []
+  tips:
+    - "♨️ Aguas termales naturales perfectas para relajarse después de caminar"
+    - "⛰️ Base para escalar Celaque - el pico más alto de Honduras"
+    - "🏛️ Hermosa arquitectura colonial desde 1536"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
@@ -140,7 +164,10 @@
   description: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
   icon: "fa-solid fa-church"
   long_description: ""
-  tips: []
+  tips:
+    - "⏰ Mira el reloj más antiguo de América - más de 500 años"
+    - "✝️ Famosa por elaboradas celebraciones de Semana Santa"
+    - "🏛️ Antigua capital con impresionante arquitectura colonial española"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Comayagua"
@@ -150,7 +177,10 @@
   description: "La capital industrial de Honduras y puerta de entrada a increíbles excursiones de un día. Explora el Parque Nacional El Cusuco, camina por los senderos de Angeli Gardens, compra en el mercado artesanal Guamilito, o visita los impresionantes campos de hortensias de El Merendón."
   icon: "fa-solid fa-city"
   long_description: "La segunda ciudad más grande ofrece excelentes opciones de excursiones de un día dentro de 100km. El Parque Nacional El Cusuco es una reserva biológica de bosque nuboso con increíble biodiversidad. Angeli Gardens ofrece senderos y tirolesas. El Mercado Guamilito es el lugar para artesanías hondureñas auténticas. El Merendón tiene hermosos campos de hortensias y el sendero de La Coca Cola."
-  tips: []
+  tips:
+    - "🌺 Visita los campos de hortensias de El Merendón en temporada de floración"
+    - "🛍️ Mercado Guamilito para artesanías hondureñas auténticas"
+    - "🌿 Parque Nacional El Cusuco tiene bosque nuboso con increíble biodiversidad"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
@@ -175,7 +205,10 @@
   description: "Impresionantes cuevas ubicadas a 85km de San Pedro Sula con espectaculares estalactitas y estalagmitas. Una aventura subterránea fresca perfecta para días calurosos."
   icon: "fa-solid fa-mountain-sun"
   long_description: "Estas cuevas de piedra caliza se extienden por kilómetros bajo tierra, aunque solo una porción está abierta a visitantes. Los senderos iluminados revelan formaciones geológicas espectaculares de millones de años."
-  tips: []
+  tips:
+    - "🌡️ Escape perfecto del calor - las cuevas se mantienen frescas bajo tierra"
+    - "👟 Trae buenos zapatos para caminar por los senderos iluminados"
+    - "📍 Parada fácil entre San Pedro Sula y Copán (85km desde SPS)"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
@@ -191,7 +224,10 @@
   description: "Una impresionante cascada de 43 metros que inspiró a Walt Disney para las escenas de cascadas en El Libro de la Selva. Una de las cascadas más hermosas de Centroamérica."
   icon: "fa-solid fa-water"
   long_description: "Estas magníficas cataratas caen a una piscina natural rodeada de exuberante bosque tropical. Las opciones de aventura incluyen rapel detrás de las cataratas, nadar en piscinas naturales y explorar senderos cercanos. La conexión con Disney hace de este un destino mágico."
-  tips: []
+  tips:
+    - "🎬 Inspiró las escenas de cascadas en El Libro de la Selva de Disney"
+    - "🧗 Opción de aventura: rapel detrás de las cataratas de 43m (costo extra)"
+    - "🦜 Excelente lugar para avistar guacamayas"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Pulhapanzak"

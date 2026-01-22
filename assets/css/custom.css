@@ -232,13 +232,18 @@ html {
 .place-modal.active {
     opacity: 1;
     visibility: visible;
-    pointer-events: auto;
 }
 
 .place-modal.active .place-modal-card {
-    transform: translateY(0) scale(1);
+    pointer-events: auto;
 }
 
 body.place-modal-open {
     overflow: hidden;
+}
+
+body.place-modal-open #place-modal-backdrop {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }

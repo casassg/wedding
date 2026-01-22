@@ -352,6 +352,22 @@
     // Place Cards Modal
     // ===================
     function initPlaceCards() {
+        // Navigate to a specific place modal
+        function navigateToPlace(group, index) {
+            const currentModal = document.querySelector('.place-modal.active');
+            const targetModal = document.getElementById(`place-modal-${group}-${index}`);
+            if (targetModal) {
+                // Add active to new modal BEFORE removing from old to prevent backdrop flicker
+                targetModal.classList.add('active');
+                if (currentModal && currentModal !== targetModal) {
+                    currentModal.classList.remove('active');
+                }
+                // Reset scroll position in new modal
+                const content = targetModal.querySelector('.flex-grow.overflow-y-auto');
+                if (content) content.scrollTop = 0;
+            }
+        }
+
         // Open modal when clicking "Learn more" button
         document.querySelectorAll('.place-card-trigger').forEach(btn => {
             btn.addEventListener('click', (e) => {
@@ -365,15 +381,16 @@
         });
 
         // Close modal on backdrop click
-        document.querySelectorAll('.place-modal-backdrop').forEach(backdrop => {
-            backdrop.addEventListener('click', () => {
-                const modal = backdrop.closest('.place-modal');
-                if (modal) {
-                    modal.classList.remove('active');
+        const sharedBackdrop = document.getElementById('place-modal-backdrop');
+        if (sharedBackdrop) {
+            sharedBackdrop.addEventListener('click', () => {
+                const activeModal = document.querySelector('.place-modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
                     document.body.classList.remove('place-modal-open');
                 }
             });
-        });
+        }
 
         // Close modal on close button click
         document.querySelectorAll('.place-modal-close').forEach(btn => {
@@ -386,13 +403,40 @@
             });
         });
 
-        // Close modal on Escape key
+        // Navigate to previous place
+        document.querySelectorAll('.place-modal-prev').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                const group = btn.dataset.group;
+                const index = parseInt(btn.dataset.index, 10);
+                navigateToPlace(group, index - 1);
+            });
+        });
+
+        // Navigate to next place
+        document.querySelectorAll('.place-modal-next').forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (btn.disabled) return;
+                const group = btn.dataset.group;
+                const index = parseInt(btn.dataset.index, 10);
+                navigateToPlace(group, index + 1);
+            });
+        });
+
+        // Keyboard navigation: Escape to close, Arrow keys to navigate
         document.addEventListener('keydown', (e) => {
+            const activeModal = document.querySelector('.place-modal.active');
+            if (!activeModal) return;
+
             if (e.key === 'Escape') {
-                const activeModal = document.querySelector('.place-modal.active');
-                if (activeModal) {
-                    activeModal.classList.remove('active');
-                    document.body.classList.remove('place-modal-open');
+                activeModal.classList.remove('active');
+                document.body.classList.remove('place-modal-open');
+            } else if (e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+                const navBtn = activeModal.querySelector(
+                    e.key === 'ArrowLeft' ? '.place-modal-prev' : '.place-modal-next'
+                );
+                if (navBtn && !navBtn.disabled) {
+                    navBtn.click();
                 }
             }
         });

@@ -1,4 +1,7 @@
 {{ define "main" }}
+<!-- Shared Modal Backdrop -->
+<div id="place-modal-backdrop" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"></div>
+
 <!-- Hero Section -->
 <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-ocean section-colored">
     <div class="max-w-4xl mx-auto text-center">
@@ -133,13 +136,10 @@
             
             <!-- Modal for {{ $place.title }} -->
             <div id="place-modal-copan-{{ $index }}" 
-                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-300"
+                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"
                  data-color="{{ $color }}">
-                <!-- Backdrop -->
-                <div class="place-modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-                
                 <!-- Card -->
-                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col transform translate-y-8 md:translate-y-4 scale-[0.98] transition-transform duration-300 shadow-2xl">
+                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl">
                     <!-- Header -->
                     <div class="flex items-start justify-between p-6 md:p-8 pb-4">
                         <div class="flex items-center gap-4">
@@ -202,6 +202,25 @@
                             </div>
                         </div>
                         {{- end -}}
+                    </div>
+                    
+                    <!-- Navigation Footer -->
+                    <div class="flex items-center justify-between p-4 border-t border-gray-100">
+                        <button type="button"
+                                class="place-modal-prev w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                                data-group="copan" data-index="{{ $index }}" data-total="{{ len $copan }}"
+                                {{ if eq $index 0 }}disabled{{ end }}
+                                aria-label="{{ i18n "place_previous" }}">
+                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
+                        </button>
+                        <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $copan }}</span>
+                        <button type="button"
+                                class="place-modal-next w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                                data-group="copan" data-index="{{ $index }}" data-total="{{ len $copan }}"
+                                {{ if eq $index (sub (len $copan) 1) }}disabled{{ end }}
+                                aria-label="{{ i18n "place_next" }}">
+                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -269,13 +288,11 @@
             
             <!-- Modal for {{ $place.title }} -->
             <div id="place-modal-honduras-{{ $index }}" 
-                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-300"
+                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"
                  data-color="{{ $color }}">
-                <!-- Backdrop -->
-                <div class="place-modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
-                
                 <!-- Card -->
-                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col transform translate-y-8 md:translate-y-4 scale-[0.98] transition-transform duration-300 shadow-2xl">
+                <!-- Card -->
+                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl">
                     <!-- Header -->
                     <div class="flex items-start justify-between p-6 md:p-8 pb-4">
                         <div class="flex items-center gap-4">
@@ -338,6 +355,25 @@
                             </div>
                         </div>
                         {{- end -}}
+                    </div>
+                    
+                    <!-- Navigation Footer -->
+                    <div class="flex items-center justify-between p-4 border-t border-gray-100">
+                        <button type="button"
+                                class="place-modal-prev w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                                data-group="honduras" data-index="{{ $index }}" data-total="{{ len $honduras }}"
+                                {{ if eq $index 0 }}disabled{{ end }}
+                                aria-label="{{ i18n "place_previous" }}">
+                            <i class="fa-solid fa-chevron-left text-gray-600"></i>
+                        </button>
+                        <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $honduras }}</span>
+                        <button type="button"
+                                class="place-modal-next w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                                data-group="honduras" data-index="{{ $index }}" data-total="{{ len $honduras }}"
+                                {{ if eq $index (sub (len $honduras) 1) }}disabled{{ end }}
+                                aria-label="{{ i18n "place_next" }}">
+                            <i class="fa-solid fa-chevron-right text-gray-600"></i>
+                        </button>
                     </div>
                 </div>
             </div>

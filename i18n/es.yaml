@@ -134,6 +134,8 @@ place_learn_more: "Más información"
 place_close: "Cerrar"
 place_tips: "Consejos"
 place_links: "Enlaces"
+place_previous: "Lugar anterior"
+place_next: "Siguiente lugar"
 
 # Footer
 footer_message: ""

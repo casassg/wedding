@@ -133,6 +133,8 @@ place_learn_more: "Més informació"
 place_close: "Tancar"
 place_tips: "Consells"
 place_links: "Enllaços"
+place_previous: "Lloc anterior"
+place_next: "Lloc següent"
 
 # Footer
 footer_message: ""

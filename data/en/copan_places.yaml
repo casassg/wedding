@@ -3,7 +3,10 @@
   description: "Explore the ancient Maya city with its famous Hieroglyphic Stairway, Great Plaza, and intricate stelae. Don't miss the sculpture museum!"
   icon: "fa-solid fa-monument"
   long_description: "One of the most important Maya archaeological sites, Copán was a powerful city-state during the Classic period. The site features remarkably preserved stelae, altars, and the longest known Maya hieroglyphic text."
-  tips: []
+  tips:
+    - "🎟️ Hire a guide at the entrance (~$50 split among group) - they share stories not in guidebooks"
+    - "⏰ Arrive at 8am opening to beat the heat and crowds"
+    - "🏛️ Visit Sculpture Museum last - you'll appreciate it more after seeing the ruins"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
@@ -23,7 +26,10 @@
   description: "A bird park and nature reserve home to rescued scarlet macaws, toucans, and other tropical birds in a beautiful forest setting."
   icon: "fa-solid fa-feather"
   long_description: "Part of a popular day tour that includes the town, San Rafael coffee farm, San Lucas, and the sunflower fields. A perfect combination of nature, culture, and local experiences."
-  tips: []
+  tips:
+    - "🎫 Your ticket is valid for 3 days - return to swim in the natural pool free"
+    - "🦜 Watch your food at the cafe - macaws are known to steal snacks!"
+    - "📸 Free-roaming macaws make for amazing photos"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
@@ -40,7 +46,10 @@
   description: "Natural hot springs about 20km from town, set in a lush valley. Perfect for relaxing after exploring the ruins."
   icon: "fa-solid fa-hot-tub-person"
   long_description: "Luna Jaguar offers a full spa experience with multiple thermal pools at different temperatures, surrounded by lush tropical vegetation. The Maya-themed setting adds to the magical atmosphere."
-  tips: []
+  tips:
+    - "🚐 Road is rough - 4WD recommended, or join a tour (~$15 entry + transport)"
+    - "🍽️ Bring your own food - limited dining options on site"
+    - "♨️ Multiple pools at different temperatures - perfect after exploring ruins"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
@@ -60,7 +69,10 @@
   description: "Learn about cacao history and make your own chocolate in this hands-on workshop. A delicious and educational experience!"
   icon: "fa-solid fa-mug-hot"
   long_description: "Discover why Copán's chocolate is considered among the best in the world. The Maya revered cacao as 'food of the gods' and this workshop connects you to that ancient tradition while making your own delicious creations."
-  tips: []
+  tips:
+    - "⏰ Opens 2pm (4pm Mondays), closes 6pm - plan as an afternoon stop"
+    - "🍫 Try the cold chocolate drink - it's the favorite!"
+    - "🎁 Great gifts: artisan chocolates, teas, and skincare products"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
@@ -80,7 +92,10 @@
   description: "Visit a working coffee farm to learn about coffee production from bean to cup, with tastings of locally grown coffee."
   icon: "fa-solid fa-seedling"
   long_description: "Part of the popular Copán day tour along with Macaw Mountain and San Lucas. Experience Honduras's renowned coffee culture firsthand at this family-run farm in the highlands."
-  tips: []
+  tips:
+    - "☕ Famous for gourmet coffee and hand-made cheese found nowhere else in Honduras"
+    - "🛍️ Stop to shop even if you don't dine - great coffee to bring home"
+    - "🌄 Part of popular day tour with Macaw Mountain"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
@@ -97,7 +112,10 @@
   description: "A butterfly sanctuary where you can walk among hundreds of colorful butterflies in an enclosed garden."
   icon: "fa-solid fa-dove"
   long_description: "Located at Hotel Mayan Hills Resort, this enchanting butterfly house lets you walk among dozens of native species in a tropical garden setting."
-  tips: []
+  tips:
+    - "🦋 Best photos in morning when butterflies are most active"
+    - "📍 At Hotel Mayan Hills Resort - combine with lunch"
+    - "⏱️ Allow 30-45 minutes for the full visit"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
@@ -108,21 +126,30 @@
 
 - id: sunflowers
   title: "Sunflower Fields"
-  description: "Seasonal sunflower fields near town make for beautiful photos - December timing may vary, but worth checking!"
+  description: "Beautiful sunflower fields that bloom year-round! Enjoy the scenery, hammocks, a restaurant, local coffee, and ice cream."
   icon: "fa-solid fa-sun-plant-wilt"
-  long_description: ""
-  tips: []
+  long_description: "El Paseo de los Girasoles offers more than just photos - relax in hammocks, enjoy brunch or lunch at the restaurant, sip coffee from local Copán roasters, and treat yourself to ice cream surrounded by endless sunflowers."
+  tips:
+    - "🌻 Sunflowers bloom year-round - not seasonal!"
+    - "☕ Enjoy hammocks, restaurant, local coffee, and ice cream on site"
+    - "📸 Perfect for photos - arrive early morning for best light"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
       icon: "fa-solid fa-map-location-dot"
+    - label: "Facebook"
+      url: "https://www.facebook.com/people/El-Paseo-de-los-Girasoles/100063628076957/"
+      icon: "fa-brands fa-facebook"
 
 - id: shopping
   title: "Local Artesanías"
   description: "Browse handcrafted Maya-inspired pottery, jade jewelry, textiles, and souvenirs in the town's shops and markets."
   icon: "fa-solid fa-bag-shopping"
-  long_description: ""
-  tips: []
+  long_description: "The town center and market offer authentic Maya-inspired crafts, jade jewelry, hand-painted pottery, and local products. Don't miss the famous Copán coffee and artisan chocolate - perfect gifts for home."
+  tips:
+    - "💰 Prices are starting points - haggling is expected and appreciated"
+    - "🎨 Look for Maya-inspired jade jewelry and hand-painted pottery"
+    - "☕ Don't miss local coffee and chocolate - perfect gifts for home"
   links:
     - label: "View on Maps"
       url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
