@@ -8,7 +8,7 @@
   answer: "Esperem un clima primaveral preciós! Dies agradables (~25°C) i nits fresques (~16°C). És l'inici de la temporada seca, així que és poc probable que plogui. Recomanem portar una jaqueta lleugera o jersei per als vespres."
 
 - question: "Hi haurà transport durant el casament?"
-  answer: "Sí! Proporcionarem autobusos des de la Parroquia San José Obrero fins al Centro de Convenciones Marina Copán després de la cerimònia. A la nit, hi haurà un autobús circulant regularment entre el local i el centre de la ciutat fins al final de l'event."
+  answer: "Sí! Proporcionarem autobusos des de la Parroquia San José Obrero fins al Centro de Convenciones Marina Copán després de la cerimònia. A la nit, hi haurà un autobús circulant regularment entre el local y el centre de la ciutat fins al final de l'event."
 
 - question: "Quin és el codi de vestimenta?"
   answer: "**Formal.** Volem que tots us veieu guapos i elegants per celebrar junts. Veniu preparats per ballar i gaudir!"
@@ -17,4 +17,13 @@
   answer: "No pateixis, sabem que és difícil! Per això a principis de 2027, organitzarem un sopar relaxat en algun lloc de Catalunya. Sense cerimònia - només sopar i amics. Més detalls aviat!"
 
 - question: "Hi haurà alguna cosa el divendres?"
-  answer: "Probablement quedarem per prendre alguna cosa la nit anterior en un bar de Copan Ruinas pels que arribin abans. Estigueu atents per més detalls!"
+  answer: "Probablemente quedarem per prendre alguna cosa la nit anterior en un bar de Copan Ruinas pels que arribin abans. Estigueu atents per més detalls!"
+
+- question: "És segur viatjar-hi?"
+  answer: "Tot i que Honduras té una reputació complexa, **Copán Ruinas és considerat un dels destinacions turístiques més segures i tranquil·les** del país. Organitzarem transport privat per als esdeveniments principals dins de Copán Recomanem mantenir-se a les zones turístiques, evitar caminar tard a la nit i no portar joies cridaneres."
+
+- question: "Què he de saber sobre els diners?"
+  answer: "L'efectiu és el millor! La moneda és el **Lempira**. Recomanem portar bitllets petits per a souvenirs i tuk-tuks. Els dòlars americans s'accepten en alguns llocs si els bitllets estan perfectes (sense trencaments). Les targetes de crèdit solen tenir un **càrrec addicional del 5-10%** si no és una targeta internacional."
+
+- question: "Algun consell de salut?"
+  answer: "Els mosquits són habituals a les zones tropicals. Recomanem portar **repel·lent d'insectes** per prevenir picades (el Dengue és present al país). A més, beveu només aigua embotellada."

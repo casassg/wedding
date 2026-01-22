@@ -124,6 +124,9 @@ traveling_explore: "Explora Honduras"
 traveling_explore_intro: "Si tienes tiempo extra antes o después de la boda, Honduras ofrece aventuras increíbles."
 learn_more: "Más información"
 
+# Travel Tips
+traveling_tips_title: "Consejos de Viaje"
+
 # Where to Stay
 traveling_where_to_stay: "Dónde Alojarse"
 traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de alojamiento para diferentes presupuestos y preferencias."
