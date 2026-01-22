@@ -17,7 +17,7 @@
   icon: "fa-solid fa-fish"
   long_description: ""
   tips:
-    - "🦈 Temporada de tauró balena: març-abril i agost-octubre"
+    - "🦈 Els taurons balena es veuen sovint al desembre i gener!"
     - "💰 L'Illa de la Badia més econòmica per certificació de busseig"
     - "⛴️ Ferry des de La Ceiba dues vegades al dia"
   links:
@@ -31,7 +31,7 @@
   long_description: ""
   tips:
     - "⛴️ Porta a les Illes de la Badia - ferries surten dues vegades al dia cap a Roatán"
-    - "🎭 Famós carnaval al maig - la festa més gran de Centreamèrica"
+    - "🌊 Ràfting de classe mundial al riu Cangrejal"
     - "🌿 El Parc Nacional Pico Bonito té excel·lents caminades a la selva"
   links:
     - label: "Viquipèdia"
@@ -81,7 +81,7 @@
   long_description: ""
   tips:
     - "🛍️ Millors artesanies a prop de Tegucigalpa - els mercats de cap de setmana són els més animats"
-    - "☕ Excursió perfecta des de la capital - només 30 minuts"
+    - "☕ Excursió perfecta des de la capital - ~30-45 mins (depèn del trànsit)"
     - "🌲 Clima fresc de muntanya - porta una jaqueta lleugera"
   links:
     - label: "Viquipèdia"
@@ -95,7 +95,7 @@
   tips:
     - "🐍 Llar de boes roses endèmiques - no existeixen enlloc més del món"
     - "🤿 Àrea marina protegida - snorkel i busseig prístins"
-    - "🏘️ Visita autèntics pobles pesquers garífunes"
+    - "🏘️ Millor accés via tour en llanxa des de Sambo Creek"
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
@@ -202,16 +202,14 @@
 
 - id: taulabe
   title: "Coves de Taulabé"
-  description: "Impressionants coves ubicades a 85km de San Pedro Sula amb espectaculars estalactites i estalagmites. Una aventura subterrània fresca perfecta per dies calorosos."
+  description: "Impressionants coves ubicades a ~100km de San Pedro Sula amb espectaculars estalactites i estalagmites. Una aventura subterrània fresca perfecta per dies calorosos."
   icon: "fa-solid fa-mountain-sun"
   long_description: "Aquestes coves de pedra calcària s'estenen per quilòmetres sota terra, encara que només una porció està oberta a visitants. Els senders il·luminats revelen formacions geològiques espectaculars de milions d'anys."
   tips:
     - "🌡️ Escapada perfecta de la calor - les coves es mantenen fresques sota terra"
     - "👟 Porta bones sabates per caminar pels senders il·luminats"
-    - "📍 Parada fàcil entre San Pedro Sula i Copán (85km des de SPS)"
+    - "📍 Parada fàcil entre San Pedro Sula i Copán (~100km des de SPS)"
   links:
-    - label: "Viquipèdia"
-      url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
     - label: "Tour de Coves"
       url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
       icon: "fa-brands fa-youtube"
@@ -225,12 +223,10 @@
   icon: "fa-solid fa-water"
   long_description: "Aquestes magnífiques cascades cauen a una piscina natural envoltada d'exuberant bosc tropical. Les opcions d'aventura inclouen ràpel darrere les cascades, nedar a piscines naturals i explorar senders propers. La connexió amb Disney fa d'aquest un destí màgic."
   tips:
-    - "🎬 Va inspirar les escenes de cascades a El Llibre de la Selva de Disney"
+    - "🎬 La llegenda local diu que va inspirar les escenes a El Llibre de la Selva de Disney"
     - "🧗 Opció d'aventura: ràpel darrere les cascades de 43m (cost extra)"
     - "🦜 Excel·lent lloc per albirar guacamais"
   links:
-    - label: "Viquipèdia"
-      url: "https://en.wikipedia.org/wiki/Pulhapanzak"
     - label: "Tour Cascades"
       url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
       icon: "fa-brands fa-youtube"

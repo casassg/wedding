@@ -17,7 +17,7 @@
   icon: "fa-solid fa-fish"
   long_description: ""
   tips:
-    - "🦈 Whale shark season: March-April and August-October"
+    - "🦈 Whale sharks are often spotted in December and January!"
     - "💰 Most budget-friendly Bay Island for dive certification"
     - "⛴️ Ferry from La Ceiba twice daily"
   links:
@@ -31,7 +31,7 @@
   long_description: ""
   tips:
     - "⛴️ Gateway to Bay Islands - ferries leave twice daily to Roatán"
-    - "🎭 Famous carnival in May - biggest party in Central America"
+    - "🌊 World-class whitewater rafting on the Cangrejal River"
     - "🌿 Pico Bonito National Park has excellent rainforest hikes"
   links:
     - label: "Wikipedia"
@@ -81,7 +81,7 @@
   long_description: ""
   tips:
     - "🛍️ Best handicrafts near Tegucigalpa - weekend markets are liveliest"
-    - "☕ Perfect day trip from the capital - just 30 minutes"
+    - "☕ Perfect day trip from the capital - ~30-45 mins (traffic dependent)"
     - "🌲 Cooler mountain climate - bring a light jacket"
   links:
     - label: "Wikipedia"
@@ -95,7 +95,7 @@
   tips:
     - "🐍 Home to endemic pink boas - found nowhere else on Earth"
     - "🤿 Marine protected area - pristine snorkeling and diving"
-    - "🏘️ Visit authentic Garifuna fishing villages"
+    - "🏘️ Best access via boat tour from Sambo Creek"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
@@ -202,16 +202,14 @@
 
 - id: taulabe
   title: "Cuevas de Taulabé"
-  description: "Impressive caves located 85km from San Pedro Sula featuring stunning stalactites and stalagmites. A cool underground adventure perfect for hot days."
+  description: "Impressive caves located ~100km from San Pedro Sula featuring stunning stalactites and stalagmites. A cool underground adventure perfect for hot days."
   icon: "fa-solid fa-mountain-sun"
   long_description: "These limestone caves extend for kilometers underground, though only a portion is open to visitors. The illuminated walkways reveal spectacular geological formations millions of years in the making."
   tips:
     - "🌡️ Perfect hot day escape - caves stay cool underground"
     - "👟 Bring good walking shoes for the illuminated walkways"
-    - "📍 Easy stop between San Pedro Sula and Copán (85km from SPS)"
+    - "📍 Easy stop between San Pedro Sula and Copán (~100km from SPS)"
   links:
-    - label: "Wikipedia"
-      url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
     - label: "Cave Tour"
       url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
       icon: "fa-brands fa-youtube"
@@ -225,12 +223,10 @@
   icon: "fa-solid fa-water"
   long_description: "These magnificent falls plunge into a natural pool surrounded by lush tropical forest. Adventure options include rappelling behind the falls, swimming in natural pools, and exploring nearby trails. The Disney connection makes this a magical destination."
   tips:
-    - "🎬 Inspired the waterfall scenes in Disney's The Jungle Book"
+    - "🎬 Local legend says it inspired scenes in Disney's The Jungle Book"
     - "🧗 Adventure option: rappel behind the 43m falls (extra fee)"
     - "🦜 Great spot for macaw sightings"
   links:
-    - label: "Wikipedia"
-      url: "https://en.wikipedia.org/wiki/Pulhapanzak"
     - label: "Waterfall Tour"
       url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
       icon: "fa-brands fa-youtube"
