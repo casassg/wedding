@@ -2,52 +2,207 @@
   title: "Roatán"
   description: "Un paraíso caribeño con buceo y snorkel de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano). ¡Te esperan playas de arena blanca, aguas turquesas y un [santuario de perezosos](https://roatan.online/roatan-sloth-sanctuary)!"
   icon: "fa-solid fa-water"
-  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
 
 - id: utila
   title: "Utila"
   description: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
   icon: "fa-solid fa-fish"
-  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Utila"
 
 - id: ceiba
   title: "La Ceiba"
   description: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
   icon: "fa-solid fa-masks-theater"
-  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
   title: "Lago de Yojoa"
   description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
   icon: "fa-solid fa-dove"
-  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+  long_description: "Ubicado a 80km de San Pedro Sula, este impresionante lago ofrece múltiples atracciones: senderos ecológicos del Parque Los Naranjos, Hotel Finca Las Glorias para comida local, paseos en bote Honduyate, parque acuático Lagolandia, y Los Domos de Agualpa con vistas espectaculares al lago."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+    - label: "Vista del Lago"
+      url: "https://www.youtube.com/watch?v=ptp64fKzdea"
+      icon: "fa-brands fa-youtube"
+    - label: "Explorar Yojoa"
+      url: "https://www.youtube.com/watch?v=OhlmySZTrnA"
+      icon: "fa-brands fa-youtube"
+    - label: "Tour Naturaleza"
+      url: "https://www.youtube.com/watch?v=p9mnLmKv9u8"
+      icon: "fa-brands fa-youtube"
+    - label: "Parque Los Naranjos"
+      url: "https://www.youtube.com/watch?v=QgLGqIEexMk"
+      icon: "fa-brands fa-youtube"
+    - label: "Finca Las Glorias"
+      url: "https://www.youtube.com/watch?v=EPkgVzYxuDI"
+      icon: "fa-brands fa-youtube"
+    - label: "Honduyate"
+      url: "https://www.youtube.com/watch?v=nOa5yGY-1Ew"
+      icon: "fa-brands fa-youtube"
+    - label: "Lagolandia"
+      url: "https://www.youtube.com/watch?v=yMjWZ6NfYM4"
+      icon: "fa-brands fa-youtube"
+    - label: "Domos de Agualpa"
+      url: "https://www.youtube.com/watch?v=aAbQGucMf8E"
+      icon: "fa-brands fa-youtube"
 
 - id: valle
   title: "Valle de Ángeles"
   description: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
   icon: "fa-solid fa-store"
-  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
 
 - id: cayos
   title: "Cayos Cochinos"
   description: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
 
 - id: tela
   title: "Tela"
-  description: "Una ciudad playera caribeña con dos atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas y vida silvestre, y el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla), uno de los más grandes de Latinoamérica."
+  description: "Una ciudad playera caribeña con atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas, el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla) (el más grande de Latinoamérica, a solo 5 min), además de resorts y clubes de playa."
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+  long_description: "Tela ofrece hermosas playas caribeñas y experiencias diversas. Punta Sal (Parque Nacional Jeannette Kawas) tiene playas prístinas y vida silvestre. Playa Miami tiene aguas tranquilas perfectas para familias. El Jardín Botánico Lancetilla, fundado en 1926, abarca 1,600 hectáreas con más de 1,500 especies de plantas - a solo 5 minutos del pueblo. Indura Resort ofrece lujo y golf, mientras La Ensenada Beach Club y Hotel Telamar brindan relajación frente al mar."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Tela"
+    - label: "Punta Sal"
+      url: "https://www.youtube.com/watch?v=NUwqo1vCPXE"
+      icon: "fa-brands fa-youtube"
+    - label: "Tour del Parque"
+      url: "https://www.youtube.com/watch?v=VzH2pwVDwrU"
+      icon: "fa-brands fa-youtube"
+    - label: "Jeannette Kawas"
+      url: "https://www.youtube.com/watch?v=jXptBkVOAMM"
+      icon: "fa-brands fa-youtube"
+    - label: "Playa Miami"
+      url: "https://www.youtube.com/watch?v=fBFMgsOVW9E"
+      icon: "fa-brands fa-youtube"
+    - label: "Jardín Lancetilla"
+      url: "https://www.youtube.com/watch?v=srWlXwcsCh4"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Resort"
+      url: "https://www.youtube.com/watch?v=nAjLFXYx0Yw"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Golf"
+      url: "https://www.youtube.com/watch?v=MgGm21ggQUw"
+      icon: "fa-brands fa-youtube"
+    - label: "La Ensenada"
+      url: "https://www.youtube.com/watch?v=UpTaw-fwPdc"
+      icon: "fa-brands fa-youtube"
+    - label: "Playa Ensenada"
+      url: "https://www.youtube.com/watch?v=FfY-Z3Suj4Y"
+      icon: "fa-brands fa-youtube"
+    - label: "Hotel Telamar"
+      url: "https://www.youtube.com/watch?v=ohbtW2w1Gxo"
+      icon: "fa-brands fa-youtube"
+    - label: "Villas Telamar"
+      url: "https://www.youtube.com/watch?v=F9FM1XrOD8s"
+      icon: "fa-brands fa-youtube"
 
 - id: gracias
   title: "Gracias y Aguas Termales"
   description: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
   icon: "fa-solid fa-spa"
-  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
 
 - id: comayagua
   title: "Comayagua"
   description: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
   icon: "fa-solid fa-church"
-  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Comayagua"
+
+- id: san_pedro
+  title: "San Pedro Sula"
+  description: "La capital industrial de Honduras y puerta de entrada a increíbles excursiones de un día. Explora el Parque Nacional El Cusuco, camina por los senderos de Angeli Gardens, compra en el mercado artesanal Guamilito, o visita los impresionantes campos de hortensias de El Merendón."
+  icon: "fa-solid fa-city"
+  long_description: "La segunda ciudad más grande ofrece excelentes opciones de excursiones de un día dentro de 100km. El Parque Nacional El Cusuco es una reserva biológica de bosque nuboso con increíble biodiversidad. Angeli Gardens ofrece senderos y tirolesas. El Mercado Guamilito es el lugar para artesanías hondureñas auténticas. El Merendón tiene hermosos campos de hortensias y el sendero de La Coca Cola."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
+    - label: "Parque El Cusuco"
+      url: "https://www.youtube.com/watch?v=3T1iIQfT1_w"
+      icon: "fa-brands fa-youtube"
+    - label: "Angeli Gardens"
+      url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
+      icon: "fa-brands fa-youtube"
+    - label: "Mercado Guamilito"
+      url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Campo Hortensias"
+      url: "https://www.youtube.com/watch?v=baxQ8WXMYGE"
+      icon: "fa-brands fa-youtube"
+    - label: "La Coca Cola"
+      url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
+      icon: "fa-brands fa-youtube"
+
+- id: taulabe
+  title: "Cuevas de Taulabé"
+  description: "Impresionantes cuevas ubicadas a 85km de San Pedro Sula con espectaculares estalactitas y estalagmitas. Una aventura subterránea fresca perfecta para días calurosos."
+  icon: "fa-solid fa-mountain-sun"
+  long_description: "Estas cuevas de piedra caliza se extienden por kilómetros bajo tierra, aunque solo una porción está abierta a visitantes. Los senderos iluminados revelan formaciones geológicas espectaculares de millones de años."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
+    - label: "Tour de Cuevas"
+      url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiencia Completa"
+      url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
+      icon: "fa-brands fa-youtube"
+
+- id: pulhapanzak
+  title: "Cataratas de Pulhapanzak"
+  description: "Una impresionante cascada de 43 metros que inspiró a Walt Disney para las escenas de cascadas en El Libro de la Selva. Una de las cascadas más hermosas de Centroamérica."
+  icon: "fa-solid fa-water"
+  long_description: "Estas magníficas cataratas caen a una piscina natural rodeada de exuberante bosque tropical. Las opciones de aventura incluyen rapel detrás de las cataratas, nadar en piscinas naturales y explorar senderos cercanos. La conexión con Disney hace de este un destino mágico."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Pulhapanzak"
+    - label: "Tour Cataratas"
+      url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
+      icon: "fa-brands fa-youtube"
+    - label: "Video Aventura"
+      url: "https://www.youtube.com/watch?v=9iH50CtlyPs"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiencia Completa"
+      url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
+      icon: "fa-brands fa-youtube"
+
+

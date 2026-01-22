@@ -2,46 +2,128 @@
   title: "Copán Ruins"
   description: "Explore the ancient Maya city with its famous Hieroglyphic Stairway, Great Plaza, and intricate stelae. Don't miss the sculpture museum!"
   icon: "fa-solid fa-monument"
-  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+  long_description: "One of the most important Maya archaeological sites, Copán was a powerful city-state during the Classic period. The site features remarkably preserved stelae, altars, and the longest known Maya hieroglyphic text."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=3UJTUQmfVys"
+      icon: "fa-brands fa-youtube"
+    - label: "Site Overview"
+      url: "https://www.youtube.com/watch?v=E186AOCIMko"
+      icon: "fa-brands fa-youtube"
+    - label: "Detailed Guide"
+      url: "https://www.youtube.com/watch?v=kvoInmgwzNU"
+      icon: "fa-brands fa-youtube"
 
 - id: macaw
   title: "Macaw Mountain"
   description: "A bird park and nature reserve home to rescued scarlet macaws, toucans, and other tropical birds in a beautiful forest setting."
   icon: "fa-solid fa-feather"
-  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+  long_description: "Part of a popular day tour that includes the town, San Rafael coffee farm, San Lucas, and the sunflower fields. A perfect combination of nature, culture, and local experiences."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Tour Video"
+      url: "https://www.youtube.com/watch?v=f5NF2l0bRxQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Full Experience"
+      url: "https://www.youtube.com/watch?v=Tpp_FhZRUwU"
+      icon: "fa-brands fa-youtube"
 
 - id: hotsprings
   title: "Luna Jaguar Hot Springs"
   description: "Natural hot springs about 20km from town, set in a lush valley. Perfect for relaxing after exploring the ruins."
   icon: "fa-solid fa-hot-tub-person"
-  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+  long_description: "Luna Jaguar offers a full spa experience with multiple thermal pools at different temperatures, surrounded by lush tropical vegetation. The Maya-themed setting adds to the magical atmosphere."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=C5AZpXLvrH8"
+      icon: "fa-brands fa-youtube"
+    - label: "Spa Experience"
+      url: "https://www.youtube.com/watch?v=T65QMGEKAUQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Full Visit"
+      url: "https://www.youtube.com/watch?v=F65XM-LL7Bw"
+      icon: "fa-brands fa-youtube"
 
 - id: chocolate
   title: "Tea & Chocolate Place"
   description: "Learn about cacao history and make your own chocolate in this hands-on workshop. A delicious and educational experience!"
   icon: "fa-solid fa-mug-hot"
-  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+  long_description: "Discover why Copán's chocolate is considered among the best in the world. The Maya revered cacao as 'food of the gods' and this workshop connects you to that ancient tradition while making your own delicious creations."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Workshop Tour"
+      url: "https://www.youtube.com/watch?v=yXcfTqriLZU"
+      icon: "fa-brands fa-youtube"
+    - label: "Chocolate Making"
+      url: "https://www.youtube.com/watch?v=0W6r9H0dAN8"
+      icon: "fa-brands fa-youtube"
+    - label: "Best Chocolate"
+      url: "https://www.youtube.com/watch?v=iieXa0BTQPo"
+      icon: "fa-brands fa-youtube"
 
 - id: cafe
   title: "Café San Rafael"
   description: "Visit a working coffee farm to learn about coffee production from bean to cup, with tastings of locally grown coffee."
   icon: "fa-solid fa-seedling"
-  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+  long_description: "Part of the popular Copán day tour along with Macaw Mountain and San Lucas. Experience Honduras's renowned coffee culture firsthand at this family-run farm in the highlands."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Farm Tour"
+      url: "https://www.youtube.com/watch?v=zJaNuc4W4LQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Coffee Experience"
+      url: "https://www.youtube.com/watch?v=C9kjngg5kcg"
+      icon: "fa-brands fa-youtube"
 
 - id: butterflies
   title: "Mariposario"
   description: "A butterfly sanctuary where you can walk among hundreds of colorful butterflies in an enclosed garden."
   icon: "fa-solid fa-dove"
-  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+  long_description: "Located at Hotel Mayan Hills Resort, this enchanting butterfly house lets you walk among dozens of native species in a tropical garden setting."
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=kEk9NgbN570"
+      icon: "fa-brands fa-youtube"
 
 - id: sunflowers
   title: "Sunflower Fields"
   description: "Seasonal sunflower fields near town make for beautiful photos - December timing may vary, but worth checking!"
   icon: "fa-solid fa-sun-plant-wilt"
-  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+      icon: "fa-solid fa-map-location-dot"
 
 - id: shopping
   title: "Local Artesanías"
   description: "Browse handcrafted Maya-inspired pottery, jade jewelry, textiles, and souvenirs in the town's shops and markets."
   icon: "fa-solid fa-bag-shopping"
-  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "View on Maps"
+      url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+      icon: "fa-solid fa-map-location-dot"

@@ -124,9 +124,86 @@
                 </div>
                 <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 text-sm font-sans flex-grow">{{ $place.description | markdownify }}</p>
-                <a href="{{ $place.maps_url }}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors">
-                    <i class="fa-solid fa-map-location-dot mr-2"></i>{{ i18n "view_on_maps" }}
-                </a>
+                <button type="button" 
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer"
+                        data-target="place-modal-copan-{{ $index }}">
+                    <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
+                </button>
+            </div>
+            
+            <!-- Modal for {{ $place.title }} -->
+            <div id="place-modal-copan-{{ $index }}" 
+                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-300"
+                 data-color="{{ $color }}">
+                <!-- Backdrop -->
+                <div class="place-modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                
+                <!-- Card -->
+                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col transform translate-y-8 md:translate-y-4 scale-[0.98] transition-transform duration-300 shadow-2xl">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between p-6 md:p-8 pb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0">
+                                <i class="{{ $place.icon }} text-2xl"></i>
+                            </div>
+                            <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $place.title }}</h3>
+                        </div>
+                        <button type="button"
+                                class="place-modal-close w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shrink-0 ml-4"
+                                aria-label="{{ i18n "place_close" }}">
+                            <i class="fa-solid fa-xmark text-gray-600"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Content (scrollable) -->
+                    <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
+                        <!-- Description -->
+                        <p class="text-gray-600 font-sans leading-relaxed">
+                            {{- with $place.long_description -}}
+                                {{ . | markdownify }}
+                            {{- else -}}
+                                {{ $place.description | markdownify }}
+                            {{- end -}}
+                        </p>
+                        
+                        {{- with $place.tips -}}
+                        <!-- Tips -->
+                        <div class="bg-{{ $color }}/10 p-4 rounded-xl">
+                            <h4 class="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-lightbulb text-{{ $color }}"></i>
+                                {{ i18n "place_tips" }}
+                            </h4>
+                            <ul class="text-gray-600 text-sm space-y-2">
+                                {{- range . -}}
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-{{ $color }} mt-1 text-xs shrink-0"></i>
+                                    <span>{{ . }}</span>
+                                </li>
+                                {{- end -}}
+                            </ul>
+                        </div>
+                        {{- end -}}
+                        
+                        {{- with $place.links -}}
+                        <!-- Links -->
+                        <div class="space-y-3">
+                            <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-link text-{{ $color }}"></i>
+                                {{ i18n "place_links" }}
+                            </h4>
+                            <div class="flex flex-wrap gap-3">
+                                {{- range . -}}
+                                <a href="{{ .url }}" target="_blank" rel="noopener"
+                                   class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+                                    <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
+                                    {{ .label }}
+                                </a>
+                                {{- end -}}
+                            </div>
+                        </div>
+                        {{- end -}}
+                    </div>
+                </div>
             </div>
             {{- end -}}
         </div>
@@ -183,9 +260,86 @@
                 </div>
                 <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 font-sans flex-grow">{{ $place.description | markdownify }}</p>
-                <a href="{{ $place.wiki_url }}" target="_blank" rel="noopener" class="mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors">
-                    <i class="fa-solid fa-arrow-up-right-from-square mr-2"></i>{{ i18n "learn_more" }}
-                </a>
+                <button type="button" 
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer"
+                        data-target="place-modal-honduras-{{ $index }}">
+                    <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
+                </button>
+            </div>
+            
+            <!-- Modal for {{ $place.title }} -->
+            <div id="place-modal-honduras-{{ $index }}" 
+                 class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-300"
+                 data-color="{{ $color }}">
+                <!-- Backdrop -->
+                <div class="place-modal-backdrop absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+                
+                <!-- Card -->
+                <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col transform translate-y-8 md:translate-y-4 scale-[0.98] transition-transform duration-300 shadow-2xl">
+                    <!-- Header -->
+                    <div class="flex items-start justify-between p-6 md:p-8 pb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0">
+                                <i class="{{ $place.icon }} text-2xl"></i>
+                            </div>
+                            <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $place.title }}</h3>
+                        </div>
+                        <button type="button"
+                                class="place-modal-close w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shrink-0 ml-4"
+                                aria-label="{{ i18n "place_close" }}">
+                            <i class="fa-solid fa-xmark text-gray-600"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Content (scrollable) -->
+                    <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
+                        <!-- Description -->
+                        <p class="text-gray-600 font-sans leading-relaxed">
+                            {{- with $place.long_description -}}
+                                {{ . | markdownify }}
+                            {{- else -}}
+                                {{ $place.description | markdownify }}
+                            {{- end -}}
+                        </p>
+                        
+                        {{- with $place.tips -}}
+                        <!-- Tips -->
+                        <div class="bg-{{ $color }}/10 p-4 rounded-xl">
+                            <h4 class="font-semibold text-gray-800 mb-3 flex items-center gap-2">
+                                <i class="fa-solid fa-lightbulb text-{{ $color }}"></i>
+                                {{ i18n "place_tips" }}
+                            </h4>
+                            <ul class="text-gray-600 text-sm space-y-2">
+                                {{- range . -}}
+                                <li class="flex items-start gap-2">
+                                    <i class="fa-solid fa-check text-{{ $color }} mt-1 text-xs shrink-0"></i>
+                                    <span>{{ . }}</span>
+                                </li>
+                                {{- end -}}
+                            </ul>
+                        </div>
+                        {{- end -}}
+                        
+                        {{- with $place.links -}}
+                        <!-- Links -->
+                        <div class="space-y-3">
+                            <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                                <i class="fa-solid fa-link text-{{ $color }}"></i>
+                                {{ i18n "place_links" }}
+                            </h4>
+                            <div class="flex flex-wrap gap-3">
+                                {{- range . -}}
+                                <a href="{{ .url }}" target="_blank" rel="noopener"
+                                   class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+                                    <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
+                                    {{ .label }}
+                                </a>
+                                {{- end -}}
+                            </div>
+                        </div>
+                        {{- end -}}
+                    </div>
+                </div>
             </div>
             {{- end -}}
         </div>

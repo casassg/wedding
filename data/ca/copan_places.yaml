@@ -2,46 +2,128 @@
   title: "Ruïnes de Copán"
   description: "Explora l'antiga ciutat maia amb la seva famosa Escalinata dels Jeroglífics, Gran Plaça i elaborades esteles. No et perdis el museu d'escultures!"
   icon: "fa-solid fa-monument"
-  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+  long_description: "Un dels llocs arqueològics maies més importants, Copán va ser una poderosa ciutat-estat durant el període Clàssic. El lloc presenta esteles, altars i el text jeroglífic maia més llarg conegut notablement preservats."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Vídeo Tour"
+      url: "https://www.youtube.com/watch?v=3UJTUQmfVys"
+      icon: "fa-brands fa-youtube"
+    - label: "Vista General"
+      url: "https://www.youtube.com/watch?v=E186AOCIMko"
+      icon: "fa-brands fa-youtube"
+    - label: "Guia Detallada"
+      url: "https://www.youtube.com/watch?v=kvoInmgwzNU"
+      icon: "fa-brands fa-youtube"
 
 - id: macaw
   title: "Macaw Mountain"
   description: "Un parc d'aus i reserva natural llar de guacamais vermells rescatats, tucans i altres aus tropicals en un preciós entorn selvàtic."
   icon: "fa-solid fa-feather"
-  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+  long_description: "Part d'un popular tour d'un dia que inclou el poble, la finca de cafè San Rafael, San Lucas i els camps de gira-sols. Una combinació perfecta de natura, cultura i experiències locals."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Vídeo del Tour"
+      url: "https://www.youtube.com/watch?v=f5NF2l0bRxQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiència Completa"
+      url: "https://www.youtube.com/watch?v=Tpp_FhZRUwU"
+      icon: "fa-brands fa-youtube"
 
 - id: hotsprings
   title: "Aigües Termals Luna Jaguar"
   description: "Aigües termals naturals a uns 20km del poble, ubicades en una exuberant vall. Perfectes per relaxar-se després d'explorar les ruïnes."
   icon: "fa-solid fa-hot-tub-person"
-  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+  long_description: "Luna Jaguar ofereix una experiència de spa completa amb múltiples piscines termals a diferents temperatures, envoltades d'exuberant vegetació tropical. L'ambient temàtic maia afegeix una atmosfera màgica."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Vídeo Tour"
+      url: "https://www.youtube.com/watch?v=C5AZpXLvrH8"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiència Spa"
+      url: "https://www.youtube.com/watch?v=T65QMGEKAUQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Visita Completa"
+      url: "https://www.youtube.com/watch?v=F65XM-LL7Bw"
+      icon: "fa-brands fa-youtube"
 
 - id: chocolate
   title: "Tea & Chocolate Place"
   description: "Aprèn sobre la història del cacau i fes el teu propi xocolata en aquest taller pràctic. Una experiència deliciosa i educativa!"
   icon: "fa-solid fa-mug-hot"
-  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+  long_description: "Descobreix per què la xocolata de Copán és considerada entre les millors del món. Els maies veneraven el cacau com a 'aliment dels déus' i aquest taller et connecta amb aquesta tradició ancestral mentre crees les teves pròpies delícies."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Tour del Taller"
+      url: "https://www.youtube.com/watch?v=yXcfTqriLZU"
+      icon: "fa-brands fa-youtube"
+    - label: "Fer Xocolata"
+      url: "https://www.youtube.com/watch?v=0W6r9H0dAN8"
+      icon: "fa-brands fa-youtube"
+    - label: "La Millor Xocolata"
+      url: "https://www.youtube.com/watch?v=iieXa0BTQPo"
+      icon: "fa-brands fa-youtube"
 
 - id: cafe
   title: "Café San Rafael"
   description: "Visita una finca de cafè en funcionament per aprendre sobre la producció del cafè, amb degustacions de cafè cultivat localment."
   icon: "fa-solid fa-seedling"
-  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+  long_description: "Part del popular tour d'un dia a Copán juntament amb Macaw Mountain i San Lucas. Experimenta de primera mà la reconeguda cultura cafetera d'Hondures en aquesta finca familiar a les terres altes."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Tour de la Finca"
+      url: "https://www.youtube.com/watch?v=zJaNuc4W4LQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiència Cafè"
+      url: "https://www.youtube.com/watch?v=C9kjngg5kcg"
+      icon: "fa-brands fa-youtube"
 
 - id: butterflies
   title: "Mariposario"
   description: "Un santuari de papallones on pots caminar entre centenars de papallones de colors en un jardí tancat."
   icon: "fa-solid fa-dove"
-  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+  long_description: "Ubicat a l'Hotel Mayan Hills Resort, aquest encantador mariposari et permet caminar entre dotzenes d'espècies natives en un entorn de jardí tropical."
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Vídeo Tour"
+      url: "https://www.youtube.com/watch?v=kEk9NgbN570"
+      icon: "fa-brands fa-youtube"
 
 - id: sunflowers
   title: "Camps de Gira-sols"
   description: "Camps de gira-sols de temporada a prop del poble ideals per fotos precioses - la disponibilitat al desembre pot variar, però val la pena preguntar!"
   icon: "fa-solid fa-sun-plant-wilt"
-  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+      icon: "fa-solid fa-map-location-dot"
 
 - id: shopping
   title: "Artesanies Locals"
   description: "Explora ceràmica d'inspiració maia, joieria de jade, tèxtils i records artesanals a les botigues i mercats del poble."
   icon: "fa-solid fa-bag-shopping"
-  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Veure a Maps"
+      url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+      icon: "fa-solid fa-map-location-dot"

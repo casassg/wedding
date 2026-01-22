@@ -2,52 +2,207 @@
   title: "Roatán"
   description: "Un paradís caribeny amb busseig i snorkel de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana). T'esperen platges d'arena blanca, aigües turqueses i un [santuari de peresosos](https://roatan.online/roatan-sloth-sanctuary)!"
   icon: "fa-solid fa-water"
-  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
 
 - id: utila
   title: "Utila"
   description: "Una illa popular entre motxillers coneguda per certificacions de busseig econòmiques i trobades amb taurons balena (temporades març-abril i agost-octubre)."
   icon: "fa-solid fa-fish"
-  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Utila"
 
 - id: ceiba
   title: "La Ceiba"
   description: "La ciutat d'entrada a les Illes de la Badia, coneguda pel seu carnaval i accés a les aventures a la selva del Parc Nacional Pico Bonito."
   icon: "fa-solid fa-masks-theater"
-  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
   title: "Llac de Yojoa"
   description: "El llac més gran d'Hondures, envoltat de boscos nuvolosos i llar de més de 400 espècies d'aus. Ideal per amants de la natura."
   icon: "fa-solid fa-dove"
-  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+  long_description: "Ubicat a 80km de San Pedro Sula, aquest impressionant llac ofereix múltiples atraccions: senders ecològics del Parc Los Naranjos, Hotel Finca Las Glorias per menjar local, passeigs en vaixell Honduyate, parc aquàtic Lagolandia, i Los Domos de Agualpa amb vistes espectaculars al llac."
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+    - label: "Vista del Llac"
+      url: "https://www.youtube.com/watch?v=ptp64fKzdea"
+      icon: "fa-brands fa-youtube"
+    - label: "Explorar Yojoa"
+      url: "https://www.youtube.com/watch?v=OhlmySZTrnA"
+      icon: "fa-brands fa-youtube"
+    - label: "Tour Natura"
+      url: "https://www.youtube.com/watch?v=p9mnLmKv9u8"
+      icon: "fa-brands fa-youtube"
+    - label: "Parc Los Naranjos"
+      url: "https://www.youtube.com/watch?v=QgLGqIEexMk"
+      icon: "fa-brands fa-youtube"
+    - label: "Finca Las Glorias"
+      url: "https://www.youtube.com/watch?v=EPkgVzYxuDI"
+      icon: "fa-brands fa-youtube"
+    - label: "Honduyate"
+      url: "https://www.youtube.com/watch?v=nOa5yGY-1Ew"
+      icon: "fa-brands fa-youtube"
+    - label: "Lagolandia"
+      url: "https://www.youtube.com/watch?v=yMjWZ6NfYM4"
+      icon: "fa-brands fa-youtube"
+    - label: "Domos de Agualpa"
+      url: "https://www.youtube.com/watch?v=aAbQGucMf8E"
+      icon: "fa-brands fa-youtube"
 
 - id: valle
   title: "Valle de Ángeles"
   description: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per les seves artesanies, carrers empedrats, boscos de pins i mercats de cap de setmana."
   icon: "fa-solid fa-store"
-  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
 
 - id: cayos
   title: "Cayos Cochinos"
   description: "Una prístina àrea marina protegida amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de boes roses i pobles pesquers garífunes - National Geographic l'anomena 'el somni d'un biòleg marí'."
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
 
 - id: tela
   title: "Tela"
-  description: "Una ciutat de platja caribenya amb dues atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines i vida salvatge, i el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), un dels més grans de Llatinoamèrica."
+  description: "Una ciutat de platja caribenya amb atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines, el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (el més gran de Llatinoamèrica, a només 5 min), a més de resorts i clubs de platja."
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+  long_description: "Tela ofereix precioses platges caribenyes i experiències diverses. Punta Sal (Parc Nacional Jeannette Kawas) té platges prístines i vida salvatge. Platja Miami té aigües tranquil·les perfectes per famílies. El Jardí Botànic Lancetilla, fundat el 1926, abasta 1,600 hectàrees amb més de 1,500 espècies de plantes - a només 5 minuts del poble. Indura Resort ofereix luxe i golf, mentre La Ensenada Beach Club i Hotel Telamar brinden relaxació davant del mar."
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Tela"
+    - label: "Punta Sal"
+      url: "https://www.youtube.com/watch?v=NUwqo1vCPXE"
+      icon: "fa-brands fa-youtube"
+    - label: "Tour del Parc"
+      url: "https://www.youtube.com/watch?v=VzH2pwVDwrU"
+      icon: "fa-brands fa-youtube"
+    - label: "Jeannette Kawas"
+      url: "https://www.youtube.com/watch?v=jXptBkVOAMM"
+      icon: "fa-brands fa-youtube"
+    - label: "Platja Miami"
+      url: "https://www.youtube.com/watch?v=fBFMgsOVW9E"
+      icon: "fa-brands fa-youtube"
+    - label: "Jardí Lancetilla"
+      url: "https://www.youtube.com/watch?v=srWlXwcsCh4"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Resort"
+      url: "https://www.youtube.com/watch?v=nAjLFXYx0Yw"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Golf"
+      url: "https://www.youtube.com/watch?v=MgGm21ggQUw"
+      icon: "fa-brands fa-youtube"
+    - label: "La Ensenada"
+      url: "https://www.youtube.com/watch?v=UpTaw-fwPdc"
+      icon: "fa-brands fa-youtube"
+    - label: "Platja Ensenada"
+      url: "https://www.youtube.com/watch?v=FfY-Z3Suj4Y"
+      icon: "fa-brands fa-youtube"
+    - label: "Hotel Telamar"
+      url: "https://www.youtube.com/watch?v=ohbtW2w1Gxo"
+      icon: "fa-brands fa-youtube"
+    - label: "Villas Telamar"
+      url: "https://www.youtube.com/watch?v=F9FM1XrOD8s"
+      icon: "fa-brands fa-youtube"
 
 - id: gracias
   title: "Gracias i Aigües Termals"
   description: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque - el pic més alt d'Hondures."
   icon: "fa-solid fa-spa"
-  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
 
 - id: comayagua
   title: "Comayagua"
   description: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures amb impressionant arquitectura colonial espanyola, el rellotge més antic d'Amèrica i precioses celebracions de Setmana Santa."
   icon: "fa-solid fa-church"
-  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Comayagua"
+
+- id: san_pedro
+  title: "San Pedro Sula"
+  description: "La capital industrial d'Hondures i porta d'entrada a increïbles excursions d'un dia. Explora el Parc Nacional El Cusuco, camina pels senders d'Angeli Gardens, compra al mercat artesanal Guamilito, o visita els impressionants camps d'hortènsies d'El Merendón."
+  icon: "fa-solid fa-city"
+  long_description: "La segona ciutat més gran ofereix excel·lents opcions d'excursions d'un dia dins de 100km. El Parc Nacional El Cusuco és una reserva biològica de bosc nuvolós amb increïble biodiversitat. Angeli Gardens ofereix senders i tirolines. El Mercat Guamilito és el lloc per artesanies hondurenyes autèntiques. El Merendón té preciosos camps d'hortènsies i el sender de La Coca Cola."
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
+    - label: "Parc El Cusuco"
+      url: "https://www.youtube.com/watch?v=3T1iIQfT1_w"
+      icon: "fa-brands fa-youtube"
+    - label: "Angeli Gardens"
+      url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
+      icon: "fa-brands fa-youtube"
+    - label: "Mercat Guamilito"
+      url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Camp Hortènsies"
+      url: "https://www.youtube.com/watch?v=baxQ8WXMYGE"
+      icon: "fa-brands fa-youtube"
+    - label: "La Coca Cola"
+      url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
+      icon: "fa-brands fa-youtube"
+
+- id: taulabe
+  title: "Coves de Taulabé"
+  description: "Impressionants coves ubicades a 85km de San Pedro Sula amb espectaculars estalactites i estalagmites. Una aventura subterrània fresca perfecta per dies calorosos."
+  icon: "fa-solid fa-mountain-sun"
+  long_description: "Aquestes coves de pedra calcària s'estenen per quilòmetres sota terra, encara que només una porció està oberta a visitants. Els senders il·luminats revelen formacions geològiques espectaculars de milions d'anys."
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
+    - label: "Tour de Coves"
+      url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiència Completa"
+      url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
+      icon: "fa-brands fa-youtube"
+
+- id: pulhapanzak
+  title: "Cascades de Pulhapanzak"
+  description: "Una impressionant cascada de 43 metres que va inspirar Walt Disney per les escenes de cascades a El Llibre de la Selva. Una de les cascades més boniques de Centreamèrica."
+  icon: "fa-solid fa-water"
+  long_description: "Aquestes magnífiques cascades cauen a una piscina natural envoltada d'exuberant bosc tropical. Les opcions d'aventura inclouen ràpel darrere les cascades, nedar a piscines naturals i explorar senders propers. La connexió amb Disney fa d'aquest un destí màgic."
+  tips: []
+  links:
+    - label: "Viquipèdia"
+      url: "https://en.wikipedia.org/wiki/Pulhapanzak"
+    - label: "Tour Cascades"
+      url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
+      icon: "fa-brands fa-youtube"
+    - label: "Vídeo Aventura"
+      url: "https://www.youtube.com/watch?v=9iH50CtlyPs"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiència Completa"
+      url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
+      icon: "fa-brands fa-youtube"
+
+

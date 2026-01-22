@@ -349,6 +349,56 @@
     }
 
     // ===================
+    // Place Cards Modal
+    // ===================
+    function initPlaceCards() {
+        // Open modal when clicking "Learn more" button
+        document.querySelectorAll('.place-card-trigger').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const modal = document.getElementById(btn.dataset.target);
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.classList.add('place-modal-open');
+                }
+            });
+        });
+
+        // Close modal on backdrop click
+        document.querySelectorAll('.place-modal-backdrop').forEach(backdrop => {
+            backdrop.addEventListener('click', () => {
+                const modal = backdrop.closest('.place-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('place-modal-open');
+                }
+            });
+        });
+
+        // Close modal on close button click
+        document.querySelectorAll('.place-modal-close').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.place-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('place-modal-open');
+                }
+            });
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const activeModal = document.querySelector('.place-modal.active');
+                if (activeModal) {
+                    activeModal.classList.remove('active');
+                    document.body.classList.remove('place-modal-open');
+                }
+            }
+        });
+    }
+
+    // ===================
     // Initialize Everything
     // ===================
     document.addEventListener('DOMContentLoaded', () => {
@@ -358,6 +408,7 @@
         initNavScroll();
         initAmpersandEasterEgg();
         initLastUpdated();
+        initPlaceCards();
     });
 
 })();

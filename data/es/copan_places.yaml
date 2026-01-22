@@ -2,46 +2,128 @@
   title: "Ruinas de Copán"
   description: "Explora la antigua ciudad maya con su famosa Escalinata de los Jeroglíficos, Gran Plaza y elaboradas estelas. ¡No te pierdas el museo de esculturas!"
   icon: "fa-solid fa-monument"
-  maps_url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+  long_description: "Uno de los sitios arqueológicos mayas más importantes, Copán fue una poderosa ciudad-estado durante el período Clásico. El sitio presenta estelas, altares y el texto jeroglífico maya más largo conocido notablemente preservados."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=3UJTUQmfVys"
+      icon: "fa-brands fa-youtube"
+    - label: "Vista General"
+      url: "https://www.youtube.com/watch?v=E186AOCIMko"
+      icon: "fa-brands fa-youtube"
+    - label: "Guía Detallada"
+      url: "https://www.youtube.com/watch?v=kvoInmgwzNU"
+      icon: "fa-brands fa-youtube"
 
 - id: macaw
   title: "Macaw Mountain"
   description: "Un parque de aves y reserva natural hogar de guacamayas rojas rescatadas, tucanes y otras aves tropicales en un hermoso entorno selvático."
   icon: "fa-solid fa-feather"
-  maps_url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+  long_description: "Parte de un popular tour de un día que incluye el pueblo, la finca de café San Rafael, San Lucas y los campos de girasoles. Una combinación perfecta de naturaleza, cultura y experiencias locales."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video del Tour"
+      url: "https://www.youtube.com/watch?v=f5NF2l0bRxQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiencia Completa"
+      url: "https://www.youtube.com/watch?v=Tpp_FhZRUwU"
+      icon: "fa-brands fa-youtube"
 
 - id: hotsprings
   title: "Aguas Termales Luna Jaguar"
   description: "Aguas termales naturales a unos 20km del pueblo, ubicadas en un exuberante valle. Perfectas para relajarse después de explorar las ruinas."
   icon: "fa-solid fa-hot-tub-person"
-  maps_url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+  long_description: "Luna Jaguar ofrece una experiencia de spa completa con múltiples piscinas termales a diferentes temperaturas, rodeadas de exuberante vegetación tropical. El ambiente temático maya añade una atmósfera mágica."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/HK7b7QiZkcDKrQWJ8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=C5AZpXLvrH8"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiencia Spa"
+      url: "https://www.youtube.com/watch?v=T65QMGEKAUQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Visita Completa"
+      url: "https://www.youtube.com/watch?v=F65XM-LL7Bw"
+      icon: "fa-brands fa-youtube"
 
 - id: chocolate
   title: "Tea & Chocolate Place"
   description: "Aprende sobre la historia del cacao y haz tu propio chocolate en este taller práctico. ¡Una experiencia deliciosa y educativa!"
   icon: "fa-solid fa-mug-hot"
-  maps_url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+  long_description: "Descubre por qué el chocolate de Copán es considerado entre los mejores del mundo. Los mayas veneraban el cacao como 'alimento de los dioses' y este taller te conecta con esa tradición ancestral mientras creas tus propias delicias."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Tour del Taller"
+      url: "https://www.youtube.com/watch?v=yXcfTqriLZU"
+      icon: "fa-brands fa-youtube"
+    - label: "Hacer Chocolate"
+      url: "https://www.youtube.com/watch?v=0W6r9H0dAN8"
+      icon: "fa-brands fa-youtube"
+    - label: "El Mejor Chocolate"
+      url: "https://www.youtube.com/watch?v=iieXa0BTQPo"
+      icon: "fa-brands fa-youtube"
 
 - id: cafe
   title: "Café San Rafael"
   description: "Visita una finca de café en funcionamiento para aprender sobre la producción del café, con degustaciones de café cultivado localmente."
   icon: "fa-solid fa-seedling"
-  maps_url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+  long_description: "Parte del popular tour de un día en Copán junto con Macaw Mountain y San Lucas. Experimenta de primera mano la reconocida cultura cafetera de Honduras en esta finca familiar en las tierras altas."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/YWJPtdaJPNyRMGDD8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Tour de la Finca"
+      url: "https://www.youtube.com/watch?v=zJaNuc4W4LQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Experiencia Café"
+      url: "https://www.youtube.com/watch?v=C9kjngg5kcg"
+      icon: "fa-brands fa-youtube"
 
 - id: butterflies
   title: "Mariposario"
   description: "Un santuario de mariposas donde puedes caminar entre cientos de mariposas coloridas en un jardín cerrado."
   icon: "fa-solid fa-dove"
-  maps_url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+  long_description: "Ubicado en el Hotel Mayan Hills Resort, este encantador mariposario te permite caminar entre docenas de especies nativas en un entorno de jardín tropical."
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/uMWkrikVVQT1GP618"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Video Tour"
+      url: "https://www.youtube.com/watch?v=kEk9NgbN570"
+      icon: "fa-brands fa-youtube"
 
 - id: sunflowers
   title: "Campos de Girasoles"
   description: "Campos de girasoles de temporada cerca del pueblo ideales para fotos hermosas - la disponibilidad en diciembre puede variar, ¡pero vale la pena preguntar!"
   icon: "fa-solid fa-sun-plant-wilt"
-  maps_url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
+      icon: "fa-solid fa-map-location-dot"
 
 - id: shopping
   title: "Artesanías Locales"
   description: "Explora cerámica de inspiración maya, joyería de jade, textiles y recuerdos artesanales en las tiendas y mercados del pueblo."
   icon: "fa-solid fa-bag-shopping"
-  maps_url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Ver en Maps"
+      url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"
+      icon: "fa-solid fa-map-location-dot"

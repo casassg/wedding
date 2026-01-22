@@ -227,3 +227,18 @@ html {
         border: 1px solid #ddd;
     }
 }
+
+/* Place Card Modal */
+.place-modal.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.place-modal.active .place-modal-card {
+    transform: translateY(0) scale(1);
+}
+
+body.place-modal-open {
+    overflow: hidden;
+}

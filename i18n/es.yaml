@@ -129,6 +129,12 @@ traveling_where_to_stay: "Dónde Alojarse"
 traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de alojamiento para diferentes presupuestos y preferencias."
 traveling_accommodation_soon: "Estamos trabajando en recomendaciones de hoteles y posiblemente tarifas grupales. ¡Detalles próximamente!"
 
+# Place Card Modal
+place_learn_more: "Más información"
+place_close: "Cerrar"
+place_tips: "Consejos"
+place_links: "Enlaces"
+
 # Footer
 footer_message: ""
 made_with_love: "Hecho con <3 por Gerard y Laura"

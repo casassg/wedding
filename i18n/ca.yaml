@@ -128,6 +128,12 @@ traveling_where_to_stay: "On Allotjar-se"
 traveling_accommodation_intro: "Copán Ruinas té una varietat d'opcions d'allotjament per a diferents pressupostos i preferències."
 traveling_accommodation_soon: "Estem treballant en recomanacions d'hotels i possiblement tarifes grupals. Detalls properament!"
 
+# Place Card Modal
+place_learn_more: "Més informació"
+place_close: "Tancar"
+place_tips: "Consells"
+place_links: "Enllaços"
+
 # Footer
 footer_message: ""
 made_with_love: "Fet amb <3 per Gerard i Laura"

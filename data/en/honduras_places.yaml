@@ -2,52 +2,207 @@
   title: "Roatán"
   description: "A Caribbean island paradise with world-class diving and snorkeling on the [Mesoamerican Barrier Reef](https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System). White sand beaches, turquoise waters, and a [sloth sanctuary](https://roatan.online/roatan-sloth-sanctuary) await!"
   icon: "fa-solid fa-water"
-  wiki_url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
 
 - id: utila
   title: "Utila"
   description: "A backpacker-friendly island known for budget diving certification and whale shark encounters (March-April and August-October seasons)."
   icon: "fa-solid fa-fish"
-  wiki_url: "https://en.wikipedia.org/wiki/Utila"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Utila"
 
 - id: ceiba
   title: "La Ceiba"
   description: "The gateway city to the Bay Islands, known for its carnival and access to Pico Bonito National Park's rainforest adventures."
   icon: "fa-solid fa-masks-theater"
-  wiki_url: "https://en.wikipedia.org/wiki/La_Ceiba"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
   title: "Lago de Yojoa"
   description: "Honduras's largest lake, surrounded by cloud forests and home to over 400 bird species. Great for nature lovers and birdwatchers."
   icon: "fa-solid fa-dove"
-  wiki_url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+  long_description: "Located 80km from San Pedro Sula, this stunning lake offers multiple attractions: Parque Los Naranjos eco-trails, Hotel Finca Las Glorias for local cuisine, Honduyate boat tours, Lagolandia water park, and Los Domos de Agualpa glamping domes with spectacular lake views."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+    - label: "Lake Overview"
+      url: "https://www.youtube.com/watch?v=ptp64fKzdea"
+      icon: "fa-brands fa-youtube"
+    - label: "Explore Yojoa"
+      url: "https://www.youtube.com/watch?v=OhlmySZTrnA"
+      icon: "fa-brands fa-youtube"
+    - label: "Nature Tour"
+      url: "https://www.youtube.com/watch?v=p9mnLmKv9u8"
+      icon: "fa-brands fa-youtube"
+    - label: "Parque Los Naranjos"
+      url: "https://www.youtube.com/watch?v=QgLGqIEexMk"
+      icon: "fa-brands fa-youtube"
+    - label: "Finca Las Glorias"
+      url: "https://www.youtube.com/watch?v=EPkgVzYxuDI"
+      icon: "fa-brands fa-youtube"
+    - label: "Honduyate Boats"
+      url: "https://www.youtube.com/watch?v=nOa5yGY-1Ew"
+      icon: "fa-brands fa-youtube"
+    - label: "Lagolandia"
+      url: "https://www.youtube.com/watch?v=yMjWZ6NfYM4"
+      icon: "fa-brands fa-youtube"
+    - label: "Domos de Agualpa"
+      url: "https://www.youtube.com/watch?v=aAbQGucMf8E"
+      icon: "fa-brands fa-youtube"
 
 - id: valle
   title: "Valle de Angeles"
   description: "A charming [colonial mountain town](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles) just 30 minutes from Tegucigalpa. Famous for handicrafts, cobblestone streets, pine forests, and weekend markets."
   icon: "fa-solid fa-store"
-  wiki_url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
 
 - id: cayos
   title: "Cayos Cochinos"
   description: "A pristine marine protected area with [two small islands and 13 coral cays](https://en.wikipedia.org/wiki/Cayos_Cochinos). Home to pink boas and Garifuna fishing villages - National Geographic calls it 'a marine biologist's dream.'"
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
 
 - id: tela
   title: "Tela"
-  description: "A Caribbean beach town with two must-see attractions: [Punta Sal National Park](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park) with pristine beaches and wildlife, and [Lancetilla Botanical Garden](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), one of Latin America's largest."
+  description: "A Caribbean beach town with must-see attractions: [Punta Sal National Park](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park) with pristine beaches, [Lancetilla Botanical Garden](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (Latin America's largest, just 5 min away), plus resorts and beach clubs."
   icon: "fa-solid fa-umbrella-beach"
-  wiki_url: "https://en.wikipedia.org/wiki/Tela"
+  long_description: "Tela offers beautiful Caribbean beaches and diverse experiences. Punta Sal (Jeannette Kawas National Park) features pristine beaches and wildlife. Playa Miami has calm waters perfect for families. Lancetilla Botanical Garden, founded in 1926, spans 1,600 hectares with over 1,500 plant species - just 5 minutes from town. Indura Resort offers luxury and golf, while La Ensenada Beach Club and Hotel Telamar provide beachfront relaxation."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Tela"
+    - label: "Punta Sal"
+      url: "https://www.youtube.com/watch?v=NUwqo1vCPXE"
+      icon: "fa-brands fa-youtube"
+    - label: "Park Tour"
+      url: "https://www.youtube.com/watch?v=VzH2pwVDwrU"
+      icon: "fa-brands fa-youtube"
+    - label: "Jeannette Kawas"
+      url: "https://www.youtube.com/watch?v=jXptBkVOAMM"
+      icon: "fa-brands fa-youtube"
+    - label: "Playa Miami"
+      url: "https://www.youtube.com/watch?v=fBFMgsOVW9E"
+      icon: "fa-brands fa-youtube"
+    - label: "Lancetilla Garden"
+      url: "https://www.youtube.com/watch?v=srWlXwcsCh4"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Resort"
+      url: "https://www.youtube.com/watch?v=nAjLFXYx0Yw"
+      icon: "fa-brands fa-youtube"
+    - label: "Indura Golf"
+      url: "https://www.youtube.com/watch?v=MgGm21ggQUw"
+      icon: "fa-brands fa-youtube"
+    - label: "La Ensenada"
+      url: "https://www.youtube.com/watch?v=UpTaw-fwPdc"
+      icon: "fa-brands fa-youtube"
+    - label: "Ensenada Beach"
+      url: "https://www.youtube.com/watch?v=FfY-Z3Suj4Y"
+      icon: "fa-brands fa-youtube"
+    - label: "Hotel Telamar"
+      url: "https://www.youtube.com/watch?v=ohbtW2w1Gxo"
+      icon: "fa-brands fa-youtube"
+    - label: "Villas Telamar"
+      url: "https://www.youtube.com/watch?v=F9FM1XrOD8s"
+      icon: "fa-brands fa-youtube"
 
 - id: gracias
   title: "Gracias & Hot Springs"
   description: "A charming [colonial town](https://en.wikipedia.org/wiki/Gracias,_Honduras) founded in 1536 with natural hot springs, historic churches, and access to Celaque National Park - Honduras's highest peak."
   icon: "fa-solid fa-spa"
-  wiki_url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
 
 - id: comayagua
   title: "Comayagua"
   description: "Honduras's [former capital](https://en.wikipedia.org/wiki/Comayagua) with stunning Spanish colonial architecture, the oldest clock in the Americas, and beautiful Holy Week celebrations."
   icon: "fa-solid fa-church"
-  wiki_url: "https://en.wikipedia.org/wiki/Comayagua"
+  long_description: ""
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Comayagua"
+
+- id: san_pedro
+  title: "San Pedro Sula"
+  description: "Honduras's industrial capital and gateway to amazing day trips. Explore El Cusuco National Park, hike Angeli Gardens trails, shop at Guamilito artisan market, or visit the stunning hydrangea fields of El Merendón."
+  icon: "fa-solid fa-city"
+  long_description: "The second largest city offers excellent day trip options within 100km. El Cusuco National Park is a cloud forest biological reserve with incredible biodiversity. Angeli Gardens offers hiking trails and canopy ziplines. Guamilito Market is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
+    - label: "El Cusuco Park"
+      url: "https://www.youtube.com/watch?v=3T1iIQfT1_w"
+      icon: "fa-brands fa-youtube"
+    - label: "Angeli Gardens"
+      url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
+      icon: "fa-brands fa-youtube"
+    - label: "Guamilito Market"
+      url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
+      icon: "fa-brands fa-youtube"
+    - label: "Hydrangea Fields"
+      url: "https://www.youtube.com/watch?v=baxQ8WXMYGE"
+      icon: "fa-brands fa-youtube"
+    - label: "La Coca Cola Hike"
+      url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
+      icon: "fa-brands fa-youtube"
+
+- id: taulabe
+  title: "Cuevas de Taulabé"
+  description: "Impressive caves located 85km from San Pedro Sula featuring stunning stalactites and stalagmites. A cool underground adventure perfect for hot days."
+  icon: "fa-solid fa-mountain-sun"
+  long_description: "These limestone caves extend for kilometers underground, though only a portion is open to visitors. The illuminated walkways reveal spectacular geological formations millions of years in the making."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Taulabe_Caves"
+    - label: "Cave Tour"
+      url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
+      icon: "fa-brands fa-youtube"
+    - label: "Full Experience"
+      url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
+      icon: "fa-brands fa-youtube"
+
+- id: pulhapanzak
+  title: "Pulhapanzak Waterfalls"
+  description: "A stunning 43-meter waterfall that inspired Walt Disney for the waterfall scenes in The Jungle Book. One of Central America's most beautiful cascades."
+  icon: "fa-solid fa-water"
+  long_description: "These magnificent falls plunge into a natural pool surrounded by lush tropical forest. Adventure options include rappelling behind the falls, swimming in natural pools, and exploring nearby trails. The Disney connection makes this a magical destination."
+  tips: []
+  links:
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Pulhapanzak"
+    - label: "Waterfall Tour"
+      url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
+      icon: "fa-brands fa-youtube"
+    - label: "Adventure Video"
+      url: "https://www.youtube.com/watch?v=9iH50CtlyPs"
+      icon: "fa-brands fa-youtube"
+    - label: "Full Experience"
+      url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
+      icon: "fa-brands fa-youtube"
+
+
