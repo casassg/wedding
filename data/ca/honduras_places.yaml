@@ -1,13 +1,13 @@
 - id: roatan
   title: "Roatán"
-  description: "La Illa de la Badia més gran (~59km de llarg) amb busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana) - el 2n sistema d'esculls més gran del món. Llar de la [cultura garífuna](https://ca.wikipedia.org/wiki/Gar%C3%ADfunes) a Punta Gorda (fundada el 1797), platges impressionants i santuaris de vida salvatge increïbles."
+  description: "L'illa de la Badia més gran (~59 km de llarg), amb busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana), el segon sistema d'esculls més gran del món. És la llar de la [cultura garífuna](https://ca.wikipedia.org/wiki/Gar%C3%ADfunes) a Punta Gorda (fundada el 1797) i té platges impressionants i santuaris de vida salvatge increïbles."
   icon: "fa-solid fa-water"
-  long_description: "West Bay Beach està constantment classificada entre les millors platges del Carib, amb sorra prístina i escull a poca distància. West End és el principal centre turístic amb botigues de busseig, restaurants i vida nocturna. L'escull està protegit pel [Roatan Marine Park](https://www.roatanmarinepark.org/), una organització sense ànim de lucre amb programes de restauració de coral - pots visitar el seu Centre de Restauració de Coral o unir-te a un taller de caça de peix lleó. No et perdis els santuaris de vida salvatge: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) per trobades properes amb animals, i [Gumbalimba Park](https://roatan.online/gumbalimba-park) per tirolines i vida salvatge. La [Fàbrica de Xocolata de Roatán](https://roatan.online/roatan-chocolate-factory) ofereix tours gratuïts mostrant la producció del gra a la rajola. Per aventura, explora túnels de manglars al tranquil extrem est, o relaxa't a les platges apartades de Camp Bay."
+  long_description: "West Bay Beach és considerada sovint una de les millors platges del Carib, amb sorra blanca i l'escull a poca distància nedant. West End és el centre turístic principal, amb centres de busseig, restaurants i vida nocturna. L'escull està protegit pel [Roatan Marine Park](https://www.roatanmarinepark.org/), una organització sense ànim de lucre amb programes de restauració de coral (pots visitar-ne el centre o fer un taller de caça de peix lleó). No et perdis els santuaris d'animals: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) per veure'ls de prop, i [Gumbalimba Park](https://roatan.online/gumbalimba-park) per a tirolines i natura. La [Fàbrica de Xocolata de Roatán](https://roatan.online/roatan-chocolate-factory) ofereix tours gratuïts del procés del gra a la rajola. Si busques aventura, explora els túnels de manglars a l'extrem est, més tranquil, o relaxa't a les platges solitàries de Camp Bay."
   tips:
-    - "🏊 Millor snorkel a la platja West Bay - l'escull és a poca distància nedant de la riba."
-    - "🐠 Fes servir protector solar segur per esculls - ajuda a protegir el coral."
-    - "🛳️ Evita comprar quan arriben creuers - els preus es dupliquen o tripliquen."
-    - "🦟 Aplica repel·lent fort (tipus Relec) sovint - les puces de sorra piquen sense avís."
+    - "🏊 El millor snorkel és a la platja de West Bay: l'escull és a tocar de la sorra."
+    - "🐠 Fes servir crema solar que no malmeti els esculls per protegir el coral."
+    - "🛳️ Evita anar a comprar quan arriben creuers: els preus es dupliquen o tripliquen."
+    - "🦟 Posa't repel·lent fort (tipus Relec) sovint: les puces de sorra piquen sense avisar."
   links:
     - label: "Viquipèdia"
       url: "https://ca.wikipedia.org/wiki/Roat%C3%A1n"
@@ -30,15 +30,15 @@
 
 - id: utila
   title: "Utila"
-  description: "L'Illa de la Badia més petita amb un ambient relaxat i 'boho', busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana), i un dels millors llocs del món per albirar taurons balena - el desembre és temporada alta! Llar de la iguana Swamper endèmica que no existeix enlloc més del planeta."
+  description: "L'illa de la Badia més petita, amb un ambient relaxat i bohemi. Ofereix busseig de primera a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana) i és un dels millors llocs del món per veure taurons balena (el desembre és temporada alta!). És l'hàbitat de la iguana Swamper, una espècie endèmica que no es troba enlloc més del planeta."
   icon: "fa-solid fa-fish"
-  long_description: "Un paradís motxiller i refugi de bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No es permeten cotxes - mou-te en tuk-tuk, quad o carret de golf. Destaquen: Airport Caves per increïble snorkel des de la riba amb coves i barrancs (nedadors intermedis); Neptune's a Coral Beach Village (accés en vaixell) per dies de platja i excel·lent snorkel; Water Caye per una excursió a una illa deshabitada prístina; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per degustacions artesanals del gra a la rajola."
+  long_description: "Paradís de motxillers i bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No hi circulen cotxes: mou-te en tuk-tuk, quad o carret de golf. Destaquen: Airport Caves per fer snorkel increïble des de la riba amb coves i esquerdes (nivell mitjà); Neptune's a Coral Beach Village (accés en vaixell) per passar el dia a la platja i fer snorkel; Water Caye per una excursió a una illa deshabitada verge; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per tastar xocolata artesanal."
   tips:
-    - "🦈 El desembre és temporada alta de taurons balena - moment perfecte pel viatge de casament!"
-    - "💰 Un dels llocs més econòmics del món per certificació PADI."
-    - "⛴️ Ferry des de Roatán (1hr) o La Ceiba - [utilaferry.com](https://utilaferry.com/) és un lloc on reservar."
-    - "🤿 Airport Caves té snorkel increïble des de la riba - requereix nivell intermedi."
-    - "💵 L'efectiu és el rei - porta lempires o dòlars americans."
+    - "🦈 El desembre és temporada alta de taurons balena: ideal per al viatge!"
+    - "💰 Un dels llocs més econòmics del món per treure's el títol PADI."
+    - "⛴️ Ferri des de Roatán (1 h) o La Ceiba. Pots reservar a [utilaferry.com](https://utilaferry.com/)."
+    - "🤿 Airport Caves té un snorkel brutal des de la riba, però cal un nivell mitjà."
+    - "💵 Porteu efectiu (lempires o dòlars americans)."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Utila"
@@ -51,29 +51,45 @@
 
 - id: ceiba
   title: "La Ceiba"
-  description: "La ciutat d'entrada a les Illes de la Badia, coneguda pel seu carnaval i accés a les aventures a la selva del Parc Nacional Pico Bonito."
+  description: "La capital de l'oci d'Hondures i porta d'entrada a les illes de la Badia, situada al peu de l'imponent [Pico Bonito](https://en.wikipedia.org/wiki/Pico_Bonito_National_Park) (2.435 m). Seu del festival més gran del país (el [Gran Carnaval Internacional](https://en.wikipedia.org/wiki/La_Ceiba_Carnival), al maig), també ofereix ràfting de primer nivell, una comunitat [garífuna](https://ca.wikipedia.org/wiki/Gar%C3%ADfunes) vibrant i una vida nocturna llegendària."
   icon: "fa-solid fa-masks-theater"
-  long_description: ""
+  long_description: "Batejada per una ceiba gegant que creixia prop dels vells molls, La Ceiba es va desenvolupar com a port bananer a finals del s. XIX amb els germans Vaccaro (ara Dole). Avui és el centre de l'ecoturisme a Hondures. Atraccions principals: el [Parc Nacional Pico Bonito](https://en.wikipedia.org/wiki/Pico_Bonito_National_Park), amb senders per la selva, cascades i gran biodiversitat; el [riu Cangrejal](https://en.wikipedia.org/wiki/Cangrejal_River) per fer ràfting de classe III-IV just a l'est de la ciutat; i el [Refugi de Vida Silvestre Cuero y Salado](https://en.wikipedia.org/wiki/Cuero_y_Salado_Wildlife_Refuge) a l'oest, on es poden veure manatís salvatges. Hi ha ferris diaris a Roatán i Utila. La Zona Viva és el districte d'oci nocturn. Al Barrio La Isla, a l'altra banda de l'estuari, hi viu una pròspera comunitat garífuna."
   tips:
-    - "⛴️ Porta a les Illes de la Badia - ferries surten dues vegades al dia cap a Roatán."
-    - "🌊 Ràfting de classe mundial al riu Cangrejal."
-    - "🌿 El Parc Nacional Pico Bonito té excel·lents caminades a la selva."
+    - "⛴️ Porta d'entrada a les illes de la Badia: ferris dos cops al dia cap a Roatán i Utila."
+    - "🎭 El Carnaval (3r dissabte de maig) atrau més de 500.000 persones. No coincideix amb el viatge, però és la festa més grossa del país!"
+    - "🌊 Ràfting de classe mundial (nivell III-IV) al riu Cangrejal."
+    - "🦭 Al Refugi Cuero y Salado hi ha manatís salvatges; s'hi fan tours en llanxa."
+    - "🦋 El Museu de Papallones i Insectes té més de 12.000 espècimens de 68 països."
+    - "🌿 El Parc Nacional Pico Bonito té rutes excel·lents per la selva i cascades."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
   title: "Llac de Yojoa"
-  description: "El llac més gran d'Hondures, envoltat de boscos nuvolosos i llar de més de 400 espècies d'aus. Ideal per amants de la natura."
+  description: "El llac més gran d'Hondures, envoltat de bosc ennuvolat i llar de més de 400 espècies d'aus. Gaudeix de tours de xocolata artesanal, parcs ecoarqueològics, lodges de muntanya i observació d'aus de primer nivell."
   icon: "fa-solid fa-dove"
-  long_description: "Ubicat a 80km de San Pedro Sula, aquest impressionant llac ofereix múltiples atraccions: senders ecològics del Parc Los Naranjos, Hotel Finca Las Glorias per menjar local, passeigs en vaixell Honduyate, parc aquàtic Lagolandia, i Los Domos de Agualpa amb vistes espectaculars al llac."
+  long_description: "Situat a 80 km de San Pedro Sula, aquest llac impressionant ofereix moltes activitats: xocolata artesanal a Yojoa Chocolate i Luna del Puente (tours del gra a la rajola); Bioparque Paradise (parc ecològic de 78 hectàrees amb senders, cascades i ruïnes lenca); PANACAM Lodge al Parc Nacional Cerro Azul Meámbar (lodge de muntanya amb rutes, torres de guaita i vistes panoràmiques); D&D Brewery (la primera cerveseria artesanal d'Hondures, amb tours d'ocells); senders del Parc Los Naranjos; Hotel Finca Las Glorias per menjar local; passejos en barca a Honduyate; parc aquàtic Lagolandia; i Los Domos de Agualpa, amb vistes espectaculars al llac."
   tips:
-    - "🍺 Visita D&D Brewery - la primera cerveseria artesanal d'Hondures."
-    - "🐟 Prova la tilapia fregida 'Estil Llac de Yojoa' als restaurants de carretera."
-    - "🐦 Més de 400 espècies d'aus - porta binoculars!"
+    - "🍺 Visita D&D Brewery, la primera cerveseria artesanal d'Hondures."
+    - "🍫 Fes un tour de xocolata: aprèn el procés del gra a la rajola en finques de cacau locals."
+    - "🐟 Tasta la tilàpia fregida 'estil llac de Yojoa' als restaurants de carretera."
+    - "🐦 Més de 400 espècies d'aus: porta els prismàtics!"
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+    - label: "Yojoa Chocolate"
+      url: "https://yojoachocolate.com/"
+      icon: "fa-solid fa-cookie-bite"
+    - label: "PANACAM Lodge"
+      url: "https://www.panacamlodge.com/"
+      icon: "fa-solid fa-mountain"
+    - label: "Bioparque Paradise"
+      url: "https://www.hondurastips.hn/2013/07/29/bioparque-paradise-los-naranajos/"
+      icon: "fa-solid fa-tree"
+    - label: "D&D Birding"
+      url: "https://ddbrewery.com/index.php/birding-onaround-lake-yojoa/"
+      icon: "fa-solid fa-binoculars"
     - label: "Vista del Llac"
       url: "https://www.youtube.com/watch?v=ptp64fKzdea"
       icon: "fa-brands fa-youtube"
@@ -101,39 +117,52 @@
 
 - id: valle
   title: "Valle de Ángeles"
-  description: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per les seves artesanies, carrers empedrats, boscos de pins i mercats de cap de setmana."
+  description: "Un encantador [poble colonial de muntanya](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a només 30 minuts de Tegucigalpa. Famós per l'artesania, els carrers empedrats, els boscos de pins i els mercats de cap de setmana."
   icon: "fa-solid fa-store"
   long_description: ""
   tips:
-    - "🛍️ Millors artesanies a prop de Tegucigalpa - els mercats de cap de setmana són els més animats."
-    - "☕ Excursió perfecta des de la capital - ~30-45 mins (depèn del trànsit)."
-    - "🌲 Clima fresc de muntanya - porta una jaqueta lleugera."
+    - "🛍️ La millor artesania a prop de Tegucigalpa; els mercats de cap de setmana són els més animats."
+    - "☕ Excursió perfecta des de la capital: ~30-45 min (segons el trànsit)."
+    - "🌲 Clima fresc de muntanya: porta una jaqueta lleugera."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
 
 - id: cayos
   title: "Cayos Cochinos"
-  description: "Una prístina àrea marina protegida amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de boes roses i pobles pesquers garífunes - National Geographic l'anomena 'el somni d'un biòleg marí'."
+  description: "Àrea marina protegida verge amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de la boa rosa i de pobles pesquers garífunes. National Geographic l'anomena 'el somni d'un biòleg marí'."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: ""
+  long_description: "Aquest santuari marí protegit forma part del Sistema d'Esculls Mesoamericà i ofereix busseig i snorkel en aigües cristal·lines. Gestionat per la [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), les illes acullen programes crítics de restauració de corall i conservació de tortugues marines. Els visitants poden explorar les illes principals (Cayo Mayor i Menor), fer senderisme per veure la boa rosa endèmica i conèixer la cultura local al poble garífuna de Chachahuate. Tant si hi aneu d'excursió d'un dia com si us allotgeu en un ecoresort, l'experiència és inoblidable."
   tips:
-    - "🐍 Llar de boes roses endèmiques - no existeixen enlloc més del món."
-    - "🤿 Àrea marina protegida - snorkel i busseig prístins."
-    - "🏘️ Millor accés via tour en llanxa des de Sambo Creek."
+    - "🛥️ Accessible en llanxa des de La Ceiba (1,5 h), Roatán (40 min) o Sambo Creek."
+    - "🐍 Llar de la boa rosa endèmica; fes una caminada guiada a Cayo Mayor per veure-la."
+    - "🤿 Àrea marina protegida amb esculls verges, perfecta per a snorkel i busseig."
+    - "🏘️ Visita l'illot Chachahuate per menjar i viure la cultura garífuna autèntica."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+    - label: "Fundación Cayos"
+      url: "https://www.cayoscochinos.org/"
+      icon: "fa-solid fa-leaf"
+    - label: "Garifuna Tours"
+      url: "https://garifunatours.com/tour/cayos-cochinos-snorkeling-experience/"
+      icon: "fa-solid fa-ship"
+    - label: "Beach Resort"
+      url: "https://www.cayoscochinosbeachresort.com/"
+      icon: "fa-solid fa-hotel"
+    - label: "Guia de Viatge"
+      url: "https://littlebirdietravel.com/cayos-cochinos-honduras/"
+      icon: "fa-solid fa-book"
 
 - id: tela
   title: "Tela"
-  description: "Una ciutat de platja caribenya amb atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) amb platges prístines, el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (el més gran de Llatinoamèrica, a només 5 min), a més de resorts i clubs de platja."
+  description: "Ciutat de platja caribenya amb atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas), amb platges verges; el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (el més gran de Llatinoamèrica, a 5 min), i resorts i clubs de platja."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: "Tela ofereix precioses platges caribenyes i experiències diverses. Punta Sal (Parc Nacional Jeannette Kawas) té platges prístines i vida salvatge. Platja Miami té aigües tranquil·les perfectes per famílies. El Jardí Botànic Lancetilla, fundat el 1926, abasta 1,600 hectàrees amb més de 1,500 espècies de plantes - a només 5 minuts del poble. Indura Resort ofereix luxe i golf, mentre La Ensenada Beach Club i Hotel Telamar brinden relaxació davant del mar."
+  long_description: "Tela ofereix platges caribenyes precioses i experiències diverses. Punta Sal (Parc Nacional Jeannette Kawas) té platges verges i fauna salvatge. Playa Miami té aigües tranquil·les, ideals per a famílies. El Jardí Botànic Lancetilla, fundat el 1926, abasta 1.600 hectàrees amb més de 1.500 espècies de plantes, a només 5 minuts del poble. Indura Resort ofereix luxe i golf, mentre que La Ensenada Beach Club i l'Hotel Telamar brinden relaxació a primera línia de mar."
   tips:
-    - "🏖️ Punta Sal té platges prístines i vida salvatge - reserva un tour en vaixell."
-    - "🌿 El Jardí Botànic Lancetilla és el més gran de Llatinoamèrica - a només 5 min."
-    - "🥥 Prova coco fresc dels venedors de platja i pa de coco garífuna."
+    - "🏖️ Punta Sal té platges verges i fauna salvatge; reserva un tour en vaixell."
+    - "🌿 El Jardí Botànic Lancetilla és el més gran de Llatinoamèrica (a només 5 min)."
+    - "🥥 Tasta el coco fresc dels venedors de la platja i el pa de coco garífuna."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Tela"
@@ -173,39 +202,39 @@
 
 - id: gracias
   title: "Gracias i Aigües Termals"
-  description: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque - el pic més alt d'Hondures."
+  description: "Un encantador [poble colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundat el 1536 amb aigües termals naturals, esglésies històriques i accés al Parc Nacional Celaque, el pic més alt d'Hondures."
   icon: "fa-solid fa-spa"
   long_description: ""
   tips:
     - "♨️ Aigües termals naturals perfectes per relaxar-se després de caminar."
-    - "⛰️ Base per escalar Celaque - el pic més alt d'Hondures."
-    - "🏛️ Preciosa arquitectura colonial des de 1536."
+    - "⛰️ Base per pujar al Celaque, el pic més alt d'Hondures."
+    - "🏛️ Arquitectura colonial preciosa del 1536."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
 
 - id: comayagua
   title: "Comayagua"
-  description: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures amb impressionant arquitectura colonial espanyola, el rellotge més antic d'Amèrica i precioses celebracions de Setmana Santa."
+  description: "L'[antiga capital](https://ca.wikipedia.org/wiki/Comayagua) d'Hondures, amb una arquitectura colonial espanyola impressionant, el rellotge més antic d'Amèrica i unes processons de Setmana Santa precioses."
   icon: "fa-solid fa-church"
   long_description: ""
   tips:
-    - "⏰ Mira el rellotge més antic d'Amèrica - més de 500 anys."
-    - "✝️ Famosa per elaborades celebracions de Setmana Santa."
-    - "🏛️ Antiga capital amb impressionant arquitectura colonial espanyola."
+    - "⏰ Mira el rellotge més antic d'Amèrica (més de 500 anys)."
+    - "✝️ Famosa per les celebracions de Setmana Santa."
+    - "🏛️ Antiga capital amb una arquitectura colonial espanyola impressionant."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Comayagua"
 
 - id: san_pedro
   title: "San Pedro Sula"
-  description: "La capital industrial d'Hondures i porta d'entrada a increïbles excursions d'un dia. Explora el Parc Nacional El Cusuco, camina pels senders d'Angeli Gardens, compra al mercat artesanal Guamilito, o visita els impressionants camps d'hortènsies d'El Merendón."
+  description: "La capital industrial d'Hondures i porta d'entrada a excursions increïbles d'un dia. Explora el Parc Nacional El Cusuco, camina pels senders d'Angeli Gardens, compra al mercat artesanal Guamilito o visita els camps d'hortènsies d'El Merendón."
   icon: "fa-solid fa-city"
-  long_description: "La segona ciutat més gran ofereix excel·lents opcions d'excursions d'un dia dins de 100km. El Parc Nacional El Cusuco és una reserva biològica de bosc nuvolós amb increïble biodiversitat. Angeli Gardens ofereix senders i tirolines. El Mercat Guamilito és el lloc per artesanies hondurenyes autèntiques. El Merendón té preciosos camps d'hortènsies i el sender de La Coca Cola."
+  long_description: "La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El Parc Nacional El Cusuco és una reserva de bosc ennuvolat amb una gran biodiversitat. Angeli Gardens ofereix senders i tirolines. El mercat Guamilito és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola."
   tips:
-    - "🌺 Visita els camps d'hortènsies d'El Merendón en temporada de floració."
-    - "🛍️ Mercat Guamilito per artesanies hondurenyes autèntiques."
-    - "🌿 El Parc Nacional El Cusuco té bosc nuvolós amb increïble biodiversitat."
+    - "🌺 Visita els camps d'hortènsies d'El Merendón quan floreixen."
+    - "🛍️ Mercat Guamilito per a artesania hondurenya autèntica."
+    - "🌿 El Parc Nacional El Cusuco té bosc ennuvolat amb una biodiversitat increïble."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
@@ -227,13 +256,13 @@
 
 - id: taulabe
   title: "Coves de Taulabé"
-  description: "Impressionants coves ubicades a ~100km de San Pedro Sula amb espectaculars estalactites i estalagmites. Una aventura subterrània fresca perfecta per dies calorosos."
+  description: "Coves impressionants situades a uns 100 km de San Pedro Sula, amb estalactites i estalagmites espectaculars. Una aventura subterrània fresca, perfecta per als dies calorosos."
   icon: "fa-solid fa-mountain-sun"
-  long_description: "Aquestes coves de pedra calcària s'estenen per quilòmetres sota terra, encara que només una porció està oberta a visitants. Els senders il·luminats revelen formacions geològiques espectaculars de milions d'anys."
+  long_description: "Aquestes coves de pedra calcària s'estenen quilòmetres sota terra, tot i que només se'n pot visitar una part. Els camins il·luminats revelen formacions geològiques espectaculars de milions d'anys."
   tips:
-    - "🌡️ Escapada perfecta de la calor - les coves es mantenen fresques sota terra."
-    - "👟 Porta bones sabates per caminar pels senders il·luminats."
-    - "📍 Parada fàcil entre San Pedro Sula i Copán (~100km des de SPS)."
+    - "🌡️ Escapada perfecta de la calor: les coves es mantenen fresques."
+    - "👟 Porta calçat còmode per caminar pels camins."
+    - "📍 Parada fàcil entre San Pedro Sula i Copán (~100 km des de SPS)."
   links:
     - label: "Tour de Coves"
       url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
@@ -244,13 +273,13 @@
 
 - id: pulhapanzak
   title: "Cascades de Pulhapanzak"
-  description: "Una impressionant cascada de 43 metres que va inspirar Walt Disney per les escenes de cascades a El Llibre de la Selva. Una de les cascades més boniques de Centreamèrica."
+  description: "Una cascada impressionant de 43 metres que va inspirar Walt Disney per a les escenes de 'El llibre de la selva'. Una de les més boniques de Centreamèrica."
   icon: "fa-solid fa-water"
-  long_description: "Aquestes magnífiques cascades cauen a una piscina natural envoltada d'exuberant bosc tropical. Les opcions d'aventura inclouen ràpel darrere les cascades, nedar a piscines naturals i explorar senders propers. La connexió amb Disney fa d'aquest un destí màgic."
+  long_description: "Aquestes cascades magnífiques cauen en una piscina natural envoltada de bosc tropical exuberant. Hi pots fer ràpel darrere la cascada, nedar a les piscines naturals i explorar els camins propers. La connexió amb Disney en fa un destí màgic."
   tips:
-    - "🎬 La llegenda local diu que va inspirar les escenes a El Llibre de la Selva de Disney."
-    - "🧗 Opció d'aventura: ràpel darrere les cascades de 43m (cost extra)."
-    - "🦜 Excel·lent lloc per albirar guacamais."
+    - "🎬 La llegenda local diu que va inspirar les escenes de 'El llibre de la selva' de Disney."
+    - "🧗 Aventura: ràpel darrere la cascada de 43 m (cost extra)."
+    - "🦜 Lloc excel·lent per veure guacamais."
   links:
     - label: "Tour Cascades"
       url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"

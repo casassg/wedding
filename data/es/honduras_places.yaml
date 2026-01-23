@@ -1,13 +1,13 @@
 - id: roatan
   title: "Roatán"
-  description: "La Isla de la Bahía más grande (~59km de largo) con buceo de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano) - el 2do sistema de arrecifes más grande del mundo. Hogar de la [cultura garífuna](https://es.wikipedia.org/wiki/Gar%C3%ADfuna) en Punta Gorda (fundada en 1797), playas impresionantes y santuarios de vida silvestre increíbles."
+  description: "La mayor de las Islas de la Bahía (~59 km de largo), famosa por su buceo de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano), el segundo sistema de arrecifes más grande del mundo. Hogar de la [cultura garífuna](https://es.wikipedia.org/wiki/Gar%C3%ADfuna) en Punta Gorda, playas impresionantes y santuarios de vida silvestre."
   icon: "fa-solid fa-water"
-  long_description: "West Bay Beach está constantemente clasificada entre las mejores playas del Caribe, con arena prístina y arrecife a poca distancia. West End es el principal centro turístico con tiendas de buceo, restaurantes y vida nocturna. El arrecife está protegido por el [Roatan Marine Park](https://www.roatanmarinepark.org/), una organización sin fines de lucro con programas de restauración de coral - puedes visitar su Centro de Restauración de Coral o unirte a un taller de caza de pez león. No te pierdas los santuarios de vida silvestre: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) para encuentros cercanos con animales, y [Gumbalimba Park](https://roatan.online/gumbalimba-park) para tirolesas y vida silvestre. La [Fábrica de Chocolate de Roatán](https://roatan.online/roatan-chocolate-factory) ofrece tours gratuitos mostrando la producción del grano a la barra. Para aventura, explora túneles de manglares en el tranquilo extremo este, o relájate en las playas apartadas de Camp Bay."
+  long_description: "West Bay Beach figura constantemente entre las mejores playas del Caribe, con arena blanca y el arrecife accesible a nado. West End es el centro turístico principal, lleno de escuelas de buceo, restaurantes y vida nocturna. El arrecife está protegido por el [Roatan Marine Park](https://www.roatanmarinepark.org/), una ONG con programas de restauración de coral (puedes visitar su centro o unirte a talleres de captura de pez león). No te pierdas los santuarios de animales: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) para ver perezosos y monos, y [Gumbalimba Park](https://roatan.online/gumbalimba-park) para tirolesas (canopy) y naturaleza. La [Fábrica de Chocolate de Roatán](https://roatan.online/roatan-chocolate-factory) ofrece tours gratuitos sobre la elaboración del chocolate. Para más aventura, explora los manglares del este o relájate en las playas vírgenes de Camp Bay."
   tips:
-    - "🏊 Mejor snorkel en playa West Bay - el arrecife está a nado corto de la orilla."
-    - "🐠 Usa protector solar seguro para arrecifes - ayuda a proteger el coral."
-    - "🛳️ Evita comprar cuando llegan cruceros - los precios se duplican o triplican."
-    - "🦟 Aplica repelente fuerte (tipo Relec) a menudo - las pulgas de arena pican sin aviso."
+    - "🏊 El mejor snorkel está en West Bay: puedes llegar al arrecife nadando desde la orilla."
+    - "🐠 Usa protector solar 'reef-safe' (seguro para arrecifes) para proteger el coral."
+    - "🛳️ Evita ir de compras cuando llegan los cruceros; los precios suelen subir."
+    - "🦟 Usa repelente fuerte (tipo Relec) frecuentemente; las pulgas de arena pican sin avisar."
   links:
     - label: "Wikipedia"
       url: "https://es.wikipedia.org/wiki/Roat%C3%A1n"
@@ -30,15 +30,15 @@
 
 - id: utila
   title: "Utila"
-  description: "La Isla de la Bahía más pequeña con un ambiente relajado y 'bohemio', buceo de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano), y uno de los mejores lugares del mundo para avistar tiburones ballena - ¡diciembre es temporada alta! Hogar de la iguana Swamper endémica que no existe en ningún otro lugar del planeta."
+  description: "La más pequeña de las islas, con un ambiente relajado y bohemio. Ofrece buceo increíble en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano) y es uno de los mejores lugares del mundo para ver tiburones ballena (¡diciembre es temporada alta!). Es el único hogar de la iguana Swamper."
   icon: "fa-solid fa-fish"
-  long_description: "Un paraíso mochilero y refugio de buceadores, Utila ofrece algunas de las certificaciones PADI más económicas del Caribe. No se permiten coches - muévete en tuk-tuk, cuatrimoto o carrito de golf. Destacan: Airport Caves para increíble snorkel desde la orilla con cuevas y cañones (nadadores intermedios); Neptune's en Coral Beach Village (acceso en bote) para días de playa y excelente snorkel; Water Caye para una excursión a una isla deshabitada prístina; Pumpkin Hill para una caminata corta al punto más alto de la isla; y Utila Chocolate Company para degustaciones artesanales del grano a la barra."
+  long_description: "Paraíso de mochileros y buceadores, Utila es conocida por tener cursos de certificación PADI muy económicos. Apenas hay autos; la gente se mueve en tuk-tuk, cuatrimoto o carritos de golf. Puntos destacados: Airport Caves (cuevas y cañones submarinos increíbles accesibles desde la orilla, nivel intermedio); Neptune's en Coral Beach Village (acceso en bote para playa y snorkel); Water Caye (cayo deshabitado de postal); Pumpkin Hill (caminata al punto más alto) y la Utila Chocolate Company."
   tips:
-    - "🦈 Diciembre es temporada alta de tiburones ballena - ¡momento perfecto para el viaje de boda!"
-    - "💰 Uno de los lugares más económicos del mundo para certificación PADI."
-    - "⛴️ Ferry desde Roatán (1hr) o La Ceiba - [utilaferry.com](https://utilaferry.com/) es un sitio donde reservar."
-    - "🤿 Airport Caves tiene snorkel increíble desde la orilla - requiere nivel intermedio."
-    - "💵 El efectivo es el rey - trae lempiras o dólares estadounidenses."
+    - "🦈 Diciembre es temporada alta de tiburones ballena, ¡ideal para verlos!"
+    - "💰 Uno de los lugares más económicos del mundo para certificarse en buceo (PADI/SSI)."
+    - "⛴️ Ferry desde Roatán (1h) o La Ceiba. Puedes reservar en [utilaferry.com](https://utilaferry.com/)."
+    - "🤿 Airport Caves tiene snorkel espectacular desde la orilla (requiere saber nadar bien)."
+    - "💵 Es preferible llevar efectivo (lempiras o dólares en buen estado)."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Utila"
@@ -51,29 +51,44 @@
 
 - id: ceiba
   title: "La Ceiba"
-  description: "La ciudad de entrada a las Islas de la Bahía, conocida por su carnaval y acceso a las aventuras en la selva del Parque Nacional Pico Bonito."
+  description: "La 'Novia de Honduras' y puerta de entrada a las islas. Ubicada imponentemente a los pies del [Pico Bonito](https://es.wikipedia.org/wiki/Parque_nacional_Pico_Bonito) (2,435 m), ofrece rafting de clase mundial, cultura [garífuna](https://es.wikipedia.org/wiki/Gar%C3%ADfuna) y una animada vida nocturna."
   icon: "fa-solid fa-masks-theater"
-  long_description: ""
+  long_description: "Debe su nombre a una ceiba gigante que crecía cerca de los antiguos muelles. Hoy es el centro del ecoturismo en Honduras. Sus principales atracciones son el [Parque Nacional Pico Bonito](https://es.wikipedia.org/wiki/Parque_nacional_Pico_Bonito) (selva, cascadas y biodiversidad), el [Río Cangrejal](https://es.wikipedia.org/wiki/R%C3%ADo_Cangrejal) (rafting de nivel III-IV muy cerca de la ciudad) y el [Refugio de Vida Silvestre Cuero y Salado](https://es.wikipedia.org/wiki/Refugio_de_Vida_Silvestre_Cuero_y_Salado) (manglares y manatíes). El puerto de ferry conecta con Roatán y Utila dos veces al día. La Zona Viva y el Barrio La Isla ofrecen ambiente festivo y cultura local."
   tips:
-    - "⛴️ Puerta a las Islas de la Bahía - ferries salen dos veces al día a Roatán."
-    - "🌊 Rafting de clase mundial en el río Cangrejal."
-    - "🌿 Parque Nacional Pico Bonito tiene excelentes caminatas en selva."
+    - "⛴️ Punto de partida hacia las Islas de la Bahía (ferries diarios)."
+    - "🌊 Rafting de clase mundial (niveles III-IV) en el Río Cangrejal."
+    - "🦭 En el Refugio Cuero y Salado puedes ver manatíes salvajes (tours en lancha)."
+    - "🦋 El Museo de Mariposas e Insectos alberga más de 12,000 especímenes."
+    - "🌿 Pico Bonito ofrece excelentes senderos y cascadas para los amantes de la naturaleza."
   links:
     - label: "Wikipedia"
-      url: "https://en.wikipedia.org/wiki/La_Ceiba"
+      url: "https://es.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
   title: "Lago de Yojoa"
-  description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Ideal para amantes de la naturaleza."
+  description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Disfruta de chocolate artesanal, parques eco-arqueológicos, lodges de montaña y naturaleza."
   icon: "fa-solid fa-dove"
-  long_description: "Ubicado a 80km de San Pedro Sula, este impresionante lago ofrece múltiples atracciones: senderos ecológicos del Parque Los Naranjos, Hotel Finca Las Glorias para comida local, paseos en bote Honduyate, parque acuático Lagolandia, y Los Domos de Agualpa con vistas espectaculares al lago."
+  long_description: "A 80 km de San Pedro Sula, este impresionante lago ofrece múltiples actividades: tours de cacao y chocolate en Yojoa Chocolate y Luna del Puente; el Bioparque Paradise (senderos, cascadas y ruinas lencas); PANACAM Lodge en el Parque Nacional Cerro Azul Meámbar (naturaleza y vistas panorámicas); D&D Brewery (cervecería artesanal y observación de aves); senderos en el Parque Los Naranjos y restaurantes locales como Finca Las Glorias. También puedes visitar Los Domos de Agualpa."
   tips:
-    - "🍺 Visita D&D Brewery - la primera cervecería artesanal de Honduras."
-    - "🐟 Prueba la tilapia frita 'Estilo Lago de Yojoa' en restaurantes de la carretera."
-    - "🐦 Más de 400 especies de aves - ¡trae binoculares!"
+    - "🍺 Visita D&D Brewery, la primera cervecería artesanal de Honduras."
+    - "🍫 Haz un tour de chocolate para ver el proceso desde el cacao hasta la barra."
+    - "🐟 Prueba la tilapia frita 'estilo Lago de Yojoa' en los restaurantes de la carretera."
+    - "🐦 Paraíso para observadores de aves (+400 especies); ¡trae binoculares!"
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
+    - label: "Yojoa Chocolate"
+      url: "https://yojoachocolate.com/"
+      icon: "fa-solid fa-cookie-bite"
+    - label: "PANACAM Lodge"
+      url: "https://www.panacamlodge.com/"
+      icon: "fa-solid fa-mountain"
+    - label: "Bioparque Paradise"
+      url: "https://www.hondurastips.hn/2013/07/29/bioparque-paradise-los-naranajos/"
+      icon: "fa-solid fa-tree"
+    - label: "D&D Birding"
+      url: "https://ddbrewery.com/index.php/birding-onaround-lake-yojoa/"
+      icon: "fa-solid fa-binoculars"
     - label: "Vista del Lago"
       url: "https://www.youtube.com/watch?v=ptp64fKzdea"
       icon: "fa-brands fa-youtube"
@@ -101,39 +116,52 @@
 
 - id: valle
   title: "Valle de Ángeles"
-  description: "Un encantador [pueblo colonial de montaña](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y mercados de fin de semana."
+  description: "Encantador [pueblo colonial](https://es.wikipedia.org/wiki/Valle_de_%C3%81ngeles) a solo 30 minutos de Tegucigalpa. Famoso por sus artesanías, calles empedradas, bosques de pinos y ambiente de fin de semana."
   icon: "fa-solid fa-store"
   long_description: ""
   tips:
-    - "🛍️ Mejores artesanías cerca de Tegucigalpa - los mercados de fin de semana son los más animados."
-    - "☕ Excursión perfecta desde la capital - ~30-45 mins (depende del tráfico)."
-    - "🌲 Clima fresco de montaña - trae una chaqueta ligera."
+    - "🛍️ El mejor lugar para comprar artesanías cerca de Tegucigalpa."
+    - "☕ Excursión ideal desde la capital (~30-45 mins dependiendo del tráfico)."
+    - "🌲 Clima fresco de montaña; se recomienda llevar una chaqueta ligera."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles"
 
 - id: cayos
   title: "Cayos Cochinos"
-  description: "Una prístina área marina protegida con [dos islas pequeñas y 13 cayos de coral](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de boas rosadas y aldeas pesqueras garífunas - National Geographic lo llama 'el sueño de un biólogo marino'."
+  description: "Área marina protegida con [dos islas pequeñas y 13 cayos](https://es.wikipedia.org/wiki/Cayos_Cochinos). Hogar de la boa rosada y aldeas garífunas. National Geographic lo llama 'el sueño de un biólogo marino'."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: ""
+  long_description: "Este santuario marino es parte del Sistema Arrecifal Mesoamericano. Gestionado por la [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), protege arrecifes y tortugas marinas. Puedes visitar Cayo Mayor y Menor, buscar la boa rosada (endémica) en los senderos y conocer la cultura garífuna en Chachahuate. Sus aguas cristalinas son inolvidables tanto para visitas de un día como para estancias en eco-resorts."
   tips:
-    - "🐍 Hogar de boas rosadas endémicas - no existen en ningún otro lugar del mundo."
-    - "🤿 Área marina protegida - snorkel y buceo prístinos."
-    - "🏘️ Mejor acceso vía tour en lancha desde Sambo Creek."
+    - "🛥️ Accesible en lancha desde La Ceiba (1.5h), Roatán (40min) o Sambo Creek."
+    - "🐍 Hogar de la boa rosada; haz una caminata guiada en Cayo Mayor para verla."
+    - "🤿 Arrecifes vírgenes perfectos para snorkel y buceo."
+    - "🏘️ Visita el cayo Chachahuate para probar comida auténtica garífuna."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Cayos_Cochinos"
+    - label: "Fundación Cayos"
+      url: "https://www.cayoscochinos.org/"
+      icon: "fa-solid fa-leaf"
+    - label: "Garifuna Tours"
+      url: "https://garifunatours.com/tour/cayos-cochinos-snorkeling-experience/"
+      icon: "fa-solid fa-ship"
+    - label: "Beach Resort"
+      url: "https://www.cayoscochinosbeachresort.com/"
+      icon: "fa-solid fa-hotel"
+    - label: "Guía de Viaje"
+      url: "https://littlebirdietravel.com/cayos-cochinos-honduras/"
+      icon: "fa-solid fa-book"
 
 - id: tela
   title: "Tela"
-  description: "Una ciudad playera caribeña con atracciones imperdibles: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas) con playas prístinas, el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla) (el más grande de Latinoamérica, a solo 5 min), además de resorts y clubes de playa."
+  description: "Ciudad costera caribeña con grandes atractivos: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas), el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla) (el más grande de Latinoamérica) y hermosas playas."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: "Tela ofrece hermosas playas caribeñas y experiencias diversas. Punta Sal (Parque Nacional Jeannette Kawas) tiene playas prístinas y vida silvestre. Playa Miami tiene aguas tranquilas perfectas para familias. El Jardín Botánico Lancetilla, fundado en 1926, abarca 1,600 hectáreas con más de 1,500 especies de plantas - a solo 5 minutos del pueblo. Indura Resort ofrece lujo y golf, mientras La Ensenada Beach Club y Hotel Telamar brindan relajación frente al mar."
+  long_description: "Tela combina playas caribeñas con naturaleza. Punta Sal (Parque Nacional Jeannette Kawas) ofrece playas vírgenes y selva. Playa Miami es ideal para familias por sus aguas tranquilas. El Jardín Botánico Lancetilla (fundado en 1926) alberga más de 1,500 especies de plantas. Indura Resort ofrece golf y lujo, mientras que La Ensenada y el Hotel Telamar son opciones clásicas frente al mar."
   tips:
-    - "🏖️ Punta Sal tiene playas prístinas y vida silvestre - reserva un tour en bote."
-    - "🌿 Jardín Botánico Lancetilla es el más grande de Latinoamérica - a solo 5 min."
-    - "🥥 Prueba coco fresco de vendedores playeros y pan de coco garífuna."
+    - "🏖️ Reserva un tour en lancha a Punta Sal para ver playas vírgenes y fauna."
+    - "🌿 Visita el Jardín Botánico Lancetilla, un tesoro natural a solo 5 min."
+    - "🥥 Prueba el pan de coco y el agua de coco fresca en la playa."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Tela"
@@ -173,39 +201,39 @@
 
 - id: gracias
   title: "Gracias y Aguas Termales"
-  description: "Un encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536 con aguas termales naturales, iglesias históricas y acceso al Parque Nacional Celaque - el pico más alto de Honduras."
+  description: "Encantador [pueblo colonial](https://es.wikipedia.org/wiki/Gracias_(Honduras)) fundado en 1536, con aguas termales, iglesias históricas y acceso al Parque Nacional Celaque, el pico más alto de Honduras."
   icon: "fa-solid fa-spa"
   long_description: ""
   tips:
-    - "♨️ Aguas termales naturales perfectas para relajarse después de caminar."
-    - "⛰️ Base para escalar Celaque - el pico más alto de Honduras."
-    - "🏛️ Hermosa arquitectura colonial desde 1536."
+    - "♨️ Relájate en las aguas termales naturales, ideales tras una caminata."
+    - "⛰️ Punto de partida para escalar el Celaque, el techo de Honduras."
+    - "🏛️ Disfruta de su arquitectura colonial conservada desde 1536."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Gracias,_Honduras"
 
 - id: comayagua
   title: "Comayagua"
-  description: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras con impresionante arquitectura colonial española, el reloj más antiguo de América y hermosas celebraciones de Semana Santa."
+  description: "La [antigua capital](https://es.wikipedia.org/wiki/Comayagua) de Honduras, famosa por su arquitectura colonial española, el reloj más antiguo de América y sus procesiones de Semana Santa."
   icon: "fa-solid fa-church"
   long_description: ""
   tips:
-    - "⏰ Mira el reloj más antiguo de América - más de 500 años."
-    - "✝️ Famosa por elaboradas celebraciones de Semana Santa."
-    - "🏛️ Antigua capital con impresionante arquitectura colonial española."
+    - "⏰ Admira el reloj más antiguo de América en la catedral (más de 500 años)."
+    - "✝️ Conocida mundialmente por sus alfombras de aserrín en Semana Santa."
+    - "🏛️ Recorre el casco histórico y su herencia colonial española."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Comayagua"
 
 - id: san_pedro
   title: "San Pedro Sula"
-  description: "La capital industrial de Honduras y puerta de entrada a increíbles excursiones de un día. Explora el Parque Nacional El Cusuco, camina por los senderos de Angeli Gardens, compra en el mercado artesanal Guamilito, o visita los impresionantes campos de hortensias de El Merendón."
+  description: "La capital industrial de Honduras. Desde aquí puedes explorar el Parque Nacional El Cusuco, los senderos de Angeli Gardens, el mercado artesanal Guamilito o los campos de hortensias de El Merendón."
   icon: "fa-solid fa-city"
-  long_description: "La segunda ciudad más grande ofrece excelentes opciones de excursiones de un día dentro de 100km. El Parque Nacional El Cusuco es una reserva biológica de bosque nuboso con increíble biodiversidad. Angeli Gardens ofrece senderos y tirolesas. El Mercado Guamilito es el lugar para artesanías hondureñas auténticas. El Merendón tiene hermosos campos de hortensias y el sendero de La Coca Cola."
+  long_description: "La segunda ciudad más grande del país ofrece excelentes excursiones a menos de 100 km. El Parque Nacional El Cusuco es una reserva de bosque nuboso con gran biodiversidad. Angeli Gardens ofrece senderos y canopy. El Mercado Guamilito es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas."
   tips:
-    - "🌺 Visita los campos de hortensias de El Merendón en temporada de floración."
-    - "🛍️ Mercado Guamilito para artesanías hondureñas auténticas."
-    - "🌿 Parque Nacional El Cusuco tiene bosque nuboso con increíble biodiversidad."
+    - "🌺 Sube a El Merendón para ver la ciudad y comprar flores."
+    - "🛍️ Visita el Mercado Guamilito para artesanías y comida típica."
+    - "🌿 Explora el bosque nuboso del Parque Nacional El Cusuco."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
@@ -227,13 +255,13 @@
 
 - id: taulabe
   title: "Cuevas de Taulabé"
-  description: "Impresionantes cuevas ubicadas a ~100km de San Pedro Sula con espectaculares estalactitas y estalagmitas. Una aventura subterránea fresca perfecta para días calurosos."
+  description: "Espectaculares cuevas con estalactitas y estalagmitas a unos 100 km de San Pedro Sula. Una aventura subterránea perfecta para escapar del calor."
   icon: "fa-solid fa-mountain-sun"
-  long_description: "Estas cuevas de piedra caliza se extienden por kilómetros bajo tierra, aunque solo una porción está abierta a visitantes. Los senderos iluminados revelan formaciones geológicas espectaculares de millones de años."
+  long_description: "Este sistema de cuevas de origen calizo se extiende por kilómetros, aunque solo una parte está habilitada para visitas. Los senderos iluminados permiten admirar formaciones geológicas de millones de años."
   tips:
-    - "🌡️ Escape perfecto del calor - las cuevas se mantienen frescas bajo tierra."
-    - "👟 Trae buenos zapatos para caminar por los senderos iluminados."
-    - "📍 Parada fácil entre San Pedro Sula y Copán (~100km desde SPS)."
+    - "🌡️ Refugio ideal contra el calor, ya que las cuevas se mantienen frescas."
+    - "👟 Usa calzado cómodo y seguro para caminar por los senderos."
+    - "📍 Parada conveniente en la carretera entre San Pedro Sula y Comayagua/Tegucigalpa."
   links:
     - label: "Tour de Cuevas"
       url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
@@ -244,13 +272,13 @@
 
 - id: pulhapanzak
   title: "Cataratas de Pulhapanzak"
-  description: "Una impresionante cascada de 43 metros que inspiró a Walt Disney para las escenas de cascadas en El Libro de la Selva. Una de las cascadas más hermosas de Centroamérica."
+  description: "Impresionante caída de agua de 43 metros, considerada una de las más bellas de Centroamérica. Se dice que inspiró paisajes de 'El Libro de la Selva'."
   icon: "fa-solid fa-water"
-  long_description: "Estas magníficas cataratas caen a una piscina natural rodeada de exuberante bosque tropical. Las opciones de aventura incluyen rapel detrás de las cataratas, nadar en piscinas naturales y explorar senderos cercanos. La conexión con Disney hace de este un destino mágico."
+  long_description: "Estas cataratas forman una piscina natural rodeada de bosque tropical. Puedes nadar, recorrer senderos o, si buscas adrenalina, hacer canopy (tirolesa) o pasar por detrás de la cortina de agua (guías obligatorios)."
   tips:
-    - "🎬 La leyenda local dice que inspiró las escenas en El Libro de la Selva de Disney."
-    - "🧗 Opción de aventura: rapel detrás de las cataratas de 43m (costo extra)."
-    - "🦜 Excelente lugar para avistar guacamayas."
+    - "🎬 Leyenda local: se cree que inspiró escenas de la película de Disney."
+    - "🧗 Aventura: tour guiado para caminar detrás de la catarata (mojado y emocionante)."
+    - "🦜 Buen lugar para observación de aves y relax en la naturaleza."
   links:
     - label: "Tour Cataratas"
       url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
