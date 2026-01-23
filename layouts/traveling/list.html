@@ -290,7 +290,7 @@
                     {{- range . -}}
                     <li class="flex items-start gap-2">
                         <i class="fa-solid fa-check text-{{ $color }} mt-1 text-xs shrink-0"></i>
-                        <span>{{ . }}</span>
+                        <span>{{ . | markdownify }}</span>
                     </li>
                     {{- end -}}
                 </ul>
@@ -381,7 +381,7 @@
                     {{- range . -}}
                     <li class="flex items-start gap-2">
                         <i class="fa-solid fa-check text-{{ $color }} mt-1 text-xs shrink-0"></i>
-                        <span>{{ . }}</span>
+                        <span>{{ . | markdownify }}</span>
                     </li>
                     {{- end -}}
                 </ul>

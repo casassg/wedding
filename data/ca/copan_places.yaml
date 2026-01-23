@@ -1,13 +1,26 @@
 - id: ruins
   title: "Ruïnes de Copán"
-  description: "Explora l'antiga ciutat maia amb la seva famosa Escalinata dels Jeroglífics, la Gran Plaça i les sever numeroses esteles. No et perdis tampoc el museu d'escultures!"
+  description: "Explora l'antiga ciutat maia, amb la famosa Escalinata dels Jeroglífics, la Gran Plaça i nombroses esteles. No et perdis el Museu d'Escultures!"
   icon: "fa-solid fa-monument"
-  long_description: "Un dels llocs arqueològics maies més importants, Copán va ser una poderosa ciutat-estat durant el període Clàssic. El lloc presenta esteles, altars i el text jeroglífic maia més llarg conegut notablement preservats."
+  long_description: "Capital d'un poderós regne maia multiètnic entre el 426 i el 822 dC, Copán és Patrimoni de la Humanitat de la UNESCO des de 1980. Destaca per la seva excepcional escultura en pedra, com la famosa Escalinata dels Jeroglífics —el text maia conegut més extens—, així com per les esteles, els altars i els alts relleus. Gairebé 4 km de túnels arqueològics sota l'acròpolis han revelat temples anteriors, tombes i façanes d'estuc."
   tips:
-    - "🎟️ Contracta un guia a l'entrada (~$50 entre el grup) - expliquen històries que no estan a les guies."
-    - "⏰ Arriba a les 8am quan obren per evitar la calor i les multituds."
-    - "🏛️ Visita el Museu d'Escultures al final - l'apreciaràs més després de veure les ruïnes."
+    - "🎟️ Contracta un guia a l'entrada (~50 $ per grup); t'explicarà històries que no surten a les guies."
+    - "⏰ Ves-hi a les 8:00, només obrir, per evitar la calor i les multituds."
+    - "🏛️ Deixa el Museu d'Escultures per al final; l'apreciaràs més després de visitar les ruïnes."
+    - "💵 Entrada: Parc i Sepultures 20 $, Túnels 15 $, Museu d'Escultura 10 $ (estrangers). Preu reduït per a centreamericans. [Tarifes oficials](https://ihah.hn/parque-arqueologico-copan/)."
   links:
+    - label: "Web Oficial"
+      url: "https://ihah.hn/parque-arqueologico-copan/"
+      icon: "fa-solid fa-globe"
+    - label: "Patrimoni UNESCO"
+      url: "https://whc.unesco.org/es/list/129/"
+      icon: "fa-solid fa-landmark"
+    - label: "Recerca Harvard"
+      url: "https://peabody.harvard.edu/cmhi-historic-photo-board-digitization-project"
+      icon: "fa-solid fa-microscope"
+    - label: "Projecte Túnels"
+      url: "https://peabody.harvard.edu/copan-acropolis-tunnel-conservation-plan-project"
+      icon: "fa-solid fa-archway"
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/62WmwehnssCwsYZQ9"
       icon: "fa-solid fa-map-location-dot"
@@ -23,13 +36,13 @@
 
 - id: macaw
   title: "Macaw Mountain"
-  description: "Parc d'aus i reserva natural. Llar de guacamais vermells rescatats, tucans i altres aus tropicals en un preciós entorn selvàtic."
+  description: "Parc d'aus i reserva natural. Llar de guacamais rescatats, tucans i altres aus tropicals en un preciós entorn natural."
   icon: "fa-solid fa-feather"
-  long_description: "Un santuari i reserva natural dedicada al rescat i rehabilitació d'aus natives d'Hondures. Camina pel frondós bosc i coneix de prop guacamais vermells, tucans, momots i altres espècies tropicals."
+  long_description: "Santuari i reserva natural dedicat al rescat i rehabilitació d'aus natives d'Hondures. Passeja pel bosc frondós i veus de prop guacamais, tucans, momots i altres espècies tropicals."
   tips:
-    - "🎫 Entrada $10 (L250), 8am-4pm. Parla amb la recepció del teu hotel per obtenir entrades."
-    - "🚗 Es troba a només 10 minuts amb cotxe de la plaça central de Copán Ruinas."
-    - "🦜 El primer grup d'aus va ser alliberat el 2011. Ara hi ha més de 130 guacamais volant sobre les ruïnes i la vall."
+    - "🎫 Entrada 10$ (L250), 8:00-16:00. Demana entrades a la recepció del teu hotel."
+    - "🚗 És a només 10 minuts amb cotxe de la plaça central de Copán Ruinas."
+    - "🦜 El primer grup d'aus va ser alliberat el 2011. Ara hi ha més de 130 guacamais volant per les ruïnes i la vall."
   links:
     - label: "Web Oficial"
       url: "https://www.macawmountain.org/"
@@ -37,6 +50,9 @@
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/14nRQRJ4dGS4tA4H6"
       icon: "fa-solid fa-map-location-dot"
+    - label: "Instagram"
+      url: "https://www.instagram.com/macawmountainbirdpark/"
+      icon: "fa-brands fa-instagram"
     - label: "Vídeo del Tour"
       url: "https://www.youtube.com/watch?v=f5NF2l0bRxQ"
       icon: "fa-brands fa-youtube"
@@ -46,14 +62,14 @@
 
 - id: hotsprings
   title: "Aigües Termals Luna Jaguar"
-  description: "Aigües termals naturals a 22km del poble amb múltiples piscines termals, tours guiats i spa temàtic maia. Reserva obligatòria!"
+  description: "Aigües termals naturals a 22 km del poble amb múltiples piscines, tours guiats i spa temàtic maia. Cal reservar!"
   icon: "fa-solid fa-hot-tub-person"
-  long_description: "Luna Jaguar ofereix una experiència de spa completa amb múltiples piscines termals a diferents temperatures, envoltades d'exuberant vegetació tropical. L'ambient temàtic maia afegeix una atmosfera màgica. L'entrada inclou accés a totes les instal·lacions més un tour guiat."
+  long_description: "Luna Jaguar ofereix una experiència de spa completa amb diverses piscines termals a diferents temperatures, envoltades d'exuberant vegetació tropical. L'ambientació d'estil maia hi dona un toc màgic. L'entrada inclou accés a totes les instal·lacions i un tour guiat."
   tips:
-    - "📅 Reserva obligatòria! Aforament limitat. Reserva via WhatsApp o la seva web."
-    - "⏰ Obert cada dia 1pm-9pm (última entrada 7pm). Adults $15, nens 5-11 $5, menors de 5 gratis."
-    - "🚐 50min en cotxe - usa [transport Copan Card](https://copancard.com): $40/persona, surt 2pm, torna 8pm."
-    - "🍽️ Cafeteria només té snacks preenvasats. Gratis: taquilles, parking, dutxes, WiFi."
+    - "📅 Cal reservar! Aforament limitat. Fes-ho per WhatsApp o a través del web."
+    - "⏰ Obert cada dia de 13:00 a 21:00 (última entrada 19:00). Adults 15$, nens (5-11) 5$, menors de 5 gratis."
+    - "🚐 50 min en cotxe. Usa [transport Copan Card](https://copancard.com): 40$/persona, surt a les 14:00 i torna a les 20:00."
+    - "🍽️ La cafeteria només té snacks envasats. Gratis: taquilles, pàrquing, dutxes, WiFi."
   links:
     - label: "Web Oficial"
       url: "https://lunajaguarspa.com/"
@@ -75,12 +91,12 @@
   title: "Tea & Chocolate Place"
   description: "Museu interactiu del cacau dirigit per la família d'un arqueòleg. Aprèn les tradicions maies de la xocolata, tasta begudes autèntiques i gaudeix de la posta de sol des de la terrassa."
   icon: "fa-solid fa-mug-hot"
-  long_description: "Dirigit per l'arqueòleg David Sedat i la seva filla Carolina, aquest espai únic és part museu, part experiència de degustació. Aprèn com els maies veneraven el cacau com a 'aliment dels déus' - i que Hondures va ser on els europeus van trobar la xocolata per primera vegada (4t viatge de Colom a Guanaja). Gaudeix d'una xerrada sobre la història del cacau, tasta begudes tradicionals i relaxa't a la terrassa panoràmica a la posta de sol."
+  long_description: "Dirigit per l'arqueòleg David Sedat i la seva filla Carolina, aquest espai únic és meitat museu, meitat experiència de degustació. Aprèn com els maies veneraven el cacau com a 'aliment dels déus' i descobreix que Hondures va ser on els europeus van conèixer la xocolata (4t viatge de Colom a Guanaja). Gaudeix d'una xerrada sobre la història del cacau, tasta begudes tradicionals i relaxa't a la terrassa panoràmica durant la posta de sol."
   tips:
-    - "⏰ Obert de dilluns a dissabte 12pm-6pm. Tancat diumenges."
-    - "🍫 Prova xocolata estil maia (aigua + chili) o tradicional (llet + sucre)."
-    - "🌅 Visita a la tarda per gaudir de la posta de sol des de la terrassa panoràmica."
-    - "🌿 També venen te orgànic de cacao, moringa, noni, salses picants i artesanies maies."
+    - "⏰ Obert de dilluns a dissabte de 12:00 a 18:00. Tancat els diumenges."
+    - "🍫 Prova la xocolata a l'estil maia (aigua i xili) o tradicional (llet i sucre)."
+    - "🌅 Visita-ho a la tarda per gaudir de la posta de sol des de la terrassa panoràmica."
+    - "🌿 També venen te orgànic de cacau, moringa, noni, salses picants i artesanies maies."
   links:
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/B8DNpCZUVEGnJnjt9"
@@ -106,14 +122,14 @@
 
 - id: cafe
   title: "Café San Rafael"
-  description: "Una empresa familiar 100% hondurenya al cor de Copán Ruinas, oferint cafè d'especialitat, formatges artesanals d'inspiració europea i vins."
+  description: "Una empresa familiar 100% hondurenya al cor de Copán Ruinas que ofereix cafè d'especialitat, formatges artesanals d'inspiració europea i vins."
   icon: "fa-solid fa-seedling"
-  long_description: "San Rafael Family Estates combina el cultiu de cafè des de 1985 a Finca Managuá i Finca San Rafael amb la producció làctia artesanal a Finca Santa Clara. La seva botiga principal al centre de Copán Ruinas ofereix begudes de cafè d'especialitat, una selecció única de formatges artesanals naturals (inspirats en tradicions europees), vins i productes locals. Tots els formatges s'elaboren de forma natural sense additius ni conservants."
+  long_description: "San Rafael Family Estates combina el cultiu de cafè des de 1985 a les finques Managuá i San Rafael amb la producció làctia artesanal a la Finca Santa Clara. La seva botiga principal, al centre de Copán Ruinas, ofereix cafè d'especialitat, una selecció única de formatges artesanals naturals (inspirats en tradicions europees), vins i productes locals. Tots els formatges s'elaboren de manera natural, sense additius ni conservants."
   tips:
-    - "☕ Famós per cafè gourmet i formatges artesanals únics a Hondures."
-    - "🧀 Prova els seus formatges d'inspiració europea fets amb llet de vaques Pardo Suizo de pastura lliure."
-    - "🛍️ Passa a comprar encara que no mengis - excel·lent cafè i formatge per endur-te a casa."
-    - "⏰ Obert dilluns a dissabte 8am-9pm, diumenge 8am-4pm. Grups de 10+ han de reservar."
+    - "☕ Famós pel seu cafè gurmet i els formatges artesanals únics a Hondures."
+    - "🧀 Prova els seus formatges d'inspiració europea fets amb llet de vaques Pardo Suizo de pastura."
+    - "🛍️ Passa-hi a comprar encara que no hi mengis; tenen un cafè i un formatge excel·lents per endur."
+    - "⏰ Obert de dilluns a dissabte de 8:00 a 21:00, i diumenge de 8:00 a 16:00. Els grups de més de 10 persones han de reservar."
   links:
     - label: "Web Oficial"
       url: "https://www.cafesanrafael.com/"
@@ -135,15 +151,15 @@
       icon: "fa-brands fa-youtube"
 
 - id: butterflies
-  title: "Mariposario"
-  description: "Un santuari de papallones on pots caminar entre centenars de papallones de colors en un jardí tancat."
+  title: "Papallonari"
+  description: "Un santuari on pots caminar entre centenars de papallones de colors dins d'un jardí tancat."
   icon: "fa-solid fa-dove"
-  long_description: "Ubicat a l'Hotel Mayan Hills Resort (a 5 min de les ruïnes), aquest encantador mariposari presenta espècies des de la llegendària morpho blava fins a la majestuosa papallona monarca. Observa la metamorfosi en acció, interactua amb aquestes delicades criatures i captura fotos inoblidables mentre les papallones es posen sobre tu."
+  long_description: "Ubicat a l'Hotel Mayan Hills Resort (a 5 min de les ruïnes), aquest encantador papallonari presenta espècies des de la llegendària morpho blava fins a la majestuosa papallona monarca. Observa la metamorfosi en acció, interactua amb aquestes delicades criatures i fes fotos inoblidables mentre se't posen a sobre."
   tips:
-    - "🦋 Millors fotos al matí quan les papallones estan més actives."
-    - "📍 A l'Hotel Mayan Hills Resort - combina-ho amb dinar al seu restaurant."
-    - "⏱️ Dedica 30-45 minuts per la visita completa."
-    - "📸 Pots interactuar i fer-te fotos amb les papallones."
+    - "🦋 Les millors fotos surten al matí, quan les papallones estan més actives."
+    - "📍 A l'Hotel Mayan Hills Resort; combina-ho amb un dinar al seu restaurant."
+    - "⏱️ Dedica 30-45 minuts a la visita completa."
+    - "📸 Pots interactuar amb les papallones i fer-t'hi fotos."
   links:
     - label: "Web Oficial"
       url: "https://www.mayanhills.com/mariposario/"
@@ -160,13 +176,13 @@
 
 - id: sunflowers
   title: "Camps de Gira-sols"
-  description: "Preciosos camps de gira-sols que floreixen tot l'any! Gaudeix del paisatge, hamaques, restaurant, cafè local i gelats."
+  description: "Preciosos camps de gira-sols que floreixen tot l'any! Gaudeix del paisatge, les hamaques, el restaurant, el cafè local i els gelats."
   icon: "fa-solid fa-sun-plant-wilt"
-  long_description: "El Paseo de los Girasoles ofereix més que fotos - relaxa't a les hamaques, gaudeix del brunch o dinar al restaurant, assaboreix cafè de torrefactors locals de Copán, i dóna't un caprici amb gelat envoltat de gira-sols infinits."
+  long_description: "El Paseo de los Girasoles ofereix més que fotos: relaxa't a les hamaques, gaudeix del brunch o d'un dinar al restaurant, assaboreix cafè de torrefactors locals de Copán i dona't un caprici amb un gelat envoltat de gira-sols infinits."
   tips:
-    - "🌻 Els gira-sols floreixen tot l'any, però revisa la seva pàgina de Facebook per l'estat actual."
-    - "☕ Gaudeix d'hamaques, restaurant, cafè local i gelat al lloc."
-    - "📸 Perfecte per fotos - arriba d'hora al matí per millor llum."
+    - "🌻 Els gira-sols floreixen tot l'any, però consulta la seva pàgina de Facebook per veure l'estat actual."
+    - "☕ Gaudeix de les hamaques, del restaurant, del cafè local i del gelat al mateix recinte."
+    - "📸 Perfecte per fer fotos; ves-hi d'hora al matí per tenir millor llum."
   links:
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/JGNCeucsXwKCnWQN6"
@@ -177,13 +193,13 @@
 
 - id: shopping
   title: "Artesanies Locals"
-  description: "Explora ceràmica d'inspiració maia, joieria de jade, tèxtils i records artesanals a les botigues i mercats del poble."
+  description: "Explora ceràmica d'inspiració maia, joies de jade, tèxtils i records artesanals a les botigues i mercats del poble."
   icon: "fa-solid fa-bag-shopping"
-  long_description: "El centre del poble i el mercat ofereixen artesanies autèntiques d'inspiració maia, joieria de jade, ceràmica pintada a mà i productes locals. No et perdis el famós cafè de Copán, la xocolata artesanal i productes a base de cacau - regals perfectes per endur-te a casa. Una joia són les seves increïbles espelmes artesanals en totes les formes i aromes - espelmes amb forma de cafè que fan olor de cafè, amb forma de llimona que fan olor de llimona, i molts més dissenys creatius!"
+  long_description: "El centre del poble i el mercat ofereixen artesanies autèntiques d'inspiració maia, joies de jade, ceràmica pintada a mà i productes locals. No et perdis el famós cafè de Copán, la xocolata artesanal i els productes a base de cacau; són regals perfectes per endur-se a casa. També destaquen les seves increïbles espelmes artesanals de totes les formes i aromes: amb forma de cafè que fan olor de cafè, amb forma de llimona que fan olor de llimona, i molts més dissenys creatius!"
   tips:
-    - "🎨 Busca joieria de jade d'inspiració maia i ceràmica pintada a mà."
-    - "🕯️ Descobreix les espelmes artesanals úniques - amb forma i aroma de cafè, llimona i més!"
-    - "☕ No et perdis el cafè, xocolata i productes de cacau local - regals perfectes per casa."
+    - "🎨 Busca joies de jade d'inspiració maia i ceràmica pintada a mà."
+    - "🕯️ Descobreix les espelmes artesanals úniques: amb forma i aroma de cafè, de llimona i d'altres!"
+    - "☕ No et perdis el cafè, la xocolata i els productes de cacau local; són regals perfectes."
   links:
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/s52ejd71yUUCpuiJ6"

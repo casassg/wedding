@@ -13,11 +13,7 @@
         // Skip if user has manually selected a language before
         if (localStorage.getItem('lang-selected')) return;
 
-        // Only run on homepage URLs
         const path = window.location.pathname;
-        const homepagePaths = ['/wedding/', '/wedding/en/', '/wedding/es/', '/wedding/ca/'];
-        const isHomepage = homepagePaths.includes(path) || path === '/wedding';
-        if (!isHomepage) return;
 
         // Determine current language from URL
         const currentLang = path.includes('/es/') ? 'es' :
@@ -43,8 +39,14 @@
 
         // Redirect if browser language differs from current page language
         if (preferredLang !== currentLang) {
-            const baseUrl = '/wedding/';
-            const newUrl = preferredLang === 'en' ? baseUrl : baseUrl + preferredLang + '/';
+            // Build the new URL preserving the current page path
+            // Remove leading slash and language prefix, then add preferred language
+            let pagePath = path.replace(/^\//, ''); // Remove leading slash
+            pagePath = pagePath.replace(/^(en|es|ca)(\/|$)/, ''); // Remove language prefix if present
+            
+            const langPrefix = preferredLang === 'en' ? '/' : '/' + preferredLang + '/';
+            const newUrl = langPrefix + pagePath;
+            
             window.location.replace(newUrl);
         }
     }
