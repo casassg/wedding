@@ -30,16 +30,24 @@
 
 - id: utila
   title: "Utila"
-  description: "Una isla popular entre mochileros conocida por certificaciones de buceo económicas y encuentros con tiburones ballena (temporadas marzo-abril y agosto-octubre)."
+  description: "La Isla de la Bahía más pequeña con un ambiente relajado y 'bohemio', buceo de clase mundial en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano), y uno de los mejores lugares del mundo para avistar tiburones ballena - ¡diciembre es temporada alta! Hogar de la iguana Swamper endémica que no existe en ningún otro lugar del planeta."
   icon: "fa-solid fa-fish"
-  long_description: ""
+  long_description: "Un paraíso mochilero y refugio de buceadores, Utila ofrece algunas de las certificaciones PADI más económicas del Caribe. No se permiten coches - muévete en tuk-tuk, cuatrimoto o carrito de golf. Destacan: Airport Caves para increíble snorkel desde la orilla con cuevas y cañones (nadadores intermedios); Neptune's en Coral Beach Village (acceso en bote) para días de playa y excelente snorkel; Water Caye para una excursión a una isla deshabitada prístina; Pumpkin Hill para una caminata corta al punto más alto de la isla; y Utila Chocolate Company para degustaciones artesanales del grano a la barra."
   tips:
-    - "🦈 ¡Los tiburones ballena se ven a menudo en diciembre y enero!"
-    - "💰 La Isla de la Bahía más económica para certificación de buceo."
-    - "⛴️ Ferry desde La Ceiba dos veces al día."
+    - "🦈 Diciembre es temporada alta de tiburones ballena - ¡momento perfecto para el viaje de boda!"
+    - "💰 Uno de los lugares más económicos del mundo para certificación PADI."
+    - "⛴️ Ferry desde Roatán (1hr) o La Ceiba - [utilaferry.com](https://utilaferry.com/) es un sitio donde reservar."
+    - "🤿 Airport Caves tiene snorkel increíble desde la orilla - requiere nivel intermedio."
+    - "💵 El efectivo es el rey - trae lempiras o dólares estadounidenses."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Utila"
+    - label: "Utila Guide"
+      url: "https://www.utilaguide.com/"
+      icon: "fa-solid fa-globe"
+    - label: "Guía de Viaje"
+      url: "https://madisonsfootsteps.com/trip-itinerary-utila-honduras/"
+      icon: "fa-solid fa-book"
 
 - id: ceiba
   title: "La Ceiba"

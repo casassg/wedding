@@ -30,16 +30,24 @@
 
 - id: utila
   title: "Utila"
-  description: "Una illa popular entre motxillers coneguda per certificacions de busseig econòmiques i trobades amb taurons balena (temporades març-abril i agost-octubre)."
+  description: "L'Illa de la Badia més petita amb un ambient relaxat i 'boho', busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana), i un dels millors llocs del món per albirar taurons balena - el desembre és temporada alta! Llar de la iguana Swamper endèmica que no existeix enlloc més del planeta."
   icon: "fa-solid fa-fish"
-  long_description: ""
+  long_description: "Un paradís motxiller i refugi de bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No es permeten cotxes - mou-te en tuk-tuk, quad o carret de golf. Destaquen: Airport Caves per increïble snorkel des de la riba amb coves i barrancs (nedadors intermedis); Neptune's a Coral Beach Village (accés en vaixell) per dies de platja i excel·lent snorkel; Water Caye per una excursió a una illa deshabitada prístina; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per degustacions artesanals del gra a la rajola."
   tips:
-    - "🦈 Els taurons balena es veuen sovint al desembre i gener!"
-    - "💰 L'Illa de la Badia més econòmica per certificació de busseig."
-    - "⛴️ Ferry des de La Ceiba dues vegades al dia."
+    - "🦈 El desembre és temporada alta de taurons balena - moment perfecte pel viatge de casament!"
+    - "💰 Un dels llocs més econòmics del món per certificació PADI."
+    - "⛴️ Ferry des de Roatán (1hr) o La Ceiba - [utilaferry.com](https://utilaferry.com/) és un lloc on reservar."
+    - "🤿 Airport Caves té snorkel increïble des de la riba - requereix nivell intermedi."
+    - "💵 L'efectiu és el rei - porta lempires o dòlars americans."
   links:
     - label: "Viquipèdia"
       url: "https://en.wikipedia.org/wiki/Utila"
+    - label: "Utila Guide"
+      url: "https://www.utilaguide.com/"
+      icon: "fa-solid fa-globe"
+    - label: "Guia de Viatge"
+      url: "https://madisonsfootsteps.com/trip-itinerary-utila-honduras/"
+      icon: "fa-solid fa-book"
 
 - id: ceiba
   title: "La Ceiba"

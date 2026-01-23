@@ -30,16 +30,24 @@
 
 - id: utila
   title: "Utila"
-  description: "A backpacker-friendly island known for budget diving certification and whale shark encounters (March-April and August-October seasons)."
+  description: "The smallest Bay Island with a laid-back 'boho' vibe, world-class diving on the [Mesoamerican Barrier Reef](https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System), and one of the best places in the world to spot whale sharks - December is peak season! Home to the endemic Swamper iguana found nowhere else on Earth."
   icon: "fa-solid fa-fish"
-  long_description: ""
+  long_description: "A backpacker paradise and diver's haven, Utila offers some of the cheapest PADI certifications in the Caribbean. No cars are allowed - get around by tuk-tuk, ATV, or golf cart. Highlights include: Airport Caves for incredible shore snorkeling with caves and canyons (intermediate swimmers); Neptune's at Coral Beach Village (boat access) for beach days and great snorkeling; Water Caye for a pristine uninhabited island day trip; Pumpkin Hill for a short hike to the island's highest point; and the Utila Chocolate Company for artisan bean-to-bar tastings."
   tips:
-    - "🦈 Whale sharks are often spotted in December and January!"
-    - "💰 Most budget-friendly Bay Island for dive certification."
-    - "⛴️ Ferry from La Ceiba twice daily."
+    - "🦈 December is prime whale shark season - perfect timing for the wedding trip!"
+    - "💰 One of the cheapest places in the world for PADI dive certification."
+    - "⛴️ Ferry from Roatan (1hr) or La Ceiba - [utilaferry.com](https://utilaferry.com/) is one place to book."
+    - "🤿 Airport Caves has amazing shore snorkeling - intermediate skill required."
+    - "💵 Cash is king - bring lempiras or US dollars."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Utila"
+    - label: "Utila Guide"
+      url: "https://www.utilaguide.com/"
+      icon: "fa-solid fa-globe"
+    - label: "Travel Guide"
+      url: "https://madisonsfootsteps.com/trip-itinerary-utila-honduras/"
+      icon: "fa-solid fa-book"
 
 - id: ceiba
   title: "La Ceiba"
