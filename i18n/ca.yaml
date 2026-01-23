@@ -1,7 +1,7 @@
 # Catalan translations for Laura & Gerard Wedding
 
 # Meta
-meta_description: "La Laura i en Gerard es casen el 19 de desembre de 2026 a Copan Ruinas, Hondures. Reserva la data!"
+meta_description: "La Laura i en Gerard es casen el 19 de desembre de 2026 a Copán Ruinas, Hondures. Reserva la data!"
 
 # Navigation
 nav_home: "Inici"
@@ -11,67 +11,67 @@ nav_spain: "Espanya 2027"
 nav_faq: "Preguntes"
 
 # Hero
-save_the_date_btn: "Guardar Data"
+save_the_date_btn: "Reserva la Data"
 
 # Welcome
 welcome: "Benvinguts"
 were_getting_married: "Ens casem!"
-welcome_message: "Estem desitjant celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copan Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
+welcome_message: "Tenim moltes ganes de celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copán Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
 
 # Details
 the_details: "Els Detalls"
 join_us: "Acompanyeu-nos a Hondures"
 when: "Quan"
-date_friday: "Divendres, 18 de Desembre"
-date_arrival: "Recepció opcional pels que arribin abans"
-date_saturday: "Dissabte, 19 de Desembre"
+date_friday: "Divendres, 18 de desembre"
+date_arrival: "Benvinguda opcional per als que arribin abans"
+date_saturday: "Dissabte, 19 de desembre"
 date_wedding: "Dia del casament"
 ceremony: "Cerimònia"
 catholic_ceremony: "Cerimònia Catòlica"
-church_name: "Parroquia San José Obrero"
-church_location: "Copan Ruinas, Hondures"
+church_name: "Parròquia San José Obrero"
+church_location: "Copán Ruinas, Hondures"
 ceremony_time: "16:00"
 celebration: "Celebració"
 celebration_time: "17:00"
-venue_name: "Centro de Convenciones Marina Copán"
+venue_name: "Centre de Convencions Marina Copán"
 convention_center: "Centre de Convencions"
-view_map: "Veure Mapa"
+view_map: "Veure mapa"
 
 # RSVP
-rsvp_label: "Confirmar Assistència"
+rsvp_label: "Confirmar assistència"
 rsvp_title: "RSVP"
 rsvp_coming_soon: "Aviat compartirem un formulari de confirmació perquè ens digueu si veniu!"
 
 # Travel
 logistics: "Logística"
-travel_info: "Viatge i Transport"
-getting_there: "Com arribar"
-getting_there_desc: "Recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) per la seva proximitat a Copan (4 hores d'autobús). Recomanem arribar cap al migdia del divendres 18 de desembre per anar directament a Copan. Però fes els arranjaments que necessitis!"
+travel_info: "Viatge i transport"
+getting_there: "Com arribar-hi"
+getting_there_desc: "Recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) perquè és a prop de Copán (4 hores d'autobús). L'ideal és arribar cap al migdia del divendres 18 de desembre per anar directament a Copán. Però organitzeu-vos com us vagi millor!"
 more_details_soon: "Compartirem més detalls properament."
 transportation: "Transport"
-transportation_desc: "Estem planejant organitzar transport - més detalls aviat!"
-transport_church_venue: "Estem mirant opcions de transport grupal des de SAP a Copan abans del casament"
-transport_venue_city: "Estem mirant opcions de transport grupal des de Copan a SAP després del casament"
-transport_around_copan: "Moure's per Copan? A peu o en [tuktuk](/wedding/traveling/)!"
-dress_code: "Codi de Vestimenta"
-dress_code_desc: "Formal. Veniu guapos i preparats per ballar!"
+transportation_desc: "Estem planejant organitzar transport. Més detalls aviat!"
+transport_church_venue: "Estem mirant opcions de transport grupal des de SAP a Copán abans del casament"
+transport_venue_city: "Estem mirant opcions de transport grupal des de Copán a SAP després del casament"
+transport_around_copan: "Moure's per Copán? A peu o en [mototaxi](/wedding/traveling/)!"
+dress_code: "Vestimenta"
+dress_code_desc: "Formal. Veniu ben elegants i preparats per ballar!"
 
 # Spain
-also_save: "També Reserva la Data"
+also_save: "Reserva també la data"
 spain_celebration: "Celebració a Catalunya"
 spain_title: "Sopar a Catalunya"
 spain_date: "Principis de 2027"
 spain_desc: "Estem planejant un sopar relaxat amb família i amics en algun lloc de Catalunya. Més detalls aviat!"
 spain_location: "Catalunya"
 spain_vibe: "Sopar relaxat amb família i amics"
-spain_for_who: "Una celebració tranquil·la - sense cerimònia, només bon menjar, beguda i la gent que estimem. Tothom és benvingut!"
+spain_for_who: "Una celebració tranquil·la: sense cerimònia, només bon menjar, beguda i la gent que estimem. Tothom hi és benvingut!"
 
 # FAQ (preguntes/respostes mogudes a data/ca/faq.yaml)
 questions: "Preguntes?"
-faq_title: "Preguntes Freqüents"
+faq_title: "Preguntes freqüents"
 
 # Countdown
-countdown_title: "Compte enrere pel gran dia..."
+countdown_title: "Compte enrere per al gran dia..."
 days: "Dies"
 hours: "Hores"
 minutes: "Minuts"
@@ -82,54 +82,54 @@ nav_traveling: "Viatjar"
 
 # Hero
 traveling_title: "Viatjar a Hondures"
-traveling_subtitle: "Tot el que necessites saber per arribar a Copán Ruinas per la nostra celebració de casament."
-traveling_back_home: "Tornar a l'Inici"
+traveling_subtitle: "Tot el que necessites saber per arribar a Copán Ruinas per a la nostra celebració."
+traveling_back_home: "Tornar a l'inici"
 
 # Getting There
-traveling_getting_there: "Com Arribar"
-traveling_getting_there_intro: "Copán Ruinas està ubicat a l'oest d'Hondures, a prop de la frontera amb Guatemala. L'aeroport principal més proper és San Pedro Sula (SAP)."
+traveling_getting_there: "Com arribar-hi"
+traveling_getting_there_intro: "Copán Ruinas està situat a l'oest d'Hondures, a prop de la frontera amb Guatemala. L'aeroport principal més proper és San Pedro Sula (SAP)."
 traveling_from_europe: "Des d'Europa"
 traveling_from_europe_desc: "Vola a San Pedro Sula (SAP) via Madrid o Amsterdam. [Air Europa](https://www.aireuropa.com/) ofereix vols directes des de Madrid (MAD) a San Pedro Sula els dilluns, dimecres i divendres. KLM connecta via Amsterdam."
-traveling_from_us: "Des dels EUA i Canadà"
-traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des dels principals aeroports dels EUA. United vola des de Houston (IAH), American des de Miami (MIA) i Dallas (DFW), i Spirit des de Fort Lauderdale (FLL). Si fas escala a Houston, avisa'ns!"
-traveling_to_copan: "San Pedro Sula a Copán"
-traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Estem planejant organitzar transport grupal - més detalls properament!"
+traveling_from_us: "Des dels EUA i el Canadà"
+traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des dels principals aeroports dels EUA. United vola des de Houston (IAH), American des de Miami (MIA) i Dallas (DFW), i Spirit des de Fort Lauderdale (FLL). Si feu escala a Houston, aviseu-nos!"
+traveling_to_copan: "De San Pedro Sula a Copán"
+traveling_to_copan_desc: "Des de l'aeroport, hi ha unes 3-4 hores en cotxe fins a Copán Ruinas. Estem planejant organitzar transport grupal. Més detalls properament!"
 
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
-traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure't."
-traveling_walking_title: "Caminant"
-traveling_walking_desc: "El centre del poble és compacte i es pot recórrer a peu. La majoria dels hotels són a 10-15 minuts caminant de l'església (Parroquia San José Obrero) - no necessites transport per la cerimònia!"
-traveling_tuktuk_title: "Tuk-tuks"
-traveling_tuktuk_desc: "Els tuk-tuks de tres rodes són a tot arreu i molt econòmics (normalment L20-40 / $1-2 per viatge). Només para'n un o demana al teu hotel que en truqui un. Perfectes per anar a atraccions fora del centre."
+traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure-t'hi."
+traveling_walking_title: "A peu"
+traveling_walking_desc: "El centre del poble és compacte i es pot recórrer caminant. La majoria d'hotels són a 10-15 minuts a peu de l'església (Parròquia San José Obrero). No necessiteu transport per a la cerimònia!"
+traveling_tuktuk_title: "Mototaxis"
+traveling_tuktuk_desc: "Els mototaxis (tuk-tuks) són a tot arreu i són molt econòmics (normalment 20-40 L / 1-2 $ per viatge). Només cal que en pareu un o demaneu a l'hotel que en truqui un. Perfectes per anar a llocs fora del centre."
 
 # Why Copán
-traveling_why_copan: "Per Què Copán?"
-traveling_why_copan_intro: "Copán Ruinas és un encantador poble colonial ubicat a les muntanyes de l'oest d'Hondures, famós per les seves antigues ruïnes maies i el seu ambient relaxat."
+traveling_why_copan: "Per què Copán?"
+traveling_why_copan_intro: "Copán Ruinas és un poble colonial encantador situat a les muntanyes de l'oest d'Hondures, famós per les antigues ruïnes maies i l'ambient relaxat."
 traveling_unesco: "Patrimoni de la Humanitat"
-traveling_unesco_desc: "El Lloc Arqueològic de Copán és una de les ciutats maies més importants mai descobertes, coneguda pel seu notable art escultòric i textos jeroglífics."
-traveling_colonial: "Encant Colonial"
-traveling_colonial_desc: "El poble en si és una preciosa vila colonial amb carrers empedrats, edificis colorits, excel·lents restaurants i un ambient relaxat."
-traveling_weather: "Clima Perfecte"
-traveling_weather_desc: "A 700m d'altitud, Copán gaudeix d'un agradable clima subtropical. Les temperatures de desembre fan una mitjana de 20-28°C - perfecte per una celebració!"
+traveling_unesco_desc: "El jaciment arqueològic de Copán és una de les ciutats maies més importants que s'han descobert, coneguda pel seu art escultòric notable i els textos jeroglífics."
+traveling_colonial: "Encant colonial"
+traveling_colonial_desc: "El poble en si és una vila colonial preciosa amb carrers empedrats, edificis colorits, restaurants excel·lents i un ambient relaxat."
+traveling_weather: "Clima perfecte"
+traveling_weather_desc: "A 700 m d'altitud, Copán gaudeix d'un clima subtropical agradable. Al desembre, la temperatura mitjana és de 20-28 °C. Perfecte per a una celebració!"
 
 # Things to Do in Copán (llocs moguts a data/ca/copan_places.yaml)
-traveling_things_to_do: "Què Fer a Copán"
-traveling_things_to_do_intro: "Més enllà de les festivitats del casament, hi ha molt per explorar a Copán Ruinas i els seus voltants."
-view_on_maps: "Veure a Maps"
+traveling_things_to_do: "Què fer a Copán"
+traveling_things_to_do_intro: "Més enllà de la festa del casament, hi ha molt per explorar a Copán Ruinas i els voltants."
+view_on_maps: "Veure al mapa"
 
 # Explore Honduras (llocs moguts a data/ca/honduras_places.yaml)
 traveling_explore: "Explora Hondures"
-traveling_explore_intro: "Si tens temps extra abans o després del casament, Hondures ofereix aventures increïbles."
+traveling_explore_intro: "Si teniu temps abans o després del casament, Hondures ofereix aventures increïbles."
 learn_more: "Més informació"
 
 # Travel Tips
-traveling_tips_title: "Consells de Viatge"
+traveling_tips_title: "Consells de viatge"
 
 # Where to Stay
-traveling_where_to_stay: "On Allotjar-se"
-traveling_accommodation_intro: "Copán Ruinas té una varietat d'opcions d'allotjament per a diferents pressupostos i preferències."
-traveling_accommodation_soon: "Estem treballant en recomanacions d'hotels i possiblement tarifes grupals. Detalls properament!"
+traveling_where_to_stay: "On allotjar-se"
+traveling_accommodation_intro: "Copán Ruinas té una gran varietat d'opcions d'allotjament per a diferents pressupostos i gustos."
+traveling_accommodation_soon: "Estem treballant en recomanacions d'hotels i possibles tarifes de grup. Detalls properament!"
 
 # Place Card Modal
 place_learn_more: "Més informació"
@@ -141,5 +141,5 @@ place_next: "Lloc següent"
 
 # Footer
 footer_message: ""
-made_with_love: "Fet amb <3 per Gerard i Laura"
+made_with_love: "Fet amb <3 per en Gerard i la Laura"
 last_updated: "Actualitzat fa"

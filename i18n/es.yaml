@@ -2,7 +2,7 @@
 # Neutral Spanish (mix of Spain and Latin American)
 
 # Meta
-meta_description: "Laura y Gerard se casan el 19 de diciembre de 2026 en Copan Ruinas, Honduras. ¡Reserva la fecha!"
+meta_description: "Laura y Gerard se casan el 19 de diciembre de 2026 en Copán Ruinas, Honduras. ¡Reserva la fecha!"
 
 # Navigation
 nav_home: "Inicio"
@@ -17,20 +17,20 @@ save_the_date_btn: "Guardar Fecha"
 # Welcome
 welcome: "Bienvenidos"
 were_getting_married: "¡Nos casamos!"
-welcome_message: "Estamos deseando celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copan Ruinas, Honduras. Acompáñanos en un fin de semana de amor, risas y recuerdos inolvidables."
+welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
 
 # Details
 the_details: "Los Detalles"
 join_us: "Acompáñanos en Honduras"
 when: "Cuándo"
-date_friday: "Viernes, 18 de Diciembre"
-date_arrival: "Recepción opcional para los que lleguen antes"
-date_saturday: "Sábado, 19 de Diciembre"
+date_friday: "Viernes, 18 de diciembre"
+date_arrival: "Bienvenida informal (opcional)"
+date_saturday: "Sábado, 19 de diciembre"
 date_wedding: "Día de la boda"
 ceremony: "Ceremonia"
 catholic_ceremony: "Ceremonia Católica"
 church_name: "Parroquia San José Obrero"
-church_location: "Copan Ruinas, Honduras"
+church_location: "Copán Ruinas, Honduras"
 ceremony_time: "16:00"
 celebration: "Celebración"
 celebration_time: "17:00"
@@ -47,25 +47,25 @@ rsvp_coming_soon: "¡Pronto compartiremos un formulario de confirmación para qu
 logistics: "Logística"
 travel_info: "Viaje y Transporte"
 getting_there: "Cómo llegar"
-getting_there_desc: "Recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) por su cercanía a Copan (4 horas en autobús). Recomendamos llegar alrededor del mediodía del viernes 18 de diciembre para ir directamente a Copan. ¡Pero siéntete libre de hacer los arreglos que necesites!"
+getting_there_desc: "Recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) por su cercanía a Copán (4 horas en autobús). Lo ideal es llegar alrededor del mediodía del viernes 18 de diciembre para ir directamente a Copán. ¡Pero siéntanse libres de organizarse como prefieran!"
 more_details_soon: "Compartiremos más detalles pronto."
 transportation: "Transporte"
-transportation_desc: "Estamos planeando organizar transporte - ¡más detalles pronto!"
-transport_church_venue: "Estamos viendo opciones de transporte grupal desde SAP a Copan antes de la boda"
-transport_venue_city: "Estamos viendo opciones de transporte grupal desde Copan a SAP después de la boda"
-transport_around_copan: "¿Moverse por Copan? ¡A pie o en [tuktuk](/wedding/traveling/)!"
+transportation_desc: "Estamos planeando organizar transporte. ¡Más detalles pronto!"
+transport_church_venue: "Estamos viendo opciones de transporte grupal desde SAP a Copán antes de la boda"
+transport_venue_city: "Estamos viendo opciones de transporte grupal desde Copán a SAP después de la boda"
+transport_around_copan: "¿Moverse por Copán? ¡A pie o en [mototaxi](/wedding/traveling/)!"
 dress_code: "Código de Vestimenta"
-dress_code_desc: "Formal. ¡Vengan guapos y preparados para bailar!"
+dress_code_desc: "Formal. ¡Vengan guapos y listos para bailar!"
 
 # Spain
 also_save: "También Reserva la Fecha"
 spain_celebration: "Celebración en Cataluña"
 spain_title: "Cena en Cataluña"
 spain_date: "Principios de 2027"
-spain_desc: "Estamos planeando una cena relajada con familia y amigos en algún lugar de Cataluña. ¡Más detalles pronto!"
+spain_desc: "Estamos planeando una celebración informal con familia y amigos en algún lugar de Cataluña. ¡Más detalles pronto!"
 spain_location: "Cataluña"
 spain_vibe: "Cena relajada con familia y amigos"
-spain_for_who: "Una celebración tranquila - sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos son bienvenidos!"
+spain_for_who: "Una celebración tranquila: sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos son bienvenidos!"
 
 # FAQ (preguntas/respuestas movidas a data/es/faq.yaml)
 questions: "¿Preguntas?"
@@ -83,7 +83,7 @@ nav_traveling: "Viajar"
 
 # Hero
 traveling_title: "Viajar a Honduras"
-traveling_subtitle: "Todo lo que necesitas saber para llegar a Copán Ruinas para nuestra celebración de boda."
+traveling_subtitle: "Todo lo que necesitas saber para llegar a Copán Ruinas para nuestra celebración."
 traveling_back_home: "Volver al Inicio"
 
 # Getting There
@@ -92,30 +92,30 @@ traveling_getting_there_intro: "Copán Ruinas está ubicado en el oeste de Hondu
 traveling_from_europe: "Desde Europa"
 traveling_from_europe_desc: "Vuela a San Pedro Sula (SAP) vía Madrid o Ámsterdam. [Air Europa](https://www.aireuropa.com/) ofrece vuelos directos desde Madrid (MAD) a San Pedro Sula los lunes, miércoles y viernes. KLM conecta vía Ámsterdam."
 traveling_from_us: "Desde EE.UU. y Canadá"
-traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde los principales aeropuertos de EE.UU. United vuela desde Houston (IAH), American desde Miami (MIA) y Dallas (DFW), y Spirit desde Fort Lauderdale (FLL). Si haces escala en Houston, ¡avísanos!"
-traveling_to_copan: "San Pedro Sula a Copán"
-traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en coche hasta Copán Ruinas. Estamos planeando organizar transporte grupal - ¡más detalles próximamente!"
+traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde los principales aeropuertos de EE.UU. United vuela desde Houston (IAH), American desde Miami (MIA) y Dallas (DFW), y Spirit desde Fort Lauderdale (FLL). Si hacen escala en Houston, ¡avísennos!"
+traveling_to_copan: "De San Pedro Sula a Copán"
+traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. Estamos planeando organizar transporte grupal. ¡Más detalles próximamente!"
 
 # Getting Around Copán
 traveling_getting_around: "Moverse por Copán"
 traveling_getting_around_intro: "Copán Ruinas es un pueblo pequeño y fácil de recorrer a pie. Esto es lo que necesitas saber para moverte."
 traveling_walking_title: "Caminando"
-traveling_walking_desc: "El centro del pueblo es compacto y se puede recorrer a pie. La mayoría de los hoteles están a 10-15 minutos caminando de la iglesia (Parroquia San José Obrero) - ¡no necesitas transporte para la ceremonia!"
-traveling_tuktuk_title: "Tuk-tuks"
-traveling_tuktuk_desc: "Los tuk-tuks de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Solo para uno o pide a tu hotel que llame uno. Perfectos para ir a atracciones fuera del centro."
+traveling_walking_desc: "El centro del pueblo es compacto y se puede recorrer a pie. La mayoría de los hoteles están a 10-15 minutos caminando de la iglesia (Parroquia San José Obrero). ¡No necesitas transporte para la ceremonia!"
+traveling_tuktuk_title: "Mototaxis (Tuk-tuks)"
+traveling_tuktuk_desc: "Los mototaxis de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Simplemente detén uno en la calle o pide a tu hotel que llame a uno. Son perfectos para ir a lugares fuera del centro."
 
 # Why Copán
-traveling_why_copan: "¿Por Qué Copán?"
+traveling_why_copan: "¿Por qué Copán?"
 traveling_why_copan_intro: "Copán Ruinas es un encantador pueblo colonial ubicado en las montañas del oeste de Honduras, famoso por sus antiguas ruinas mayas y su ambiente relajado."
 traveling_unesco: "Patrimonio de la Humanidad"
 traveling_unesco_desc: "El Sitio Arqueológico de Copán es una de las ciudades mayas más importantes jamás descubiertas, conocida por su notable arte escultórico y textos jeroglíficos."
 traveling_colonial: "Encanto Colonial"
-traveling_colonial_desc: "El pueblo en sí es una hermosa villa colonial con calles empedradas, edificios coloridos, excelentes restaurantes y un ambiente relajado."
+traveling_colonial_desc: "El pueblo en sí es una villa colonial hermosa con calles empedradas, edificios coloridos, excelentes restaurantes y un ambiente tranquilo."
 traveling_weather: "Clima Perfecto"
-traveling_weather_desc: "A 700m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C - ¡perfecto para una celebración!"
+traveling_weather_desc: "A 700 m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C. ¡Perfecto para una celebración!"
 
 # Things to Do in Copán (lugares movidos a data/es/copan_places.yaml)
-traveling_things_to_do: "Qué Hacer en Copán"
+traveling_things_to_do: "Qué hacer en Copán"
 traveling_things_to_do_intro: "Más allá de las festividades de la boda, hay mucho que explorar en Copán Ruinas y sus alrededores."
 view_on_maps: "Ver en Maps"
 
