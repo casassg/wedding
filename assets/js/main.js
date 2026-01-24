@@ -351,6 +351,42 @@
     }
 
     // ===================
+    // FAQ Accordion
+    // ===================
+    function initFAQ() {
+        document.querySelectorAll('.faq-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const content = trigger.nextElementSibling;
+                const icon = trigger.querySelector('.fa-plus, .fa-minus');
+                const isExpanded = content.style.maxHeight;
+
+                // Close all others
+                document.querySelectorAll('.faq-content').forEach(c => {
+                    if (c !== content) {
+                        c.style.maxHeight = null;
+                    }
+                });
+                document.querySelectorAll('.faq-trigger .fa-minus').forEach(i => {
+                    if (i !== icon) {
+                        i.classList.remove('fa-minus');
+                        i.classList.add('fa-plus');
+                    }
+                });
+
+                if (isExpanded) {
+                    content.style.maxHeight = null;
+                    icon.classList.remove('fa-minus');
+                    icon.classList.add('fa-plus');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    icon.classList.remove('fa-plus');
+                    icon.classList.add('fa-minus');
+                }
+            });
+        });
+    }
+
+    // ===================
     // Place Cards Modal
     // ===================
     function initPlaceCards() {
@@ -455,6 +491,7 @@
         initAmpersandEasterEgg();
         initLastUpdated();
         initPlaceCards();
+        initFAQ();
     });
 
 })();
