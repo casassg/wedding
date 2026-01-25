@@ -22,7 +22,6 @@ when: "Cuándo"
 date_saturday: "Sábado, 19 de diciembre"
 date_wedding: "Día de la boda"
 ceremony: "Ceremonia"
-catholic_ceremony: "Ceremonia Católica"
 church_name: "Parroquia San José Obrero"
 church_location: "Copán Ruinas, Honduras"
 ceremony_time: "16:00"
@@ -43,8 +42,6 @@ rsvp_fill_info: "Por favor completa la siguiente información para confirmar tu 
 rsvp_invite_size: "💌 Invitación válida para {n} persona(s)."
 rsvp_deadline: "Agradeceríamos que pudieras confirmar antes del **1 de septiembre**."
 rsvp_plus_one_label: "Vengo con mi pareja"
-rsvp_adults_label: "Adultos"
-rsvp_adults_help: "Máximo permitido:"
 rsvp_kids_label: "Hijos?"
 rsvp_kids_help: "Máximo permitido:"
 rsvp_select_placeholder: "Seleccionar"
@@ -68,7 +65,6 @@ logistics: "Logística"
 travel_info: "Viaje y Transporte"
 getting_there: "Cómo llegar"
 getting_there_desc: "Para los que venís de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) porque está cerca de Copán (4 horas en autobús). <br><br>Lo ideal sería llegar alrededor del mediodía del viernes 18 de diciembre para tener tiempo suficiente de llegar a Copán durante el día. ¡Pero organizaos como os vaya mejor!"
-more_details_soon: "Compartiremos más detalles pronto."
 transportation: "Transporte"
 transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
 transport_venue_city: "Estamos viendo qué opciones hay de transporte desde el aeropuerto de San Pedro Sula hasta Copán"
@@ -135,12 +131,10 @@ traveling_weather_desc: "A 700 m de altitud, Copán disfruta de un agradable cli
 # Things to Do in Copán (lugares movidos a data/es/copan_places.yaml)
 traveling_things_to_do: "Qué hacer en Copán"
 traveling_things_to_do_intro: "Más allá de las festividades de la boda, hay mucho que explorar en Copán Ruinas y sus alrededores."
-view_on_maps: "Ver en Maps"
 
 # Explore Honduras (lugares movidos a data/es/honduras_places.yaml)
 traveling_explore: "Explora Honduras"
 traveling_explore_intro: "Si tienes tiempo extra antes o después de la boda, Honduras ofrece aventuras increíbles."
-learn_more: "Más información"
 
 # Travel Tips
 traveling_tips_title: "Consejos de Viaje"
