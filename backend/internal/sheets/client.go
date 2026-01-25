@@ -81,18 +81,19 @@ func (c *Client) IsConfigured() bool {
 
 // SheetRow represents a row in the Google Sheet
 type SheetRow struct {
-	RowNumber      int
-	Name           string
-	Parella        string // "Si" or "No"
-	Fills          int    // Number of kids allowed
-	InviteCode     string
-	Attending      *bool
-	Adults         *int
-	Kids           *int
-	Dietary        string
-	Transport      string
-	RespondedAt    string
-	Country        string
+	RowNumber   int
+	Name        string
+	Parella     string // "Si" or "No"
+	Fills       int    // Number of kids allowed
+	InviteCode  string
+	Attending   *bool
+	Adults      *int
+	Kids        *int
+	Dietary     string
+	Message     string
+	Song        string
+	RespondedAt string
+	Country     string
 }
 
 // ReadSheet reads all invite data from the sheet
@@ -101,11 +102,11 @@ func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
 		return nil, nil // Return empty when not configured
 	}
 
-	// Read data from 'Guests' sheet (rows 2+, columns A-M)
+	// Read data from 'Guests' sheet (rows 2+, columns A-N)
 	// Column mapping:
 	// A: Name, B: Parella, C: Fills, D: Location, E: State, F: Total, G: No Hijos
-	// H: Invite Code, I: Adults confirmed, J: Kids confirmed, K: Dietary, L: Transport, M: Updated At
-	readRange := fmt.Sprintf("'%s'!A2:M", c.sheetName)
+	// H: Invite Code, I: Adults confirmed, J: Kids confirmed, K: Dietary, L: Message for us, M: Song request, N: Updated At
+	readRange := fmt.Sprintf("'%s'!A2:N", c.sheetName)
 	resp, err := c.service.Spreadsheets.Values.Get(c.sheetID, readRange).Context(ctx).Do()
 	if err != nil {
 		return nil, fmt.Errorf("failed to read sheet: %w", err)
@@ -156,17 +157,18 @@ func (c *Client) WriteRSVP(ctx context.Context, rowNum int, data SheetRow) error
 		return nil // No-op when not configured
 	}
 
-	// Prepare values for columns I-M (Adults confirmed, Kids confirmed, Dietary, Transport, Updated At)
+	// Prepare values for columns I-N (Adults confirmed, Kids confirmed, Dietary, Message for us, Song request, Updated At)
 	values := []interface{}{
-		intToString(data.Adults),      // Column I: Adults confirmed
-		intToString(data.Kids),         // Column J: Kids confirmed
-		data.Dietary,                   // Column K: Dietary
-		data.Transport,                 // Column L: Transport
-		data.RespondedAt,               // Column M: Updated At
+		intToString(data.Adults), // Column I: Adults confirmed
+		intToString(data.Kids),   // Column J: Kids confirmed
+		data.Dietary,             // Column K: Dietary
+		data.Message,             // Column L: Message for us
+		data.Song,                // Column M: Song request
+		data.RespondedAt,         // Column N: Updated At
 	}
 
 	// Write to sheet
-	writeRange := fmt.Sprintf("'%s'!I%d:M%d", c.sheetName, rowNum, rowNum)
+	writeRange := fmt.Sprintf("'%s'!I%d:N%d", c.sheetName, rowNum, rowNum)
 	valueRange := &sheets.ValueRange{
 		Values: [][]interface{}{values},
 	}

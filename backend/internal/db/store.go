@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
+	"strings"
 
 	sqlcdb "github.com/casassg/wedding/backend/internal/db/sqlc"
 	_ "modernc.org/sqlite"
@@ -23,7 +24,8 @@ CREATE TABLE IF NOT EXISTS invites (
     adult_count     INTEGER,
     kid_count       INTEGER,
     dietary_info    TEXT,
-    transport_needs TEXT,
+    message_for_us  TEXT,
+    song_request    TEXT,
     
     -- Metadata
     response_at     DATETIME,
@@ -92,6 +94,27 @@ func (d *DB) runMigrations() error {
 		return fmt.Errorf("failed to execute migration: %w", err)
 	}
 
+	if err := d.addColumnIfMissing("message_for_us", "TEXT"); err != nil {
+		return err
+	}
+
+	if err := d.addColumnIfMissing("song_request", "TEXT"); err != nil {
+		return err
+	}
+
 	log.Println("Migrations completed successfully")
 	return nil
+}
+
+func (d *DB) addColumnIfMissing(columnName, columnType string) error {
+	_, err := d.db.Exec(fmt.Sprintf("ALTER TABLE invites ADD COLUMN %s %s", columnName, columnType))
+	if err == nil {
+		return nil
+	}
+
+	if strings.Contains(err.Error(), "duplicate column") {
+		return nil
+	}
+
+	return fmt.Errorf("failed to add column %s: %w", columnName, err)
 }

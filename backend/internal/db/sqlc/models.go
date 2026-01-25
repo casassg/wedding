@@ -18,7 +18,8 @@ type Invite struct {
 	AdultCount      sql.NullInt64  `json:"adult_count"`
 	KidCount        sql.NullInt64  `json:"kid_count"`
 	DietaryInfo     sql.NullString `json:"dietary_info"`
-	TransportNeeds  sql.NullString `json:"transport_needs"`
+	MessageForUs    sql.NullString `json:"message_for_us"`
+	SongRequest     sql.NullString `json:"song_request"`
 	ResponseAt      sql.NullTime   `json:"response_at"`
 	ResponseCountry sql.NullString `json:"response_country"`
 	SheetRow        sql.NullInt64  `json:"sheet_row"`

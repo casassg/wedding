@@ -16,11 +16,12 @@ type InviteResponse struct {
 
 // RSVPRequest is the request payload for POST /invite/{uuid}/rsvp
 type RSVPRequest struct {
-	Attending      bool   `json:"attending"`
-	AdultCount     *int   `json:"adult_count,omitempty"`
-	KidCount       *int   `json:"kid_count,omitempty"`
-	DietaryInfo    string `json:"dietary_info,omitempty"`
-	TransportNeeds string `json:"transport_needs,omitempty"`
+	Attending    bool   `json:"attending"`
+	AdultCount   *int   `json:"adult_count,omitempty"`
+	KidCount     *int   `json:"kid_count,omitempty"`
+	DietaryInfo  string `json:"dietary_info,omitempty"`
+	MessageForUs string `json:"message_for_us,omitempty"`
+	SongRequest  string `json:"song_request,omitempty"`
 }
 
 // RSVPResponse is the success response for POST /invite/{uuid}/rsvp

@@ -21,4 +21,4 @@ echo ""
 mkdir -p tmp
 
 # Run the server (godotenv will load .env automatically)
-go run cmd/server/main.go
+go run ./cmd/server

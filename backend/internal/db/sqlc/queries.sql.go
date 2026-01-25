@@ -11,7 +11,7 @@ import (
 )
 
 const getInviteByUUID = `-- name: GetInviteByUUID :one
-SELECT id, uuid, name, max_adults, max_kids, attending, adult_count, kid_count, dietary_info, transport_needs, response_at, response_country, sheet_row, synced_at, deleted_at, created_at, updated_at FROM invites
+SELECT id, uuid, name, max_adults, max_kids, attending, adult_count, kid_count, dietary_info, message_for_us, song_request, response_at, response_country, sheet_row, synced_at, deleted_at, created_at, updated_at FROM invites
 WHERE uuid = ? AND deleted_at IS NULL
 `
 
@@ -28,7 +28,8 @@ func (q *Queries) GetInviteByUUID(ctx context.Context, uuid string) (Invite, err
 		&i.AdultCount,
 		&i.KidCount,
 		&i.DietaryInfo,
-		&i.TransportNeeds,
+		&i.MessageForUs,
+		&i.SongRequest,
 		&i.ResponseAt,
 		&i.ResponseCountry,
 		&i.SheetRow,
@@ -41,7 +42,7 @@ func (q *Queries) GetInviteByUUID(ctx context.Context, uuid string) (Invite, err
 }
 
 const getPendingSyncInvites = `-- name: GetPendingSyncInvites :many
-SELECT id, uuid, name, max_adults, max_kids, attending, adult_count, kid_count, dietary_info, transport_needs, response_at, response_country, sheet_row, synced_at, deleted_at, created_at, updated_at FROM invites
+SELECT id, uuid, name, max_adults, max_kids, attending, adult_count, kid_count, dietary_info, message_for_us, song_request, response_at, response_country, sheet_row, synced_at, deleted_at, created_at, updated_at FROM invites
 WHERE deleted_at IS NULL
   AND response_at IS NOT NULL
   AND (synced_at IS NULL OR response_at > synced_at)
@@ -67,7 +68,8 @@ func (q *Queries) GetPendingSyncInvites(ctx context.Context) ([]Invite, error) {
 			&i.AdultCount,
 			&i.KidCount,
 			&i.DietaryInfo,
-			&i.TransportNeeds,
+			&i.MessageForUs,
+			&i.SongRequest,
 			&i.ResponseAt,
 			&i.ResponseCountry,
 			&i.SheetRow,
@@ -129,7 +131,8 @@ SET attending = ?,
     adult_count = ?,
     kid_count = ?,
     dietary_info = ?,
-    transport_needs = ?,
+    message_for_us = ?,
+    song_request = ?,
     response_at = ?,
     response_country = ?,
     synced_at = NULL,  -- Reset to trigger sync to sheet
@@ -142,7 +145,8 @@ type UpdateRSVPParams struct {
 	AdultCount      sql.NullInt64  `json:"adult_count"`
 	KidCount        sql.NullInt64  `json:"kid_count"`
 	DietaryInfo     sql.NullString `json:"dietary_info"`
-	TransportNeeds  sql.NullString `json:"transport_needs"`
+	MessageForUs    sql.NullString `json:"message_for_us"`
+	SongRequest     sql.NullString `json:"song_request"`
 	ResponseAt      sql.NullTime   `json:"response_at"`
 	ResponseCountry sql.NullString `json:"response_country"`
 	UpdatedAt       sql.NullTime   `json:"updated_at"`
@@ -157,7 +161,8 @@ func (q *Queries) UpdateRSVP(ctx context.Context, arg UpdateRSVPParams) error {
 		arg.AdultCount,
 		arg.KidCount,
 		arg.DietaryInfo,
-		arg.TransportNeeds,
+		arg.MessageForUs,
+		arg.SongRequest,
 		arg.ResponseAt,
 		arg.ResponseCountry,
 		arg.UpdatedAt,

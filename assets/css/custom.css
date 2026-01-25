@@ -247,3 +247,5 @@ body.place-modal-open #place-modal-backdrop {
     visibility: visible;
     pointer-events: auto;
 }
+
+/* Removed RSVP Toggle - no longer used */

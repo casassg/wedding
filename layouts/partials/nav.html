@@ -16,7 +16,7 @@
                 {{- $translation := index (where $.AllTranslations "Lang" .Lang) 0 -}}
                 {{- $url := cond (ne $translation nil) $translation.Permalink ($.Site.GetPage (printf "/%s" .Lang)).Permalink -}}
                 <a href="{{ $url }}" 
-                   onclick="localStorage.setItem('lang-selected', 'true')"
+                   onclick="event.preventDefault(); const code = new URLSearchParams(window.location.search).get('code'); window.location.href = this.href + (code ? '?code=' + code : ''); localStorage.setItem('lang-selected', 'true');"
                    class="{{ if eq $.Lang .Lang }}text-rose{{ else }}text-gray-400 hover:text-gray-800{{ end }} transition">
                     {{ .LanguageName }}
                 </a>
@@ -41,7 +41,7 @@
                 {{- $translation := index (where $.AllTranslations "Lang" .Lang) 0 -}}
                 {{- $url := cond (ne $translation nil) $translation.Permalink ($.Site.GetPage (printf "/%s" .Lang)).Permalink -}}
                 <a href="{{ $url }}" 
-                   onclick="localStorage.setItem('lang-selected', 'true')"
+                   onclick="event.preventDefault(); const code = new URLSearchParams(window.location.search).get('code'); window.location.href = this.href + (code ? '?code=' + code : ''); localStorage.setItem('lang-selected', 'true');"
                    class="{{ if eq $.Lang .Lang }}text-rose{{ else }}text-gray-400{{ end }} hover:text-rose transition">
                     {{ .LanguageName }}
                 </a>

@@ -39,11 +39,12 @@ func TestUpsertInvitePreservesSyncedAt(t *testing.T) {
 
 	// Step 2: User submits RSVP
 	rsvpReq := RSVPRequest{
-		Attending:      true,
-		AdultCount:     intPtr(2),
-		KidCount:       intPtr(0),
-		DietaryInfo:    "Vegetarian",
-		TransportNeeds: "Need shuttle",
+		Attending:    true,
+		AdultCount:   intPtr(2),
+		KidCount:     intPtr(0),
+		DietaryInfo:  "Vegetarian",
+		MessageForUs: "Looking forward to it!",
+		SongRequest:  "Can't Stop the Feeling",
 	}
 	err = database.UpdateRSVP(testUUID, rsvpReq, "US")
 	require.NoError(t, err)

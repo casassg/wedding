@@ -64,9 +64,8 @@
                 <div class="w-16 h-16 bg-leaf/30 text-leaf rounded-full flex items-center justify-center animate-float">
                     <i class="fa-solid fa-envelope-open-text text-2xl"></i>
                 </div>
-                <div id="rsvp-card" class="flex-1" data-api-base="https://api.lauraygerard.wedding/api/v1" data-error-missing-adults="{{ i18n "rsvp_error_missing_adults" }}" data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" data-error-generic="{{ i18n "rsvp_error_generic" }}">
+                <div id="rsvp-card" class="flex-1" data-api-base="https://api.lauraygerard.wedding/api/v1" data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}" data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" data-error-generic="{{ i18n "rsvp_error_generic" }}">
                     <h3 class="font-hand text-3xl mb-2 text-gray-800">{{ i18n "rsvp_title" }}</h3>
-                    <p class="text-gray-600 font-sans">{{ i18n "rsvp_intro" }}</p>
 
                     <div id="rsvp-loading" class="mt-4 text-sm text-gray-500 font-sans">{{ i18n "rsvp_loading" }}</div>
 
@@ -83,50 +82,49 @@
                     </div>
 
                     <div id="rsvp-form-wrapper" class="hidden mt-6">
-                        <p class="text-gray-700 font-sans mb-4">
-                            {{ i18n "rsvp_greeting" }} <span id="rsvp-guest-name" class="font-semibold text-gray-800"></span>
-                        </p>
+                        <div class="mb-6 space-y-2">
+                            <p class="text-gray-700 font-sans">
+                                {{ i18n "rsvp_greeting" }} <span id="rsvp-guest-name" class="font-semibold text-gray-800"></span>, {{ i18n "rsvp_hope" }}
+                            </p>
+                            <p class="text-gray-700 font-sans">
+                                {{ i18n "rsvp_fill_info" }}
+                            </p>
+                            <p class="text-gray-700 font-sans">
+                                {{ i18n "rsvp_deadline" }}
+                            </p>
+                        </div>
                         <form id="rsvp-form" class="space-y-5">
-                            <fieldset class="space-y-3">
-                                <legend class="text-sm font-semibold uppercase tracking-widest text-gray-500 font-sans">{{ i18n "rsvp_attending_label" }}</legend>
-                                <div class="flex flex-col md:flex-row md:items-center gap-3">
-                                    <label class="flex items-center gap-2 text-gray-700 font-sans">
-                                        <input type="radio" name="attending" value="yes" class="text-rose" required>
-                                        <span>{{ i18n "rsvp_yes" }}</span>
-                                    </label>
-                                    <label class="flex items-center gap-2 text-gray-700 font-sans">
-                                        <input type="radio" name="attending" value="no" class="text-rose" required>
-                                        <span>{{ i18n "rsvp_no" }}</span>
-                                    </label>
-                                </div>
-                            </fieldset>
+                            <!-- +1 field (shown only when max_adults = 2) -->
+                            <div id="rsvp-plus-one-field" class="hidden">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input id="rsvp-plus-one-checkbox" type="checkbox" class="w-5 h-5 rounded border-gray-200 bg-white/80 accent-leaf focus:ring-leaf focus:ring-offset-0 focus:border-leaf hover:border-leaf/50 transition cursor-pointer">
+                                    <span class="text-sm font-semibold text-gray-700 font-sans group-hover:text-leaf transition">{{ i18n "rsvp_plus_one_label" }}</span>
+                                </label>
+                            </div>
 
-                            <div id="rsvp-counts" class="hidden grid md:grid-cols-2 gap-4">
-                                <div>
-                                    <label for="rsvp-adults" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_adults_label" }}</label>
-                                    <select id="rsvp-adults" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans" data-placeholder="{{ i18n "rsvp_select_placeholder" }}">
-                                        <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
-                                    </select>
-                                    <p class="mt-2 text-xs text-gray-500 font-sans">{{ i18n "rsvp_adults_help" }} <span id="rsvp-adults-max"></span></p>
-                                </div>
-                                <div id="rsvp-kids-field">
-                                    <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
-                                    <select id="rsvp-kids" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans" data-placeholder="{{ i18n "rsvp_select_placeholder" }}">
-                                        <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
-                                    </select>
-                                    <p class="mt-2 text-xs text-gray-500 font-sans">{{ i18n "rsvp_kids_help" }} <span id="rsvp-kids-max"></span></p>
-                                </div>
+                            <!-- Kids field -->
+                            <div id="rsvp-kids-field" class="hidden">
+                                <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
+                                <select id="rsvp-kids" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" data-placeholder="{{ i18n "rsvp_select_placeholder" }}">
+                                    <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
+                                </select>
+                                <p class="mt-2 text-xs text-gray-500 font-sans">{{ i18n "rsvp_kids_help" }} <span id="rsvp-kids-max"></span></p>
                             </div>
 
                             <div class="grid md:grid-cols-2 gap-4">
                                 <div>
                                     <label for="rsvp-dietary" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_dietary_label" }}</label>
-                                    <textarea id="rsvp-dietary" rows="3" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans" placeholder="{{ i18n "rsvp_dietary_placeholder" }}"></textarea>
+                                    <input id="rsvp-dietary" type="text" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" placeholder="{{ i18n "rsvp_dietary_placeholder" }}">
                                 </div>
                                 <div>
-                                    <label for="rsvp-transport" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_transport_label" }}</label>
-                                    <textarea id="rsvp-transport" rows="3" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans" placeholder="{{ i18n "rsvp_transport_placeholder" }}"></textarea>
+                                    <label for="rsvp-song" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_song_label" }}</label>
+                                    <input id="rsvp-song" type="text" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" placeholder="{{ i18n "rsvp_song_placeholder" }}">
                                 </div>
+                            </div>
+
+                            <div>
+                                <label for="rsvp-message" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_message_label" }}</label>
+                                <textarea id="rsvp-message" rows="2" class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
                             </div>
 
                             <button id="rsvp-submit" type="submit" class="w-full md:w-auto rounded-full bg-leaf px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-leaf/90" data-default-text="{{ i18n "rsvp_submit" }}" data-loading-text="{{ i18n "rsvp_submitting" }}">

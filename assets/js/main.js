@@ -45,7 +45,10 @@
             pagePath = pagePath.replace(/^(en|es|ca)(\/|$)/, ''); // Remove language prefix if present
             
             const langPrefix = preferredLang === 'en' ? '/' : '/' + preferredLang + '/';
-            const newUrl = langPrefix + pagePath;
+            
+            // Preserve query parameters (e.g., ?code=ABC)
+            const queryString = window.location.search;
+            const newUrl = langPrefix + pagePath + queryString;
             
             window.location.replace(newUrl);
         }
@@ -398,7 +401,10 @@
         const code = params.get('code');
         if (!code) return;
 
-        const apiBase = rsvpCard.dataset.apiBase || '';
+        let apiBase = rsvpCard.dataset.apiBase || '';
+        if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            apiBase = 'http://localhost:8081/api/v1';
+        }
         const endpoint = `${apiBase}/invite/${encodeURIComponent(code)}`;
 
         const loadingEl = document.getElementById('rsvp-loading');
@@ -408,22 +414,21 @@
         const thanksEl = document.getElementById('rsvp-thanks');
         const thanksNameEl = document.getElementById('rsvp-thanks-name');
         const guestNameEl = document.getElementById('rsvp-guest-name');
-        const countsEl = document.getElementById('rsvp-counts');
-        const adultsSelect = document.getElementById('rsvp-adults');
+        const plusOneField = document.getElementById('rsvp-plus-one-field');
         const kidsSelect = document.getElementById('rsvp-kids');
         const kidsField = document.getElementById('rsvp-kids-field');
-        const adultsMaxEl = document.getElementById('rsvp-adults-max');
         const kidsMaxEl = document.getElementById('rsvp-kids-max');
         const form = document.getElementById('rsvp-form');
         const submitBtn = document.getElementById('rsvp-submit');
         const dietaryInput = document.getElementById('rsvp-dietary');
-        const transportInput = document.getElementById('rsvp-transport');
+        const messageInput = document.getElementById('rsvp-message');
+        const songInput = document.getElementById('rsvp-song');
 
         if (!loadingEl || !errorEl || !errorMessageEl || !formWrapper || !thanksEl || !guestNameEl || !form || !submitBtn) {
             return;
         }
 
-        const errorMissingAdults = rsvpCard.dataset.errorMissingAdults || 'Please select the number of adults.';
+        const errorMissingPlusOne = rsvpCard.dataset.errorMissingPlusOne || 'Please indicate if you will bring a +1.';
         const errorMissingKids = rsvpCard.dataset.errorMissingKids || 'Please select the number of kids.';
         const errorGeneric = rsvpCard.dataset.errorGeneric || 'Something went wrong. Please try again.';
 
@@ -470,10 +475,6 @@
             }
         }
 
-        function setAttendingState(attending) {
-            if (countsEl) countsEl.classList.toggle('hidden', !attending);
-        }
-
         async function parseErrorResponse(response) {
             const text = await response.text();
             if (!text) return null;
@@ -517,11 +518,16 @@
                 const maxAdults = Number(data?.max_adults || 0);
                 const maxKids = Number(data?.max_kids || 0);
 
-                if (adultsMaxEl) adultsMaxEl.textContent = maxAdults ? maxAdults : '';
                 if (kidsMaxEl) kidsMaxEl.textContent = maxKids ? maxKids : '';
 
-                if (adultsSelect) {
-                    populateSelect(adultsSelect, maxAdults, false);
+                // Show +1 field only if max_adults is 2
+                const hasPlusOne = maxAdults === 2;
+                if (plusOneField) {
+                    if (!hasPlusOne) {
+                        plusOneField.classList.add('hidden');
+                    } else {
+                        plusOneField.classList.remove('hidden');
+                    }
                 }
 
                 if (kidsSelect) {
@@ -529,7 +535,11 @@
                 }
 
                 if (kidsField) {
-                    kidsField.classList.toggle('hidden', maxKids <= 0);
+                    if (maxKids <= 0) {
+                        kidsField.classList.add('hidden');
+                    } else {
+                        kidsField.classList.remove('hidden');
+                    }
                 }
 
                 if (data?.has_responded) {
@@ -540,42 +550,34 @@
                     thanksEl.classList.add('hidden');
                 }
 
-                const attendingInputs = form.querySelectorAll('input[name="attending"]');
-                attendingInputs.forEach(input => {
-                    input.addEventListener('change', () => {
-                        setAttendingState(input.value === 'yes');
-                    });
-                });
-
                 form.addEventListener('submit', async (event) => {
                     event.preventDefault();
                     clearError();
 
-                    const attendingValue = form.querySelector('input[name="attending"]:checked')?.value;
-                    const isAttending = attendingValue === 'yes';
-
-                    if (isAttending) {
-                        if (!adultsSelect?.value) {
-                            showError(errorMissingAdults);
-                            return;
-                        }
-                        if (maxKids > 0 && !kidsSelect?.value) {
-                            showError(errorMissingKids);
-                            return;
-                        }
+                    // Validate kids field if applicable
+                    if (maxKids > 0 && !kidsSelect?.value) {
+                        showError(errorMissingKids);
+                        return;
                     }
 
                     const payload = {
-                        attending: isAttending,
+                        attending: true,  // Always true when form is submitted
                         dietary_info: dietaryInput?.value?.trim() || '',
-                        transport_needs: transportInput?.value?.trim() || ''
+                        message_for_us: messageInput?.value?.trim() || '',
+                        song_request: songInput?.value?.trim() || ''
                     };
 
-                    if (isAttending) {
-                        payload.adult_count = Number(adultsSelect.value);
-                        if (maxKids > 0) {
-                            payload.kid_count = Number(kidsSelect.value || 0);
-                        }
+                    // Determine adult_count based on +1 checkbox
+                    if (maxAdults === 2) {
+                        const plusOneCheckbox = document.getElementById('rsvp-plus-one-checkbox');
+                        payload.adult_count = plusOneCheckbox?.checked ? 2 : 1;
+                    } else {
+                        // If max_adults is 1, always send 1
+                        payload.adult_count = 1;
+                    }
+                    
+                    if (maxKids > 0) {
+                        payload.kid_count = Number(kidsSelect.value || 0);
                     }
 
                     try {

@@ -84,11 +84,12 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 
 	// Update RSVP in database
 	dbReq := db.RSVPRequest{
-		Attending:      req.Attending,
-		AdultCount:     req.AdultCount,
-		KidCount:       req.KidCount,
-		DietaryInfo:    req.DietaryInfo,
-		TransportNeeds: req.TransportNeeds,
+		Attending:    req.Attending,
+		AdultCount:   req.AdultCount,
+		KidCount:     req.KidCount,
+		DietaryInfo:  req.DietaryInfo,
+		MessageForUs: req.MessageForUs,
+		SongRequest:  req.SongRequest,
 	}
 	if err := h.db.UpdateRSVP(uuid, dbReq, country); err != nil {
 		respondError(w, "Failed to save RSVP", http.StatusInternalServerError)

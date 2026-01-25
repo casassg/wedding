@@ -163,7 +163,8 @@ func (s *Syncer) syncToSheet(ctx context.Context) error {
 			Adults:      nullIntToPtr(invite.AdultCount),
 			Kids:        nullIntToPtr(invite.KidCount),
 			Dietary:     nullStringToString(invite.DietaryInfo),
-			Transport:   nullStringToString(invite.TransportNeeds),
+			Message:     nullStringToString(invite.MessageForUs),
+			Song:        nullStringToString(invite.SongRequest),
 			RespondedAt: nullTimeToString(invite.ResponseAt),
 			Country:     nullStringToString(invite.ResponseCountry),
 		}

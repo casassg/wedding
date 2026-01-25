@@ -26,7 +26,8 @@ CREATE TABLE IF NOT EXISTS invites (
     adult_count INTEGER,
     kid_count INTEGER,
     dietary_info TEXT,
-    transport_needs TEXT,
+    message_for_us TEXT,
+    song_request TEXT,
     response_at DATETIME,
     response_country TEXT,
     sheet_row INTEGER,
@@ -39,6 +40,9 @@ CREATE TABLE IF NOT EXISTS invites (
 CREATE INDEX IF NOT EXISTS idx_invites_uuid ON invites(uuid);
 CREATE INDEX IF NOT EXISTS idx_invites_deleted_at ON invites(deleted_at);
 CREATE INDEX IF NOT EXISTS idx_invites_response_at ON invites(response_at);
+
+ALTER TABLE invites ADD COLUMN IF NOT EXISTS message_for_us TEXT;
+ALTER TABLE invites ADD COLUMN IF NOT EXISTS song_request TEXT;
 EOF
 
 echo "Migrations completed successfully"

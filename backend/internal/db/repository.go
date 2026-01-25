@@ -11,11 +11,12 @@ import (
 
 // RSVPRequest represents an RSVP submission
 type RSVPRequest struct {
-	Attending      bool
-	AdultCount     *int
-	KidCount       *int
-	DietaryInfo    string
-	TransportNeeds string
+	Attending    bool
+	AdultCount   *int
+	KidCount     *int
+	DietaryInfo  string
+	MessageForUs string
+	SongRequest  string
 }
 
 // GetInviteByUUID retrieves an invite by its UUID
@@ -49,7 +50,8 @@ func (d *DB) UpdateRSVP(uuid string, req RSVPRequest, country string) error {
 		AdultCount:      adultCount,
 		KidCount:        kidCount,
 		DietaryInfo:     sql.NullString{String: req.DietaryInfo, Valid: req.DietaryInfo != ""},
-		TransportNeeds:  sql.NullString{String: req.TransportNeeds, Valid: req.TransportNeeds != ""},
+		MessageForUs:    sql.NullString{String: req.MessageForUs, Valid: req.MessageForUs != ""},
+		SongRequest:     sql.NullString{String: req.SongRequest, Valid: req.SongRequest != ""},
 		ResponseAt:      sql.NullTime{Time: now, Valid: true},
 		ResponseCountry: sql.NullString{String: country, Valid: country != ""},
 		UpdatedAt:       sql.NullTime{Time: now, Valid: true},
