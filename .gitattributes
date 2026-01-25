@@ -1,0 +1,2 @@
+# Mark sqlc generated files
+backend/internal/db/sqlc/* linguist-generated=true

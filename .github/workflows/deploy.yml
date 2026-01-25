@@ -22,8 +22,6 @@ defaults:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      HUGO_VERSION: 0.152.2
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -31,11 +29,8 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v3
-        with:
-          hugo-version: ${{ env.HUGO_VERSION }}
-          extended: true
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
 
       - name: Setup Pages
         id: pages
@@ -67,3 +62,27 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
+  fly-deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
+
+      # - name: Setup Flyctl
+      #   uses: superfly/flyctl-actions/setup-flyctl@v1
+
+      - name: Deploy to Fly.io
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl deploy --ha=false

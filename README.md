@@ -2,7 +2,18 @@
 
 A multilingual wedding website built with Hugo, Tailwind CSS, and vanilla JavaScript.
 
-**Live site:** [gerard.space/wedding](https://gerard.space/wedding/)
+**Live site:** [lauraygerard.wedding](https://lauraygerard.wedding/)
+
+# Project Overview
+
+```
+assets/      # Hugo Pipes CSS/JS managed via Hugo Pipes
+content/     # Markdown landing pages per language
+data/{en,es,ca}/ # Structured FAQ + travel info
+i18n/*.yaml  # UI strings per locale
+layouts/     # Hugo templates/partials
+backend/     # Go RSVP API + Google Sheets sync
+```
 
 ## Quick Start
 
@@ -30,7 +41,7 @@ hugo server
 
 Visit [http://localhost:1313/wedding/](http://localhost:1313/wedding/)
 
-## Commands
+## Frontend Commands
 
 ```bash
 hugo server        # Development server with hot reload
@@ -38,9 +49,32 @@ hugo server -D     # Include drafts
 hugo --gc --minify # Production build (outputs to public/)
 ```
 
+## Backend API
+
+The RSVP backend is a Go service that syncs with Google Sheets and runs on Fly.io.
+
+```bash
+cd backend
+cp .env.example .env        # configure DB path + Google credentials
+./dev.sh                    # start local API on http://localhost:8081
+
+# Manual entry points
+go run cmd/server/main.go serve   # run API
+go run cmd/server/main.go sync    # one-off Google Sheets sync
+go run cmd/server/main.go inspect # print sheet schema
+
+# Tests & formatting
+go test ./...                             # full suite
+go test -run TestUpsertInvitePreservesSyncedAt ./internal/db
+go fmt ./...
+```
+
+The local database lives at `backend/tmp/wedding.db`. Delete it if you need a fresh state. Google sync requires `GOOGLE_SHEET_ID` plus credentials configured in `.env`.
+
 ## Deployment
 
-Pushes to `main` automatically deploy to GitHub Pages via GitHub Actions.
+- Frontend: pushes to `main` run `hugo --gc --minify --baseURL "$BASE_URL/"` in GitHub Actions and publish to GitHub Pages automatically.
+- Backend: deploy from `backend/` with `flyctl deploy --ha=false`; ensure the LiteFS volume and required secrets (`GOOGLE_SHEET_ID`, `GOOGLE_SHEETS_CREDENTIALS` or `GOOGLE_APPLICATION_CREDENTIALS`) are set first.
 
 ## Languages
 
