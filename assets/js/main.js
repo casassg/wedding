@@ -387,6 +387,231 @@
     }
 
     // ===================
+    // RSVP Form
+    // ===================
+    function initRSVP() {
+        const rsvpSection = document.getElementById('rsvp');
+        const rsvpCard = document.getElementById('rsvp-card');
+        if (!rsvpSection || !rsvpCard) return;
+
+        const params = new URLSearchParams(window.location.search);
+        const code = params.get('code');
+        if (!code) return;
+
+        const apiBase = rsvpCard.dataset.apiBase || '';
+        const endpoint = `${apiBase}/invite/${encodeURIComponent(code)}`;
+
+        const loadingEl = document.getElementById('rsvp-loading');
+        const errorEl = document.getElementById('rsvp-error');
+        const errorMessageEl = document.getElementById('rsvp-error-message');
+        const formWrapper = document.getElementById('rsvp-form-wrapper');
+        const thanksEl = document.getElementById('rsvp-thanks');
+        const thanksNameEl = document.getElementById('rsvp-thanks-name');
+        const guestNameEl = document.getElementById('rsvp-guest-name');
+        const countsEl = document.getElementById('rsvp-counts');
+        const adultsSelect = document.getElementById('rsvp-adults');
+        const kidsSelect = document.getElementById('rsvp-kids');
+        const kidsField = document.getElementById('rsvp-kids-field');
+        const adultsMaxEl = document.getElementById('rsvp-adults-max');
+        const kidsMaxEl = document.getElementById('rsvp-kids-max');
+        const form = document.getElementById('rsvp-form');
+        const submitBtn = document.getElementById('rsvp-submit');
+        const dietaryInput = document.getElementById('rsvp-dietary');
+        const transportInput = document.getElementById('rsvp-transport');
+
+        if (!loadingEl || !errorEl || !errorMessageEl || !formWrapper || !thanksEl || !guestNameEl || !form || !submitBtn) {
+            return;
+        }
+
+        const errorMissingAdults = rsvpCard.dataset.errorMissingAdults || 'Please select the number of adults.';
+        const errorMissingKids = rsvpCard.dataset.errorMissingKids || 'Please select the number of kids.';
+        const errorGeneric = rsvpCard.dataset.errorGeneric || 'Something went wrong. Please try again.';
+
+        function setLoading(isLoading) {
+            if (loadingEl) loadingEl.classList.toggle('hidden', !isLoading);
+        }
+
+        function showError(message) {
+            if (!errorEl || !errorMessageEl) return;
+            errorMessageEl.textContent = message;
+            errorEl.classList.remove('hidden');
+        }
+
+        function clearError() {
+            if (!errorEl || !errorMessageEl) return;
+            errorMessageEl.textContent = '';
+            errorEl.classList.add('hidden');
+        }
+
+        function resetSubmit(isSubmitting) {
+            const defaultText = submitBtn.dataset.defaultText || submitBtn.textContent;
+            const loadingText = submitBtn.dataset.loadingText || defaultText;
+            submitBtn.disabled = isSubmitting;
+            submitBtn.textContent = isSubmitting ? loadingText : defaultText;
+            submitBtn.classList.toggle('opacity-70', isSubmitting);
+        }
+
+        function populateSelect(select, maxValue, startAtZero) {
+            if (!select) return;
+            select.innerHTML = '';
+            const placeholder = document.createElement('option');
+            placeholder.value = '';
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            placeholder.textContent = select.getAttribute('data-placeholder') || select.querySelector('option')?.textContent || '';
+            select.appendChild(placeholder);
+
+            const start = startAtZero ? 0 : 1;
+            for (let i = start; i <= maxValue; i++) {
+                const option = document.createElement('option');
+                option.value = String(i);
+                option.textContent = String(i);
+                select.appendChild(option);
+            }
+        }
+
+        function setAttendingState(attending) {
+            if (countsEl) countsEl.classList.toggle('hidden', !attending);
+        }
+
+        async function parseErrorResponse(response) {
+            const text = await response.text();
+            if (!text) return null;
+            try {
+                return JSON.parse(text);
+            } catch (err) {
+                return text;
+            }
+        }
+
+        function formatErrorMessage(payload) {
+            if (!payload) return errorGeneric;
+            if (typeof payload === 'string') return payload;
+            if (typeof payload === 'object') {
+                if (payload.error) return payload.error;
+                return JSON.stringify(payload, null, 2);
+            }
+            return String(payload);
+        }
+
+        async function loadInvite() {
+            rsvpSection.classList.remove('hidden');
+            setLoading(true);
+            clearError();
+
+            try {
+                const response = await fetch(endpoint, { headers: { 'Accept': 'application/json' } });
+                if (!response.ok) {
+                    const payload = await parseErrorResponse(response);
+                    throw new Error(formatErrorMessage(payload));
+                }
+
+                const data = await response.json();
+                setLoading(false);
+                clearError();
+
+                const name = data?.name || '';
+                if (guestNameEl) guestNameEl.textContent = name;
+                if (thanksNameEl) thanksNameEl.textContent = name;
+
+                const maxAdults = Number(data?.max_adults || 0);
+                const maxKids = Number(data?.max_kids || 0);
+
+                if (adultsMaxEl) adultsMaxEl.textContent = maxAdults ? maxAdults : '';
+                if (kidsMaxEl) kidsMaxEl.textContent = maxKids ? maxKids : '';
+
+                if (adultsSelect) {
+                    populateSelect(adultsSelect, maxAdults, false);
+                }
+
+                if (kidsSelect) {
+                    populateSelect(kidsSelect, maxKids, true);
+                }
+
+                if (kidsField) {
+                    kidsField.classList.toggle('hidden', maxKids <= 0);
+                }
+
+                if (data?.has_responded) {
+                    thanksEl.classList.remove('hidden');
+                    formWrapper.classList.add('hidden');
+                } else {
+                    formWrapper.classList.remove('hidden');
+                    thanksEl.classList.add('hidden');
+                }
+
+                const attendingInputs = form.querySelectorAll('input[name="attending"]');
+                attendingInputs.forEach(input => {
+                    input.addEventListener('change', () => {
+                        setAttendingState(input.value === 'yes');
+                    });
+                });
+
+                form.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+                    clearError();
+
+                    const attendingValue = form.querySelector('input[name="attending"]:checked')?.value;
+                    const isAttending = attendingValue === 'yes';
+
+                    if (isAttending) {
+                        if (!adultsSelect?.value) {
+                            showError(errorMissingAdults);
+                            return;
+                        }
+                        if (maxKids > 0 && !kidsSelect?.value) {
+                            showError(errorMissingKids);
+                            return;
+                        }
+                    }
+
+                    const payload = {
+                        attending: isAttending,
+                        dietary_info: dietaryInput?.value?.trim() || '',
+                        transport_needs: transportInput?.value?.trim() || ''
+                    };
+
+                    if (isAttending) {
+                        payload.adult_count = Number(adultsSelect.value);
+                        if (maxKids > 0) {
+                            payload.kid_count = Number(kidsSelect.value || 0);
+                        }
+                    }
+
+                    try {
+                        resetSubmit(true);
+                        const response = await fetch(`${endpoint}/rsvp`, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(payload)
+                        });
+
+                        if (!response.ok) {
+                            const payloadError = await parseErrorResponse(response);
+                            throw new Error(formatErrorMessage(payloadError));
+                        }
+
+                        formWrapper.classList.add('hidden');
+                        thanksEl.classList.remove('hidden');
+                    } catch (err) {
+                        showError(err?.message || errorGeneric);
+                    } finally {
+                        resetSubmit(false);
+                    }
+                });
+            } catch (err) {
+                setLoading(false);
+                showError(err?.message || errorGeneric);
+            }
+        }
+
+        loadInvite();
+    }
+
+    // ===================
     // Place Cards Modal
     // ===================
     function initPlaceCards() {
@@ -492,6 +717,7 @@
         initLastUpdated();
         initPlaceCards();
         initFAQ();
+        initRSVP();
     });
 
 })();
