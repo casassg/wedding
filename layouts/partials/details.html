@@ -87,10 +87,13 @@
                                 {{ i18n "rsvp_greeting" }} <span id="rsvp-guest-name" class="font-semibold text-gray-800"></span>, {{ i18n "rsvp_hope" }}
                             </p>
                             <p class="text-gray-700 font-sans">
-                                {{ i18n "rsvp_fill_info" }} <span id="rsvp-invite-size" class="font-semibold"></span>
+                                {{ i18n "rsvp_fill_info" }}
                             </p>
                             <p class="text-gray-700 font-sans">
-                                {{ i18n "rsvp_deadline" }}
+                                <span id="rsvp-invite-size" class="font-semibold"></span>
+                            </p>
+                            <p class="text-gray-700 font-sans">
+                                {{ i18n "rsvp_deadline" | markdownify }}
                             </p>
                         </div>
                         <form id="rsvp-form" class="space-y-5">
