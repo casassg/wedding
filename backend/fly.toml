@@ -4,6 +4,10 @@ primary_region = "iad"
 [build]
   dockerfile = "Dockerfile"
 
+[deploy]
+  strategy = "rolling"
+  max_unavailable = 2
+
 [env]
   PRIMARY_REGION = "iad"
   SHEETS_SYNC_INTERVAL = "5m"
