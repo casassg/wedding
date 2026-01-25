@@ -12,6 +12,7 @@ type CLI struct {
 	Serve   ServeCmd   `cmd:"" help:"Start the RSVP API server" default:"1"`
 	Inspect InspectCmd `cmd:"" help:"Inspect Google Sheets structure and data"`
 	Sync    SyncCmd    `cmd:"" help:"Force an immediate sync between database and Google Sheets"`
+	Migrate MigrateCmd `cmd:"" help:"Run database migrations"`
 }
 
 func main() {

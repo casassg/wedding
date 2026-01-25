@@ -1,22 +1,6 @@
-#!/bin/sh
-# Migration script that runs only on primary node
-# Called by LiteFS before starting the application
+DROP TABLE IF EXISTS invites;
 
-set -e
-
-DB_PATH="/litefs/wedding.db"
-
-echo "Running database migrations..."
-
-# Wait for LiteFS to be ready
-until [ -d /litefs ]; do
-    echo "Waiting for LiteFS to mount..."
-    sleep 1
-done
-
-# Create tables if they don't exist
-sqlite3 "$DB_PATH" <<'EOF'
-CREATE TABLE IF NOT EXISTS invites (
+CREATE TABLE invites (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     uuid TEXT NOT NULL UNIQUE,
     name TEXT NOT NULL,
@@ -40,9 +24,3 @@ CREATE TABLE IF NOT EXISTS invites (
 CREATE INDEX IF NOT EXISTS idx_invites_uuid ON invites(uuid);
 CREATE INDEX IF NOT EXISTS idx_invites_deleted_at ON invites(deleted_at);
 CREATE INDEX IF NOT EXISTS idx_invites_response_at ON invites(response_at);
-
-ALTER TABLE invites ADD COLUMN IF NOT EXISTS message_for_us TEXT;
-ALTER TABLE invites ADD COLUMN IF NOT EXISTS song_request TEXT;
-EOF
-
-echo "Migrations completed successfully"

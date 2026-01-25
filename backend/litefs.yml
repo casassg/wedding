@@ -38,7 +38,7 @@ lease:
 # Exec commands - run migrations on candidates, then start server
 exec:
   # Run migrations only on candidate nodes (primary region)
-  - cmd: "/app/migrate.sh"
+  - cmd: "/app/server migrate"
     if-candidate: true
   
   # Start the application server on all nodes

@@ -4,45 +4,10 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"strings"
 
 	sqlcdb "github.com/casassg/wedding/backend/internal/db/sqlc"
 	_ "modernc.org/sqlite"
 )
-
-const migrationSQL = `
--- Initial schema for wedding RSVP system
-CREATE TABLE IF NOT EXISTS invites (
-    id              INTEGER PRIMARY KEY AUTOINCREMENT,
-    uuid            TEXT UNIQUE NOT NULL,
-    name            TEXT NOT NULL,
-    max_adults      INTEGER NOT NULL DEFAULT 1,
-    max_kids        INTEGER NOT NULL DEFAULT 0,
-    
-    -- RSVP response fields
-    attending       BOOLEAN,
-    adult_count     INTEGER,
-    kid_count       INTEGER,
-    dietary_info    TEXT,
-    message_for_us  TEXT,
-    song_request    TEXT,
-    
-    -- Metadata
-    response_at     DATETIME,
-    response_country TEXT,
-    
-    -- Sync tracking
-    sheet_row       INTEGER,
-    synced_at       DATETIME,
-    deleted_at      DATETIME,
-    created_at      DATETIME DEFAULT CURRENT_TIMESTAMP,
-    updated_at      DATETIME DEFAULT CURRENT_TIMESTAMP
-);
-
-CREATE INDEX IF NOT EXISTS idx_invites_uuid ON invites(uuid);
-CREATE INDEX IF NOT EXISTS idx_invites_deleted ON invites(deleted_at);
-CREATE INDEX IF NOT EXISTS idx_invites_synced ON invites(synced_at);
-`
 
 // DB wraps the database connection and sqlc queries
 type DB struct {
@@ -50,7 +15,7 @@ type DB struct {
 	queries *sqlcdb.Queries
 }
 
-// New creates a new database connection and runs migrations
+// New creates a new database connection
 func New(dbPath string) (*DB, error) {
 	sqlDB, err := sql.Open("sqlite", dbPath+"?_journal_mode=WAL&_timeout=5000")
 	if err != nil {
@@ -66,13 +31,7 @@ func New(dbPath string) (*DB, error) {
 		queries: sqlcdb.New(sqlDB),
 	}
 
-	// Run migrations
-	if err := db.runMigrations(); err != nil {
-		sqlDB.Close()
-		return nil, fmt.Errorf("failed to run migrations: %w", err)
-	}
-
-	log.Println("Database initialized successfully")
+	log.Println("Database connection established")
 	return db, nil
 }
 
@@ -84,37 +43,4 @@ func (d *DB) Close() error {
 // Queries returns the sqlc-generated queries
 func (d *DB) Queries() *sqlcdb.Queries {
 	return d.queries
-}
-
-// runMigrations executes all migration files
-func (d *DB) runMigrations() error {
-	// Execute migration
-	_, err := d.db.Exec(migrationSQL)
-	if err != nil {
-		return fmt.Errorf("failed to execute migration: %w", err)
-	}
-
-	if err := d.addColumnIfMissing("message_for_us", "TEXT"); err != nil {
-		return err
-	}
-
-	if err := d.addColumnIfMissing("song_request", "TEXT"); err != nil {
-		return err
-	}
-
-	log.Println("Migrations completed successfully")
-	return nil
-}
-
-func (d *DB) addColumnIfMissing(columnName, columnType string) error {
-	_, err := d.db.Exec(fmt.Sprintf("ALTER TABLE invites ADD COLUMN %s %s", columnName, columnType))
-	if err == nil {
-		return nil
-	}
-
-	if strings.Contains(err.Error(), "duplicate column") {
-		return nil
-	}
-
-	return fmt.Errorf("failed to add column %s: %w", columnName, err)
 }
