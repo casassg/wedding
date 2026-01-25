@@ -20,6 +20,10 @@ primary_region = "iad"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
+  
+  [[http_service.concurrency]]
+    type = "requests"
+    soft_limit = 25
 
 [[vm]]
   size = "shared-cpu-1x"
