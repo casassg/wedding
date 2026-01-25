@@ -6,10 +6,6 @@ meta_description: "Laura y Gerard se casan el 19 de diciembre de 2026 en Copán 
 
 # Navigation
 nav_home: "Inicio"
-nav_details: "Detalles"
-nav_travel: "Viaje"
-nav_spain: "España 2027"
-nav_faq: "Preguntas"
 
 # Hero
 save_the_date_btn: "Guardar Fecha"
@@ -20,11 +16,9 @@ were_getting_married: "¡Nos casamos!"
 welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
 
 # Details
-the_details: "Los Detalles"
+the_details: "Detalles"
 join_us: "Acompáñanos en Honduras"
 when: "Cuándo"
-date_friday: "Viernes, 18 de diciembre"
-date_arrival: "Bienvenida informal (opcional)"
 date_saturday: "Sábado, 19 de diciembre"
 date_wedding: "Día de la boda"
 ceremony: "Ceremonia"
@@ -34,37 +28,35 @@ church_location: "Copán Ruinas, Honduras"
 ceremony_time: "16:00"
 celebration: "Celebración"
 celebration_time: "17:00"
-venue_name: "Centro de Convenciones Marina Copán"
+venue_name: "Marina Copán"
 convention_center: "Centro de Convenciones"
 view_map: "Ver Mapa"
 
 # RSVP
 rsvp_label: "Confirmar Asistencia"
-rsvp_title: "RSVP"
+rsvp_title: "Confirmar Asistencia"
 rsvp_coming_soon: "¡Pronto compartiremos un formulario de confirmación para que nos cuenten si vienen!"
 
 # Travel
 logistics: "Logística"
 travel_info: "Viaje y Transporte"
 getting_there: "Cómo llegar"
-getting_there_desc: "Recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) por su cercanía a Copán (4 horas en autobús). Lo ideal es llegar alrededor del mediodía del viernes 18 de diciembre para ir directamente a Copán. ¡Pero siéntanse libres de organizarse como prefieran!"
+getting_there_desc: "Para los que venís de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) porque está cerca de Copán (4 horas en autobús). <br><br>Lo ideal sería llegar alrededor del mediodía del viernes 18 de diciembre para tener tiempo suficiente de llegar a Copán durante el día. ¡Pero organizaos como os vaya mejor!"
 more_details_soon: "Compartiremos más detalles pronto."
 transportation: "Transporte"
-transportation_desc: "Estamos planeando organizar transporte. ¡Más detalles pronto!"
-transport_church_venue: "Estamos viendo opciones de transporte grupal desde SAP a Copán antes de la boda"
-transport_venue_city: "Estamos viendo opciones de transporte grupal desde Copán a SAP después de la boda"
-transport_around_copan: "¿Moverse por Copán? ¡A pie o en [mototaxi](/wedding/traveling/)!"
-dress_code: "Código de Vestimenta"
-dress_code_desc: "Formal. ¡Vengan guapos y listos para bailar!"
+transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
+transport_venue_city: "Estamos viendo qué opciones hay de transporte desde el aeropuerto de San Pedro Sula hasta Copán"
+transport_around_copan: "¿Moverse por Copán? ¡A pie o en _tuktuk_!"
+travel_guide_reference: "¡Echa un vistazo a [nuestra página de viajes](/traveling/) para más información sobre qué hacer en Copán y en Honduras!"
 
 # Spain
 also_save: "También Reserva la Fecha"
 spain_celebration: "Celebración en Cataluña"
-spain_title: "Cena en Cataluña"
-spain_date: "Principios de 2027"
+spain_title: "Celebración en Cataluña"
+spain_date: "Primavera de 2027"
 spain_desc: "Estamos planeando una celebración informal con familia y amigos en algún lugar de Cataluña. ¡Más detalles pronto!"
 spain_location: "Cataluña"
-spain_vibe: "Cena relajada con familia y amigos"
+spain_vibe: "Celebración relajada con familia y amigos"
 spain_for_who: "Una celebración tranquila: sin ceremonia, solo buena comida, bebida y la gente que queremos. ¡Todos son bienvenidos!"
 
 # FAQ (preguntas/respuestas movidas a data/es/faq.yaml)
@@ -94,14 +86,14 @@ traveling_from_europe_desc: "Vuela a San Pedro Sula (SAP) vía Madrid o Ámsterd
 traveling_from_us: "Desde EE.UU. y Canadá"
 traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde los principales aeropuertos de EE.UU. United vuela desde Houston (IAH), American desde Miami (MIA) y Dallas (DFW), y Spirit desde Fort Lauderdale (FLL). Si hacen escala en Houston, ¡avísennos!"
 traveling_to_copan: "De San Pedro Sula a Copán"
-traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. Estamos planeando organizar transporte grupal. ¡Más detalles próximamente!"
+traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. ¡Más detalles sobre transporte próximamente!"
 
 # Getting Around Copán
 traveling_getting_around: "Moverse por Copán"
 traveling_getting_around_intro: "Copán Ruinas es un pueblo pequeño y fácil de recorrer a pie. Esto es lo que necesitas saber para moverte."
 traveling_walking_title: "Caminando"
 traveling_walking_desc: "El centro del pueblo es compacto y se puede recorrer a pie. La mayoría de los hoteles están a 10-15 minutos caminando de la iglesia (Parroquia San José Obrero). ¡No necesitas transporte para la ceremonia!"
-traveling_tuktuk_title: "Mototaxis (Tuk-tuks)"
+traveling_tuktuk_title: "Tuk-tuks"
 traveling_tuktuk_desc: "Los mototaxis de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Simplemente detén uno en la calle o pide a tu hotel que llame a uno. Son perfectos para ir a lugares fuera del centro."
 
 # Why Copán

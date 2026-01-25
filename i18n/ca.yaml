@@ -5,10 +5,6 @@ meta_description: "La Laura i en Gerard es casen el 19 de desembre de 2026 a Cop
 
 # Navigation
 nav_home: "Inici"
-nav_details: "Detalls"
-nav_travel: "Viatge"
-nav_spain: "Espanya 2027"
-nav_faq: "Preguntes"
 
 # Hero
 save_the_date_btn: "Reserva la Data"
@@ -19,7 +15,7 @@ were_getting_married: "Ens casem!"
 welcome_message: "Tenim moltes ganes de celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copán Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
 
 # Details
-the_details: "Els Detalls"
+the_details: "Detalls"
 join_us: "Acompanyeu-nos a Hondures"
 when: "Quan"
 date_friday: "Divendres, 18 de desembre"
@@ -33,37 +29,35 @@ church_location: "Copán Ruinas, Hondures"
 ceremony_time: "16:00"
 celebration: "Celebració"
 celebration_time: "17:00"
-venue_name: "Centre de Convencions Marina Copán"
+venue_name: "Marina Copán"
 convention_center: "Centre de Convencions"
 view_map: "Veure mapa"
 
 # RSVP
 rsvp_label: "Confirmar assistència"
-rsvp_title: "RSVP"
+rsvp_title: "Confirmar assistència"
 rsvp_coming_soon: "Aviat compartirem un formulari de confirmació perquè ens digueu si veniu!"
 
 # Travel
 logistics: "Logística"
 travel_info: "Viatge i transport"
 getting_there: "Com arribar-hi"
-getting_there_desc: "Recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) perquè és a prop de Copán (4 hores d'autobús). L'ideal és arribar cap al migdia del divendres 18 de desembre per anar directament a Copán. Però organitzeu-vos com us vagi millor!"
+getting_there_desc: "Pels que veniu de fora, recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) perquè és a prop de Copán (4 hores d'autobús). <br><br> L'ideal seria arribar cap al migdia del divendres 18 de desembre per tenir temps suficient de arribar a Copán durant el dia. Però organitzeu-vos com us vagi millor!"
 more_details_soon: "Compartirem més detalls properament."
 transportation: "Transport"
-transportation_desc: "Estem planejant organitzar transport. Més detalls aviat!"
-transport_church_venue: "Estem mirant opcions de transport grupal des de SAP a Copán abans del casament"
-transport_venue_city: "Estem mirant opcions de transport grupal des de Copán a SAP després del casament"
-transport_around_copan: "Moure's per Copán? A peu o en [mototaxi](/wedding/traveling/)!"
-dress_code: "Vestimenta"
-dress_code_desc: "Formal. Veniu ben elegants i preparats per ballar!"
+transport_church_venue: "Tindrem autobusos entre l'església i el lloc de la festa, i autobusos de nit de tornada al centre del poble."
+transport_venue_city: ""
+transport_around_copan: "Moure's per Copán? A peu o en _tuktuk_!"
+travel_guide_reference: "Fes un cop d'ull a [la nostra pàgina de viatge](/ca/traveling/) per més informació sobre què fer a Copán i a Hondures!"
 
 # Spain
 also_save: "Reserva també la data"
 spain_celebration: "Celebració a Catalunya"
-spain_title: "Sopar a Catalunya"
-spain_date: "Principis de 2027"
-spain_desc: "Estem planejant un sopar relaxat amb família i amics en algun lloc de Catalunya. Més detalls aviat!"
+spain_title: "Celebració a Catalunya"
+spain_date: "Primavera de 2027"
+spain_desc: "Estem planejant una celebració relaxada amb família i amics en algun lloc de Catalunya. Més detalls aviat!"
 spain_location: "Catalunya"
-spain_vibe: "Sopar relaxat amb família i amics"
+spain_vibe: "Celebració relaxada amb família i amics"
 spain_for_who: "Una celebració tranquil·la: sense cerimònia, només bon menjar, beguda i la gent que estimem. Tothom hi és benvingut!"
 
 # FAQ (preguntes/respostes mogudes a data/ca/faq.yaml)
@@ -93,14 +87,14 @@ traveling_from_europe_desc: "Vola a San Pedro Sula (SAP) via Madrid o Amsterdam.
 traveling_from_us: "Des dels EUA i el Canadà"
 traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des dels principals aeroports dels EUA. United vola des de Houston (IAH), American des de Miami (MIA) i Dallas (DFW), i Spirit des de Fort Lauderdale (FLL). Si feu escala a Houston, aviseu-nos!"
 traveling_to_copan: "De San Pedro Sula a Copán"
-traveling_to_copan_desc: "Des de l'aeroport, hi ha unes 3-4 hores en cotxe fins a Copán Ruinas. Estem planejant organitzar transport grupal. Més detalls properament!"
+traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Més detalls sobre transport properament!"
 
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
 traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure-t'hi."
 traveling_walking_title: "A peu"
 traveling_walking_desc: "El centre del poble és compacte i es pot recórrer caminant. La majoria d'hotels són a 10-15 minuts a peu de l'església (Parròquia San José Obrero). No necessiteu transport per a la cerimònia!"
-traveling_tuktuk_title: "Mototaxis"
+traveling_tuktuk_title: "Tuk-tuks"
 traveling_tuktuk_desc: "Els mototaxis (tuk-tuks) són a tot arreu i són molt econòmics (normalment 20-40 L / 1-2 $ per viatge). Només cal que en pareu un o demaneu a l'hotel que en truqui un. Perfectes per anar a llocs fora del centre."
 
 # Why Copán

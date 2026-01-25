@@ -15,15 +15,9 @@
                     </div>
                     <h3 class="font-hand text-3xl text-gray-800">{{ i18n "getting_there" }}</h3>
                 </div>
-                <p class="text-gray-600 leading-relaxed mb-4 font-sans">
+                <p class="text-gray-600 leading-relaxed font-sans">
                     {{ i18n "getting_there_desc" | markdownify }}
                 </p>
-                <div class="bg-marigold/10 border-l-4 border-marigold p-4 rounded-r-lg">
-                    <p class="text-sm text-gray-700 font-sans font-medium">
-                        <i class="fa-solid fa-circle-info mr-2 text-marigold"></i>
-                        {{ i18n "more_details_soon" }}
-                    </p>
-                </div>
             </div>
             
             <!-- Transportation Card -->
@@ -34,10 +28,7 @@
                     </div>
                     <h3 class="font-hand text-3xl text-gray-800">{{ i18n "transportation" }}</h3>
                 </div>
-                <p class="text-gray-600 leading-relaxed font-sans">
-                    {{ i18n "transportation_desc" }}
-                </p>
-                <ul class="mt-4 space-y-2 text-gray-600 font-sans">
+                <ul class="mt-4 space-y-2 text-gray-600 font-sans mb-4">
                     <li class="flex items-start">
                         <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-leaf/20 flex items-center justify-center shrink-0">
                             <i class="fa-solid fa-check text-leaf text-xs"></i>
@@ -56,20 +47,13 @@
                         </div>
                         <span>{{ i18n "transport_around_copan" | markdownify }}</span>
                     </li>
+                    <li class="flex items-start">
+                        <div class="mt-1 mr-3 w-5 h-5 rounded-full bg-leaf/20 flex items-center justify-center shrink-0">
+                            <i class="fa-solid fa-check text-leaf text-xs"></i>
+                        </div>
+                        <span>{{ i18n "travel_guide_reference" | markdownify }}</span>
+                    </li>
                 </ul>
-            </div>
-        </div>
-        
-        <!-- Dress Code Banner -->
-        <div class="mt-12 card-shadow bg-white p-8 rounded-3xl text-center border-2 border-lavender/20">
-            <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="w-16 h-16 bg-lavender/20 text-lavender rounded-full flex items-center justify-center animate-float">
-                    <i class="fa-solid fa-shirt text-2xl"></i>
-                </div>
-                <div class="text-center md:text-left">
-                    <h3 class="font-hand text-3xl mb-2 text-gray-800">{{ i18n "dress_code" }}</h3>
-                    <p class="text-gray-600 font-sans">{{ i18n "dress_code_desc" }}</p>
-                </div>
             </div>
         </div>
     </div>
