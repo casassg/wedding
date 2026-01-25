@@ -64,7 +64,7 @@
                 <div class="w-16 h-16 bg-leaf/30 text-leaf rounded-full flex items-center justify-center animate-float">
                     <i class="fa-solid fa-envelope-open-text text-2xl"></i>
                 </div>
-                <div id="rsvp-card" class="flex-1" data-api-base="https://api.lauraygerard.wedding/api/v1" data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}" data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" data-error-generic="{{ i18n "rsvp_error_generic" }}">
+                <div id="rsvp-card" class="flex-1" data-api-base="https://api.lauraygerard.wedding/api/v1" data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}" data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" data-error-generic="{{ i18n "rsvp_error_generic" }}" data-invite-size-text="{{ i18n "rsvp_invite_size" }}">
                     <h3 class="font-hand text-3xl mb-2 text-gray-800">{{ i18n "rsvp_title" }}</h3>
 
                     <div id="rsvp-loading" class="mt-4 text-sm text-gray-500 font-sans">{{ i18n "rsvp_loading" }}</div>
@@ -87,7 +87,7 @@
                                 {{ i18n "rsvp_greeting" }} <span id="rsvp-guest-name" class="font-semibold text-gray-800"></span>, {{ i18n "rsvp_hope" }}
                             </p>
                             <p class="text-gray-700 font-sans">
-                                {{ i18n "rsvp_fill_info" }}
+                                {{ i18n "rsvp_fill_info" }} <span id="rsvp-invite-size" class="font-semibold"></span>
                             </p>
                             <p class="text-gray-700 font-sans">
                                 {{ i18n "rsvp_deadline" }}

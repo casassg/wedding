@@ -520,6 +520,15 @@
 
                 if (kidsMaxEl) kidsMaxEl.textContent = maxKids ? maxKids : '';
 
+                // Update invite size message
+                const totalPeople = maxAdults + maxKids;
+                const inviteSizeText = rsvpCard.dataset.inviteSizeText || '';
+                const inviteSizeEl = document.getElementById('rsvp-invite-size');
+                
+                if (inviteSizeEl && inviteSizeText) {
+                    inviteSizeEl.textContent = inviteSizeText.replace('{n}', totalPeople);
+                }
+
                 // Show +1 field only if max_adults is 2
                 const hasPlusOne = maxAdults === 2;
                 if (plusOneField) {
