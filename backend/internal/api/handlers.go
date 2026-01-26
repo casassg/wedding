@@ -1,36 +1,42 @@
 package api
 
 import (
+	"database/sql"
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"strings"
 
-	"github.com/casassg/wedding/backend/internal/db"
-	sqlcdb "github.com/casassg/wedding/backend/internal/db/sqlc"
+	"github.com/casassg/wedding/backend/internal/sheets"
+	"github.com/casassg/wedding/backend/internal/store"
+	"github.com/pkg/errors"
 )
 
 // Handler holds the API dependencies
 type Handler struct {
-	db *db.DB
+	db     *store.Store
+	syncer *sheets.Syncer
 }
 
 // NewHandler creates a new API handler
-func NewHandler(database *db.DB) *Handler {
-	return &Handler{db: database}
+func NewHandler(database *store.Store, syncer *sheets.Syncer) *Handler {
+	return &Handler{db: database, syncer: syncer}
 }
 
 // GetInvite handles GET /api/v1/invite/{uuid}
 func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	// Extract UUID from path
-	uuid := extractUUID(r.URL.Path)
-	if uuid == "" {
+	inviteCode := r.PathValue("invite_code")
+	if inviteCode == "" {
 		respondError(w, "Invalid invite code", http.StatusBadRequest)
 		return
 	}
 
 	// Get invite from database
-	invite, err := h.db.GetInviteByUUID(uuid)
+	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
+	if errors.Is(err, sql.ErrNoRows) {
+		respondError(w, "Invite not found", http.StatusNotFound)
+		return
+	}
 	if err != nil {
 		respondError(w, "Internal server error", http.StatusInternalServerError)
 		return
@@ -48,8 +54,8 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 // PostRSVP handles POST /api/v1/invite/{uuid}/rsvp
 func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	// Extract UUID from path
-	uuid := extractUUID(r.URL.Path)
-	if uuid == "" {
+	inviteCode := r.PathValue("invite_code")
+	if inviteCode == "" {
 		respondError(w, "Invalid invite code", http.StatusBadRequest)
 		return
 	}
@@ -62,12 +68,15 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Get invite to validate against
-	invite, err := h.db.GetInviteByUUID(uuid)
+	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
+	if errors.Is(err, sql.ErrNoRows) {
+		respondError(w, "Invite not found", http.StatusNotFound)
+		return
+	}
 	if err != nil {
 		respondError(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
-
 	if invite == nil {
 		respondError(w, "Invite not found", http.StatusNotFound)
 		return
@@ -79,22 +88,24 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Get country from Fly.io header
-	country := GetCountry(r)
-
 	// Update RSVP in database
-	dbReq := db.RSVPRequest{
-		Attending:    req.Attending,
-		AdultCount:   req.AdultCount,
-		KidCount:     req.KidCount,
-		DietaryInfo:  req.DietaryInfo,
-		MessageForUs: req.MessageForUs,
-		SongRequest:  req.SongRequest,
+	dbReq := store.UpdateRSVPParams{
+		InputConfirmedAdults: req.AdultCount,
+		InputConfirmedKids:   req.KidCount,
+		InputDietaryInfo:     req.DietaryInfo,
+		InputMessage:         req.MessageForUs,
+		InputSong:            req.SongRequest,
+		InputInviteCode:      inviteCode,
+		InputResponseCountry: GetCountry(r),
 	}
-	if err := h.db.UpdateRSVP(uuid, dbReq, country); err != nil {
+
+	if err := h.db.UpdateRSVP(r.Context(), &dbReq); err != nil {
 		respondError(w, "Failed to save RSVP", http.StatusInternalServerError)
 		return
 	}
+
+	// Async update to Google Sheets
+	h.syncer.TriggerSync()
 
 	// Return success
 	respondJSON(w, RSVPResponse{Success: true}, http.StatusOK)
@@ -106,52 +117,17 @@ func (h *Handler) Health(w http.ResponseWriter, r *http.Request) {
 }
 
 // validateRSVP checks if the RSVP request is valid
-func validateRSVP(req RSVPRequest, invite *sqlcdb.Invite) error {
-	// If not attending, we don't validate counts
-	if !req.Attending {
-		return nil
-	}
-
+func validateRSVP(req RSVPRequest, invite *store.Invite) error {
 	// If attending, adult_count is required
-	if req.AdultCount == nil {
-		return fmt.Errorf("adult_count is required when attending")
+	if req.AdultCount < 0 || req.AdultCount > invite.MaxAdults {
+		return fmt.Errorf("adult_count not valid, must be between 0 and %d", invite.MaxAdults)
 	}
 
-	// Validate adult count
-	if *req.AdultCount < 1 {
-		return fmt.Errorf("adult_count must be at least 1")
-	}
-
-	if *req.AdultCount > int(invite.MaxAdults) {
-		return fmt.Errorf("adult_count exceeds maximum allowed (%d)", invite.MaxAdults)
-	}
-
-	// If kids are allowed, validate kid count
-	if invite.MaxKids > 0 {
-		if req.KidCount == nil {
-			return fmt.Errorf("kid_count is required when max_kids > 0")
-		}
-
-		if *req.KidCount < 0 {
-			return fmt.Errorf("kid_count cannot be negative")
-		}
-
-		if *req.KidCount > int(invite.MaxKids) {
-			return fmt.Errorf("kid_count exceeds maximum allowed (%d)", invite.MaxKids)
-		}
+	if req.KidCount < 0 || req.KidCount > invite.MaxKids {
+		return fmt.Errorf("kid_count not valid, must be between 0 and %d", invite.MaxKids)
 	}
 
 	return nil
-}
-
-// extractUUID extracts the UUID from the URL path
-func extractUUID(path string) string {
-	// Handle both /api/v1/invite/{uuid} and /api/v1/invite/{uuid}/rsvp
-	parts := strings.Split(strings.Trim(path, "/"), "/")
-	if len(parts) >= 4 && parts[0] == "api" && parts[1] == "v1" && parts[2] == "invite" {
-		return parts[3]
-	}
-	return ""
 }
 
 // respondJSON sends a JSON response

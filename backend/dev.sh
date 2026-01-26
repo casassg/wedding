@@ -20,5 +20,8 @@ echo ""
 # Create tmp directory if it doesn't exist
 mkdir -p tmp
 
+# Run migrations using sqlite3
+sqlite3 tmp/wedding.db < migrations/ddl.sql
+
 # Run the server (godotenv will load .env automatically)
-go run ./cmd/server
+go run ./cmd/server serve

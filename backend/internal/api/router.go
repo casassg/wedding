@@ -2,14 +2,14 @@ package api
 
 import (
 	"net/http"
-	"strings"
 
-	"github.com/casassg/wedding/backend/internal/db"
+	"github.com/casassg/wedding/backend/internal/sheets"
+	"github.com/casassg/wedding/backend/internal/store"
 )
 
 // NewRouter creates the HTTP router with all routes and middleware
-func NewRouter(database *db.DB, allowedOrigins []string) http.Handler {
-	handler := NewHandler(database)
+func NewRouter(database *store.Store, syncer *sheets.Syncer, allowedOrigins []string) http.Handler {
+	handler := NewHandler(database, syncer)
 
 	// Create rate limiter (10 requests per minute)
 	rateLimiter := NewRateLimiter(10)
@@ -19,22 +19,8 @@ func NewRouter(database *db.DB, allowedOrigins []string) http.Handler {
 
 	// Register routes
 	mux.HandleFunc("/health", handler.Health)
-	mux.HandleFunc("/api/v1/invite/", func(w http.ResponseWriter, r *http.Request) {
-		// Route to appropriate handler based on path
-		if strings.HasSuffix(r.URL.Path, "/rsvp") {
-			if r.Method != http.MethodPost {
-				http.Error(w, `{"error":"Method not allowed"}`, http.StatusMethodNotAllowed)
-				return
-			}
-			handler.PostRSVP(w, r)
-		} else {
-			if r.Method != http.MethodGet {
-				http.Error(w, `{"error":"Method not allowed"}`, http.StatusMethodNotAllowed)
-				return
-			}
-			handler.GetInvite(w, r)
-		}
-	})
+	mux.HandleFunc("GET /api/v1/invite/{invite_code}/", handler.GetInvite)
+	mux.HandleFunc("POST /api/v1/invite/{invite_code}/rsvp", handler.PostRSVP)
 
 	// Apply middleware chain
 	return Chain(

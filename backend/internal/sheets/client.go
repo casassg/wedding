@@ -6,7 +6,10 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
+	"time"
 
+	"github.com/casassg/wedding/backend/internal/store"
 	"google.golang.org/api/option"
 	"google.golang.org/api/sheets/v4"
 )
@@ -79,25 +82,8 @@ func (c *Client) IsConfigured() bool {
 	return c.service != nil
 }
 
-// SheetRow represents a row in the Google Sheet
-type SheetRow struct {
-	RowNumber   int
-	Name        string
-	Parella     string // "Si" or "No"
-	Fills       int    // Number of kids allowed
-	InviteCode  string
-	Attending   *bool
-	Adults      *int
-	Kids        *int
-	Dietary     string
-	Message     string
-	Song        string
-	RespondedAt string
-	Country     string
-}
-
 // ReadSheet reads all invite data from the sheet
-func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
+func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, error) {
 	if !c.IsConfigured() {
 		return nil, nil // Return empty when not configured
 	}
@@ -112,12 +98,12 @@ func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
 		return nil, fmt.Errorf("failed to read sheet: %w", err)
 	}
 
-	var rows []SheetRow
+	var rows []*store.UpsertInviteParams
 	for i, row := range resp.Values {
-		rowNum := i + 2 // Sheet rows start at 1, and we skip header row
+		rowNum := int64(i + 2) // Sheet rows start at 1, and we skip header row
 
 		// Parse row data
-		sheetRow := SheetRow{RowNumber: rowNum}
+		sheetRow := store.UpsertInviteParams{SheetRow: &rowNum}
 
 		// Column A: Name
 		if len(row) > 0 {
@@ -125,13 +111,18 @@ func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
 		}
 
 		// Column B: Parella (Si/No)
+		// Convert Parella to max_adults
+		maxAdults := int64(1)
 		if len(row) > 1 {
-			sheetRow.Parella = toString(row[1])
+			if strings.ToLower(toString(row[1])) == "si" {
+				maxAdults = 2
+			}
 		}
+		sheetRow.MaxAdults = maxAdults
 
 		// Column C: Fills (kids)
 		if len(row) > 2 {
-			sheetRow.Fills = toInt(row[2])
+			sheetRow.MaxKids = toInt(row[2])
 		}
 
 		// Column H: Invite Code (index 7)
@@ -139,12 +130,17 @@ func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
 			sheetRow.InviteCode = toString(row[7])
 		}
 
+		// Column I: Adults confirmed (index 8)
+		if len(row) > 8 {
+			sheetRow.ConfirmedAdults = toInt(row[8])
+		}
+
 		// Skip rows without invite code or name
 		if sheetRow.InviteCode == "" || sheetRow.Name == "" {
 			continue
 		}
 
-		rows = append(rows, sheetRow)
+		rows = append(rows, &sheetRow)
 	}
 
 	log.Printf("Read %d invites from Google Sheet '%s'", len(rows), c.sheetName)
@@ -152,19 +148,31 @@ func (c *Client) ReadSheet(ctx context.Context) ([]SheetRow, error) {
 }
 
 // WriteRSVP writes RSVP response data back to the sheet
-func (c *Client) WriteRSVP(ctx context.Context, rowNum int, data SheetRow) error {
+func (c *Client) WriteRSVP(ctx context.Context, data *store.Invite) error {
 	if !c.IsConfigured() {
 		return nil // No-op when not configured
 	}
 
+	if data.SheetRow == nil {
+		return fmt.Errorf("no sheet row number for invite %s", data.InviteCode)
+	}
+
+	rowNum := *data.SheetRow
+
+	responseAt := time.Now().UTC()
+	if data.ResponseAt != nil {
+		responseAt = *data.ResponseAt
+	}
+
 	// Prepare values for columns I-N (Adults confirmed, Kids confirmed, Dietary, Message for us, Song request, Updated At)
 	values := []interface{}{
-		intToString(data.Adults), // Column I: Adults confirmed
-		intToString(data.Kids),   // Column J: Kids confirmed
-		data.Dietary,             // Column K: Dietary
-		data.Message,             // Column L: Message for us
-		data.Song,                // Column M: Song request
-		data.RespondedAt,         // Column N: Updated At
+		fmt.Sprintf("%d", data.ConfirmedAdults), // Column I: Adults confirmed
+		fmt.Sprintf("%d", data.ConfirmedKids),   // Column J: Kids confirmed
+		data.DietaryInfo,                        // Column K: Dietary
+		data.MessageForUs,                       // Column L: Message for us
+		data.SongRequest,                        // Column M: Song request
+		data.ResponseCountry,                    // Column N: Responded From
+		responseAt,                              // Column N: Response At
 	}
 
 	// Write to sheet
@@ -177,7 +185,6 @@ func (c *Client) WriteRSVP(ctx context.Context, rowNum int, data SheetRow) error
 		ValueInputOption("RAW").
 		Context(ctx).
 		Do()
-
 	if err != nil {
 		return fmt.Errorf("failed to write to sheet: %w", err)
 	}
@@ -197,34 +204,17 @@ func toString(v interface{}) string {
 	return fmt.Sprintf("%v", v)
 }
 
-func toInt(v interface{}) int {
+func toInt(v interface{}) int64 {
 	if v == nil {
 		return 0
 	}
 	if s, ok := v.(string); ok {
-		var i int
+		var i int64
 		fmt.Sscanf(s, "%d", &i)
 		return i
 	}
 	if f, ok := v.(float64); ok {
-		return int(f)
+		return int64(f)
 	}
 	return 0
-}
-
-func boolToString(b *bool) string {
-	if b == nil {
-		return ""
-	}
-	if *b {
-		return "TRUE"
-	}
-	return "FALSE"
-}
-
-func intToString(i *int) string {
-	if i == nil {
-		return ""
-	}
-	return fmt.Sprintf("%d", *i)
 }

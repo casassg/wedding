@@ -20,10 +20,6 @@ primary_region = "iad"
   auto_start_machines = true
   min_machines_running = 0
   processes = ["app"]
-  
-  [[http_service.concurrency]]
-    type = "requests"
-    soft_limit = 25
 
 [[vm]]
   size = "shared-cpu-1x"
@@ -33,12 +29,7 @@ primary_region = "iad"
     type = "http"
     port = 8080
     interval = "30s"
-    timeout = "5s"
-    grace_period = "10s"
+    timeout = "30s"
+    grace_period = "30s"
     method = "GET"
     path = "/health"
-
-[mounts]
-  source = "litefs"
-  destination = "/var/lib/litefs"
-  initial_size = "1GB"

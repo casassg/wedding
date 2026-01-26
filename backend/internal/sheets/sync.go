@@ -2,49 +2,37 @@ package sheets
 
 import (
 	"context"
-	"database/sql"
-	"fmt"
 	"log"
 	"time"
 
-	"github.com/casassg/wedding/backend/internal/db"
+	"github.com/casassg/wedding/backend/internal/store"
+	"github.com/pkg/errors"
 )
 
 // Syncer handles bidirectional sync between Google Sheets and the database
 type Syncer struct {
-	db            *db.DB
-	client        *Client
-	currentRegion string
-	primaryRegion string
+	store        *store.Store
+	sheetsClient *Client
+	listener     chan struct{}
 }
 
 // NewSyncer creates a new syncer
-func NewSyncer(database *db.DB, client *Client, currentRegion, primaryRegion string) *Syncer {
+func NewSyncer(s *store.Store, client *Client) *Syncer {
 	return &Syncer{
-		db:            database,
-		client:        client,
-		currentRegion: currentRegion,
-		primaryRegion: primaryRegion,
+		store:        s,
+		sheetsClient: client,
+		listener:     make(chan struct{}),
 	}
 }
 
 // Start begins the background sync loop
 func (s *Syncer) Start(ctx context.Context, interval time.Duration) {
-	// Only run sync on primary region to avoid write conflicts
-	if s.currentRegion != s.primaryRegion {
-		log.Printf("Google Sheets sync disabled (not primary region: %s != %s)", s.currentRegion, s.primaryRegion)
-		return
-	}
-
-	if !s.client.IsConfigured() {
+	if !s.sheetsClient.IsConfigured() {
 		log.Println("Google Sheets sync disabled (credentials not configured)")
 		return
 	}
 
-	log.Printf("Starting Google Sheets sync every %s (primary region: %s)", interval, s.primaryRegion)
-
-	// Initial sync
-	s.runSync(ctx)
+	log.Printf("Starting Google Sheets sync every %s", interval)
 
 	// Start ticker
 	ticker := time.NewTicker(interval)
@@ -53,7 +41,14 @@ func (s *Syncer) Start(ctx context.Context, interval time.Duration) {
 	for {
 		select {
 		case <-ticker.C:
-			s.runSync(ctx)
+			if err := s.SyncOnce(ctx); err != nil {
+				log.Printf("Error during sync: %v", err)
+			}
+		case <-s.listener:
+			log.Println("Received manual sync request")
+			if err := s.SyncOnce(ctx); err != nil {
+				log.Printf("Error during manual sync: %v", err)
+			}
 		case <-ctx.Done():
 			log.Println("Stopping Google Sheets sync")
 			return
@@ -61,84 +56,73 @@ func (s *Syncer) Start(ctx context.Context, interval time.Duration) {
 	}
 }
 
-// SyncOnce performs a single sync cycle (used for manual sync command)
-func (s *Syncer) SyncOnce(ctx context.Context) error {
-	// Check if running in primary region
-	if s.currentRegion != s.primaryRegion {
-		log.Printf("Skipping sync: not primary region (%s != %s)", s.currentRegion, s.primaryRegion)
-		return nil
-	}
-
-	if !s.client.IsConfigured() {
-		return fmt.Errorf("Google Sheets credentials not configured")
-	}
-
-	s.runSync(ctx)
-	return nil
+// TriggerSync signals the syncer to perform an immediate sync
+func (s *Syncer) TriggerSync() {
+	s.listener <- struct{}{}
 }
 
-// runSync performs one complete sync cycle
-func (s *Syncer) runSync(ctx context.Context) {
-	log.Println("Starting sync cycle...")
+// SyncOnce performs a single sync cycle (used for manual sync command)
+func (s *Syncer) SyncOnce(ctx context.Context) error {
+	if !s.sheetsClient.IsConfigured() {
+		return errors.New("Google Sheets credentials not configured")
+	}
 
 	// Sync from sheet to DB (master data)
-	if err := s.syncFromSheet(ctx); err != nil {
-		log.Printf("Error syncing from sheet: %v", err)
+	if err := s.SyncFromSheet(ctx); err != nil {
+		return errors.Wrap(err, "sync from sheet failed")
 	}
 
 	// Sync from DB to sheet (RSVP responses)
-	if err := s.syncToSheet(ctx); err != nil {
-		log.Printf("Error syncing to sheet: %v", err)
+	if err := s.SyncToSheet(ctx); err != nil {
+		return errors.Wrap(err, "sync to sheet failed")
 	}
 
 	log.Println("Sync cycle completed")
+	return nil
 }
 
-// syncFromSheet reads the sheet and updates the database
-func (s *Syncer) syncFromSheet(ctx context.Context) error {
-	rows, err := s.client.ReadSheet(ctx)
+// SyncFromSheet reads the sheet and updates the database
+func (s *Syncer) SyncFromSheet(ctx context.Context) error {
+	rows, err := s.sheetsClient.ReadSheet(ctx)
 	if err != nil {
 		return err
 	}
 
 	if len(rows) == 0 {
-		log.Println("No invites found in sheet")
+		log.Println("No invites found in sheet, skipping...")
 		return nil
 	}
 
-	// Track which UUIDs exist in the sheet
-	sheetUUIDs := make(map[string]bool)
+	// Start transaction
+	tx, err := s.store.DB.Begin()
+	if err != nil {
+		return errors.Wrap(err, "failed to begin transaction")
+	}
+	defer tx.Rollback()
+
+	q := s.store.WithTx(tx)
 
 	// Upsert each row into the database
 	for _, row := range rows {
-		sheetUUIDs[row.InviteCode] = true
-
-		// Convert Parella to max_adults
-		maxAdults := 1
-		if row.Parella == "Si" || row.Parella == "si" || row.Parella == "SI" {
-			maxAdults = 2
-		}
-
-		sheetRow := sql.NullInt64{Int64: int64(row.RowNumber), Valid: true}
-		if err := s.db.UpsertInvite(row.InviteCode, row.Name, maxAdults, row.Fills, sheetRow); err != nil {
+		if err := q.UpsertInvite(ctx, row); err != nil {
 			log.Printf("Failed to upsert invite %s: %v", row.InviteCode, err)
 			continue
 		}
 	}
 
-	log.Printf("Synced %d invites from sheet to database", len(rows))
+	if err := tx.Commit(); err != nil {
+		return errors.Wrap(err, "failed to commit transaction")
+	}
 
-	// TODO: Implement soft-delete for invites not in sheet
-	// This requires getting all UUIDs from DB and comparing
-	// For now, we skip this to keep it simple
+	log.Printf("Synced %d invites from sheet to database", len(rows))
 
 	return nil
 }
 
-// syncToSheet writes pending RSVP responses back to the sheet
-func (s *Syncer) syncToSheet(ctx context.Context) error {
+// SyncToSheet writes pending RSVP responses back to the sheet
+func (s *Syncer) SyncToSheet(ctx context.Context) error {
 	// Get invites that need syncing
-	invites, err := s.db.GetPendingSyncInvites()
+	invites, err := s.store.GetPendingSyncInvites(ctx)
 	if err != nil {
 		return err
 	}
@@ -150,68 +134,36 @@ func (s *Syncer) syncToSheet(ctx context.Context) error {
 
 	log.Printf("Syncing %d RSVP responses to sheet", len(invites))
 
+	tx, err := s.store.DB.Begin()
+	if err != nil {
+		return errors.Wrap(err, "failed to begin transaction")
+	}
+	defer tx.Rollback()
+
+	q := s.store.WithTx(tx)
+
 	// Write each invite to the sheet
 	for _, invite := range invites {
-		if !invite.SheetRow.Valid {
-			log.Printf("Skipping invite %s: no sheet row number", invite.Uuid)
+		if invite.SheetRow == nil {
+			log.Printf("Skipping invite %s: no sheet row number", invite.InviteCode)
 			continue
 		}
 
-		rowData := SheetRow{
-			RowNumber:   int(invite.SheetRow.Int64),
-			Attending:   nullBoolToPtr(invite.Attending),
-			Adults:      nullIntToPtr(invite.AdultCount),
-			Kids:        nullIntToPtr(invite.KidCount),
-			Dietary:     nullStringToString(invite.DietaryInfo),
-			Message:     nullStringToString(invite.MessageForUs),
-			Song:        nullStringToString(invite.SongRequest),
-			RespondedAt: nullTimeToString(invite.ResponseAt),
-			Country:     nullStringToString(invite.ResponseCountry),
-		}
-
-		if err := s.client.WriteRSVP(ctx, rowData.RowNumber, rowData); err != nil {
-			log.Printf("Failed to write RSVP for invite %s: %v", invite.Uuid, err)
+		if err := s.sheetsClient.WriteRSVP(ctx, invite); err != nil {
+			log.Printf("Failed to write RSVP for invite %s: %v", invite.InviteCode, err)
 			continue
 		}
 
 		// Mark as synced in database
-		if err := s.db.MarkInviteSynced(invite.Uuid); err != nil {
-			log.Printf("Failed to mark invite %s as synced: %v", invite.Uuid, err)
+		if err := q.MarkInviteSynced(ctx, invite.InviteCode); err != nil {
+			log.Printf("Failed to mark invite %s as synced: %v", invite.InviteCode, err)
 		}
+	}
+
+	if err := tx.Commit(); err != nil {
+		return errors.Wrap(err, "failed to commit transaction")
 	}
 
 	log.Printf("Successfully synced %d RSVPs to sheet", len(invites))
 	return nil
-}
-
-// Helper functions for converting sql.Null* types
-
-func nullBoolToPtr(nb sql.NullBool) *bool {
-	if !nb.Valid {
-		return nil
-	}
-	b := nb.Bool
-	return &b
-}
-
-func nullIntToPtr(ni sql.NullInt64) *int {
-	if !ni.Valid {
-		return nil
-	}
-	i := int(ni.Int64)
-	return &i
-}
-
-func nullStringToString(ns sql.NullString) string {
-	if !ns.Valid {
-		return ""
-	}
-	return ns.String
-}
-
-func nullTimeToString(nt sql.NullTime) string {
-	if !nt.Valid {
-		return ""
-	}
-	return nt.Time.Format(time.RFC3339)
 }

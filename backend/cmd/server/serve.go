@@ -12,20 +12,19 @@ import (
 	"time"
 
 	"github.com/casassg/wedding/backend/internal/api"
-	"github.com/casassg/wedding/backend/internal/db"
 	"github.com/casassg/wedding/backend/internal/sheets"
+	"github.com/casassg/wedding/backend/internal/store"
 )
 
 const shutdownTimeout = 5 * time.Second
 
 // ServeCmd runs the HTTP server
 type ServeCmd struct {
-	DBPath         string `env:"DB_PATH" default:"/litefs/wedding.db" help:"Path to SQLite database file"`
-	Port           string `env:"PORT" default:"8081" help:"Port to listen on"`
+	DBPath         string `env:"DB_PATH" default:"wedding.db" help:"Path to SQLite database file"`
+	Port           string `env:"PORT" default:"8080" help:"Port to listen on"`
 	AllowedOrigins string `env:"ALLOWED_ORIGINS" default:"https://lauraygerard.wedding,https://www.lauraygerard.wedding" help:"Comma-separated list of allowed CORS origins"`
-	SyncInterval   string `env:"SHEETS_SYNC_INTERVAL" default:"5m" help:"Interval between Google Sheets syncs"`
-	PrimaryRegion  string `env:"PRIMARY_REGION" default:"iad" help:"Primary region for writes"`
-	CurrentRegion  string `env:"FLY_REGION" default:"iad" help:"Current region (auto-set by Fly.io)"`
+	SyncInterval   string `env:"SHEETS_SYNC_INTERVAL" default:"1m" help:"Interval between Google Sheets syncs"`
+	MigrationsDir  string `help:"Path to migrations directory" default:"file:///app/migrations" env:"MIGRATIONS_DIR"`
 }
 
 func (cmd *ServeCmd) Run() error {
@@ -48,12 +47,11 @@ func (cmd *ServeCmd) Run() error {
 	log.Printf("Starting Wedding RSVP API")
 	log.Printf("Database: %s", cmd.DBPath)
 	log.Printf("Port: %s", cmd.Port)
-	log.Printf("Region: %s (primary: %s)", cmd.CurrentRegion, cmd.PrimaryRegion)
 	log.Printf("Allowed origins: %v", allowedOrigins)
 	log.Printf("Sync interval: %s", interval)
 
 	// Initialize database
-	database, err := db.New(cmd.DBPath)
+	database, err := store.Open(cmd.DBPath)
 	if err != nil {
 		return fmt.Errorf("failed to initialize database: %w", err)
 	}
@@ -66,11 +64,20 @@ func (cmd *ServeCmd) Run() error {
 	}
 
 	// Start background sync (only on primary region)
-	syncer := sheets.NewSyncer(database, sheetsClient, cmd.CurrentRegion, cmd.PrimaryRegion)
+	syncer := sheets.NewSyncer(database, sheetsClient)
+	// Run initial sync
+	log.Printf("Running initial sync...")
+	if err := syncer.SyncOnce(ctx); err != nil {
+		log.Printf("initial sync failed: %s", err)
+	}
+	
+	// Start sync in background goroutine
 	go syncer.Start(ctx, interval)
 
+
+
 	// Create HTTP router
-	router := api.NewRouter(database, allowedOrigins)
+	router := api.NewRouter(database, syncer, allowedOrigins)
 
 	// Create HTTP server
 	server := &http.Server{

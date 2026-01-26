@@ -1,6 +1,6 @@
 # Hermit state (but keep bin/)
 .hermit/
-
+.envrc
 # Hugo build output
 /public/
 /resources/_gen/

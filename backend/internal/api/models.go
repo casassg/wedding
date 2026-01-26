@@ -1,9 +1,7 @@
 package api
 
 import (
-	"database/sql"
-
-	sqlcdb "github.com/casassg/wedding/backend/internal/db/sqlc"
+	"github.com/casassg/wedding/backend/internal/store"
 )
 
 // InviteResponse is the public API response for GET /invite/{uuid}
@@ -16,9 +14,8 @@ type InviteResponse struct {
 
 // RSVPRequest is the request payload for POST /invite/{uuid}/rsvp
 type RSVPRequest struct {
-	Attending    bool   `json:"attending"`
-	AdultCount   *int   `json:"adult_count,omitempty"`
-	KidCount     *int   `json:"kid_count,omitempty"`
+	AdultCount   int64  `json:"adult_count,omitempty"`
+	KidCount     int64  `json:"kid_count,omitempty"`
 	DietaryInfo  string `json:"dietary_info,omitempty"`
 	MessageForUs string `json:"message_for_us,omitempty"`
 	SongRequest  string `json:"song_request,omitempty"`
@@ -40,36 +37,11 @@ type HealthResponse struct {
 }
 
 // ToInviteResponse converts sqlc Invite to API InviteResponse
-func ToInviteResponse(invite *sqlcdb.Invite) InviteResponse {
+func ToInviteResponse(invite *store.Invite) InviteResponse {
 	return InviteResponse{
 		Name:         invite.Name,
 		MaxAdults:    int(invite.MaxAdults),
 		MaxKids:      int(invite.MaxKids),
-		HasResponded: invite.ResponseAt.Valid,
+		HasResponded: invite.ConfirmedAdults > 0,
 	}
-}
-
-// Helper functions for converting sql.Null* types
-
-func NullBoolToPtr(nb sql.NullBool) *bool {
-	if !nb.Valid {
-		return nil
-	}
-	b := nb.Bool
-	return &b
-}
-
-func NullIntToPtr(ni sql.NullInt64) *int {
-	if !ni.Valid {
-		return nil
-	}
-	i := int(ni.Int64)
-	return &i
-}
-
-func NullStringToString(ns sql.NullString) string {
-	if !ns.Valid {
-		return ""
-	}
-	return ns.String
 }
