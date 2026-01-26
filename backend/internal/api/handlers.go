@@ -34,7 +34,7 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 
 	// Get invite from database
 	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
-	if errors.Is(err, sql.ErrNoRows) || (err == nil && invite == nil) {
+	if errors.Is(err, sql.ErrNoRows) || (invite == nil) {
 		log.Printf("Invite not found for code %s, triggering sync", inviteCode)
 		if err := h.syncer.SyncOnce(r.Context()); err != nil {
 			respondError(w, "Invite not found", http.StatusNotFound)
@@ -43,6 +43,7 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 		// Retry fetching invite after sync
 		invite, err = h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 		if invite == nil || errors.Is(err, sql.ErrNoRows) {
+			log.Printf("Invite still not found for code %s after sync", inviteCode)
 			respondError(w, "Invite not found", http.StatusNotFound)
 			return
 		}
