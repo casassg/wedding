@@ -428,7 +428,6 @@
             return;
         }
 
-        const errorMissingPlusOne = rsvpCard.dataset.errorMissingPlusOne || 'Please indicate if you will bring a +1.';
         const errorMissingKids = rsvpCard.dataset.errorMissingKids || 'Please select the number of kids.';
         const errorGeneric = rsvpCard.dataset.errorGeneric || 'Something went wrong. Please try again.';
 
@@ -570,7 +569,6 @@
                     }
 
                     const payload = {
-                        attending: true,  // Always true when form is submitted
                         dietary_info: dietaryInput?.value?.trim() || '',
                         message_for_us: messageInput?.value?.trim() || '',
                         song_request: songInput?.value?.trim() || ''
