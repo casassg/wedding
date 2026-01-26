@@ -32,7 +32,7 @@ ON CONFLICT(invite_code) DO UPDATE SET
     sheet_row  = excluded.sheet_row,
     confirmed_adults = excluded.confirmed_adults,
     updated_at = excluded.updated_at
-WHERE invites.response_at <= invites.updated_at;
+WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at;
     -- Note: The WHERE clause prevents updates when synced_at IS NULL,
     -- protecting local RSVP changes that haven't been pushed to the sheet yet.
 

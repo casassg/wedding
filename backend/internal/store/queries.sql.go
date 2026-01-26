@@ -193,7 +193,7 @@ ON CONFLICT(invite_code) DO UPDATE SET
     sheet_row  = excluded.sheet_row,
     confirmed_adults = excluded.confirmed_adults,
     updated_at = excluded.updated_at
-WHERE invites.response_at <= invites.updated_at
+WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 `
 
 type UpsertInviteParams struct {
@@ -220,7 +220,7 @@ type UpsertInviteParams struct {
 //	    sheet_row  = excluded.sheet_row,
 //	    confirmed_adults = excluded.confirmed_adults,
 //	    updated_at = excluded.updated_at
-//	WHERE invites.response_at <= invites.updated_at
+//	WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) error {
 	_, err := q.exec(ctx, q.upsertInviteStmt, UpsertInvite,
 		arg.InviteCode,
