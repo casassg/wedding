@@ -403,7 +403,7 @@
 
         let apiBase = rsvpCard.dataset.apiBase || '';
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-            apiBase = 'http://localhost:8081/api/v1';
+            apiBase = 'http://localhost:8080/api/v1';
         }
         const endpoint = `${apiBase}/invite/${encodeURIComponent(code)}`;
 
