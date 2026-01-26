@@ -23,4 +23,7 @@ jobs:
       - name: Run sync command
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-        run: flyctl ssh console -C "/app/server sync"
+        run: |
+          MACHINE_ID=$(flyctl machine list --json | jq -r '.[0].id')
+          flyctl machine start $MACHINE_ID || true
+          flyctl ssh console -C "/app/server sync"
