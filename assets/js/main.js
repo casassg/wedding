@@ -488,7 +488,7 @@
                 this.error = null;
                 
                 try {
-                    const response = await fetch(`${this.apiBase}/invite/${encodeURIComponent(this.code)}/`, {
+                    const response = await fetch(`${this.apiBase}/invite/${encodeURIComponent(this.code)}`, {
                         headers: { 'Accept': 'application/json' }
                     });
                     
