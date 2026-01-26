@@ -194,6 +194,84 @@
     }
 
     // ===================
+    // Confetti Effect (shared utility)
+    // ===================
+    // Wedding color palette for confetti
+    const confettiColors = [
+        '#E06C75', // rose
+        '#F2A93B', // marigold
+        '#9D8EB5', // lavender
+        '#8FA876', // leaf
+        '#D97757', // clay
+    ];
+
+    function createConfetti(targetElement = null, particleCount = 35, explosive = false) {
+        let centerX, centerY;
+        
+        if (targetElement) {
+            const rect = targetElement.getBoundingClientRect();
+            centerX = rect.left + rect.width / 2;
+            centerY = rect.top + rect.height / 2;
+        } else {
+            // Default to center of viewport
+            centerX = window.innerWidth / 2;
+            centerY = window.innerHeight / 2;
+        }
+
+        for (let i = 0; i < particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'confetti-particle';
+            
+            // Random shape
+            const shapes = ['circle', 'square', 'heart'];
+            particle.classList.add(shapes[Math.floor(Math.random() * shapes.length)]);
+            
+            // Random color
+            const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+            particle.style.backgroundColor = color;
+            
+            // Calculate position based on explosion mode
+            let x, y;
+            if (explosive) {
+                // Large explosion: spread across entire viewport
+                const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5) * 0.8;
+                const distance = 100 + Math.random() * Math.max(window.innerWidth, window.innerHeight) * 0.8;
+                x = centerX + Math.cos(angle) * distance;
+                y = centerY + Math.sin(angle) * distance;
+            } else {
+                // Small burst: contained around target
+                const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5);
+                const distance = 20 + Math.random() * 60;
+                x = centerX + Math.cos(angle) * distance;
+                y = centerY + Math.sin(angle) * distance;
+            }
+            
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            
+            // Random animation variation (longer for explosive mode)
+            const duration = explosive ? (3 + Math.random() * 3) : (2 + Math.random() * 2);
+            particle.style.animationDuration = duration + 's';
+            particle.style.animationDelay = (Math.random() * 0.3) + 's';
+            
+            // Random size (larger for explosive mode)
+            const baseSize = explosive ? 8 : 6;
+            const sizeVariation = explosive ? 12 : 8;
+            const size = baseSize + Math.random() * sizeVariation;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            document.body.appendChild(particle);
+            
+            // Remove particle after animation (longer for explosive mode)
+            const removeDelay = explosive ? 6000 : 4000;
+            setTimeout(() => {
+                particle.remove();
+            }, removeDelay);
+        }
+    }
+
+    // ===================
     // Easter Egg: Ampersand Heart
     // ===================
     function initAmpersandEasterEgg() {
@@ -205,60 +283,6 @@
         const HOVER_DURATION = 2500; // 2.5 seconds
         const RESET_DURATION = 5000; // Reset after 5 seconds
 
-        // Wedding color palette for confetti
-        const confettiColors = [
-            '#E06C75', // rose
-            '#F2A93B', // marigold
-            '#9D8EB5', // lavender
-            '#8FA876', // leaf
-            '#D97757', // clay
-        ];
-
-        function createConfetti() {
-            const rect = ampersand.getBoundingClientRect();
-            const centerX = rect.left + rect.width / 2;
-            const centerY = rect.top + rect.height / 2;
-            const particleCount = 35;
-
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'confetti-particle';
-                
-                // Random shape
-                const shapes = ['circle', 'square', 'heart'];
-                particle.classList.add(shapes[Math.floor(Math.random() * shapes.length)]);
-                
-                // Random color
-                const color = confettiColors[Math.floor(Math.random() * confettiColors.length)];
-                particle.style.backgroundColor = color;
-                
-                // Random position around the ampersand
-                const angle = (Math.PI * 2 * i) / particleCount + (Math.random() - 0.5);
-                const distance = 20 + Math.random() * 60;
-                const x = centerX + Math.cos(angle) * distance;
-                const y = centerY + Math.sin(angle) * distance;
-                
-                particle.style.left = x + 'px';
-                particle.style.top = y + 'px';
-                
-                // Random animation variation
-                particle.style.animationDuration = (2 + Math.random() * 2) + 's';
-                particle.style.animationDelay = (Math.random() * 0.3) + 's';
-                
-                // Random size
-                const size = 6 + Math.random() * 8;
-                particle.style.width = size + 'px';
-                particle.style.height = size + 'px';
-                
-                document.body.appendChild(particle);
-                
-                // Remove particle after animation
-                setTimeout(() => {
-                    particle.remove();
-                }, 4000);
-            }
-        }
-
         function triggerEasterEgg() {
             if (isHeartMode) return;
             
@@ -266,8 +290,8 @@
             ampersand.textContent = '❤';
             ampersand.classList.add('heart-mode');
             
-            // Create confetti burst
-            createConfetti();
+            // Create confetti burst centered on ampersand
+            createConfetti(ampersand);
             
             // Reset after a delay
             setTimeout(() => {
@@ -603,8 +627,14 @@
                             throw new Error(formatErrorMessage(payloadError));
                         }
 
+                        // Show success and trigger confetti celebration
                         formWrapper.classList.add('hidden');
                         thanksEl.classList.remove('hidden');
+                        
+                        // Trigger massive confetti explosion from the RSVP card
+                        setTimeout(() => {
+                            createConfetti(rsvpCard, 100, true);
+                        }, 200);
                     } catch (err) {
                         showError(err?.message || errorGeneric);
                     } finally {
