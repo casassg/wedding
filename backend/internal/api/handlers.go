@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"encoding/json"
 	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/casassg/wedding/backend/internal/sheets"
@@ -34,6 +35,7 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	// Get invite from database
 	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 	if errors.Is(err, sql.ErrNoRows) || (err == nil && invite == nil) {
+		log.Printf("Invite not found for code %s, triggering sync", inviteCode)
 		if err := h.syncer.SyncOnce(r.Context()); err != nil {
 			respondError(w, "Invite not found", http.StatusNotFound)
 			return
