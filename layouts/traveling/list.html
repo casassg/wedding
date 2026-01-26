@@ -104,7 +104,7 @@
 </section>
 
 <!-- Things to Do in Copán Section -->
-<section class="py-16 md:py-24 px-6 bg-white">
+<section class="py-16 md:py-24 px-6 bg-white" x-data>
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-leaf font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
@@ -125,8 +125,8 @@
                 <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 text-sm font-sans flex-grow">{{ $place.description | markdownify }}</p>
                 <button type="button" 
-                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer"
-                        data-target="place-modal-copan-{{ $index }}">
+                        @click="$store.placeModals.open('place-modal-copan-{{ $index }}', 'copan', {{ $index }}, {{ len $copan }})"
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
                     <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
                 </button>
             </div>
@@ -165,7 +165,7 @@
 </section>
 
 <!-- Explore Honduras Section -->
-<section class="py-16 md:py-24 px-6 bg-rose section-colored">
+<section class="py-16 md:py-24 px-6 bg-rose section-colored" x-data>
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
@@ -186,8 +186,8 @@
                 <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 font-sans flex-grow">{{ $place.description | markdownify }}</p>
                 <button type="button" 
-                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer"
-                        data-target="place-modal-honduras-{{ $index }}">
+                        @click="$store.placeModals.open('place-modal-honduras-{{ $index }}', 'honduras', {{ $index }}, {{ len $honduras }})"
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
                     <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
                 </button>
             </div>
@@ -244,17 +244,41 @@
 <!-- ==================== -->
 
 <!-- Shared Modal Backdrop -->
-<div id="place-modal-backdrop" class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"></div>
+<div id="place-modal-backdrop" 
+     x-data
+     x-show="$store.placeModals.activeModal !== null"
+     x-cloak
+     @click="$store.placeModals.close()"
+     @keydown.escape.window="$store.placeModals.close()"
+     @keydown.arrow-left.window="$store.placeModals.prev()"
+     @keydown.arrow-right.window="$store.placeModals.next()"
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"></div>
 
 <!-- Copán Place Modals -->
 {{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
 {{- $copan := index .Site.Data .Site.Language.Lang "copan_places" -}}
 {{- range $index, $place := $copan -}}
 {{- $color := index $colors (mod $index (len $colors)) -}}
-<div id="place-modal-copan-{{ $index }}" 
-     class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"
+<div x-data="placeModal('copan', {{ $index }}, {{ len $copan }})"
+     x-show="isOpen"
+     x-cloak
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     id="place-modal-copan-{{ $index }}" 
+     class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8"
+     :class="{ 'active': isOpen }"
      data-color="{{ $color }}">
-    <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl">
+    <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl pointer-events-auto">
         <!-- Header -->
         <div class="flex items-start justify-between p-6 md:p-8 pb-4">
             <div class="flex items-center gap-4">
@@ -264,6 +288,7 @@
                 <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $place.title }}</h3>
             </div>
             <button type="button"
+                    @click="close()"
                     class="place-modal-close w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shrink-0 ml-4"
                     aria-label="{{ i18n "place_close" }}">
                 <i class="fa-solid fa-xmark text-gray-600"></i>
@@ -319,17 +344,17 @@
         <!-- Navigation Footer -->
         <div class="flex items-center justify-between p-4 border-t border-gray-100">
             <button type="button"
+                    @click="prev()"
+                    :disabled="!hasPrev"
                     class="place-modal-prev w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
-                    data-group="copan" data-index="{{ $index }}" data-total="{{ len $copan }}"
-                    {{ if eq $index 0 }}disabled{{ end }}
                     aria-label="{{ i18n "place_previous" }}">
                 <i class="fa-solid fa-chevron-left text-gray-600"></i>
             </button>
             <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $copan }}</span>
             <button type="button"
+                    @click="next()"
+                    :disabled="!hasNext"
                     class="place-modal-next w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
-                    data-group="copan" data-index="{{ $index }}" data-total="{{ len $copan }}"
-                    {{ if eq $index (sub (len $copan) 1) }}disabled{{ end }}
                     aria-label="{{ i18n "place_next" }}">
                 <i class="fa-solid fa-chevron-right text-gray-600"></i>
             </button>
@@ -342,10 +367,20 @@
 {{- $honduras := index .Site.Data .Site.Language.Lang "honduras_places" -}}
 {{- range $index, $place := $honduras -}}
 {{- $color := index $colors (mod $index (len $colors)) -}}
-<div id="place-modal-honduras-{{ $index }}" 
-     class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8 opacity-0 invisible pointer-events-none transition-opacity duration-500 ease-out"
+<div x-data="placeModal('honduras', {{ $index }}, {{ len $honduras }})"
+     x-show="isOpen"
+     x-cloak
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     id="place-modal-honduras-{{ $index }}" 
+     class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8"
+     :class="{ 'active': isOpen }"
      data-color="{{ $color }}">
-    <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl">
+    <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl pointer-events-auto">
         <!-- Header -->
         <div class="flex items-start justify-between p-6 md:p-8 pb-4">
             <div class="flex items-center gap-4">
@@ -355,6 +390,7 @@
                 <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $place.title }}</h3>
             </div>
             <button type="button"
+                    @click="close()"
                     class="place-modal-close w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shrink-0 ml-4"
                     aria-label="{{ i18n "place_close" }}">
                 <i class="fa-solid fa-xmark text-gray-600"></i>
@@ -410,17 +446,17 @@
         <!-- Navigation Footer -->
         <div class="flex items-center justify-between p-4 border-t border-gray-100">
             <button type="button"
+                    @click="prev()"
+                    :disabled="!hasPrev"
                     class="place-modal-prev w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
-                    data-group="honduras" data-index="{{ $index }}" data-total="{{ len $honduras }}"
-                    {{ if eq $index 0 }}disabled{{ end }}
                     aria-label="{{ i18n "place_previous" }}">
                 <i class="fa-solid fa-chevron-left text-gray-600"></i>
             </button>
             <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $honduras }}</span>
             <button type="button"
+                    @click="next()"
+                    :disabled="!hasNext"
                     class="place-modal-next w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
-                    data-group="honduras" data-index="{{ $index }}" data-total="{{ len $honduras }}"
-                    {{ if eq $index (sub (len $honduras) 1) }}disabled{{ end }}
                     aria-label="{{ i18n "place_next" }}">
                 <i class="fa-solid fa-chevron-right text-gray-600"></i>
             </button>

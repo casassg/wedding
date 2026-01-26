@@ -91,6 +91,7 @@ days: "Días"
 hours: "Horas"
 minutes: "Minutos"
 seconds: "Segundos"
+countdown_ended: "¡Ya es hora de celebrar! 🎉"
 
 # Traveling Page
 nav_traveling: "Viajar"

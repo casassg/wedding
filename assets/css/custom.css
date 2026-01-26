@@ -1,5 +1,10 @@
 /* Custom styles for Laura & Gerard Wedding */
 
+/* Alpine.js cloak - hide elements until Alpine initializes */
+[x-cloak] {
+    display: none !important;
+}
+
 /* Base styles */
 body {
     font-family: 'Montserrat', sans-serif;
@@ -228,24 +233,9 @@ html {
     }
 }
 
-/* Place Card Modal */
-.place-modal.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.place-modal.active .place-modal-card {
-    pointer-events: auto;
-}
-
+/* Place Card Modal - body scroll lock handled by Alpine */
 body.place-modal-open {
     overflow: hidden;
-}
-
-body.place-modal-open #place-modal-backdrop {
-    opacity: 1;
-    visibility: visible;
-    pointer-events: auto;
 }
 
 /* Removed RSVP Toggle - no longer used */

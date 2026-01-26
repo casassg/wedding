@@ -21,7 +21,17 @@
 
     <div class="text-center z-10 px-4">
         <h1 class="font-sans font-black text-6xl md:text-8xl lg:text-9xl mb-6 leading-tight text-white tracking-tight drop-shadow-lg">
-            Laura <span id="ampersand-easter-egg" class="text-rose inline-block hover:scale-110 transition-transform duration-300 cursor-default select-none">&</span> Gerard
+            Laura <span x-data="ampersandEgg"
+                        @mouseenter="startHover()"
+                        @mouseleave="endHover()"
+                        @touchstart.prevent="startHover()"
+                        @touchend.prevent="endHover()"
+                        @touchcancel="endHover()"
+                        @contextmenu.prevent
+                        :class="{ 'heart-mode': isHeartMode }"
+                        x-text="isHeartMode ? '❤' : '&'"
+                        id="ampersand-easter-egg"
+                        class="text-rose inline-block hover:scale-110 transition-transform duration-300 cursor-default select-none"></span> Gerard
         </h1>
         
         <p class="text-xl md:text-2xl font-bold tracking-widest uppercase text-white font-sans drop-shadow-lg">
@@ -33,7 +43,7 @@
     
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
-        <a href="#welcome" class="text-white hover:text-marigold transition p-2 drop-shadow-lg">
+        <a href="#welcome" @click.prevent="window.smoothScrollTo('#welcome')" class="text-white hover:text-marigold transition p-2 drop-shadow-lg">
             <i class="fa-solid fa-arrow-down text-2xl"></i>
         </a>
     </div>
