@@ -40,13 +40,14 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 		}
 		// Retry fetching invite after sync
 		invite, err = h.db.GetInviteByInviteCode(r.Context(), inviteCode)
-		if invite == nil {
+		if invite == nil || errors.Is(err, sql.ErrNoRows) {
 			respondError(w, "Invite not found", http.StatusNotFound)
 			return
 		}
 	}
 	if err != nil {
-		respondError(w, "Internal server error", http.StatusInternalServerError)
+		log.Printf("Error fetching invite: %v", err)
+		respondError(w, "Invite not found", http.StatusNotFound)
 		return
 	}
 
