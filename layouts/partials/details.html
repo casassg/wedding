@@ -59,9 +59,9 @@
         </div>
 
         <!-- RSVP Banner -->
-        <div id="rsvp" class="hidden mt-8 md:mt-12 card-glass p-8 md:p-10 rounded-3xl border-2 border-leaf/20">
+        <div id="rsvp" class="hidden mt-8 md:mt-12 card-glass p-8 md:p-10 rounded-3xl border-2 border-leaf/20 group">
             <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="w-16 h-16 bg-leaf/30 text-leaf rounded-full flex items-center justify-center animate-float">
+                <div class="w-16 h-16 bg-leaf/30 text-leaf rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-envelope-open-text text-2xl"></i>
                 </div>
                 <div id="rsvp-card" class="flex-1" data-api-base="https://api.lauraygerard.wedding/api/v1" data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}" data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" data-error-generic="{{ i18n "rsvp_error_generic" }}" data-invite-size-text="{{ i18n "rsvp_invite_size" }}">
