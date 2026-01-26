@@ -19,9 +19,7 @@ type Invite struct {
 	MessageForUs    string     `json:"message_for_us"`
 	SongRequest     string     `json:"song_request"`
 	ResponseAt      *time.Time `json:"response_at"`
-	ResponseCountry string     `json:"response_country"`
 	SheetRow        *int64     `json:"sheet_row"`
-	SyncedAt        *time.Time `json:"synced_at"`
 	CreatedAt       time.Time  `json:"created_at"`
 	UpdatedAt       time.Time  `json:"updated_at"`
 }

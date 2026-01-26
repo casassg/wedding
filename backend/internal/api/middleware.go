@@ -153,13 +153,3 @@ func getIP(r *http.Request) string {
 	}
 	return ip
 }
-
-// GetCountry extracts the country code from Fly.io headers
-func GetCountry(r *http.Request) string {
-	// Fly.io provides this header with ISO country code
-	country := r.Header.Get("Fly-Client-Country")
-	if country == "" {
-		return "Unknown"
-	}
-	return country
-}

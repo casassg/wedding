@@ -10,10 +10,7 @@ SET
     dietary_info     = :input_dietary_info,
     message_for_us   = :input_message,
     song_request     = :input_song,
-    response_country = :input_response_country,
-    response_at      = datetime('now', 'utc'),
-    updated_at       = datetime('now', 'utc'),
-    synced_at        = NULL
+    response_at      = datetime('now', 'utc')-- Mark as needing sync
 WHERE
     invite_code = :input_invite_code
     -- Validation Logic:
@@ -22,6 +19,7 @@ WHERE
 
 -- name: UpsertInvite :exec
 -- Syncs Master Data from Google Sheets -> DB.
+-- Skips updates if invite has unsynced local changes (synced_at IS NULL).
 INSERT INTO invites (
     invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, updated_at
 ) VALUES (
@@ -33,9 +31,12 @@ ON CONFLICT(invite_code) DO UPDATE SET
     max_kids   = excluded.max_kids,
     sheet_row  = excluded.sheet_row,
     confirmed_adults = excluded.confirmed_adults,
-    updated_at = excluded.updated_at;
-    -- Note: We still rely on existing synced_at value (no change needed)
-    -- because DO UPDATE does not touch columns unless specified.
+    updated_at = excluded.updated_at
+WHERE invites.response_at <= invites.updated_at;
+    -- Note: The WHERE clause prevents updates when synced_at IS NULL,
+    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
+
+
 
 -- name: DeleteInvite :exec
 -- HARD DELETE: This permanently removes the row.
@@ -46,12 +47,11 @@ WHERE invite_code = ?;
 -- Finds rows that have responded but haven't been synced OR have changed since sync.
 SELECT * FROM invites
 WHERE response_at IS NOT NULL
-  AND (synced_at IS NULL OR response_at > synced_at)
+  AND response_at > updated_at
 ORDER BY response_at ASC;
 
 -- name: MarkInviteSynced :exec
 UPDATE invites
 SET
-    synced_at = datetime('now', 'utc'),
     updated_at = datetime('now', 'utc')
 WHERE invite_code = ?;

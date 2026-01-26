@@ -171,12 +171,11 @@ func (c *Client) WriteRSVP(ctx context.Context, data *store.Invite) error {
 		data.DietaryInfo,                        // Column K: Dietary
 		data.MessageForUs,                       // Column L: Message for us
 		data.SongRequest,                        // Column M: Song request
-		data.ResponseCountry,                    // Column N: Responded From
 		responseAt,                              // Column O: Response At
 	}
 
 	// Write to sheet
-	writeRange := fmt.Sprintf("'%s'!I%d:O%d", c.sheetName, rowNum, rowNum)
+	writeRange := fmt.Sprintf("'%s'!I%d:N%d", c.sheetName, rowNum, rowNum)
 	valueRange := &sheets.ValueRange{
 		Values: [][]interface{}{values},
 	}

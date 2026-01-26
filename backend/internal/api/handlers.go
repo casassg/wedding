@@ -99,7 +99,6 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 		InputMessage:         req.MessageForUs,
 		InputSong:            req.SongRequest,
 		InputInviteCode:      inviteCode,
-		InputResponseCountry: GetCountry(r),
 	}
 
 	if err := h.db.UpdateRSVP(r.Context(), &dbReq); err != nil {

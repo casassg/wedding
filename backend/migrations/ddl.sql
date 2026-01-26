@@ -13,10 +13,8 @@ CREATE TABLE IF NOT EXISTS invites (
     song_request TEXT NOT NULL DEFAULT '',
 
     response_at DATETIME,
-    response_country TEXT NOT NULL DEFAULT 'unknown',
     sheet_row INTEGER,
 
-    synced_at DATETIME DEFAULT NULL,
     created_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc')),
     updated_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc'))
 );
