@@ -166,12 +166,12 @@ func (c *Client) WriteRSVP(ctx context.Context, data *store.Invite) error {
 
 	// Prepare values for columns I-N (Adults confirmed, Kids confirmed, Dietary, Message for us, Song request, Updated At)
 	values := []interface{}{
-		fmt.Sprintf("%d", data.ConfirmedAdults), // Column I: Adults confirmed
-		fmt.Sprintf("%d", data.ConfirmedKids),   // Column J: Kids confirmed
-		data.DietaryInfo,                        // Column K: Dietary
-		data.MessageForUs,                       // Column L: Message for us
-		data.SongRequest,                        // Column M: Song request
-		responseAt,                              // Column O: Response At
+		data.ConfirmedAdults, // Column I: Adults confirmed
+		data.ConfirmedKids,   // Column J: Kids confirmed
+		data.DietaryInfo,     // Column K: Dietary
+		data.MessageForUs,    // Column L: Message for us
+		data.SongRequest,     // Column M: Song request
+		responseAt,           // Column O: Response At
 	}
 
 	// Write to sheet
