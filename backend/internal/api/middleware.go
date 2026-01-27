@@ -3,6 +3,7 @@ package api
 import (
 	"log"
 	"net/http"
+	"slices"
 	"strings"
 	"sync"
 	"time"
@@ -54,13 +55,7 @@ func CORS(allowedOrigins []string) Middleware {
 			origin := r.Header.Get("Origin")
 
 			// Check if origin is allowed
-			allowed := false
-			for _, allowedOrigin := range allowedOrigins {
-				if origin == allowedOrigin {
-					allowed = true
-					break
-				}
-			}
+			allowed := slices.Contains(allowedOrigins, origin)
 
 			if allowed {
 				w.Header().Set("Access-Control-Allow-Origin", origin)

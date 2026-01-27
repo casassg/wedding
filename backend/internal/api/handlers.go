@@ -23,7 +23,7 @@ func NewHandler(database *store.Store, syncer *sheets.Syncer) *Handler {
 	return &Handler{db: database, syncer: syncer}
 }
 
-// GetInvite handles GET /api/v1/invite/{uuid}
+// GetInvite handles GET /api/v1/invite/{invite_code}
 func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	// Extract UUID from path
 	inviteCode := r.PathValue("invite_code")
@@ -58,7 +58,7 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	respondJSON(w, ToInviteResponse(invite), http.StatusOK)
 }
 
-// PostRSVP handles POST /api/v1/invite/{uuid}/rsvp
+// PostRSVP handles POST /api/v1/invite/{invite_code}/rsvp
 func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	// Extract UUID from path
 	inviteCode := r.PathValue("invite_code")
