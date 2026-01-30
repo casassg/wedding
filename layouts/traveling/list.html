@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Hero Section -->
-<section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-ocean section-colored">
+<section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-mint section-colored">
     <div class="max-w-4xl mx-auto text-center">
         <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/80 hover:text-white transition mb-8 font-sans">
             <i class="fa-solid fa-arrow-left mr-2"></i>
@@ -19,7 +19,7 @@
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_getting_there" }}</h2>
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_getting_there_intro" }}</p>
         </div>
-        
+
         <div class="grid md:grid-cols-2 gap-8">
             <!-- From Europe Card -->
             <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-ocean/30 transition-all duration-300">
@@ -33,7 +33,7 @@
                     {{ i18n "traveling_from_europe_desc" | markdownify }}
                 </p>
             </div>
-            
+
             <!-- From US/Canada Card -->
             <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300">
                 <div class="flex items-center mb-6">
@@ -47,7 +47,7 @@
                 </p>
             </div>
         </div>
-        
+
         <!-- To Copán Banner -->
         <div class="mt-12 card-shadow bg-white p-8 rounded-3xl border-2 border-leaf/20 group">
             <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
@@ -71,7 +71,7 @@
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_why_copan" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_why_copan_intro" }}</p>
         </div>
-        
+
         <div class="grid md:grid-cols-3 gap-8">
             <!-- UNESCO Card -->
             <div class="card-glass p-8 rounded-3xl group hover:border-lavender/30 transition-all duration-300 text-center">
@@ -81,7 +81,7 @@
                 <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_unesco" }}</h3>
                 <p class="text-gray-600 font-sans">{{ i18n "traveling_unesco_desc" }}</p>
             </div>
-            
+
             <!-- Colonial Charm Card -->
             <div class="card-glass p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300 text-center">
                 <div class="w-16 h-16 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
@@ -90,7 +90,7 @@
                 <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_colonial" }}</h3>
                 <p class="text-gray-600 font-sans">{{ i18n "traveling_colonial_desc" }}</p>
             </div>
-            
+
             <!-- Weather Card -->
             <div class="card-glass p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300 text-center">
                 <div class="w-16 h-16 bg-marigold/20 text-marigold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
@@ -111,7 +111,7 @@
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_things_to_do" }}</h2>
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_things_to_do_intro" }}</p>
         </div>
-        
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
             {{- $copan := index .Site.Data .Site.Language.Lang "copan_places" -}}
@@ -124,7 +124,7 @@
                 </div>
                 <h3 class="font-hand text-2xl mb-2 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 text-sm font-sans flex-grow">{{ $place.description | markdownify }}</p>
-                <button type="button" 
+                <button type="button"
                         @click="$store.placeModals.open('place-modal-copan-{{ $index }}', 'copan', {{ $index }}, {{ len $copan }})"
                         class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
                     <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
@@ -132,7 +132,7 @@
             </div>
             {{- end -}}
         </div>
-        
+
         <!-- Getting Around Copán -->
         <div class="mt-16">
             <h3 class="font-hand text-4xl text-center mb-4 text-gray-800">{{ i18n "traveling_getting_around" }}</h3>
@@ -148,7 +148,7 @@
                     </div>
                     <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "traveling_walking_desc" }}</p>
                 </div>
-                
+
                 <!-- Tuk-tuks -->
                 <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-clay/30 transition-all duration-300">
                     <div class="flex items-center mb-6">
@@ -172,7 +172,7 @@
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_explore" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_explore_intro" }}</p>
         </div>
-        
+
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
             {{- $honduras := index .Site.Data .Site.Language.Lang "honduras_places" -}}
@@ -185,7 +185,7 @@
                 </div>
                 <h3 class="font-hand text-3xl mb-3 text-gray-800">{{ $place.title }}</h3>
                 <p class="text-gray-600 font-sans flex-grow">{{ $place.description | markdownify }}</p>
-                <button type="button" 
+                <button type="button"
                         @click="$store.placeModals.open('place-modal-honduras-{{ $index }}', 'honduras', {{ $index }}, {{ len $honduras }})"
                         class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
                     <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
@@ -193,7 +193,7 @@
             </div>
             {{- end -}}
         </div>
-        
+
         <!-- Travel Tips Card -->
         <div class="mt-12 card-glass p-8 rounded-3xl group hover:border-lavender/30 transition-all duration-300">
             <div class="w-14 h-14 bg-lavender/20 text-lavender rounded-2xl flex items-center justify-center mb-6 group-hover:rotate-12 transition-transform">
@@ -221,14 +221,14 @@
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_where_to_stay" }}</h2>
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
         </div>
-        
+
         <div class="card-shadow bg-cream p-8 md:p-12 rounded-3xl text-center border-2 border-rose/20">
             <div class="w-20 h-20 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
                 <i class="fa-solid fa-bed text-3xl"></i>
             </div>
             <p class="text-xl text-gray-600 font-sans">{{ i18n "traveling_accommodation_soon" }}</p>
         </div>
-        
+
         <!-- Back to Home Link -->
         <div class="text-center mt-12">
             <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-gray-600 hover:text-rose transition font-sans">
@@ -244,7 +244,7 @@
 <!-- ==================== -->
 
 <!-- Shared Modal Backdrop -->
-<div id="place-modal-backdrop" 
+<div id="place-modal-backdrop"
      x-data
      x-show="$store.placeModals.activeModal !== null"
      x-cloak
@@ -274,7 +274,7 @@
      x-transition:leave="transition ease-in duration-200"
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
-     id="place-modal-copan-{{ $index }}" 
+     id="place-modal-copan-{{ $index }}"
      class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8"
      :class="{ 'active': isOpen }"
      data-color="{{ $color }}">
@@ -294,7 +294,7 @@
                 <i class="fa-solid fa-xmark text-gray-600"></i>
             </button>
         </div>
-        
+
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
             <p class="text-gray-600 font-sans leading-relaxed">
@@ -304,7 +304,7 @@
                     {{ $place.description | markdownify }}
                 {{- end -}}
             </p>
-            
+
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">
                 <h4 class="font-semibold text-gray-800 mb-3 flex items-center gap-2">
@@ -321,7 +321,7 @@
                 </ul>
             </div>
             {{- end -}}
-            
+
             {{- with $place.links -}}
             <div class="space-y-3">
                 <h4 class="font-semibold text-gray-800 flex items-center gap-2">
@@ -340,7 +340,7 @@
             </div>
             {{- end -}}
         </div>
-        
+
         <!-- Navigation Footer -->
         <div class="flex items-center justify-between p-4 border-t border-gray-100">
             <button type="button"
@@ -376,7 +376,7 @@
      x-transition:leave="transition ease-in duration-200"
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
-     id="place-modal-honduras-{{ $index }}" 
+     id="place-modal-honduras-{{ $index }}"
      class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8"
      :class="{ 'active': isOpen }"
      data-color="{{ $color }}">
@@ -396,7 +396,7 @@
                 <i class="fa-solid fa-xmark text-gray-600"></i>
             </button>
         </div>
-        
+
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
             <p class="text-gray-600 font-sans leading-relaxed">
@@ -406,7 +406,7 @@
                     {{ $place.description | markdownify }}
                 {{- end -}}
             </p>
-            
+
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">
                 <h4 class="font-semibold text-gray-800 mb-3 flex items-center gap-2">
@@ -423,7 +423,7 @@
                 </ul>
             </div>
             {{- end -}}
-            
+
             {{- with $place.links -}}
             <div class="space-y-3">
                 <h4 class="font-semibold text-gray-800 flex items-center gap-2">
@@ -442,7 +442,7 @@
             </div>
             {{- end -}}
         </div>
-        
+
         <!-- Navigation Footer -->
         <div class="flex items-center justify-between p-4 border-t border-gray-100">
             <button type="button"
