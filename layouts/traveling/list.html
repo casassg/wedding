@@ -49,9 +49,9 @@
         </div>
 
         <!-- To Copán Banner -->
-        <div class="mt-12 card-shadow bg-white p-8 rounded-3xl border-2 border-leaf/20 group">
+        <div class="mt-12 card-shadow bg-white p-8 rounded-3xl border-2 border-mint/20 group">
             <div class="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="w-16 h-16 bg-leaf/20 text-leaf rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform">
+                <div class="w-16 h-16 bg-mint/20 text-mint rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-bus text-2xl"></i>
                 </div>
                 <div class="text-center md:text-left">
@@ -107,13 +107,13 @@
 <section class="py-16 md:py-24 px-6 bg-white" x-data>
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
-            <span class="text-leaf font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
+            <span class="text-mint font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_things_to_do" }}</h2>
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_things_to_do_intro" }}</p>
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
+            {{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
             {{- $copan := index .Site.Data .Site.Language.Lang "copan_places" -}}
             {{- range $index, $place := $copan -}}
             {{- $color := index $colors (mod $index (len $colors)) -}}
@@ -174,7 +174,7 @@
         </div>
 
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
+            {{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
             {{- $honduras := index .Site.Data .Site.Language.Lang "honduras_places" -}}
             {{- range $index, $place := $honduras -}}
             {{- $color := index $colors (mod $index (len $colors)) -}}
@@ -261,7 +261,7 @@
      class="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm"></div>
 
 <!-- Copán Place Modals -->
-{{- $colors := slice "ocean" "leaf" "marigold" "clay" "rose" "lavender" -}}
+{{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
 {{- $copan := index .Site.Data .Site.Language.Lang "copan_places" -}}
 {{- range $index, $place := $copan -}}
 {{- $color := index $colors (mod $index (len $colors)) -}}

@@ -63,9 +63,9 @@
              x-show="showSection"
              x-cloak
              id="rsvp"
-             class="mt-8 md:mt-12 card-glass p-8 md:p-10 rounded-3xl border-2 border-leaf/20 group">
+             class="mt-8 md:mt-12 card-glass p-8 md:p-10 rounded-3xl border-2 border-mint/20 group">
             <div class="flex flex-col md:flex-row items-start md:items-center space-y-4 md:space-y-0 md:space-x-8">
-                <div class="w-16 h-16 bg-leaf/30 text-leaf rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
+                <div class="w-16 h-16 bg-mint/30 text-mint rounded-2xl flex items-center justify-center group-hover:rotate-12 transition-transform">
                     <i class="fa-solid fa-envelope-open-text text-2xl"></i>
                 </div>
                 <div id="rsvp-card" 
@@ -124,8 +124,8 @@
                                 <label class="flex items-center gap-3 cursor-pointer group">
                                     <input type="checkbox" 
                                            x-model="formData.plusOne"
-                                           class="w-5 h-5 rounded border-gray-200 bg-white/80 accent-leaf focus:ring-leaf focus:ring-offset-0 focus:border-leaf hover:border-leaf/50 transition cursor-pointer">
-                                    <span class="text-sm font-semibold text-gray-700 font-sans group-hover:text-leaf transition">{{ i18n "rsvp_plus_one_label" }}</span>
+                                           class="w-5 h-5 rounded border-gray-200 bg-white/80 accent-mint focus:ring-mint focus:ring-offset-0 focus:border-mint hover:border-mint/50 transition cursor-pointer">
+                                    <span class="text-sm font-semibold text-gray-700 font-sans group-hover:text-mint transition">{{ i18n "rsvp_plus_one_label" }}</span>
                                 </label>
                             </div>
 
@@ -134,7 +134,7 @@
                                 <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
                                 <select x-model="formData.kidCount"
                                         id="rsvp-kids" 
-                                        class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition">
+                                        class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition">
                                     <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
                                     <template x-for="num in kidsOptions" :key="num">
                                         <option :value="num" x-text="num"></option>
@@ -149,7 +149,7 @@
                                     <input x-model="formData.dietaryInfo"
                                            id="rsvp-dietary" 
                                            type="text" 
-                                           class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" 
+                                           class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
                                            placeholder="{{ i18n "rsvp_dietary_placeholder" }}">
                                 </div>
                                 <div>
@@ -157,7 +157,7 @@
                                     <input x-model="formData.song"
                                            id="rsvp-song" 
                                            type="text" 
-                                           class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" 
+                                           class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
                                            placeholder="{{ i18n "rsvp_song_placeholder" }}">
                                 </div>
                             </div>
@@ -167,14 +167,14 @@
                                 <textarea x-model="formData.message"
                                           id="rsvp-message" 
                                           rows="2" 
-                                          class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-leaf focus:ring-2 focus:ring-leaf/30 focus:outline-none transition" 
+                                          class="mt-2 w-full rounded-2xl border border-gray-200 bg-white/80 px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
                                           placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
                             </div>
 
                             <button type="submit" 
                                     :disabled="submitting"
                                     :class="{ 'opacity-70': submitting }"
-                                    class="w-full md:w-auto rounded-full bg-leaf px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-leaf/90">
+                                    class="w-full md:w-auto rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
                                 <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
                                 <span x-show="submitting" x-cloak>
                                     <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
