@@ -685,14 +685,14 @@
             },
             
             // Format time in user's local timezone
+            // Uses locale-appropriate format: 24h for es/ca, 12h for en
             formatLocalTime(isoString) {
                 const date = this.parseDateTime(isoString);
                 if (!date) return '';
                 
-                return date.toLocaleTimeString([], { 
+                return date.toLocaleTimeString(this.locale, { 
                     hour: '2-digit', 
-                    minute: '2-digit',
-                    hour12: true 
+                    minute: '2-digit'
                 });
             },
             
