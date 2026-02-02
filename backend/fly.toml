@@ -10,7 +10,7 @@ primary_region = "iad"
 
 [env]
   PRIMARY_REGION = "iad"
-  SHEETS_SYNC_INTERVAL = "5m"
+  SHEETS_SYNC_INTERVAL = "1m"
   ALLOWED_ORIGINS = "https://lauraygerard.wedding,https://www.lauraygerard.wedding"
 
 [http_service]
