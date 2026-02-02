@@ -624,8 +624,8 @@
             
             init() {
                 this.fetchSchedule();
-                // Auto-refresh every 1 minute
-                this.refreshInterval = setInterval(() => this.fetchSchedule(), 60000);
+                // Auto-refresh every 30 seconds
+                this.refreshInterval = setInterval(() => this.fetchSchedule(), 30000);
             },
             
             destroy() {
