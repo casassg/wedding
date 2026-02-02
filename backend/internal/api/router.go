@@ -21,6 +21,7 @@ func NewRouter(database *store.Store, syncer *sheets.Syncer, allowedOrigins []st
 	mux.HandleFunc("/health", handler.Health)
 	mux.HandleFunc("GET /api/v1/invite/{invite_code}/", handler.GetInvite)
 	mux.HandleFunc("POST /api/v1/invite/{invite_code}/rsvp", handler.PostRSVP)
+	mux.HandleFunc("GET /api/v1/schedule", handler.GetSchedule)
 
 	// Apply middleware chain
 	return Chain(

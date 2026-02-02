@@ -23,3 +23,17 @@ type Invite struct {
 	CreatedAt       time.Time  `json:"created_at"`
 	UpdatedAt       time.Time  `json:"updated_at"`
 }
+
+type ScheduleEvent struct {
+	ID            int64     `json:"id"`
+	StartTime     string    `json:"start_time"`
+	EndTime       *string   `json:"end_time"`
+	EventNameEs   string    `json:"event_name_es"`
+	EventNameEn   string    `json:"event_name_en"`
+	EventNameCa   string    `json:"event_name_ca"`
+	Location      string    `json:"location"`
+	DescriptionEs string    `json:"description_es"`
+	DescriptionEn string    `json:"description_en"`
+	DescriptionCa string    `json:"description_ca"`
+	UpdatedAt     time.Time `json:"updated_at"`
+}

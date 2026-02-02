@@ -608,6 +608,165 @@
                 observer.observe(this.$el);
             }
         }));
+
+        // -----------------------
+        // Schedule Component (fetches and displays wedding schedule)
+        // -----------------------
+        Alpine.data('scheduleComponent', (lang = 'es') => ({
+            loading: true,
+            error: null,
+            events: [],
+            timezone: null,
+            timezoneOffset: null,
+            lastUpdated: null,
+            refreshInterval: null,
+            lang: lang, // Language passed from Hugo template
+            
+            init() {
+                this.fetchSchedule();
+                // Auto-refresh every 1 minute
+                this.refreshInterval = setInterval(() => this.fetchSchedule(), 60000);
+            },
+            
+            destroy() {
+                if (this.refreshInterval) {
+                    clearInterval(this.refreshInterval);
+                }
+            },
+            
+            get apiBase() {
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    return 'http://localhost:8080/api/v1';
+                }
+                return "https://api.lauraygerard.wedding/api/v1";
+            },
+            
+            // Get locale string for date formatting
+            get locale() {
+                const localeMap = { ca: 'ca-ES', es: 'es-ES', en: 'en-US' };
+                return localeMap[this.lang] || 'es-ES';
+            },
+            
+            // Get localized text from i18n object { es, en, ca }
+            // Falls back to Spanish if the requested language is empty
+            localizedText(i18nObj) {
+                if (!i18nObj) return '';
+                return i18nObj[this.lang] || i18nObj.es || i18nObj.en || i18nObj.ca || '';
+            },
+            
+            async fetchSchedule() {
+                try {
+                    const response = await fetch(`${this.apiBase}/schedule`, {
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch schedule');
+                    }
+                    
+                    const data = await response.json();
+                    this.timezone = data.timezone;
+                    this.timezoneOffset = data.timezone_offset;
+                    this.events = data.events || [];
+                    this.lastUpdated = new Date();
+                    this.error = null;
+                } catch (err) {
+                    console.error('Schedule fetch error:', err);
+                    this.error = err.message;
+                } finally {
+                    this.loading = false;
+                }
+            },
+            
+            // Parse ISO8601 datetime string to Date object
+            parseDateTime(isoString) {
+                if (!isoString) return null;
+                return new Date(isoString);
+            },
+            
+            // Format time in user's local timezone
+            formatLocalTime(isoString) {
+                const date = this.parseDateTime(isoString);
+                if (!date) return '';
+                
+                return date.toLocaleTimeString([], { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    hour12: true 
+                });
+            },
+            
+            // Extract date string (YYYY-MM-DD) from ISO datetime for grouping
+            getDateKey(isoString) {
+                const date = this.parseDateTime(isoString);
+                if (!date) return '';
+                const year = date.getFullYear();
+                const month = String(date.getMonth() + 1).padStart(2, '0');
+                const day = String(date.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            },
+            
+            // Check if an event is in the past
+            isEventPast(endTimeIso, startTimeIso) {
+                const eventEnd = this.parseDateTime(endTimeIso || startTimeIso);
+                if (!eventEnd) return false;
+                return eventEnd < new Date();
+            },
+            
+            // Get visible events (filter out past events except the most recent one)
+            get visibleEvents() {
+                if (!this.events.length) return [];
+                
+                const processed = this.events.map(event => ({
+                    ...event,
+                    dateKey: this.getDateKey(event.start_time),
+                    localStartTime: this.formatLocalTime(event.start_time),
+                    localEndTime: this.formatLocalTime(event.end_time),
+                    isPast: this.isEventPast(event.end_time, event.start_time),
+                    // Resolve localized name and description
+                    localizedName: this.localizedText(event.name),
+                    localizedDescription: this.localizedText(event.description)
+                }));
+                
+                // Find the last past event (to show as greyed)
+                const pastEvents = processed.filter(e => e.isPast);
+                const futureEvents = processed.filter(e => !e.isPast);
+                
+                // Show the most recent past event (greyed) + all future events
+                if (pastEvents.length > 0 && futureEvents.length > 0) {
+                    return [pastEvents[pastEvents.length - 1], ...futureEvents];
+                }
+                
+                // If all events are past, show just the last one
+                if (pastEvents.length > 0 && futureEvents.length === 0) {
+                    return [pastEvents[pastEvents.length - 1]];
+                }
+                
+                return futureEvents;
+            },
+            
+            // Group events by date for display
+            get groupedEvents() {
+                const groups = {};
+                for (const event of this.visibleEvents) {
+                    if (!groups[event.dateKey]) {
+                        groups[event.dateKey] = [];
+                    }
+                    groups[event.dateKey].push(event);
+                }
+                return groups;
+            },
+            
+            // Format date header (e.g., "Friday, December 19")
+            formatDateHeader(dateStr) {
+                const date = new Date(dateStr + 'T12:00:00');
+                return date.toLocaleDateString(this.locale, {
+                    weekday: 'long',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+        }));
     });
 
     // ===================

@@ -70,11 +70,9 @@ func (cmd *ServeCmd) Run() error {
 	if err := syncer.SyncOnce(ctx); err != nil {
 		log.Printf("initial sync failed: %s", err)
 	}
-	
+
 	// Start sync in background goroutine
 	go syncer.Start(ctx, interval)
-
-
 
 	// Create HTTP router
 	router := api.NewRouter(database, syncer, allowedOrigins)

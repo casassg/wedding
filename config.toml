@@ -10,10 +10,11 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
 [params]
   weddingDate = "2026-12-19T16:00:00"
   weddingYear = "2026"
-  location = "Copán Ruinas, Honduras"
+  location = "Copan Ruinas, Honduras"
   venue = "Marina Copan Convention Center"
-  church = "Copán Ruinas"
+  church = "Copan Ruinas"
   contactEmail = "hello@lauraygerard.com"
+  showSchedule = false  # Set to true to show schedule link in navigation
 
 [languages]
   [languages.en]
@@ -23,7 +24,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
     [languages.en.params]
       dateFormat = "December 19th, 2026"
       dateShort = "12.19.2026"
-  
+
   [languages.es]
     languageName = "ES"
     weight = 2
@@ -31,7 +32,7 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
     [languages.es.params]
       dateFormat = "19 de Diciembre, 2026"
       dateShort = "19.12.2026"
-  
+
   [languages.ca]
     languageName = "CA"
     weight = 3

@@ -122,6 +122,32 @@ func (h *Handler) Health(w http.ResponseWriter, r *http.Request) {
 	respondJSON(w, HealthResponse{Status: "ok"}, http.StatusOK)
 }
 
+// GetSchedule handles GET /api/v1/schedule
+// Returns all public schedule events with timezone info
+func (h *Handler) GetSchedule(w http.ResponseWriter, r *http.Request) {
+	events, err := h.db.GetScheduleEvents(r.Context())
+	if err != nil {
+		log.Printf("Error fetching schedule events: %v", err)
+		respondError(w, "Failed to fetch schedule", http.StatusInternalServerError)
+		return
+	}
+
+	// Convert to response format
+	eventResponses := make([]ScheduleEventResponse, 0, len(events))
+	for _, event := range events {
+		eventResponses = append(eventResponses, ToScheduleEventResponse(event))
+	}
+
+	// Return response with timezone info (Copan is UTC-6, no DST)
+	response := ScheduleResponse{
+		Timezone:       "America/Tegucigalpa",
+		TimezoneOffset: "-06:00",
+		Events:         eventResponses,
+	}
+
+	respondJSON(w, response, http.StatusOK)
+}
+
 // validateRSVP checks if the RSVP request is valid
 func validateRSVP(req RSVPRequest, invite *store.Invite) error {
 	// If attending, adult_count is required

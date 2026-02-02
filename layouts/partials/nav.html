@@ -10,6 +10,9 @@
         <div class="hidden md:flex space-x-8 uppercase text-xs font-bold tracking-widest font-sans">
             <a href="{{ .Site.Home.RelPermalink }}" class="hover:text-rose transition">{{ i18n "nav_home" }}</a>
             <a href="{{ "traveling/" | relLangURL }}" class="hover:text-rose transition">{{ i18n "nav_traveling" }}</a>
+            {{- if .Site.Params.showSchedule }}
+            <a href="{{ "schedule/" | relLangURL }}" class="hover:text-rose transition">{{ i18n "nav_schedule" }}</a>
+            {{- end }}
         </div>
         
         <!-- Language Switcher -->
@@ -17,7 +20,7 @@
             <div class="hidden sm:flex space-x-2 text-xs font-bold uppercase tracking-widest font-sans">
                 {{ range $.Site.Languages }}
                 {{- $translation := index (where $.AllTranslations "Lang" .Lang) 0 -}}
-                {{- $url := cond (ne $translation nil) $translation.Permalink ($.Site.GetPage (printf "/%s" .Lang)).Permalink -}}
+                {{- $url := cond (ne $translation nil) $translation.RelPermalink ($.Site.GetPage (printf "/%s" .Lang)).RelPermalink -}}
                 <a href="{{ $url }}" 
                    onclick="event.preventDefault(); const code = new URLSearchParams(window.location.search).get('code'); window.location.href = this.href + (code ? '?code=' + code : ''); localStorage.setItem('lang-selected', 'true');"
                    class="{{ if eq $.Lang .Lang }}text-rose{{ else }}text-gray-400 hover:text-gray-800{{ end }} transition">
@@ -47,10 +50,13 @@
         <div class="flex flex-col space-y-4 uppercase text-sm font-bold tracking-widest font-sans">
             <a @click="closeMenu()" href="{{ .Site.Home.RelPermalink }}" class="hover:text-rose transition">{{ i18n "nav_home" }}</a>
             <a @click="closeMenu()" href="{{ "traveling/" | relLangURL }}" class="hover:text-rose transition">{{ i18n "nav_traveling" }}</a>
+            {{- if .Site.Params.showSchedule }}
+            <a @click="closeMenu()" href="{{ "schedule/" | relLangURL }}" class="hover:text-rose transition">{{ i18n "nav_schedule" }}</a>
+            {{- end }}
             <div class="flex space-x-4 pt-2 border-t border-gray-100">
                 {{ range $.Site.Languages }}
                 {{- $translation := index (where $.AllTranslations "Lang" .Lang) 0 -}}
-                {{- $url := cond (ne $translation nil) $translation.Permalink ($.Site.GetPage (printf "/%s" .Lang)).Permalink -}}
+                {{- $url := cond (ne $translation nil) $translation.RelPermalink ($.Site.GetPage (printf "/%s" .Lang)).RelPermalink -}}
                 <a href="{{ $url }}" 
                    onclick="event.preventDefault(); const code = new URLSearchParams(window.location.search).get('code'); window.location.href = this.href + (code ? '?code=' + code : ''); localStorage.setItem('lang-selected', 'true');"
                    class="{{ if eq $.Lang .Lang }}text-rose{{ else }}text-gray-400{{ end }} hover:text-rose transition">

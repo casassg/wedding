@@ -24,6 +24,9 @@ func New(db DBTX) *Queries {
 func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 	q := Queries{db: db}
 	var err error
+	if q.deleteAllScheduleEventsStmt, err = db.PrepareContext(ctx, DeleteAllScheduleEvents); err != nil {
+		return nil, fmt.Errorf("error preparing query DeleteAllScheduleEvents: %w", err)
+	}
 	if q.deleteInviteStmt, err = db.PrepareContext(ctx, DeleteInvite); err != nil {
 		return nil, fmt.Errorf("error preparing query DeleteInvite: %w", err)
 	}
@@ -32,6 +35,12 @@ func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 	}
 	if q.getPendingSyncInvitesStmt, err = db.PrepareContext(ctx, GetPendingSyncInvites); err != nil {
 		return nil, fmt.Errorf("error preparing query GetPendingSyncInvites: %w", err)
+	}
+	if q.getScheduleEventsStmt, err = db.PrepareContext(ctx, GetScheduleEvents); err != nil {
+		return nil, fmt.Errorf("error preparing query GetScheduleEvents: %w", err)
+	}
+	if q.insertScheduleEventStmt, err = db.PrepareContext(ctx, InsertScheduleEvent); err != nil {
+		return nil, fmt.Errorf("error preparing query InsertScheduleEvent: %w", err)
 	}
 	if q.markInviteSyncedStmt, err = db.PrepareContext(ctx, MarkInviteSynced); err != nil {
 		return nil, fmt.Errorf("error preparing query MarkInviteSynced: %w", err)
@@ -47,6 +56,11 @@ func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 
 func (q *Queries) Close() error {
 	var err error
+	if q.deleteAllScheduleEventsStmt != nil {
+		if cerr := q.deleteAllScheduleEventsStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing deleteAllScheduleEventsStmt: %w", cerr)
+		}
+	}
 	if q.deleteInviteStmt != nil {
 		if cerr := q.deleteInviteStmt.Close(); cerr != nil {
 			err = fmt.Errorf("error closing deleteInviteStmt: %w", cerr)
@@ -60,6 +74,16 @@ func (q *Queries) Close() error {
 	if q.getPendingSyncInvitesStmt != nil {
 		if cerr := q.getPendingSyncInvitesStmt.Close(); cerr != nil {
 			err = fmt.Errorf("error closing getPendingSyncInvitesStmt: %w", cerr)
+		}
+	}
+	if q.getScheduleEventsStmt != nil {
+		if cerr := q.getScheduleEventsStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing getScheduleEventsStmt: %w", cerr)
+		}
+	}
+	if q.insertScheduleEventStmt != nil {
+		if cerr := q.insertScheduleEventStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing insertScheduleEventStmt: %w", cerr)
 		}
 	}
 	if q.markInviteSyncedStmt != nil {
@@ -114,25 +138,31 @@ func (q *Queries) queryRow(ctx context.Context, stmt *sql.Stmt, query string, ar
 }
 
 type Queries struct {
-	db                        DBTX
-	tx                        *sql.Tx
-	deleteInviteStmt          *sql.Stmt
-	getInviteByInviteCodeStmt *sql.Stmt
-	getPendingSyncInvitesStmt *sql.Stmt
-	markInviteSyncedStmt      *sql.Stmt
-	updateRSVPStmt            *sql.Stmt
-	upsertInviteStmt          *sql.Stmt
+	db                          DBTX
+	tx                          *sql.Tx
+	deleteAllScheduleEventsStmt *sql.Stmt
+	deleteInviteStmt            *sql.Stmt
+	getInviteByInviteCodeStmt   *sql.Stmt
+	getPendingSyncInvitesStmt   *sql.Stmt
+	getScheduleEventsStmt       *sql.Stmt
+	insertScheduleEventStmt     *sql.Stmt
+	markInviteSyncedStmt        *sql.Stmt
+	updateRSVPStmt              *sql.Stmt
+	upsertInviteStmt            *sql.Stmt
 }
 
 func (q *Queries) WithTx(tx *sql.Tx) *Queries {
 	return &Queries{
-		db:                        tx,
-		tx:                        tx,
-		deleteInviteStmt:          q.deleteInviteStmt,
-		getInviteByInviteCodeStmt: q.getInviteByInviteCodeStmt,
-		getPendingSyncInvitesStmt: q.getPendingSyncInvitesStmt,
-		markInviteSyncedStmt:      q.markInviteSyncedStmt,
-		updateRSVPStmt:            q.updateRSVPStmt,
-		upsertInviteStmt:          q.upsertInviteStmt,
+		db:                          tx,
+		tx:                          tx,
+		deleteAllScheduleEventsStmt: q.deleteAllScheduleEventsStmt,
+		deleteInviteStmt:            q.deleteInviteStmt,
+		getInviteByInviteCodeStmt:   q.getInviteByInviteCodeStmt,
+		getPendingSyncInvitesStmt:   q.getPendingSyncInvitesStmt,
+		getScheduleEventsStmt:       q.getScheduleEventsStmt,
+		insertScheduleEventStmt:     q.insertScheduleEventStmt,
+		markInviteSyncedStmt:        q.markInviteSyncedStmt,
+		updateRSVPStmt:              q.updateRSVPStmt,
+		upsertInviteStmt:            q.upsertInviteStmt,
 	}
 }

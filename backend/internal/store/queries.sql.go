@@ -9,6 +9,18 @@ import (
 	"context"
 )
 
+const DeleteAllScheduleEvents = `-- name: DeleteAllScheduleEvents :exec
+DELETE FROM schedule_events
+`
+
+// Clears all schedule events before a full re-sync from sheet.
+//
+//	DELETE FROM schedule_events
+func (q *Queries) DeleteAllScheduleEvents(ctx context.Context) error {
+	_, err := q.exec(ctx, q.deleteAllScheduleEventsStmt, DeleteAllScheduleEvents)
+	return err
+}
+
 const DeleteInvite = `-- name: DeleteInvite :exec
     -- protecting local RSVP changes that haven't been pushed to the sheet yet.
 
@@ -108,6 +120,113 @@ func (q *Queries) GetPendingSyncInvites(ctx context.Context) ([]*Invite, error) 
 		return nil, err
 	}
 	return items, nil
+}
+
+const GetScheduleEvents = `-- name: GetScheduleEvents :many
+
+SELECT id, start_time, end_time, event_name_es, event_name_en, event_name_ca, location, description_es, description_en, description_ca, updated_at FROM schedule_events
+ORDER BY start_time ASC
+`
+
+// =====================
+// Schedule Events Queries
+// =====================
+// Returns all schedule events ordered by start time.
+// Only public events are stored in the DB (filtered during sync).
+//
+//	SELECT id, start_time, end_time, event_name_es, event_name_en, event_name_ca, location, description_es, description_en, description_ca, updated_at FROM schedule_events
+//	ORDER BY start_time ASC
+func (q *Queries) GetScheduleEvents(ctx context.Context) ([]*ScheduleEvent, error) {
+	rows, err := q.query(ctx, q.getScheduleEventsStmt, GetScheduleEvents)
+	if err != nil {
+		return nil, err
+	}
+	defer rows.Close()
+	items := []*ScheduleEvent{}
+	for rows.Next() {
+		var i ScheduleEvent
+		if err := rows.Scan(
+			&i.ID,
+			&i.StartTime,
+			&i.EndTime,
+			&i.EventNameEs,
+			&i.EventNameEn,
+			&i.EventNameCa,
+			&i.Location,
+			&i.DescriptionEs,
+			&i.DescriptionEn,
+			&i.DescriptionCa,
+			&i.UpdatedAt,
+		); err != nil {
+			return nil, err
+		}
+		items = append(items, &i)
+	}
+	if err := rows.Close(); err != nil {
+		return nil, err
+	}
+	if err := rows.Err(); err != nil {
+		return nil, err
+	}
+	return items, nil
+}
+
+const InsertScheduleEvent = `-- name: InsertScheduleEvent :exec
+INSERT INTO schedule_events (
+    start_time, end_time,
+    event_name_es, event_name_en, event_name_ca,
+    location,
+    description_es, description_en, description_ca,
+    updated_at
+) VALUES (
+    ?, ?,
+    ?, ?, ?,
+    ?,
+    ?, ?, ?,
+    datetime('now', 'utc')
+)
+`
+
+type InsertScheduleEventParams struct {
+	StartTime     string  `json:"start_time"`
+	EndTime       *string `json:"end_time"`
+	EventNameEs   string  `json:"event_name_es"`
+	EventNameEn   string  `json:"event_name_en"`
+	EventNameCa   string  `json:"event_name_ca"`
+	Location      string  `json:"location"`
+	DescriptionEs string  `json:"description_es"`
+	DescriptionEn string  `json:"description_en"`
+	DescriptionCa string  `json:"description_ca"`
+}
+
+// Inserts a single schedule event during sync.
+//
+//	INSERT INTO schedule_events (
+//	    start_time, end_time,
+//	    event_name_es, event_name_en, event_name_ca,
+//	    location,
+//	    description_es, description_en, description_ca,
+//	    updated_at
+//	) VALUES (
+//	    ?, ?,
+//	    ?, ?, ?,
+//	    ?,
+//	    ?, ?, ?,
+//	    datetime('now', 'utc')
+//	)
+func (q *Queries) InsertScheduleEvent(ctx context.Context, arg *InsertScheduleEventParams) error {
+	_, err := q.exec(ctx, q.insertScheduleEventStmt, InsertScheduleEvent,
+		arg.StartTime,
+		arg.EndTime,
+		arg.EventNameEs,
+		arg.EventNameEn,
+		arg.EventNameCa,
+		arg.Location,
+		arg.DescriptionEs,
+		arg.DescriptionEn,
+		arg.DescriptionCa,
+	)
+	return err
 }
 
 const MarkInviteSynced = `-- name: MarkInviteSynced :exec

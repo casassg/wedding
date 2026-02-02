@@ -55,3 +55,33 @@ UPDATE invites
 SET
     updated_at = datetime('now', 'utc')
 WHERE invite_code = ?;
+
+-- =====================
+-- Schedule Events Queries
+-- =====================
+
+-- name: GetScheduleEvents :many
+-- Returns all schedule events ordered by start time.
+-- Only public events are stored in the DB (filtered during sync).
+SELECT * FROM schedule_events
+ORDER BY start_time ASC;
+
+-- name: DeleteAllScheduleEvents :exec
+-- Clears all schedule events before a full re-sync from sheet.
+DELETE FROM schedule_events;
+
+-- name: InsertScheduleEvent :exec
+-- Inserts a single schedule event during sync.
+INSERT INTO schedule_events (
+    start_time, end_time,
+    event_name_es, event_name_en, event_name_ca,
+    location,
+    description_es, description_en, description_ca,
+    updated_at
+) VALUES (
+    ?, ?,
+    ?, ?, ?,
+    ?,
+    ?, ?, ?,
+    datetime('now', 'utc')
+);

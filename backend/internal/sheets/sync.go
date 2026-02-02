@@ -9,6 +9,9 @@ import (
 	"github.com/pkg/errors"
 )
 
+// Default wedding year for schedule parsing
+const defaultWeddingYear = 2026
+
 // Syncer handles bidirectional sync between Google Sheets and the database
 type Syncer struct {
 	store        *store.Store
@@ -67,14 +70,19 @@ func (s *Syncer) SyncOnce(ctx context.Context) error {
 		return errors.New("Google Sheets credentials not configured")
 	}
 
-	// Sync from sheet to DB (master data)
+	// Sync invites from sheet to DB (master data)
 	if err := s.SyncFromSheet(ctx); err != nil {
 		return errors.Wrap(err, "sync from sheet failed")
 	}
 
-	// Sync from DB to sheet (RSVP responses)
+	// Sync RSVPs from DB to sheet (responses)
 	if err := s.SyncToSheet(ctx); err != nil {
 		return errors.Wrap(err, "sync to sheet failed")
+	}
+
+	// Sync schedule from sheet to DB (one-way, sheet is source of truth)
+	if err := s.SyncScheduleFromSheet(ctx); err != nil {
+		return errors.Wrap(err, "sync schedule from sheet failed")
 	}
 
 	log.Println("Sync cycle completed")
@@ -166,4 +174,68 @@ func (s *Syncer) SyncToSheet(ctx context.Context) error {
 
 	log.Printf("Successfully synced %d RSVPs to sheet", len(invites))
 	return nil
+}
+
+// SyncScheduleFromSheet reads the schedule sheet and replaces all events in DB
+// This is a one-way sync: Google Sheets is the source of truth for schedule
+// Only public events are returned from ReadScheduleSheet, so we store everything we receive.
+func (s *Syncer) SyncScheduleFromSheet(ctx context.Context) error {
+	events, err := s.sheetsClient.ReadScheduleSheet(ctx, defaultWeddingYear)
+	if err != nil {
+		return err
+	}
+
+	if events == nil {
+		log.Println("Schedule sync skipped (client not configured)")
+		return nil
+	}
+
+	// Start transaction
+	tx, err := s.store.DB.Begin()
+	if err != nil {
+		return errors.Wrap(err, "failed to begin transaction")
+	}
+	defer tx.Rollback()
+
+	q := s.store.WithTx(tx)
+
+	// Delete all existing schedule events (full replace strategy)
+	if err := q.DeleteAllScheduleEvents(ctx); err != nil {
+		return errors.Wrap(err, "failed to delete existing schedule events")
+	}
+
+	// Insert all events from sheet
+	for _, event := range events {
+		params := &store.InsertScheduleEventParams{
+			StartTime:     event.StartTime,
+			EndTime:       event.EndTime,
+			EventNameEs:   event.EventNameES,
+			EventNameEn:   event.EventNameEN,
+			EventNameCa:   event.EventNameCA,
+			Location:      event.Location,
+			DescriptionEs: event.DescriptionES,
+			DescriptionEn: event.DescriptionEN,
+			DescriptionCa: event.DescriptionCA,
+		}
+
+		if err := q.InsertScheduleEvent(ctx, params); err != nil {
+			log.Printf("Failed to insert schedule event '%s': %v", event.EventNameES, err)
+			continue
+		}
+	}
+
+	if err := tx.Commit(); err != nil {
+		return errors.Wrap(err, "failed to commit transaction")
+	}
+
+	log.Printf("Synced %d schedule events from sheet to database", len(events))
+	return nil
+}
+
+// toNullString converts a string to sql.NullString equivalent (empty string for NULL)
+func toNullString(s string) *string {
+	if s == "" {
+		return nil
+	}
+	return &s
 }

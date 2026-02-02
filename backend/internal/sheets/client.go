@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"regexp"
+	"strconv"
 	"strings"
 	"time"
 
@@ -216,4 +218,233 @@ func toInt(v interface{}) int64 {
 		return int64(f)
 	}
 	return 0
+}
+
+// ScheduleEventRow represents a schedule event parsed from Google Sheets
+// Supports multilingual event names and descriptions (ES=default, EN, CA)
+type ScheduleEventRow struct {
+	StartTime     string  // ISO8601 format: "2026-12-19T16:00:00-06:00"
+	EndTime       *string // ISO8601 format (nullable)
+	EventNameES   string  // Spanish (from "Evento" column D)
+	EventNameEN   string  // English (from column H)
+	EventNameCA   string  // Catalan (from column I)
+	Location      string  // Location (column F)
+	DescriptionES string  // Spanish (from "Description" column G)
+	DescriptionEN string  // English (from column J)
+	DescriptionCA string  // Catalan (from column K)
+}
+
+// ReadScheduleSheet reads schedule events from the "Schedule" sheet
+// Only returns public events (filtered here before returning).
+// Column mapping (based on user's sheet):
+// A: Start Time, B: End Time, C: Public (checkbox), D: Evento (Spanish name)
+// E: Team/Person, F: Location, G: Description (Spanish)
+// H: Event name (English), I: Nombre catalan, J: Descripcion English, K: Descripcion Catalan
+func (c *Client) ReadScheduleSheet(ctx context.Context, weddingYear int) ([]*ScheduleEventRow, error) {
+	if !c.IsConfigured() {
+		return nil, nil // Return empty when not configured
+	}
+
+	// Read data from 'Schedule' sheet (rows 2+, columns A-K)
+	readRange := "'Schedule'!A2:K"
+	resp, err := c.service.Spreadsheets.Values.Get(c.sheetID, readRange).Context(ctx).Do()
+	if err != nil {
+		return nil, fmt.Errorf("failed to read schedule sheet: %w", err)
+	}
+
+	var events []*ScheduleEventRow
+	var currentDate string // Track current date from day header rows (ISO format)
+
+	// Regex to match day header like "Friday Dec 18" or "Saturday Dec 19"
+	dayHeaderRegex := regexp.MustCompile(`(?i)^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\s+(\w+)\s+(\d+)$`)
+
+	// Month name to number mapping
+	monthMap := map[string]int{
+		"jan": 1, "january": 1,
+		"feb": 2, "february": 2,
+		"mar": 3, "march": 3,
+		"apr": 4, "april": 4,
+		"may": 5,
+		"jun": 6, "june": 6,
+		"jul": 7, "july": 7,
+		"aug": 8, "august": 8,
+		"sep": 9, "september": 9,
+		"oct": 10, "october": 10,
+		"nov": 11, "november": 11,
+		"dec": 12, "december": 12,
+	}
+
+	// Copan timezone (UTC-6)
+	copanLoc := time.FixedZone("America/Tegucigalpa", -6*60*60)
+
+	for _, row := range resp.Values {
+		// Column A: Start Time
+		startTimeRaw := ""
+		if len(row) > 0 {
+			startTimeRaw = strings.TrimSpace(toString(row[0]))
+		}
+
+		// Column B: End Time
+		endTimeRaw := ""
+		if len(row) > 1 {
+			endTimeRaw = strings.TrimSpace(toString(row[1]))
+		}
+
+		// Column C: Public (TRUE/FALSE checkbox)
+		isPublic := false
+		if len(row) > 2 {
+			publicVal := strings.ToUpper(strings.TrimSpace(toString(row[2])))
+			isPublic = publicVal == "TRUE"
+		}
+
+		// Column D: Evento (Spanish event name - default)
+		eventNameES := ""
+		if len(row) > 3 {
+			eventNameES = strings.TrimSpace(toString(row[3]))
+		}
+
+		// Column E: Team/Person (skip - internal use only)
+
+		// Column F: Location
+		location := ""
+		if len(row) > 5 {
+			location = strings.TrimSpace(toString(row[5]))
+		}
+
+		// Column G: Description (Spanish - default)
+		descriptionES := ""
+		if len(row) > 6 {
+			descriptionES = strings.TrimSpace(toString(row[6]))
+		}
+
+		// Column H: Event name (English)
+		eventNameEN := ""
+		if len(row) > 7 {
+			eventNameEN = strings.TrimSpace(toString(row[7]))
+		}
+
+		// Column I: Nombre catalan
+		eventNameCA := ""
+		if len(row) > 8 {
+			eventNameCA = strings.TrimSpace(toString(row[8]))
+		}
+
+		// Column J: Descripcion English
+		descriptionEN := ""
+		if len(row) > 9 {
+			descriptionEN = strings.TrimSpace(toString(row[9]))
+		}
+
+		// Column K: Descripcion Catalan
+		descriptionCA := ""
+		if len(row) > 10 {
+			descriptionCA = strings.TrimSpace(toString(row[10]))
+		}
+
+		// Check if this is a day header row (empty times, event name matches day pattern)
+		if startTimeRaw == "" && endTimeRaw == "" && eventNameES != "" {
+			matches := dayHeaderRegex.FindStringSubmatch(eventNameES)
+			if matches != nil {
+				// Parse month and day from "Friday Dec 18"
+				monthStr := strings.ToLower(matches[2])
+				dayStr := matches[3]
+
+				if monthNum, ok := monthMap[monthStr]; ok {
+					day, err := strconv.Atoi(dayStr)
+					if err == nil {
+						// Format as ISO date with the wedding year
+						currentDate = fmt.Sprintf("%d-%02d-%02d", weddingYear, monthNum, day)
+						log.Printf("Schedule: Found day header '%s' -> date %s", eventNameES, currentDate)
+					}
+				}
+				continue // Skip day header rows, don't add as events
+			}
+		}
+
+		// Skip rows without event name, without a current date context, or non-public
+		if eventNameES == "" || currentDate == "" || !isPublic {
+			continue
+		}
+
+		// Skip rows without start time (can't create a valid datetime)
+		if startTimeRaw == "" {
+			continue
+		}
+
+		// Parse times from "8:00 PM" format to 24h "20:00" format
+		startTime24 := parseTimeTo24h(startTimeRaw)
+		endTime24 := parseTimeTo24h(endTimeRaw)
+
+		// Build full datetime from date + time in Copan timezone
+		startDateTime, err := parseDateTime(currentDate, startTime24, copanLoc)
+		if err != nil {
+			log.Printf("Schedule: Skipping event '%s' - invalid start time: %v", eventNameES, err)
+			continue
+		}
+
+		// Format as ISO8601 string
+		startTimeISO := startDateTime.Format(time.RFC3339)
+
+		var endTimeISO *string
+		if endTime24 != "" {
+			endDT, err := parseDateTime(currentDate, endTime24, copanLoc)
+			if err == nil {
+				s := endDT.Format(time.RFC3339)
+				endTimeISO = &s
+			}
+		}
+
+		event := &ScheduleEventRow{
+			StartTime:     startTimeISO,
+			EndTime:       endTimeISO,
+			EventNameES:   eventNameES,
+			EventNameEN:   eventNameEN,
+			EventNameCA:   eventNameCA,
+			Location:      location,
+			DescriptionES: descriptionES,
+			DescriptionEN: descriptionEN,
+			DescriptionCA: descriptionCA,
+		}
+
+		events = append(events, event)
+	}
+
+	log.Printf("Read %d public schedule events from Google Sheet 'Schedule'", len(events))
+	return events, nil
+}
+
+// parseDateTime combines a date string and time string into a time.Time in the given location
+func parseDateTime(dateStr, timeStr string, loc *time.Location) (time.Time, error) {
+	// dateStr is "2026-12-19", timeStr is "16:00"
+	combined := dateStr + "T" + timeStr + ":00"
+	return time.ParseInLocation("2006-01-02T15:04:05", combined, loc)
+}
+
+// parseTimeTo24h converts "8:00 PM" or "4:00 PM" to "20:00" or "16:00"
+func parseTimeTo24h(timeStr string) string {
+	if timeStr == "" {
+		return ""
+	}
+
+	timeStr = strings.TrimSpace(strings.ToUpper(timeStr))
+
+	// Match patterns like "8:00 PM", "4:00 AM", "11:30 PM"
+	timeRegex := regexp.MustCompile(`^(\d{1,2}):(\d{2})\s*(AM|PM)?$`)
+	matches := timeRegex.FindStringSubmatch(timeStr)
+	if matches == nil {
+		// Already in 24h format or unrecognized
+		return timeStr
+	}
+
+	hour, _ := strconv.Atoi(matches[1])
+	minute := matches[2]
+	period := matches[3]
+
+	if period == "PM" && hour != 12 {
+		hour += 12
+	} else if period == "AM" && hour == 12 {
+		hour = 0
+	}
+
+	return fmt.Sprintf("%02d:%s", hour, minute)
 }
