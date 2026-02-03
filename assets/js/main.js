@@ -655,6 +655,7 @@
             },
             
             async fetchSchedule() {
+                const isInitialLoad = this.loading;
                 try {
                     const response = await fetch(`${this.apiBase}/schedule`, {
                         headers: { 'Accept': 'application/json' }
@@ -672,7 +673,10 @@
                     this.error = null;
                 } catch (err) {
                     console.error('Schedule fetch error:', err);
-                    this.error = err.message;
+                    // Only set error on initial load; on refresh, keep previous data
+                    if (isInitialLoad) {
+                        this.error = err.message;
+                    }
                 } finally {
                     this.loading = false;
                 }
