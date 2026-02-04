@@ -159,6 +159,7 @@ accommodation_other_options: "Other Options"
 accommodation_visit_website: "Visit Website"
 accommodation_view_maps: "View on Maps"
 accommodation_block_discount_suffix: "% off"
+accommodation_mention_name: "Mention {name} when reserving to get our block discount of {discount}"
 accommodation_included_categories: "Valid for Standard, Premium, and Suite rooms."
 
 # Place Card Modal

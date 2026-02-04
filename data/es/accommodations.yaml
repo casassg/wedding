@@ -14,10 +14,13 @@
     - label: "Web Oficial"
       url: "https://hotelmarinacopan.com/"
       icon: "fa-solid fa-globe"
+    - label: "Reserva via Email"
+      url: "mailto:reserve@hotelmarinacopan.com"
+      icon: "fa-solid fa-envelope"
+    - label: "Reserva via WhatsApp"
+      url: "https://api.whatsapp.com/send/?phone=50499798531&text=Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
+      icon: "fa-brands fa-whatsapp"
   description: "Hotel sede de la boda, estilo colonial, con piscina y patios llenos de verde en pleno centro."
-  reservation:
-    email: "reserve@hotelmarinacopan.com"
-    whatsapp_number: "+50499798531"
 
 - id: plaza_magdalena
   name: "Hotel Plaza Magdalena"
