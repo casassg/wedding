@@ -6,8 +6,19 @@
     date_end: 2026-12-19
     rooms: 45
     discount: 15
+    rates:
+      - type: "Estàndard Individual"
+        price: 130
+      - type: "Estàndard Doble"
+        price: 146
+      - type: "Estàndard Triple"
+        price: 162
+      - type: "Premium"
+        price: 177
+      - type: "Suites"
+        subtitle: "Familiar, Lluna de Mel o Executiva"
+        price: 237
     notes:
-      - "Vàlid per a habitacions Estàndard, Premium i Suites."
       - "WiFi gratuït"
       - "Esmorzar al Restaurant Glifos inclòs"
   links:

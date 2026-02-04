@@ -6,8 +6,19 @@
     date_end: 2026-12-19
     rooms: 45
     discount: 15
+    rates:
+      - type: "Estándar Sencilla"
+        price: 130
+      - type: "Estándar Doble"
+        price: 146
+      - type: "Estándar Triple"
+        price: 162
+      - type: "Premium"
+        price: 177
+      - type: "Suites"
+        subtitle: "Familiar, Luna de Miel o Ejecutiva"
+        price: 237
     notes:
-      - "Válido para habitaciones Estándar, Premium y Suites."
       - "WiFi gratuito"
       - "Desayuno en Restaurante Glifos incluido"
   links:

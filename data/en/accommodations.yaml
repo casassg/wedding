@@ -6,8 +6,19 @@
     date_end: 2026-12-19
     rooms: 45
     discount: 15
+    rates:
+      - type: "Standard Single"
+        price: 130
+      - type: "Standard Double"
+        price: 146
+      - type: "Standard Triple"
+        price: 162
+      - type: "Premium"
+        price: 177
+      - type: "Suites"
+        subtitle: "Family, Honeymoon, or Executive"
+        price: 237
     notes:
-      - "Valid for Standard, Premium, and Suite rooms."
       - "Free WiFi"
       - "Breakfast at Restaurante Glifos included"
   links:

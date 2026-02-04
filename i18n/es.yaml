@@ -162,6 +162,8 @@ accommodation_view_maps: "Ver en Maps"
 accommodation_block_discount_suffix: "% de descuento"
 accommodation_mention_name: "Menciona {name} al reservar para obtener nuestro descuento del {discount}%"
 accommodation_included_categories: "Válido para habitaciones Estándar, Premium y Suites."
+accommodation_view_rates: "Ver tarifas"
+accommodation_rates_disclaimer: "Precios incluyen 19% de impuestos (15% ISV + 4% turismo). Por noche."
 
 # Place Card Modal
 place_learn_more: "Más información"

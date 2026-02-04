@@ -560,6 +560,39 @@
                         <i class="fa-solid fa-tag text-{{ $color }} mt-1"></i>
                         <span>{{ i18n "accommodation_mention_name" | replaceRE `\{name\}` (printf `"<strong>%s</strong>"` .name) | replaceRE `\{discount\}` (printf `<strong>%d%s</strong>` .discount (i18n "accommodation_block_discount_suffix")) | safeHTML }}</span>
                     </div>
+                    {{- with .rates }}
+                    <div x-data="{ showRates: false }" class="mt-3 pt-3 border-t border-{{ $color }}/20">
+                        <button type="button" @click="showRates = !showRates"
+                                class="flex items-center justify-between w-full text-sm font-medium text-{{ $color }} hover:text-{{ $color }}/80 transition-colors">
+                            <span class="flex items-center gap-2">
+                                <i class="fa-solid fa-bed"></i>
+                                {{ i18n "accommodation_view_rates" }}
+                            </span>
+                            <i class="fa-solid fa-chevron-down transition-transform duration-200"
+                               :class="{ 'rotate-180': showRates }"></i>
+                        </button>
+                        <div x-show="showRates" x-collapse x-cloak class="mt-3">
+                            <div class="bg-white/50 rounded-lg p-3 space-y-2">
+                                {{- range . }}
+                                <div class="flex justify-between items-start text-sm">
+                                    <div>
+                                        <span class="text-gray-700">{{ .type }}</span>
+                                        {{- with .subtitle }}
+                                        <span class="block text-xs text-gray-500">{{ . }}</span>
+                                        {{- end }}
+                                    </div>
+                                    <span class="font-semibold text-gray-800 shrink-0 ml-2">
+                                        {{ lang.FormatCurrency 0 "USD" .price }}
+                                    </span>
+                                </div>
+                                {{- end }}
+                                <p class="text-xs text-gray-500 pt-2 border-t border-gray-200 mt-2">
+                                    {{ i18n "accommodation_rates_disclaimer" }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {{- end }}
                     {{- with .notes }}
                     <ul class="mt-3 pt-3 border-t border-{{ $color }}/20 text-gray-600 text-sm space-y-1">
                         {{- range . }}
