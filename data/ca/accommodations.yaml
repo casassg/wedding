@@ -7,9 +7,9 @@
     rooms: 45
     discount: 15
     notes:
-      - "Valid per a habitacions Estandard, Premium i Suites."
-      - "WiFi gratuit"
-      - "Esmorzar al Restaurant Glifos inclos"
+      - "Vàlid per a habitacions Estàndard, Premium i Suites."
+      - "WiFi gratuït"
+      - "Esmorzar al Restaurant Glifos inclòs"
   links:
     - label: "Web Oficial"
       url: "https://hotelmarinacopan.com/"
@@ -24,7 +24,7 @@
 
 - id: plaza_magdalena
   name: "Hotel Plaza Magdalena"
-  description: "Opcio centrica i comoda per anar a peu a restaurants i a les ruines."
+  description: "Opció cèntrica i còmoda per anar a peu a restaurants i a les ruïnes."
   links:
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/5cTXg9u7EZJHvrH67"
