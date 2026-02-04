@@ -501,8 +501,9 @@
 {{- $colors := slice "rose" "ocean" "marigold" "clay" "mint" "lavender" -}}
 {{- range $index, $hotel := $accommodations -}}
 {{- $color := index $colors (mod $index (len $colors)) -}}
+{{- $block := $hotel.room_block -}}
 {{- $message := cond (or (eq $.Site.Language.Lang "es") (eq $.Site.Language.Lang "ca")) "Hola! Quisiera reservar para Boda Casas Paz (18-20 Dic, 2026)" "Hello! I'd like to reserve a room for Boda Casas Paz (Dec 18-20, 2026)" -}}
-{{- $phone := replace (replace $hotel.reservation.whatsapp_number " " "") "-" "" -}}
+{{- $phone := replace (replace ($hotel.reservation.whatsapp_number | default "") " " "") "-" "" -}}
 {{- $phoneEncoded := $phone | urlquery -}}
 {{- $messageEncoded := $message | urlquery -}}
 <div x-data="placeModal('accommodations', {{ $index }}, {{ len $accommodations }})"
@@ -527,8 +528,10 @@
                 </div>
                 <div>
                     <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $hotel.name }}</h3>
-                    {{- if $hotel.is_room_block }}
-                    <p class="text-xs text-gray-500 mt-1">{{ $hotel.block_name }} &bull; {{ $hotel.block_dates }}</p>
+                    {{- with $block }}
+                    {{- $startDate := time .date_start -}}
+                    {{- $endDate := time .date_end -}}
+                    <p class="text-xs text-gray-500 mt-1">{{ .name }} &bull; {{ $startDate | time.Format ":date_short" }} - {{ $endDate | time.Format ":date_short" }}</p>
                     {{- end }}
                 </div>
             </div>
@@ -544,7 +547,9 @@
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
             <p class="text-gray-600 font-sans leading-relaxed">{{ $hotel.description }}</p>
 
-            {{- if $hotel.is_room_block }}
+            {{- with $block }}
+            {{- $startDate := time .date_start -}}
+            {{- $endDate := time .date_end -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl space-y-3">
                 <h4 class="font-semibold text-gray-800 flex items-center gap-2">
                     <i class="fa-solid fa-ticket text-{{ $color }}"></i>
@@ -554,26 +559,21 @@
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-calendar text-{{ $color }}"></i>
                         <span class="font-semibold">{{ i18n "accommodation_block_dates" }}:</span>
-                        <span>{{ $hotel.block_dates }}</span>
+                        <span>{{ $startDate | time.Format ":date_short" }} - {{ $endDate | time.Format ":date_short" }}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-door-open text-{{ $color }}"></i>
-                        <span>{{ $hotel.rooms_reserved }} {{ i18n "accommodation_block_reserved" }}</span>
+                        <span>{{ .rooms }} {{ i18n "accommodation_block_reserved" }}</span>
                     </div>
                     <div class="flex items-center gap-2">
                         <i class="fa-solid fa-tag text-{{ $color }}"></i>
-                        <span class="font-semibold">{{ $hotel.block_name }}</span>
-                        <span class="text-xs px-2 py-1 bg-{{ $color }}/20 text-{{ $color }} rounded-full font-semibold">{{ $hotel.block_discount_percent }}% {{ i18n "accommodation_block_discount_suffix" }}</span>
-                    </div>
-                    <div class="flex items-center gap-2">
-                        <i class="fa-solid fa-check text-{{ $color }}"></i>
-                        <span>{{ i18n "accommodation_included_categories" }}</span>
+                        <span class="font-semibold">{{ .name }}</span>
+                        <span class="text-xs px-2 py-1 bg-{{ $color }}/20 text-{{ $color }} rounded-full font-semibold">{{ .discount }}{{ i18n "accommodation_block_discount_suffix" }}</span>
                     </div>
                 </div>
             </div>
-            {{- end }}
 
-            {{- with $hotel.includes }}
+            {{- with .notes }}
             <div class="space-y-3">
                 <h4 class="font-semibold text-gray-800 flex items-center gap-2">
                     <i class="fa-solid fa-circle-check text-{{ $color }}"></i>
@@ -589,51 +589,42 @@
                 </ul>
             </div>
             {{- end }}
-
-            {{- with $hotel.tax_note }}
-            <div class="flex items-start gap-2 text-sm text-gray-500 bg-gray-50 p-3 rounded-lg">
-                <i class="fa-solid fa-receipt text-gray-400 mt-0.5"></i>
-                <span>{{ . }}</span>
-            </div>
             {{- end }}
 
             <!-- Action Links -->
+            {{- if or $hotel.links $hotel.reservation }}
             <div class="space-y-3">
                 <h4 class="font-semibold text-gray-800 flex items-center gap-2">
                     <i class="fa-solid fa-link text-{{ $color }}"></i>
                     {{ i18n "place_links" }}
                 </h4>
                 <div class="flex flex-wrap gap-3">
-                    {{- with $hotel.website }}
-                    <a href="{{ . }}" target="_blank" rel="noopener"
+                    {{- range $hotel.links }}
+                    <a href="{{ .url }}" target="_blank" rel="noopener"
                        class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-solid fa-globe"></i>
-                        {{ i18n "accommodation_visit_website" }}
+                        <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
+                        {{ .label }}
                     </a>
                     {{- end }}
-                    {{- with $hotel.maps_url }}
-                    <a href="{{ . }}" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                        {{ i18n "accommodation_view_maps" }}
-                    </a>
-                    {{- end }}
-                    {{- with $hotel.reservation.email }}
-                    <a href="mailto:{{ . }}?subject={{ $hotel.block_name | urlquery }}"
+                    {{- with $hotel.reservation }}
+                    {{- with .email }}
+                    <a href="mailto:{{ . }}?subject={{ with $block }}{{ .name | urlquery }}{{ end }}"
                        class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
                         <i class="fa-solid fa-envelope"></i>
                         {{ i18n "accommodation_email" }}
                     </a>
                     {{- end }}
-                    {{- with $hotel.reservation.whatsapp_number }}
+                    {{- with .whatsapp_number }}
                     <a href="https://api.whatsapp.com/send/?phone={{ $phoneEncoded }}&text={{ $messageEncoded }}&type=phone_number" target="_blank" rel="noopener"
                        class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 hover:bg-green-200 rounded-full text-sm font-medium transition-colors">
                         <i class="fa-brands fa-whatsapp"></i>
                         {{ i18n "accommodation_whatsapp" }}
                     </a>
                     {{- end }}
+                    {{- end }}
                 </div>
             </div>
+            {{- end }}
         </div>
 
         <!-- Navigation Footer -->

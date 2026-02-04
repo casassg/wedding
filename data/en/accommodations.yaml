@@ -2,8 +2,8 @@
   name: "Hotel Marina Copan"
   room_block:
     name: "Boda Casas Paz"
-    date_start: 2026/12/18
-    date_end: 2026/12/19
+    date_start: 2026-12-18
+    date_end: 2026-12-19
     rooms: 45
     discount: 15
     notes:
