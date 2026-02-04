@@ -1,9 +1,36 @@
-- "🛂 **No visa required** for most nationalities (up to 90 days) - just bring your *valid passport* with at least 6 months validity. [Check your requirements](https://apply.joinsherpa.com/travel-restrictions)."
-- "💵 **Cash is king** - bring US dollars or lempiras, ATMs can be unreliable outside cities."
-- "🚰 Tap water is not potable - drink only **bottled water**."
-- "📱 Get an **eSIM** ([Saily](https://saily.com/) o similar) for reliable international data coverage."
-- "🦟 Use **strong insect repellent** (e.g. DEET) and wear *long sleeves* at dawn/dusk - best to avoid mosquito bites in Honduras."
-- "☀️ Pack **sunscreen** and *layers* for Copán's cooler mountain evenings."
-- "💍 Leave *flashy jewelry* and *expensive items* at home - blend in."
-- "🚕 In Copán, *tuk-tuks* are great. In big cities, avoid unknown taxis and public buses; use **private transport**."
-- "😊 Hondurans are *incredibly warm and welcoming* - be friendly and you'll be treated like family!"
+- id: visa
+  icon: fa-solid fa-passport
+  title: No Visa Required
+  description: For most nationalities (up to 90 days) – bring a valid passport with at least 6 months left. [Check your requirements](https://apply.joinsherpa.com/travel-restrictions).
+- id: cash
+  icon: fa-solid fa-money-bill-wave
+  title: Cash is King
+  description: You can withdraw at the airport, but check your card's international fees. Carry US dollars or lempiras; ATMs can be unreliable outside major cities.
+- id: water
+  icon: fa-solid fa-droplet
+  title: Bottled Water Only
+  description: Tap water is not potable; stick to bottled or purified water.
+- id: esim
+  icon: fa-solid fa-sim-card
+  title: Get an eSIM
+  description: Pick up an eSIM (e.g., [Saily](https://saily.com/)) for reliable data during your trip.
+- id: repellent
+  icon: fa-solid fa-bug
+  title: Strong Repellent
+  description: Use strong insect repellent (DEET) and wear long sleeves at dawn and dusk.
+- id: sun
+  icon: fa-solid fa-sun
+  title: Sunscreen + Layers
+  description: Pack sunscreen and a light layer for Copán's cooler mountain evenings.
+- id: valuables
+  icon: fa-solid fa-gem
+  title: Keep Valuables Low-key
+  description: Leave flashy jewelry or expensive items at home to blend in.
+- id: transport
+  icon: fa-solid fa-taxi
+  title: Use Trusted Transport
+  description: Tuk-tuks are great in Copán. In big cities, avoid unknown taxis and public buses—book private transport.
+- id: locals
+  icon: fa-solid fa-face-smile
+  title: Warm, Welcoming Locals
+  description: Hondurans are incredibly warm and friendly—be kind and you'll be treated like family.

@@ -1,9 +1,36 @@
-- "🛂 La mayoría de nacionalidades **no necesita visa** (hasta 90 días), solo *pasaporte válido* con al menos 6 meses de vigencia. [Verifica los requisitos aquí](https://apply.joinsherpa.com/travel-restrictions)."
-- "💵 Es mejor llevar **efectivo** (dólares o lempiras), ya que los cajeros pueden fallar fuera de las ciudades principales."
-- "🚰 El agua del grifo no es potable; bebe siempre **agua embotellada** o purificada."
-- "📱 Consigue una **eSIM** ([Saily](https://saily.com/) o similar) para tener datos móviles durante el viaje."
-- "🦟 Usa **repelente fuerte** (tipo Relec) y *manga larga* al amanecer y atardecer para prevenir picaduras."
-- "☀️ Usa **protector solar** y lleva *algo de abrigo* para las noches frescas de montaña en Copán."
-- "💍 Por seguridad, evita llevar *joyas llamativas* u *objetos de valor* a la vista."
-- "🚕 En Copán, los *mototaxis* son ideales. En ciudades grandes, evita taxis desconocidos y autobuses públicos; usa **transporte privado**."
-- "😊 Los hondureños son *increíblemente cálidos*; ¡si eres amable, te tratarán como a uno más de la familia!"
+- id: visa
+  icon: fa-solid fa-passport
+  title: No necesitas visa
+  description: La mayoría de nacionalidades no necesita visa (hasta 90 días); trae tu pasaporte válido con al menos 6 meses. [Verifica requisitos](https://apply.joinsherpa.com/travel-restrictions).
+- id: cash
+  icon: fa-solid fa-money-bill-wave
+  title: Lleva efectivo
+  description: Puedes sacar efectivo en el aeropuerto, pero revisa las comisiones internacionales de tu tarjeta. Usa dólares o lempiras; los cajeros pueden fallar fuera de las ciudades principales.
+- id: water
+  icon: fa-solid fa-droplet
+  title: Solo agua embotellada
+  description: El agua del grifo no es potable; bebe agua embotellada o purificada.
+- id: esim
+  icon: fa-solid fa-sim-card
+  title: Consigue una eSIM
+  description: Compra una eSIM (ej., [Saily](https://saily.com/)) para tener datos móviles fiables durante el viaje.
+- id: repellent
+  icon: fa-solid fa-bug
+  title: Repelente fuerte
+  description: Usa repelente potente (DEET) y manga larga al amanecer y atardecer para evitar picaduras.
+- id: sun
+  icon: fa-solid fa-sun
+  title: Protector y abrigo
+  description: Lleva protector solar y una capa ligera para las noches frescas en Copán.
+- id: valuables
+  icon: fa-solid fa-gem
+  title: Sé discreto con valores
+  description: Evita joyas llamativas u objetos de valor a la vista; es mejor pasar desapercibido.
+- id: transport
+  icon: fa-solid fa-taxi
+  title: Transporte de confianza
+  description: En Copán, los mototaxis son ideales. En ciudades grandes evita taxis desconocidos y buses; elige transporte privado.
+- id: locals
+  icon: fa-solid fa-face-smile
+  title: Gente cálida
+  description: Los hondureños son muy amables; si eres cordial, te tratarán como de la familia.
