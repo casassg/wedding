@@ -225,22 +225,42 @@
 </section>
 
 <!-- Where to Stay Section -->
-<section class="py-16 md:py-24 px-6 bg-mint section-colored">
-    <div class="max-w-4xl mx-auto">
+<section id="where-to-stay" class="py-16 md:py-24 px-6 bg-mint section-colored" x-data>
+    <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_where_to_stay" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
         </div>
 
-        <div class="card-shadow bg-cream p-8 md:p-12 rounded-3xl text-center border-2 border-rose/20">
-            <div class="w-20 h-20 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
-                <i class="fa-solid fa-bed text-3xl"></i>
+        {{- $accommodations := index .Site.Data .Site.Language.Lang "accommodations" -}}
+        {{- $colors := slice "rose" "ocean" "marigold" "clay" "mint" "lavender" -}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {{- range $index, $hotel := $accommodations }}
+            {{- $color := index $colors (mod $index (len $colors)) -}}
+            {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
+            <div class="card-glass p-6 md:p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-12 h-12 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0 group-hover:{{ $rotate }} transition-transform">
+                        <i class="fa-solid fa-hotel text-xl"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        {{- with $hotel.room_block }}
+                        <span class="inline-block px-2 py-0.5 bg-{{ $color }}/20 text-{{ $color }} rounded-full text-xs font-semibold uppercase tracking-wide mb-1">{{ i18n "accommodation_room_block" }}</span>
+                        {{- end }}
+                        <h3 class="font-hand text-2xl md:text-3xl text-gray-800">{{ $hotel.name }}</h3>
+                    </div>
+                </div>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ $hotel.description }}</p>
+                <button type="button"
+                        @click="$store.placeModals.open('place-modal-accommodations-{{ $index }}', 'accommodations', {{ $index }}, {{ len $accommodations }})"
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
+                </button>
             </div>
-            <p class="text-xl text-gray-600 font-sans">{{ i18n "traveling_accommodation_soon" }}</p>
+            {{- end }}
         </div>
 
-        <!-- Back to Home Link -->
         <div class="text-center mt-12">
             <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/90 hover:text-white transition font-sans">
                 <i class="fa-solid fa-arrow-left mr-2"></i>
@@ -464,6 +484,168 @@
                 <i class="fa-solid fa-chevron-left text-gray-600"></i>
             </button>
             <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $honduras }}</span>
+            <button type="button"
+                    @click="next()"
+                    :disabled="!hasNext"
+                    class="place-modal-next w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                    aria-label="{{ i18n "place_next" }}">
+                <i class="fa-solid fa-chevron-right text-gray-600"></i>
+            </button>
+        </div>
+    </div>
+</div>
+{{- end -}}
+
+<!-- Accommodation Modals -->
+{{- $accommodations := index .Site.Data .Site.Language.Lang "accommodations" -}}
+{{- $colors := slice "rose" "ocean" "marigold" "clay" "mint" "lavender" -}}
+{{- range $index, $hotel := $accommodations -}}
+{{- $color := index $colors (mod $index (len $colors)) -}}
+{{- $message := cond (or (eq $.Site.Language.Lang "es") (eq $.Site.Language.Lang "ca")) "Hola! Quisiera reservar para Boda Casas Paz (18-20 Dic, 2026)" "Hello! I'd like to reserve a room for Boda Casas Paz (Dec 18-20, 2026)" -}}
+{{- $phone := replace (replace $hotel.reservation.whatsapp_number " " "") "-" "" -}}
+{{- $phoneEncoded := $phone | urlquery -}}
+{{- $messageEncoded := $message | urlquery -}}
+<div x-data="placeModal('accommodations', {{ $index }}, {{ len $accommodations }})"
+     x-show="isOpen"
+     x-cloak
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0"
+     x-transition:enter-end="opacity-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100"
+     x-transition:leave-end="opacity-0"
+     id="place-modal-accommodations-{{ $index }}"
+     class="place-modal fixed inset-0 z-50 flex items-end md:items-center md:justify-center p-0 md:p-8"
+     :class="{ 'active': isOpen }"
+     data-color="{{ $color }}">
+    <div class="place-modal-card relative w-full h-full md:h-auto md:max-h-[85vh] md:max-w-2xl bg-white rounded-t-3xl md:rounded-3xl overflow-hidden flex flex-col shadow-2xl pointer-events-auto">
+        <!-- Header -->
+        <div class="flex items-start justify-between p-6 md:p-8 pb-4">
+            <div class="flex items-center gap-4">
+                <div class="w-14 h-14 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0">
+                    <i class="fa-solid fa-hotel text-2xl"></i>
+                </div>
+                <div>
+                    <h3 class="font-hand text-3xl md:text-4xl text-gray-800">{{ $hotel.name }}</h3>
+                    {{- if $hotel.is_room_block }}
+                    <p class="text-xs text-gray-500 mt-1">{{ $hotel.block_name }} &bull; {{ $hotel.block_dates }}</p>
+                    {{- end }}
+                </div>
+            </div>
+            <button type="button"
+                    @click="close()"
+                    class="place-modal-close w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 flex items-center justify-center transition-colors shrink-0 ml-4"
+                    aria-label="{{ i18n "place_close" }}">
+                <i class="fa-solid fa-xmark text-gray-600"></i>
+            </button>
+        </div>
+
+        <!-- Content (scrollable) -->
+        <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
+            <p class="text-gray-600 font-sans leading-relaxed">{{ $hotel.description }}</p>
+
+            {{- if $hotel.is_room_block }}
+            <div class="bg-{{ $color }}/10 p-4 rounded-xl space-y-3">
+                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                    <i class="fa-solid fa-ticket text-{{ $color }}"></i>
+                    {{ i18n "accommodation_room_block" }}
+                </h4>
+                <div class="text-sm text-gray-700 space-y-2">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-calendar text-{{ $color }}"></i>
+                        <span class="font-semibold">{{ i18n "accommodation_block_dates" }}:</span>
+                        <span>{{ $hotel.block_dates }}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-door-open text-{{ $color }}"></i>
+                        <span>{{ $hotel.rooms_reserved }} {{ i18n "accommodation_block_reserved" }}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-tag text-{{ $color }}"></i>
+                        <span class="font-semibold">{{ $hotel.block_name }}</span>
+                        <span class="text-xs px-2 py-1 bg-{{ $color }}/20 text-{{ $color }} rounded-full font-semibold">{{ $hotel.block_discount_percent }}% {{ i18n "accommodation_block_discount_suffix" }}</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-check text-{{ $color }}"></i>
+                        <span>{{ i18n "accommodation_included_categories" }}</span>
+                    </div>
+                </div>
+            </div>
+            {{- end }}
+
+            {{- with $hotel.includes }}
+            <div class="space-y-3">
+                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                    <i class="fa-solid fa-circle-check text-{{ $color }}"></i>
+                    {{ i18n "accommodation_includes" }}
+                </h4>
+                <ul class="text-gray-600 text-sm space-y-2">
+                    {{- range . }}
+                    <li class="flex items-start gap-2">
+                        <i class="fa-solid fa-check text-{{ $color }} mt-1 text-xs shrink-0"></i>
+                        <span>{{ . }}</span>
+                    </li>
+                    {{- end }}
+                </ul>
+            </div>
+            {{- end }}
+
+            {{- with $hotel.tax_note }}
+            <div class="flex items-start gap-2 text-sm text-gray-500 bg-gray-50 p-3 rounded-lg">
+                <i class="fa-solid fa-receipt text-gray-400 mt-0.5"></i>
+                <span>{{ . }}</span>
+            </div>
+            {{- end }}
+
+            <!-- Action Links -->
+            <div class="space-y-3">
+                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                    <i class="fa-solid fa-link text-{{ $color }}"></i>
+                    {{ i18n "place_links" }}
+                </h4>
+                <div class="flex flex-wrap gap-3">
+                    {{- with $hotel.website }}
+                    <a href="{{ . }}" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-globe"></i>
+                        {{ i18n "accommodation_visit_website" }}
+                    </a>
+                    {{- end }}
+                    {{- with $hotel.maps_url }}
+                    <a href="{{ . }}" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        {{ i18n "accommodation_view_maps" }}
+                    </a>
+                    {{- end }}
+                    {{- with $hotel.reservation.email }}
+                    <a href="mailto:{{ . }}?subject={{ $hotel.block_name | urlquery }}"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-envelope"></i>
+                        {{ i18n "accommodation_email" }}
+                    </a>
+                    {{- end }}
+                    {{- with $hotel.reservation.whatsapp_number }}
+                    <a href="https://api.whatsapp.com/send/?phone={{ $phoneEncoded }}&text={{ $messageEncoded }}&type=phone_number" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-green-100 text-green-700 hover:bg-green-200 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        {{ i18n "accommodation_whatsapp" }}
+                    </a>
+                    {{- end }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Footer -->
+        <div class="flex items-center justify-between p-4 border-t border-gray-100">
+            <button type="button"
+                    @click="prev()"
+                    :disabled="!hasPrev"
+                    class="place-modal-prev w-10 h-10 rounded-full bg-gray-100 hover:bg-gray-200 disabled:opacity-30 disabled:cursor-not-allowed flex items-center justify-center transition-colors"
+                    aria-label="{{ i18n "place_previous" }}">
+                <i class="fa-solid fa-chevron-left text-gray-600"></i>
+            </button>
+            <span class="text-sm text-gray-400 font-sans">{{ add $index 1 }} / {{ len $accommodations }}</span>
             <button type="button"
                     @click="next()"
                     :disabled="!hasNext"

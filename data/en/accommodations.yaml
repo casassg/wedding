@@ -1,0 +1,28 @@
+- id: marina_copan
+  name: "Hotel Marina Copan"
+  room_block:
+    name: "Boda Casas Paz"
+    date_start: 2026/12/18
+    date_end: 2026/12/19
+    rooms: 45
+    discount: 15
+    notes:
+      - "Valid for Standard, Premium, and Suite rooms."
+      - "Free WiFi"
+      - "Breakfast at Restaurante Glifos included"
+  links:
+    - label: "Official Website"
+      url: "https://hotelmarinacopan.com/"
+      icon: "fa-solid fa-globe"
+  description: "Wedding venue hotel with colonial charm right in town, pool, and lush courtyards."
+  reservation:
+    email: "reserve@hotelmarinacopan.com"
+    whatsapp_number: "+50499798531"
+
+- id: plaza_magdalena
+  name: "Hotel Plaza Magdalena"
+  description: "Solid option near the center; easy walk to restaurants and the ruins."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/5cTXg9u7EZJHvrH67"
+      icon: "fa-solid fa-map-location-dot"

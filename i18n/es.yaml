@@ -146,6 +146,22 @@ traveling_where_to_stay: "Dónde Alojarse"
 traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de alojamiento para diferentes presupuestos y preferencias."
 traveling_accommodation_soon: "Estamos trabajando en recomendaciones de hoteles y posiblemente tarifas grupales. ¡Detalles próximamente!"
 
+# Alojamientos
+accommodation_room_block: "Bloque de habitaciones"
+accommodation_block_reserved: "habitaciones reservadas"
+accommodation_block_dates: "Fechas del bloque"
+accommodation_reserve_via: "Reservar por"
+accommodation_email: "Email"
+accommodation_whatsapp: "WhatsApp"
+accommodation_per_night: "/noche"
+accommodation_tax_note: "Tarifas base. Sumar 19% de impuestos."
+accommodation_includes: "Incluye"
+accommodation_other_options: "Otras opciones"
+accommodation_visit_website: "Visitar sitio web"
+accommodation_view_maps: "Ver en Maps"
+accommodation_block_discount_suffix: "% menos que la tarifa pública con nuestro bloque"
+accommodation_included_categories: "Válido para habitaciones Estándar, Premium y Suites."
+
 # Place Card Modal
 place_learn_more: "Más información"
 place_close: "Cerrar"

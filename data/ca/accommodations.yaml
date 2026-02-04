@@ -1,0 +1,28 @@
+- id: marina_copan
+  name: "Hotel Marina Copan"
+  room_block:
+    name: "Boda Casas Paz"
+    date_start: 2026/12/18
+    date_end: 2026/12/19
+    rooms: 45
+    discount: 15
+    notes:
+      - "Valid per a habitacions Estandard, Premium i Suites."
+      - "WiFi gratuit"
+      - "Esmorzar al Restaurant Glifos inclos"
+  links:
+    - label: "Web Oficial"
+      url: "https://hotelmarinacopan.com/"
+      icon: "fa-solid fa-globe"
+  description: "Hotel de la boda, estil colonial, amb piscina i patis verds al centre del poble."
+  reservation:
+    email: "reserve@hotelmarinacopan.com"
+    whatsapp_number: "+50499798531"
+
+- id: plaza_magdalena
+  name: "Hotel Plaza Magdalena"
+  description: "Opcio centrica i comoda per anar a peu a restaurants i a les ruines."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/5cTXg9u7EZJHvrH67"
+      icon: "fa-solid fa-map-location-dot"

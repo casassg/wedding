@@ -145,6 +145,22 @@ traveling_where_to_stay: "Where to Stay"
 traveling_accommodation_intro: "Copán Ruinas has a variety of accommodation options to suit different budgets and preferences."
 traveling_accommodation_soon: "We're working on hotel recommendations and may arrange group rates. Details coming soon!"
 
+# Accommodations
+accommodation_room_block: "Room Block"
+accommodation_block_reserved: "rooms reserved"
+accommodation_block_dates: "Block dates"
+accommodation_reserve_via: "Reserve via"
+accommodation_email: "Email"
+accommodation_whatsapp: "WhatsApp"
+accommodation_per_night: "/night"
+accommodation_tax_note: "Rates shown are base prices. Add 19% tax."
+accommodation_includes: "Includes"
+accommodation_other_options: "Other Options"
+accommodation_visit_website: "Visit Website"
+accommodation_view_maps: "View on Maps"
+accommodation_block_discount_suffix: "% off public rates with our block"
+accommodation_included_categories: "Valid for Standard, Premium, and Suite rooms."
+
 # Place Card Modal
 place_learn_more: "Learn more"
 place_close: "Close"
