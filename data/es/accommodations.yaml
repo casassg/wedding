@@ -9,21 +9,25 @@
     rates:
       - type: "Estándar Sencilla"
         price: 130
+        url: "https://hotelmarinacopan.com/es/habitacion/tower-dos-camas/"
       - type: "Estándar Doble"
         price: 146
+        url: "https://hotelmarinacopan.com/es/habitacion/colonial-dos-dormitorios/"
       - type: "Estándar Triple"
         price: 162
+        url: "https://hotelmarinacopan.com/es/habitacion/colonial-tres-camas/"
       - type: "Premium"
         price: 177
+        url: "https://hotelmarinacopan.com/es/habitacion/premium-two-beds/"
       - type: "Suites"
-        subtitle: "Familiar, Luna de Miel o Ejecutiva"
+        subtitle: "[Familiar](https://hotelmarinacopan.com/es/habitacion/suite-familiar/), [Luna de Miel](https://hotelmarinacopan.com/es/habitacion/suite-de-luna-de-miel/) o [Ejecutiva](https://hotelmarinacopan.com/es/habitacion/suite-ejecutiva/)"
         price: 237
     notes:
       - "WiFi gratuito"
       - "Desayuno en Restaurante Glifos incluido"
   links:
     - label: "Web Oficial"
-      url: "https://hotelmarinacopan.com/"
+      url: "https://hotelmarinacopan.com/es/"
       icon: "fa-solid fa-globe"
     - label: "Reserva vía Email"
       url: "mailto:reserve@hotelmarinacopan.com"

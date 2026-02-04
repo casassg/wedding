@@ -9,14 +9,18 @@
     rates:
       - type: "Standard Single"
         price: 130
+        url: "https://hotelmarinacopan.com/room/tower-two-bed/"
       - type: "Standard Double"
         price: 146
+        url: "https://hotelmarinacopan.com/room/colonial-two-bed-room/"
       - type: "Standard Triple"
         price: 162
+        url: "https://hotelmarinacopan.com/room/colonial-three-bed-room/"
       - type: "Premium"
         price: 177
+        url: "https://hotelmarinacopan.com/room/premium-two-beds/"
       - type: "Suites"
-        subtitle: "Family, Honeymoon, or Executive"
+        subtitle: "[Family](https://hotelmarinacopan.com/room/family-suite/), [Honeymoon](https://hotelmarinacopan.com/room/honeymoon-suite/), or [Executive](https://hotelmarinacopan.com/room/executive-suite/)"
         price: 237
     notes:
       - "Free WiFi"

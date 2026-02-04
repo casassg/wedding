@@ -576,9 +576,13 @@
                                 {{- range . }}
                                 <div class="flex justify-between items-start text-sm">
                                     <div>
+                                        {{- if .url }}
+                                        <a href="{{ .url }}" target="_blank" rel="noopener" class="text-gray-700 hover:text-{{ $color }} hover:underline">{{ .type }}</a>
+                                        {{- else }}
                                         <span class="text-gray-700">{{ .type }}</span>
+                                        {{- end }}
                                         {{- with .subtitle }}
-                                        <span class="block text-xs text-gray-500">{{ . }}</span>
+                                        <span class="block text-xs text-gray-500 [&_a]:text-{{ $color }} [&_a]:hover:underline">{{ . | markdownify }}</span>
                                         {{- end }}
                                     </div>
                                     <span class="font-semibold text-gray-800 shrink-0 ml-2">
