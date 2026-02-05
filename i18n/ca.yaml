@@ -110,6 +110,18 @@ traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des d
 traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Més detalls sobre transport properament!"
 
+# Travel Agent
+travel_agent_label: "Necessites ajuda?"
+travel_agent_title: "Agent de Viatges"
+travel_agent_subtitle: "La nostra agent de viatges de confiança, Alejandra Alfaro de D'Mundo Travel, et pot ajudar amb tot, des del transport fins a l'allotjament."
+travel_agent_discount: "Menciona el codi **Casas Paz** en reservar per obtenir un **5% de descompte** en paquets de vacances a Hondures."
+travel_agent_service_packages: "Paquets de vacances a Hondures"
+travel_agent_service_hotels: "Reserves d'hotels a Copán"
+travel_agent_service_shuttle: "Busos compartits SPS a Copán"
+travel_agent_service_trips: "Planificació de viatges per Copán"
+travel_agent_contact: "Contacte"
+travel_agent_hint: "Necessites ajuda per planificar un viatge? [Contacta la nostra agent de viatges](#travel-agent) per a assistència!"
+
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
 traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure-t'hi."

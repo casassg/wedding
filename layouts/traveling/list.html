@@ -63,6 +63,82 @@
     </div>
 </section>
 
+<!-- Travel Agent Section -->
+<section id="travel-agent" class="py-16 md:py-24 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "travel_agent_label" }}</span>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "travel_agent_title" }}</h2>
+            <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "travel_agent_subtitle" }}</p>
+        </div>
+
+        <div class="card-shadow bg-white p-8 md:p-10 rounded-3xl">
+            <!-- Services Grid -->
+            <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-earth-americas"></i>
+                    </div>
+                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_packages" }}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_hotels" }}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-bus"></i>
+                    </div>
+                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_shuttle" }}</span>
+                </div>
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_trips" }}</span>
+                </div>
+            </div>
+
+            <!-- Discount Callout -->
+            <div class="bg-ocean/10 border border-ocean/20 rounded-2xl p-4 mb-8">
+                <div class="flex items-start gap-3">
+                    <div class="w-8 h-8 bg-ocean/20 text-ocean rounded-lg flex items-center justify-center shrink-0 mt-0.5">
+                        <i class="fa-solid fa-tag"></i>
+                    </div>
+                    <p class="text-gray-700 font-sans text-sm">{{ i18n "travel_agent_discount" | markdownify }}</p>
+                </div>
+            </div>
+
+            <!-- Contact Buttons -->
+            <div class="space-y-3">
+                <h4 class="font-semibold text-gray-800 flex items-center gap-2 font-sans">
+                    <i class="fa-solid fa-address-book text-ocean"></i>
+                    {{ i18n "travel_agent_contact" }}
+                </h4>
+                <div class="flex flex-wrap gap-3">
+                    <a href="https://api.whatsapp.com/send/?phone=50431463538&text&type=phone_number&app_absent=0" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        WhatsApp
+                    </a>
+                    <a href="mailto:M.alfaro18@hotmail.com" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-solid fa-envelope"></i>
+                        Email
+                    </a>
+                    <a href="https://www.instagram.com/dmundotravel/" target="_blank" rel="noopener"
+                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
+                        <i class="fa-brands fa-instagram"></i>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- Why Copán Section -->
 <section class="py-16 md:py-24 px-6 bg-lavender section-colored">
     <div class="max-w-5xl mx-auto">
@@ -160,6 +236,12 @@
                     <p class="text-gray-600 leading-relaxed font-sans">{{ i18n "traveling_tuktuk_desc" }}</p>
                 </div>
             </div>
+
+            <!-- Travel Agent Hint -->
+            <p class="text-center text-gray-500 font-sans text-sm mt-8">
+                <i class="fa-solid fa-circle-info text-mint mr-1"></i>
+                {{ i18n "travel_agent_hint" | markdownify }}
+            </p>
         </div>
     </div>
 </section>
@@ -193,6 +275,12 @@
             </div>
             {{- end -}}
         </div>
+
+        <!-- Travel Agent Hint -->
+        <p class="text-center text-white/70 font-sans text-sm mt-8 [&_a]:text-white [&_a]:underline [&_a]:hover:text-white/90">
+            <i class="fa-solid fa-circle-info mr-1"></i>
+            {{ i18n "travel_agent_hint" | markdownify }}
+        </p>
 
     </div>
 </section>
