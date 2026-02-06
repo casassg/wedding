@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- White background circle -->
+  <circle cx="16" cy="16" r="16" fill="#FFFFFF"/>
+  <!-- L&G monogram in handwritten style -->
+  <text x="14" y="21" 
+        font-family="Caveat, cursive" 
+        font-size="14" 
+        font-weight="700"
+        text-anchor="middle" 
+        fill="#2D2D2D">L&amp;G</text>
+</svg>
