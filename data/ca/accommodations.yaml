@@ -33,7 +33,7 @@
       url: "mailto:reserve@hotelmarinacopan.com"
       icon: "fa-solid fa-envelope"
     - label: "Reserva via WhatsApp"
-      url: "https://api.whatsapp.com/send/?phone=50499798531&text=Hola!%20Voldria%20reservar%20per%20a%20Boda%20Casas%20Paz%20(18-20%20Des%2C%202026)&type=phone_number"
+      url: "https://api.whatsapp.com/send/?phone=50499798531&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
   description: "Hotel de la boda, estil colonial, amb piscina i patis verds al centre del poble."
 
@@ -54,7 +54,7 @@
       - "Aire condicionat"
   links:
     - label: "Reserva via WhatsApp"
-      url: "https://api.whatsapp.com/send/?phone=5089498022&text=Hola!%20Voldria%20reservar%20per%20a%20Boda%20Casas%20Paz%20(18-20%20Des%2C%202026)&type=phone_number"
+      url: "https://api.whatsapp.com/send/?phone=5089498022&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/9Uir3479LKPMXX7z6"
@@ -80,7 +80,7 @@
       - "Aire condicionat"
   links:
     - label: "Reserva via WhatsApp"
-      url: "https://api.whatsapp.com/send/?phone=50431782034&text=Hola!%20Voldria%20reservar%20per%20a%20Boda%20Casas%20Paz%20(18-20%20Des%2C%202026)&type=phone_number"
+      url: "https://api.whatsapp.com/send/?phone=50431782034&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/o6xhBbVkjbJhmWRt7"
@@ -108,7 +108,7 @@
       - "Cafeteria amb esmorzar"
   links:
     - label: "Reserva via WhatsApp"
-      url: "https://api.whatsapp.com/send/?phone=50432438585&text=Hola!%20Voldria%20reservar%20per%20a%20Boda%20Casas%20Paz%20(18-20%20Des%2C%202026)&type=phone_number"
+      url: "https://api.whatsapp.com/send/?phone=50432438585&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
     - label: "Google Maps"
       url: "https://maps.app.goo.gl/GFTtQZQbkZXXyK3W9"
