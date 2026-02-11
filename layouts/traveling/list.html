@@ -644,10 +644,17 @@
                         <i class="fa-solid fa-door-open text-{{ $color }}"></i>
                         <span>{{ .rooms }} {{ i18n "accommodation_block_reserved" }}</span>
                     </div>
+                    {{- if .discount }}
                     <div class="flex items-start gap-2">
                         <i class="fa-solid fa-tag text-{{ $color }} mt-1"></i>
                         <span>{{ i18n "accommodation_mention_name" | replaceRE `\{name\}` (printf `"<strong>%s</strong>"` .name) | replaceRE `\{discount\}` (printf `<strong>%d%s</strong>` .discount (i18n "accommodation_block_discount_suffix")) | safeHTML }}</span>
                     </div>
+                    {{- else if .name }}
+                    <div class="flex items-start gap-2">
+                        <i class="fa-solid fa-tag text-{{ $color }} mt-1"></i>
+                        <span>{{ i18n "accommodation_mention_block" | replaceRE `\{name\}` (printf `"<strong>%s</strong>"` .name) | safeHTML }}</span>
+                    </div>
+                    {{- end }}
                     {{- with .rates }}
                     <div x-data="{ showRates: false }" class="mt-3 pt-3 border-t border-{{ $color }}/20">
                         <button type="button" @click="showRates = !showRates"

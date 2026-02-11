@@ -37,10 +37,83 @@
       icon: "fa-brands fa-whatsapp"
   description: "Hotel sede de la boda, estilo colonial, con piscina y patios llenos de verde en pleno centro."
 
+- id: plaza_copan
+  name: "Hotel Plaza Copan"
+  room_block:
+    name: "Boda Casas Paz"
+    date_start: 2026-12-18
+    date_end: 2026-12-20
+    rooms: 5
+    rates:
+      - type: "Doble"
+        price: 80
+    notes:
+      - "WiFi gratuito"
+      - "Estacionamiento gratuito"
+      - "Piscina"
+      - "Aire acondicionado"
+  links:
+    - label: "Reserva vía WhatsApp"
+      url: "https://api.whatsapp.com/send/?phone=5089498022&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
+      icon: "fa-brands fa-whatsapp"
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/9Uir3479LKPMXX7z6"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Instagram"
+      url: "https://www.instagram.com/plazacopanhotel/"
+      icon: "fa-brands fa-instagram"
+  description: "Hotel de estilo colonial junto a la plaza principal con piscina, restaurante y bar."
+
 - id: plaza_magdalena
   name: "Hotel Plaza Magdalena"
-  description: "Opción céntrica, cómoda para caminar a restaurantes y a las ruinas."
+  room_block:
+    name: "Boda Casas Paz"
+    date_start: 2026-12-18
+    date_end: 2026-12-20
+    rooms: 5
+    rates:
+      - type: "Doble"
+        price: 80
+    notes:
+      - "WiFi gratuito"
+      - "Estacionamiento gratuito"
+      - "Aire acondicionado"
   links:
+    - label: "Reserva vía WhatsApp"
+      url: "https://api.whatsapp.com/send/?phone=50431782034&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
+      icon: "fa-brands fa-whatsapp"
     - label: "Google Maps"
-      url: "https://maps.app.goo.gl/5cTXg9u7EZJHvrH67"
+      url: "https://maps.app.goo.gl/o6xhBbVkjbJhmWRt7"
       icon: "fa-solid fa-map-location-dot"
+    - label: "Instagram"
+      url: "https://www.instagram.com/plazamagdalenahn/"
+      icon: "fa-brands fa-instagram"
+  description: "Ubicación céntrica con fácil acceso a restaurantes y las ruinas."
+
+- id: yatbalam
+  name: "Hotel Yat B'alam"
+  room_block:
+    name: "Boda Casas Paz"
+    date_start: 2026-12-18
+    date_end: 2026-12-20
+    rooms: 10
+    rates:
+      - type: "Doble"
+        price: 80
+        subtitle: "10 habitaciones en dos edificios"
+    notes:
+      - "WiFi gratuito"
+      - "Estacionamiento gratuito"
+      - "Aire acondicionado"
+      - "Cafetería con desayuno"
+  links:
+    - label: "Reserva vía WhatsApp"
+      url: "https://api.whatsapp.com/send/?phone=50432438585&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
+      icon: "fa-brands fa-whatsapp"
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/GFTtQZQbkZXXyK3W9"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Instagram"
+      url: "https://www.instagram.com/plazayatbalamhn/"
+      icon: "fa-brands fa-instagram"
+  description: "Hotel boutique con encanto colonial, cafetería acogedora y 10 habitaciones en dos edificios."
