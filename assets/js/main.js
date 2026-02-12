@@ -586,6 +586,233 @@
         }));
 
         // -----------------------
+        // Envelope RSVP Component (scroll-linked envelope animation)
+        // -----------------------
+        Alpine.data('envelopeRsvp', () => ({
+            loading: true,
+            error: null,
+            invite: null,
+            submitted: false,
+            submitting: false,
+            code: null,
+            isOpen: false,
+            animationProgress: 0, // 0 to 1, drives all animations
+            scrollHandler: null,
+            
+            formData: {
+                plusOne: false,
+                kidCount: '',
+                dietaryInfo: '',
+                message: '',
+                song: ''
+            },
+            
+            // Error messages from data attributes
+            formError: null,
+            errorMissingKids: '',
+            errorGeneric: '',
+            inviteSizeText: '',
+            
+            init() {
+                // Check for invite code in URL
+                const params = new URLSearchParams(window.location.search);
+                this.code = params.get('code');
+                
+                if (this.code) {
+                    this.loadInvite();
+                } else {
+                    this.loading = false;
+                }
+            },
+            
+            get apiBase() {
+                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                    return 'http://localhost:8080/api/v1';
+                }
+                return "https://api.lauraygerard.wedding/api/v1";
+            },
+            
+            get showSection() {
+                return this.code !== null;
+            },
+            
+            get hasResponded() {
+                return this.invite?.has_responded === true;
+            },
+            
+            get showPlusOne() {
+                return this.invite?.max_adults === 2;
+            },
+            
+            get showKids() {
+                return (this.invite?.max_kids || 0) > 0;
+            },
+            
+            get kidsOptions() {
+                if (!this.invite) return [];
+                const max = this.invite.max_kids || 0;
+                return Array.from({ length: max + 1 }, (_, i) => i);
+            },
+            
+            get inviteSizeMessage() {
+                if (!this.invite || !this.inviteSizeText) return '';
+                const total = (this.invite.max_adults || 0) + (this.invite.max_kids || 0);
+                return this.inviteSizeText.replace('{n}', total);
+            },
+            
+            setupScrollObserver() {
+                // Only setup observer for users who haven't responded yet
+                if (this.hasResponded) return;
+                
+                // Wait a bit for template to render, then find elements
+                setTimeout(() => {
+                    const envelope = this.$el.querySelector('.envelope-container');
+                    
+                    if (!envelope) {
+                        console.warn('Envelope not found');
+                        return;
+                    }
+                    
+                    // Use IntersectionObserver to trigger animation when 70% visible
+                    const observer = new IntersectionObserver((entries) => {
+                        entries.forEach(entry => {
+                            if (entry.isIntersecting && !this.isOpen) {
+                                this.isOpen = true;
+                                observer.unobserve(entry.target);
+                            }
+                        });
+                    }, {
+                        root: null,
+                        rootMargin: '0px',
+                        threshold: 0.7 // Trigger when 70% visible
+                    });
+                    
+                    observer.observe(envelope);
+                }, 100);
+            },
+            
+            // Easing function (kept for potential future use)
+            easeOutCubic(t) {
+                return 1 - Math.pow(1 - t, 3);
+            },
+            
+            async loadInvite() {
+                this.loading = true;
+                this.error = null;
+                
+                try {
+                    const response = await fetch(`${this.apiBase}/invite/${encodeURIComponent(this.code)}`, {
+                        headers: { 'Accept': 'application/json' }
+                    });
+                    
+                    if (!response.ok) {
+                        const payload = await this.parseErrorResponse(response);
+                        throw new Error(this.formatErrorMessage(payload));
+                    }
+                    
+                    this.invite = await response.json();
+                    this.submitted = this.invite.has_responded;
+                    
+                    // Read i18n strings from data attributes after invite loads
+                    this.$nextTick(() => {
+                        const cardEl = document.getElementById('rsvp-card');
+                        if (cardEl) {
+                            this.errorMissingKids = cardEl.dataset.errorMissingKids || 'Please select the number of kids.';
+                            this.errorGeneric = cardEl.dataset.errorGeneric || 'Something went wrong. Please try again.';
+                            this.inviteSizeText = cardEl.dataset.inviteSizeText || '';
+                        }
+                        
+                        // Setup scroll observer after invite is loaded
+                        this.setupScrollObserver();
+                    });
+                } catch (err) {
+                    this.error = err.message || 'Something went wrong. Please try again.';
+                } finally {
+                    this.loading = false;
+                }
+            },
+            
+            async submitRSVP() {
+                if (this.submitting) return;
+                
+                this.formError = null;
+                
+                // Validate kids field if applicable
+                if (this.showKids && this.formData.kidCount === '') {
+                    this.formError = this.errorMissingKids;
+                    return;
+                }
+                
+                const payload = {
+                    dietary_info: this.formData.dietaryInfo.trim(),
+                    message_for_us: this.formData.message.trim(),
+                    song_request: this.formData.song.trim()
+                };
+                
+                // Determine adult_count based on +1 checkbox
+                if (this.invite.max_adults === 2) {
+                    payload.adult_count = this.formData.plusOne ? 2 : 1;
+                } else {
+                    payload.adult_count = 1;
+                }
+                
+                if (this.showKids) {
+                    payload.kid_count = parseInt(this.formData.kidCount) || 0;
+                }
+                
+                try {
+                    this.submitting = true;
+                    
+                    const response = await fetch(`${this.apiBase}/invite/${encodeURIComponent(this.code)}/rsvp`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        const payloadError = await this.parseErrorResponse(response);
+                        throw new Error(this.formatErrorMessage(payloadError));
+                    }
+                    
+                    this.submitted = true;
+                    this.invite.has_responded = true;
+                    
+                    // Trigger confetti explosion
+                    setTimeout(() => {
+                        window.createConfetti(this.$el, 100, true);
+                    }, 200);
+                } catch (err) {
+                    this.formError = err.message || this.errorGeneric;
+                } finally {
+                    this.submitting = false;
+                }
+            },
+            
+            async parseErrorResponse(response) {
+                const text = await response.text();
+                if (!text) return null;
+                try {
+                    return JSON.parse(text);
+                } catch (err) {
+                    return text;
+                }
+            },
+            
+            formatErrorMessage(payload) {
+                if (!payload) return this.errorGeneric || 'Something went wrong.';
+                if (typeof payload === 'string') return payload;
+                if (typeof payload === 'object') {
+                    if (payload.error) return payload.error;
+                    return JSON.stringify(payload, null, 2);
+                }
+                return String(payload);
+            }
+        }));
+
+        // -----------------------
         // Scroll Animation Component (IntersectionObserver)
         // -----------------------
         Alpine.data('scrollReveal', () => ({
