@@ -46,7 +46,7 @@
     rooms: 5
     rates:
       - type: "Doble"
-        price: 80
+        price: 95
     notes:
       - "WiFi gratuït"
       - "Aparcament gratuït"
@@ -73,7 +73,7 @@
     rooms: 5
     rates:
       - type: "Doble"
-        price: 80
+        price: 95
     notes:
       - "WiFi gratuït"
       - "Aparcament gratuït"
@@ -99,7 +99,7 @@
     rooms: 10
     rates:
       - type: "Doble"
-        price: 80
+        price: 95
         subtitle: "10 habitacions en dos edificis"
     notes:
       - "WiFi gratuït"

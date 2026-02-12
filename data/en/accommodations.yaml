@@ -46,7 +46,7 @@
     rooms: 5
     rates:
       - type: "Double"
-        price: 80
+        price: 95
     notes:
       - "Free WiFi"
       - "Free parking"
@@ -73,7 +73,7 @@
     rooms: 5
     rates:
       - type: "Double"
-        price: 80
+        price: 95
     notes:
       - "Free WiFi"
       - "Free parking"
@@ -99,7 +99,7 @@
     rooms: 10
     rates:
       - type: "Double"
-        price: 80
+        price: 95
         subtitle: "10 rooms across two buildings"
     notes:
       - "Free WiFi"
