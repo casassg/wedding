@@ -421,6 +421,10 @@
             submitting: false,
             code: null,
             
+            // Envelope state
+            envelopeOpened: false,
+            envelopeAnimating: false,
+            
             formData: {
                 plusOne: false,
                 kidCount: '',
@@ -499,6 +503,11 @@
                     
                     this.invite = await response.json();
                     this.submitted = this.invite.has_responded;
+                    
+                    // Skip envelope animation if already responded
+                    if (this.submitted) {
+                        this.envelopeOpened = true;
+                    }
                 } catch (err) {
                     this.error = err.message || this.errorGeneric;
                 } finally {
@@ -562,6 +571,18 @@
                 } finally {
                     this.submitting = false;
                 }
+            },
+            
+            openEnvelope() {
+                if (this.envelopeAnimating || this.envelopeOpened) return;
+                
+                this.envelopeAnimating = true;
+                
+                // Wait for animations: seal(300ms) + flap(600ms) + fade(400ms) with overlap
+                setTimeout(() => {
+                    this.envelopeOpened = true;
+                    this.envelopeAnimating = false;
+                }, 900);
             },
             
             async parseErrorResponse(response) {

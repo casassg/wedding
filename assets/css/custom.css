@@ -79,7 +79,7 @@ body {
 .card-shadow {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border: 2px solid rgba(0,0,0,0.05);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
     background: white;
     border-radius: 24px;
 }
@@ -238,4 +238,187 @@ body.place-modal-open {
     overflow: hidden;
 }
 
-/* Removed RSVP Toggle - no longer used */
+/* ===== RSVP Envelope Styles ===== */
+
+.envelope-overlay {
+    position: absolute;
+    /* 20px larger on each side than the card */
+    inset: -20px;
+    z-index: 20;
+    perspective: 1000px;
+    pointer-events: none;
+    overflow: visible;
+}
+
+.envelope-overlay > * {
+    pointer-events: auto;
+}
+
+.envelope-body {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(145deg, #FAF6EC 0%, #F0EBDB 100%);
+    border-radius: 28px;
+    box-shadow: 
+        0 4px 20px rgba(0, 0, 0, 0.12),
+        0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(180deg, #F5EFE0 0%, #E8E0CC 100%);
+    clip-path: polygon(0 0, 50% 100%, 100% 0);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    z-index: 2;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.wax-seal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    width: 64px;
+    height: 64px;
+    background: radial-gradient(circle at 35% 35%, #F2978F 0%, #E8837C 60%, #D46B63 100%);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 
+        inset 0 2px 4px rgba(255, 255, 255, 0.25),
+        0 3px 8px rgba(0, 0, 0, 0.25);
+    animation: sealPulse 2s ease-in-out infinite;
+    transition: transform 0.2s ease;
+}
+
+.wax-seal i {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.5rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.wax-seal:hover {
+    transform: translate(-50%, -50%) scale(1.08);
+    animation: none;
+}
+
+.wax-seal:focus {
+    outline: 3px solid rgba(232, 131, 124, 0.5);
+    outline-offset: 4px;
+}
+
+/* Seal pulse animation - draws attention to click */
+@keyframes sealPulse {
+    0%, 100% {
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.25),
+            0 3px 6px rgba(0, 0, 0, 0.15),
+            0 0 0 0 rgba(232, 131, 124, 0.4);
+    }
+    50% {
+        box-shadow: 
+            inset 0 2px 4px rgba(255, 255, 255, 0.25),
+            0 3px 6px rgba(0, 0, 0, 0.15),
+            0 0 0 10px rgba(232, 131, 124, 0);
+    }
+}
+
+/* ===== Envelope Opening Animation ===== */
+
+.envelope-opening .wax-seal {
+    animation: sealBreak 0.3s ease-out forwards;
+}
+
+.envelope-opening .envelope-flap {
+    animation: flapOpen 0.6s ease-in-out forwards;
+}
+
+.envelope-opening .envelope-body {
+    animation: envelopeFade 0.4s ease-out 0.5s forwards;
+}
+
+.envelope-opening .envelope-flap {
+    animation: flapOpen 0.6s ease-in-out forwards, flapFade 0.3s ease-out 0.6s forwards;
+}
+
+@keyframes sealBreak {
+    0% { 
+        transform: translate(-50%, -50%) scale(1); 
+        opacity: 1; 
+    }
+    40% { 
+        transform: translate(-50%, -50%) scale(1.15); 
+    }
+    100% { 
+        transform: translate(-50%, -50%) scale(0.6); 
+        opacity: 0; 
+    }
+}
+
+@keyframes flapOpen {
+    0% { 
+        transform: rotateX(0deg); 
+    }
+    100% { 
+        transform: rotateX(170deg); 
+    }
+}
+
+@keyframes flapFade {
+    0% { 
+        opacity: 1;
+        transform: rotateX(170deg) translateY(0);
+    }
+    100% { 
+        opacity: 0;
+        transform: rotateX(170deg) translateY(-30px);
+    }
+}
+
+@keyframes envelopeFade {
+    0% { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% { 
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+}
+
+/* ===== Envelope Responsive Adjustments ===== */
+
+@media (max-width: 640px) {
+    .envelope-overlay {
+        /* Use viewport units to extend to screen edges */
+        position: absolute;
+        inset: auto;
+        top: -16px;
+        bottom: -16px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200vw;
+    }
+    
+    .envelope-body {
+        border-radius: 0;
+    }
+    
+    .wax-seal {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .wax-seal i {
+        font-size: 1.25rem;
+    }
+}

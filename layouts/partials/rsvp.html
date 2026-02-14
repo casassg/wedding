@@ -1,16 +1,153 @@
 <!-- RSVP Section -->
-<section id="rsvp" class="py-16 md:py-24 px-6 bg-rose section-colored">
+<section id="rsvp-section" class="py-16 md:py-24 px-6 bg-white overflow-visible">
     <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "rsvp_label" }}</span>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "rsvp_title" }}</h2>
-        </div>
-        
-        <div class="card-glass p-8 md:p-12 rounded-3xl text-center">
-            <div class="w-20 h-20 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 animate-float">
-                <i class="fa-solid fa-envelope-open-text text-3xl"></i>
+        <div x-data="rsvpForm"
+             x-show="showSection"
+             x-cloak>
+            
+            <!-- Stacking container for envelope overlay + card -->
+            <div class="relative overflow-visible">
+                
+                <!-- ENVELOPE OVERLAY (shown when invite loaded, not responded, not opened) -->
+                <div x-show="invite && !submitted && !envelopeOpened"
+                     x-cloak
+                     class="envelope-overlay"
+                     :class="{ 'envelope-opening': envelopeAnimating }">
+                    <div class="envelope-body"></div>
+                    <div class="envelope-flap"></div>
+                    <button @click="openEnvelope()" 
+                            class="wax-seal"
+                            aria-label="{{ i18n "rsvp_open_envelope" }}">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                
+                <!-- RSVP Card (always rendered, hidden behind envelope until opened) -->
+                <div id="rsvp"
+                     class="card-shadow bg-white p-8 md:p-10 rounded-3xl border-2 border-mint/20 group"
+                     :class="{ 'opacity-0': invite && !submitted && !envelopeOpened }"
+                     id="rsvp-card" 
+                     data-api-base="https://api.lauraygerard.wedding/api/v1" 
+                     data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}" 
+                     data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}" 
+                     data-error-generic="{{ i18n "rsvp_error_generic" }}" 
+                     data-invite-size-text="{{ i18n "rsvp_invite_size" }}">
+                    <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-8">
+                        <div class="w-16 h-16 bg-mint/20 text-mint rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform">
+                            <i class="fa-solid fa-envelope-open-text text-2xl"></i>
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-hand text-3xl mb-2 text-gray-800">
+                                <span x-show="invite" x-cloak>{{ i18n "rsvp_greeting" }} <span x-text="invite?.name"></span>!</span>
+                                <span x-show="!invite && !loading">{{ i18n "rsvp_title" }}</span>
+                            </h3>
+
+                            <!-- Loading State -->
+                            <div x-show="loading" class="mt-4 text-sm text-gray-500 font-sans">
+                                <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_loading" }}
+                            </div>
+
+                            <!-- Error State -->
+                            <div x-show="error && !loading" 
+                                 x-cloak
+                                 class="mt-4 rounded-2xl border border-rose/30 bg-rose/10 p-4">
+                                <p class="text-sm font-semibold text-rose">{{ i18n "rsvp_error_title" }}</p>
+                                <p x-text="error" class="mt-1 text-sm text-gray-600 font-sans whitespace-pre-line"></p>
+                            </div>
+
+                            <!-- Thank You State -->
+                            <div x-show="submitted && !loading" 
+                                 x-cloak
+                                 class="mt-6">
+                                <p class="text-lg text-gray-700 font-sans">
+                                    {{ i18n "rsvp_thanks" }} <span x-text="invite?.name" class="font-semibold text-gray-800"></span>
+                                </p>
+                                <p class="text-sm text-gray-500 font-sans mt-2">{{ i18n "rsvp_thanks_note" }}</p>
+                            </div>
+
+                            <!-- RSVP Form -->
+                            <div x-show="!loading && !submitted && invite" 
+                                 x-cloak
+                                 class="mt-6">
+                                <div class="mb-6 space-y-2">
+                                    <p class="text-gray-700 font-sans">
+                                        {{ i18n "rsvp_fill_info" }}
+                                    </p>
+                                    <p class="text-gray-700 font-sans">
+                                        <span x-text="inviteSizeMessage" class="font-semibold"></span>
+                                    </p>
+                                    <p class="text-gray-700 font-sans">
+                                        {{ i18n "rsvp_deadline" | markdownify }}
+                                    </p>
+                                </div>
+                                <form @submit.prevent="submitRSVP()" class="space-y-5">
+                                    <!-- +1 field (shown only when max_adults = 2) -->
+                                    <div x-show="showPlusOne" x-cloak>
+                                        <label class="flex items-center gap-3 cursor-pointer group">
+                                            <input type="checkbox" 
+                                                   x-model="formData.plusOne"
+                                                   class="w-5 h-5 rounded border-gray-300 bg-white accent-mint focus:ring-mint focus:ring-offset-0 focus:border-mint hover:border-mint/50 transition cursor-pointer">
+                                            <span class="text-sm font-semibold text-gray-700 font-sans group-hover:text-mint transition">{{ i18n "rsvp_plus_one_label" }}</span>
+                                        </label>
+                                    </div>
+
+                                    <!-- Kids field -->
+                                    <div x-show="showKids" x-cloak>
+                                        <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
+                                        <select x-model="formData.kidCount"
+                                                id="rsvp-kids" 
+                                                class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition">
+                                            <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
+                                            <template x-for="num in kidsOptions" :key="num">
+                                                <option :value="num" x-text="num"></option>
+                                            </template>
+                                        </select>
+                                        <p class="mt-2 text-xs text-gray-500 font-sans">{{ i18n "rsvp_kids_help" }} <span x-text="invite?.max_kids"></span></p>
+                                    </div>
+
+                                    <div class="grid md:grid-cols-2 gap-4">
+                                        <div>
+                                            <label for="rsvp-dietary" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_dietary_label" }}</label>
+                                            <input x-model="formData.dietaryInfo"
+                                                   id="rsvp-dietary" 
+                                                   type="text" 
+                                                   class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
+                                                   placeholder="{{ i18n "rsvp_dietary_placeholder" }}">
+                                        </div>
+                                        <div>
+                                            <label for="rsvp-song" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_song_label" }}</label>
+                                            <input x-model="formData.song"
+                                                   id="rsvp-song" 
+                                                   type="text" 
+                                                   class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
+                                                   placeholder="{{ i18n "rsvp_song_placeholder" }}">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="rsvp-message" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_message_label" }}</label>
+                                        <textarea x-model="formData.message"
+                                                  id="rsvp-message" 
+                                                  rows="2" 
+                                                  class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition" 
+                                                  placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
+                                    </div>
+
+                                    <button type="submit" 
+                                            :disabled="submitting"
+                                            :class="{ 'opacity-70': submitting }"
+                                            class="w-full md:w-auto md:mx-auto md:block rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
+                                        <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
+                                        <span x-show="submitting" x-cloak>
+                                            <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
+                                        </span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <p class="text-xl text-gray-600 font-sans">{{ i18n "rsvp_coming_soon" }}</p>
         </div>
     </div>
 </section>
