@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Daisy/Buttercup - simple round petals in marigold -->
+  <g transform="translate(24, 24)">
+    <!-- Petals - 8 rounded petals -->
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(270)"/>
+    <ellipse cx="0" cy="-10" rx="4" ry="8" fill="#F4C430" opacity="0.9" transform="rotate(315)"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="5" fill="#E5793B"/>
+    <circle cx="0" cy="0" r="3" fill="#E8837C"/>
+  </g>
+</svg>

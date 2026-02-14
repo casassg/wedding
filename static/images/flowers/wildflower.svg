@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Small wildflower accent in mint -->
+  <g transform="translate(24, 24)">
+    <!-- Simple 6-petal flower -->
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-9" rx="3.5" ry="7" fill="#5CB38B" opacity="0.9" transform="rotate(300)"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="4" fill="#F4C430"/>
+    <circle cx="0" cy="0" r="2" fill="#E5793B"/>
+  </g>
+</svg>

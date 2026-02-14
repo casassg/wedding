@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Simple leaf cluster accent - no stem, just leaves -->
+  
+  <!-- Main leaf -->
+  <path d="M24 8 Q36 18 36 28 Q36 38 24 42 Q12 38 12 28 Q12 18 24 8" fill="#5CB38B" opacity="0.8"/>
+  
+  <!-- Center vein -->
+  <path d="M24 12 Q24 25 24 38" stroke="#4A9B6E" stroke-width="1" fill="none" opacity="0.6"/>
+  
+  <!-- Side veins -->
+  <path d="M24 18 Q28 20 32 22" stroke="#4A9B6E" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M24 18 Q20 20 16 22" stroke="#4A9B6E" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M24 26 Q29 28 33 30" stroke="#4A9B6E" stroke-width="0.5" fill="none" opacity="0.4"/>
+  <path d="M24 26 Q19 28 15 30" stroke="#4A9B6E" stroke-width="0.5" fill="none" opacity="0.4"/>
+</svg>

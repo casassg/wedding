@@ -6,7 +6,16 @@
 
     <div class="max-w-3xl mx-auto relative z-10">
         <div class="text-center mb-16">
-            <span class="text-lavender font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "questions" }}</span>
+            <!-- Section label with floral decorations -->
+            <div class="relative inline-flex justify-center items-center">
+                <img src="{{ "images/flowers/cluster-f.svg" | relURL }}" 
+                     class="flower-decoration flower-left" 
+                     alt="" aria-hidden="true">
+                <span class="text-lavender font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "questions" }}</span>
+                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}" 
+                     class="flower-decoration flower-right" 
+                     alt="" aria-hidden="true">
+            </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "faq_title" }}</h2>
         </div>
         

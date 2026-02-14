@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" fill="none">
+  <!-- Cluster C: Lavender/ocean trio -->
+  
+  <!-- Main lavender flower -->
+  <g transform="translate(35, 25)">
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-6" rx="3" ry="5.5" fill="#9B8CBF" opacity="0.85" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="3" fill="#F4C430"/>
+  </g>
+  
+  <!-- Ocean accent flower -->
+  <g transform="translate(55, 38)">
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#3D5FA3" opacity="0.8"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#3D5FA3" opacity="0.8" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#3D5FA3" opacity="0.8" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#3D5FA3" opacity="0.8" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#3D5FA3" opacity="0.8" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#F4C430"/>
+  </g>
+  
+  <!-- Tiny rose accent -->
+  <g transform="translate(22, 42)">
+    <circle cx="-1.5" cy="0" r="2" fill="#E8837C" opacity="0.65"/>
+    <circle cx="1.5" cy="0" r="2" fill="#E8837C" opacity="0.65"/>
+    <circle cx="0" cy="-1.5" r="2" fill="#E8837C" opacity="0.65"/>
+    <circle cx="0" cy="0" r="1.2" fill="#F4C430"/>
+  </g>
+</svg>

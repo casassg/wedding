@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" fill="none">
+  <!-- Flower cluster for left side of titles - no stems -->
+  
+  <!-- Cosmos flower (rose) - main -->
+  <g transform="translate(30, 22)">
+    <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#E8837C" opacity="0.85"/>
+    <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#E8837C" opacity="0.85" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#E8837C" opacity="0.85" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#E8837C" opacity="0.85" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-7" rx="3" ry="6" fill="#E8837C" opacity="0.85" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="3" fill="#F4C430"/>
+  </g>
+  
+  <!-- Small daisy (marigold) -->
+  <g transform="translate(50, 35)">
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8"/>
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-5" rx="2" ry="4" fill="#F4C430" opacity="0.8" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#E5793B"/>
+  </g>
+  
+  <!-- Tiny lavender accent -->
+  <g transform="translate(18, 38)">
+    <circle cx="-2" cy="0" r="2" fill="#9B8CBF" opacity="0.7"/>
+    <circle cx="2" cy="0" r="2" fill="#9B8CBF" opacity="0.7"/>
+    <circle cx="0" cy="-2" r="2" fill="#9B8CBF" opacity="0.7"/>
+    <circle cx="0" cy="0" r="1.5" fill="#F4C430"/>
+  </g>
+  
+  <!-- Extra small mint flower -->
+  <g transform="translate(58, 18)">
+    <circle cx="-1.5" cy="0" r="1.5" fill="#5CB38B" opacity="0.7"/>
+    <circle cx="1.5" cy="0" r="1.5" fill="#5CB38B" opacity="0.7"/>
+    <circle cx="0" cy="-1.5" r="1.5" fill="#5CB38B" opacity="0.7"/>
+    <circle cx="0" cy="1.5" r="1.5" fill="#5CB38B" opacity="0.7"/>
+    <circle cx="0" cy="0" r="1" fill="#F4C430"/>
+  </g>
+</svg>

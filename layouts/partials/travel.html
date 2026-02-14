@@ -2,7 +2,16 @@
 <section id="travel" class="py-16 md:py-24 px-6 bg-cream">
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
-            <span class="text-clay font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+            <!-- Section label with floral decorations -->
+            <div class="relative inline-flex justify-center items-center">
+                <img src="{{ "images/flowers/cluster-e.svg" | relURL }}" 
+                     class="flower-decoration flower-left" 
+                     alt="" aria-hidden="true">
+                <span class="text-clay font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}" 
+                     class="flower-decoration flower-right" 
+                     alt="" aria-hidden="true">
+            </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "travel_info" }}</h2>
         </div>
         

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Cosmos flower - 5 petals in rose color -->
+  <g transform="translate(24, 24)">
+    <!-- Petals -->
+    <ellipse cx="0" cy="-12" rx="5" ry="10" fill="#E8837C" opacity="0.9"/>
+    <ellipse cx="0" cy="-12" rx="5" ry="10" fill="#E8837C" opacity="0.9" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-12" rx="5" ry="10" fill="#E8837C" opacity="0.9" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-12" rx="5" ry="10" fill="#E8837C" opacity="0.9" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-12" rx="5" ry="10" fill="#E8837C" opacity="0.9" transform="rotate(288)"/>
+    <!-- Center -->
+    <circle cx="0" cy="0" r="5" fill="#F4C430"/>
+    <circle cx="0" cy="0" r="3" fill="#E5793B"/>
+  </g>
+</svg>

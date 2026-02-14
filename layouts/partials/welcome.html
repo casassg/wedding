@@ -1,17 +1,28 @@
 <!-- Welcome Section -->
 <section id="welcome" class="py-16 md:py-24 px-6 bg-white">
     <div class="max-w-4xl mx-auto text-center">
-        <span class="text-rose font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
+        <!-- Section label with floral decorations -->
+        <div class="relative inline-flex justify-center items-center">
+            <img src="{{ "images/flowers/cluster-a.svg" | relURL }}" 
+                 class="flower-decoration flower-left" 
+                 alt="" aria-hidden="true">
+            <span class="text-rose font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
+            <img src="{{ "images/flowers/cluster-b.svg" | relURL }}" 
+                 class="flower-decoration flower-right" 
+                 alt="" aria-hidden="true">
+        </div>
         <h2 class="font-hand text-5xl md:text-6xl mt-4 mb-8 text-gray-800 transform -rotate-1">{{ i18n "were_getting_married" }}</h2>
         <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto font-sans text-lg">
             {{ i18n "welcome_message" }}
         </p>
         
-        <!-- Decorative Divider -->
-        <div class="flex items-center justify-center mt-12 space-x-4">
-            <div class="h-1 w-16 bg-rose/30 rounded-full"></div>
+        <!-- Decorative Floral Divider -->
+        <div class="flex items-center justify-center mt-12 space-x-3">
+            <img src="{{ "images/flowers/wildflower.svg" | relURL }}" class="flower-divider" alt="" aria-hidden="true">
+            <div class="h-1 w-12 bg-rose/30 rounded-full"></div>
             <i class="fa-solid fa-heart text-rose text-xl animate-pulse"></i>
-            <div class="h-1 w-16 bg-rose/30 rounded-full"></div>
+            <div class="h-1 w-12 bg-rose/30 rounded-full"></div>
+            <img src="{{ "images/flowers/cosmos.svg" | relURL }}" class="flower-divider" alt="" aria-hidden="true">
         </div>
     </div>
 </section>

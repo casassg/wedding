@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 60" fill="none">
+  <!-- Delphinium - vertical cluster of flowers, no stem -->
+  
+  <!-- Top flower cluster -->
+  <g transform="translate(20, 12)">
+    <circle cx="-4" cy="0" r="3" fill="#9B8CBF"/>
+    <circle cx="4" cy="0" r="3" fill="#9B8CBF"/>
+    <circle cx="0" cy="-4" r="3" fill="#3D5FA3"/>
+    <circle cx="0" cy="0" r="2" fill="#F4C430"/>
+  </g>
+  
+  <!-- Middle flower cluster (larger) -->
+  <g transform="translate(20, 28)">
+    <circle cx="-5" cy="0" r="4" fill="#3D5FA3"/>
+    <circle cx="5" cy="0" r="4" fill="#3D5FA3"/>
+    <circle cx="0" cy="-5" r="4" fill="#9B8CBF"/>
+    <circle cx="0" cy="5" r="4" fill="#9B8CBF"/>
+    <circle cx="0" cy="0" r="2.5" fill="#F4C430"/>
+  </g>
+  
+  <!-- Bottom flower cluster -->
+  <g transform="translate(20, 46)">
+    <circle cx="-4" cy="0" r="3.5" fill="#9B8CBF"/>
+    <circle cx="4" cy="0" r="3.5" fill="#9B8CBF"/>
+    <circle cx="0" cy="-4" r="3.5" fill="#3D5FA3"/>
+    <circle cx="0" cy="0" r="2" fill="#F4C430"/>
+  </g>
+</svg>

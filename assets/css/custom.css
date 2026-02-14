@@ -508,3 +508,82 @@ body.place-modal-open {
             box-shadow 0.3s ease;
     }
 }
+
+/* ===== Floral Decorations ===== */
+
+/* Base flower decoration positioning */
+.flower-decoration {
+    position: absolute;
+    pointer-events: none;
+    z-index: 5;
+    opacity: 0.7;
+}
+
+/* Title flanking positions - left cluster (mobile-first) */
+.flower-left {
+    left: -35px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+    width: 30px;
+    height: auto;
+}
+
+/* Title flanking positions - right cluster (mobile-first) */
+.flower-right {
+    right: -35px;
+    top: 50%;
+    transform: translateY(-50%) rotate(15deg);
+    width: 30px;
+    height: auto;
+}
+
+/* Divider flower styling */
+.flower-divider {
+    width: 20px;
+    height: 20px;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+/* Responsive adjustments for flowers - tablet */
+@media (min-width: 640px) {
+    .flower-left {
+        left: -50px;
+        width: 45px;
+    }
+    
+    .flower-right {
+        right: -50px;
+        width: 45px;
+    }
+    
+    .flower-divider {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+/* Responsive adjustments for flowers - desktop */
+@media (min-width: 768px) {
+    .flower-left {
+        left: -80px;
+        width: 70px;
+    }
+    
+    .flower-right {
+        right: -80px;
+        width: 70px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .flower-left {
+        left: -100px;
+        width: 80px;
+    }
+    
+    .flower-right {
+        right: -100px;
+        width: 80px;
+    }
+}

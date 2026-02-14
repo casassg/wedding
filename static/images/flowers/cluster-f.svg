@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" fill="none">
+  <!-- Cluster F: Mixed small flowers bouquet -->
+  
+  <!-- Rose small flower -->
+  <g transform="translate(30, 22)">
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#E8837C" opacity="0.8"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#E8837C" opacity="0.8" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#E8837C" opacity="0.8" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#E8837C" opacity="0.8" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#E8837C" opacity="0.8" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#F4C430"/>
+  </g>
+  
+  <!-- Marigold small flower -->
+  <g transform="translate(50, 35)">
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-5" rx="2.5" ry="4.5" fill="#F4C430" opacity="0.8" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="2.5" fill="#E5793B"/>
+  </g>
+  
+  <!-- Lavender small flower -->
+  <g transform="translate(38, 45)">
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#9B8CBF" opacity="0.75"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#9B8CBF" opacity="0.75" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#9B8CBF" opacity="0.75" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#9B8CBF" opacity="0.75" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#9B8CBF" opacity="0.75" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="2" fill="#F4C430"/>
+  </g>
+  
+  <!-- Tiny ocean accent -->
+  <g transform="translate(58, 20)">
+    <circle cx="0" cy="0" r="2.5" fill="#3D5FA3" opacity="0.6"/>
+    <circle cx="0" cy="0" r="1.2" fill="#F4C430"/>
+  </g>
+</svg>

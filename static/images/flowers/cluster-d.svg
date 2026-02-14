@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 60" fill="none">
+  <!-- Cluster D: Mint wildflower + rose accent -->
+  
+  <!-- Main mint wildflower -->
+  <g transform="translate(42, 28)">
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85"/>
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85" transform="rotate(60)"/>
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85" transform="rotate(120)"/>
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85" transform="rotate(240)"/>
+    <ellipse cx="0" cy="-7" rx="3.5" ry="6" fill="#5CB38B" opacity="0.85" transform="rotate(300)"/>
+    <circle cx="0" cy="0" r="3.5" fill="#F4C430"/>
+    <circle cx="0" cy="0" r="2" fill="#E5793B"/>
+  </g>
+  
+  <!-- Rose accent -->
+  <g transform="translate(60, 42)">
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#E8837C" opacity="0.75"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#E8837C" opacity="0.75" transform="rotate(72)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#E8837C" opacity="0.75" transform="rotate(144)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#E8837C" opacity="0.75" transform="rotate(216)"/>
+    <ellipse cx="0" cy="-4" rx="2" ry="3.5" fill="#E8837C" opacity="0.75" transform="rotate(288)"/>
+    <circle cx="0" cy="0" r="2" fill="#F4C430"/>
+  </g>
+  
+  <!-- Tiny marigold dot -->
+  <g transform="translate(25, 20)">
+    <circle cx="0" cy="0" r="3" fill="#F4C430" opacity="0.6"/>
+    <circle cx="0" cy="0" r="1.5" fill="#E5793B"/>
+  </g>
+</svg>
