@@ -501,6 +501,10 @@ body.place-modal-open {
     }
 
     #rsvp {
-        transition: max-height 0.5s ease-out 0.4s, opacity 0.4s ease-out 0.5s;
+        transition: 
+            max-height 0.5s ease-out 0.4s, 
+            opacity 0.4s ease-out 0.5s,
+            transform 0.3s ease,
+            box-shadow 0.3s ease;
     }
 }
