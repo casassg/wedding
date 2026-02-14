@@ -449,6 +449,14 @@
                 const params = new URLSearchParams(window.location.search);
                 this.code = params.get('code');
                 
+                // Restore envelope state from localStorage (skip on localhost)
+                if (this.code && !this.isLocalhost) {
+                    const stored = localStorage.getItem(`envelope-opened-${this.code}`);
+                    if (stored === 'true') {
+                        this.envelopeOpened = true;
+                    }
+                }
+                
                 if (this.code) {
                     this.loadInvite();
                 } else {
@@ -456,8 +464,12 @@
                 }
             },
             
+            get isLocalhost() {
+                return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+            },
+            
             get apiBase() {
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                if (this.isLocalhost) {
                     return 'http://localhost:8080/api/v1';
                 }
                 return "https://api.lauraygerard.wedding/api/v1";
@@ -582,6 +594,11 @@
                 setTimeout(() => {
                     this.envelopeOpened = true;
                     this.envelopeAnimating = false;
+                    
+                    // Store in localStorage (skip on localhost)
+                    if (this.code && !this.isLocalhost) {
+                        localStorage.setItem(`envelope-opened-${this.code}`, 'true');
+                    }
                 }, 900);
             },
             
