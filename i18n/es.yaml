@@ -129,7 +129,7 @@ traveling_getting_around_intro: "Copán Ruinas es un pueblo pequeño y fácil de
 traveling_walking_title: "Caminando"
 traveling_walking_desc: "El centro del pueblo es compacto y se puede recorrer a pie. La mayoría de los hoteles están a 10-15 minutos caminando de la iglesia (Parroquia San José Obrero). ¡No necesitas transporte para la ceremonia!"
 traveling_tuktuk_title: "Tuk-tuks"
-traveling_tuktuk_desc: "Los mototaxis de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Simplemente detén uno en la calle o pide a tu hotel que llame a uno. Son perfectos para ir a lugares fuera del centro."
+traveling_tuktuk_desc: "Los tuktuks de tres ruedas están por todas partes y son muy económicos (normalmente L20-40 / $1-2 por viaje). Simplemente detén uno en la calle o pide a tu hotel que llame a uno. Son perfectos para ir a lugares fuera del centro."
 
 # Why Copán
 traveling_why_copan: "¿Por qué Copán?"
@@ -159,14 +159,13 @@ traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de 
 traveling_accommodation_soon: "Estamos trabajando en recomendaciones de hoteles y posiblemente tarifas grupales. ¡Detalles próximamente!"
 
 # Alojamientos
-accommodation_room_block: "Bloque de habitaciones"
+accommodation_room_block: "Reserva de grupo"
 accommodation_block_reserved: "habitaciones reservadas"
-accommodation_block_dates: "Fechas del bloque"
+accommodation_block_dates: "Fechas de la reserva"
 accommodation_reserve_via: "Reservar por"
 accommodation_email: "Email"
 accommodation_whatsapp: "WhatsApp"
 accommodation_per_night: "/noche"
-accommodation_tax_note: "Tarifas base. Añadir el 19% de impuestos."
 accommodation_includes: "Incluye"
 accommodation_other_options: "Otras opciones"
 accommodation_visit_website: "Visitar sitio web"

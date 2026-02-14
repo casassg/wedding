@@ -24,12 +24,12 @@
   description: Lleva protector solar y una capa ligera para las noches frescas en Copán.
 - id: valuables
   icon: fa-solid fa-gem
-  title: Sé discreto con valores
+  title: Sé discreto con objetos de valor
   description: Evita joyas llamativas u objetos de valor a la vista; es mejor pasar desapercibido.
 - id: transport
   icon: fa-solid fa-taxi
   title: Transporte de confianza
-  description: En Copán, los mototaxis son ideales. En ciudades grandes evita taxis desconocidos y buses; elige transporte privado.
+  description: En Copán, los tuktuks son ideales. En ciudades grandes evita taxis desconocidos y buses; elige transporte privado.
 - id: locals
   icon: fa-solid fa-face-smile
   title: Gente cálida
