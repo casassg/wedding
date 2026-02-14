@@ -42,7 +42,7 @@
   tips:
     - "🎫 Entrada 10$ (L250), 8:00-16:00. Demana entrades a la recepció del teu hotel."
     - "🚗 És a només 10 minuts amb cotxe de la plaça central de Copán Ruinas."
-    - "🦜 El primer grup d'aus va ser alliberat el 2011. Ara hi ha més de 130 guacamais volant per les ruïnes i la vall."
+    - "🦜 El primer grup d'aus es va alliberar el 2011. Ara hi ha més de 130 guacamais volant per les ruïnes i la vall."
   links:
     - label: "Web Oficial"
       url: "https://www.macawmountain.org/"
@@ -154,7 +154,7 @@
   title: "Papallonari"
   description: "Un santuari on pots caminar entre centenars de papallones de colors dins d'un jardí tancat."
   icon: "fa-solid fa-dove"
-  long_description: "Ubicat a l'Hotel Mayan Hills Resort (a 5 min de les ruïnes), aquest encantador papallonari presenta espècies des de la llegendària morpho blava fins a la majestuosa papallona monarca. Observa la metamorfosi en acció, interactua amb aquestes delicades criatures i fes fotos inoblidables mentre se't posen a sobre."
+  long_description: "Ubicat a l'Hotel Mayan Hills Resort (a 5 min de les ruïnes), aquest encantador papallonari presenta espècies des de la llegendària morpho blava fins a la majestuosa papallona monarca. Observa la metamorfosi en acció, interactua amb aquestes delicades criatures i fes fotos inoblidables mentre se us posen a sobre."
   tips:
     - "🦋 Les millors fotos surten al matí, quan les papallones estan més actives."
     - "📍 A l'Hotel Mayan Hills Resort; combina-ho amb un dinar al seu restaurant."
@@ -178,7 +178,7 @@
   title: "Camps de Gira-sols"
   description: "Preciosos camps de gira-sols que floreixen tot l'any! Gaudeix del paisatge, les hamaques, el restaurant, el cafè local i els gelats."
   icon: "fa-solid fa-sun-plant-wilt"
-  long_description: "El Paseo de los Girasoles ofereix més que fotos: relaxa't a les hamaques, gaudeix del brunch o d'un dinar al restaurant, assaboreix cafè de torrefactors locals de Copán i dona't un caprici amb un gelat envoltat de gira-sols infinits."
+  long_description: "El Paseo de los Girasoles ofereix més que fotos: relaxa't a les hamaques, gaudeix del brunch o d'un dinar al restaurant, assaboreix cafè de torrefactors locals de Copán i gaudeix d'un gelat envoltat de gira-sols infinits."
   tips:
     - "🌻 Els gira-sols floreixen tot l'any, però consulta la seva pàgina de Facebook per veure l'estat actual."
     - "☕ Gaudeix de les hamaques, del restaurant, del cafè local i del gelat al mateix recinte."

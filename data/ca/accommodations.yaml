@@ -35,7 +35,7 @@
     - label: "Reserva via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50499798531&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
-  description: "Hotel de la boda, estil colonial, amb piscina i patis verds al centre del poble."
+  description: "Hotel del casament, estil colonial, amb piscina i patis verds al centre del poble."
 
 - id: plaza_copan
   name: "Hotel Plaza Copan"

@@ -1,13 +1,13 @@
 - id: roatan
   title: "Roatán"
-  description: "L'illa de la Badia més gran (~59 km de llarg), amb busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana), el segon sistema d'esculls més gran del món. És la llar de la [cultura garífuna](https://ca.wikipedia.org/wiki/Gar%C3%ADfunes) a Punta Gorda (fundada el 1797) i té platges impressionants i santuaris de vida salvatge increïbles."
+  description: "La més gran de les illes de la Badia (~59 km de llarg), amb busseig de classe mundial a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana), el segon sistema d'esculls més gran del món. És la llar de la [cultura garífuna](https://ca.wikipedia.org/wiki/Gar%C3%ADfunes) a Punta Gorda (fundada el 1797) i té platges impressionants i santuaris de vida salvatge increïbles."
   icon: "fa-solid fa-water"
-  long_description: "West Bay Beach és considerada sovint una de les millors platges del Carib, amb sorra blanca i l'escull a poca distància nedant. West End és el centre turístic principal, amb centres de busseig, restaurants i vida nocturna. L'escull està protegit pel [Roatan Marine Park](https://www.roatanmarinepark.org/), una organització sense ànim de lucre amb programes de restauració de coral (pots visitar-ne el centre o fer un taller de caça de peix lleó). No et perdis els santuaris d'animals: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) per veure'ls de prop, i [Gumbalimba Park](https://roatan.online/gumbalimba-park) per a tirolines i natura. La [Fàbrica de Xocolata de Roatán](https://roatan.online/roatan-chocolate-factory) ofereix tours gratuïts del procés del gra a la rajola. Si busques aventura, explora els túnels de manglars a l'extrem est, més tranquil, o relaxa't a les platges solitàries de Camp Bay."
+  long_description: "West Bay Beach és considerada sovint una de les millors platges del Carib, amb sorra blanca i l'escull a poca distància nedant. West End és el centre turístic principal, amb centres de busseig, restaurants i vida nocturna. L'escull està protegit pel [Roatan Marine Park](https://www.roatanmarinepark.org/), una organització sense ànim de lucre amb programes de restauració de coral (pots visitar-ne el centre o fer un taller de pesca de peix lleó). No et perdis els santuaris d'animals: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) per veure'ls de prop, i [Gumbalimba Park](https://roatan.online/gumbalimba-park) per a tirolines i natura. La [Fàbrica de Xocolata de Roatán](https://roatan.online/roatan-chocolate-factory) ofereix tours gratuïts del procés del gra a la rajola. Si busques aventura, explora els túnels de manglars a l'extrem est, més tranquil, o relaxa't a les platges solitàries de Camp Bay."
   tips:
     - "🏊 El millor snorkel és a la platja de West Bay: l'escull és a tocar de la sorra."
     - "🐠 Fes servir crema solar que no malmeti els esculls per protegir el coral."
     - "🛳️ Evita anar a comprar quan arriben creuers: els preus es dupliquen o tripliquen."
-    - "🦟 Posa't repel·lent fort (tipus Relec) sovint: les puces de sorra piquen sense avisar."
+    - "🦟 Posa't repel·lent fort (tipus Relec) sovint: els mosquits de sorra piquen sense avisar."
   links:
     - label: "Viquipèdia"
       url: "https://ca.wikipedia.org/wiki/Roat%C3%A1n"
@@ -30,9 +30,9 @@
 
 - id: utila
   title: "Utila"
-  description: "L'illa de la Badia més petita, amb un ambient relaxat i bohemi. Ofereix busseig de primera a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana) i és un dels millors llocs del món per veure taurons balena (el desembre és temporada alta!). És l'hàbitat de la iguana Swamper, una espècie endèmica que no es troba enlloc més del planeta."
+  description: "La més petita de les illes de la Badia, amb un ambient relaxat i bohemi. Ofereix busseig de primera a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana) i és un dels millors llocs del món per veure taurons balena (el desembre és temporada alta!). És l'hàbitat de la iguana Swamper, una espècie endèmica que no es troba enlloc més del planeta."
   icon: "fa-solid fa-fish"
-  long_description: "Paradís de motxillers i bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No hi circulen cotxes: mou-te en tuk-tuk, quad o carret de golf. Destaquen: Airport Caves per fer snorkel increïble des de la riba amb coves i esquerdes (nivell mitjà); Neptune's a Coral Beach Village (accés en vaixell) per passar el dia a la platja i fer snorkel; Water Caye per una excursió a una illa deshabitada verge; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per tastar xocolata artesanal."
+  long_description: "Paradís de motxillers i bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No hi circulen cotxes: mou-te en tuk-tuk, quad o carret de golf. Destaquen: Airport Caves per fer snorkel increïble des de la vora amb coves i esquerdes (nivell mitjà); Neptune's a Coral Beach Village (accés en vaixell) per passar el dia a la platja i fer snorkel; Water Caye per una excursió a una illa deshabitada verge; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per tastar xocolata artesanal."
   tips:
     - "🦈 El desembre és temporada alta de taurons balena: ideal per al viatge!"
     - "💰 Un dels llocs més econòmics del món per treure's el títol PADI."
@@ -130,12 +130,12 @@
 
 - id: cayos
   title: "Cayos Cochinos"
-  description: "Àrea marina protegida verge amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de la boa rosa i de pobles pesquers garífunes. National Geographic l'anomena 'el somni d'un biòleg marí'."
+  description: "Àrea marina protegida verge amb [dues illes petites i 13 illots de corall](https://en.wikipedia.org/wiki/Cayos_Cochinos). Llar de la boa rosada i de pobles pesquers garífunes. National Geographic l'anomena 'el somni d'un biòleg marí'."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: "Aquest santuari marí protegit forma part del Sistema d'Esculls Mesoamericà i ofereix busseig i snorkel en aigües cristal·lines. Gestionat per la [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), les illes acullen programes crítics de restauració de corall i conservació de tortugues marines. Els visitants poden explorar les illes principals (Cayo Mayor i Menor), fer senderisme per veure la boa rosa endèmica i conèixer la cultura local al poble garífuna de Chachahuate. Tant si hi aneu d'excursió d'un dia com si us allotgeu en un ecoresort, l'experiència és inoblidable."
+  long_description: "Aquest santuari marí protegit forma part del Sistema d'Esculls Mesoamericà i ofereix busseig i snorkel en aigües cristal·lines. Gestionat per la [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), les illes acullen programes crítics de restauració de corall i conservació de tortugues marines. Els visitants poden explorar les illes principals (Cayo Mayor i Menor), fer senderisme per veure la boa rosada endèmica i conèixer la cultura local al poble garífuna de Chachahuate. Tant si hi aneu d'excursió d'un dia com si us allotgeu en un ecoresort, l'experiència és inoblidable."
   tips:
     - "🛥️ Accessible en llanxa des de La Ceiba (1,5 h), Roatán (40 min) o Sambo Creek."
-    - "🐍 Llar de la boa rosa endèmica; fes una caminada guiada a Cayo Mayor per veure-la."
+    - "🐍 Llar de la boa rosada endèmica; fes una caminada guiada a Cayo Mayor per veure-la."
     - "🤿 Àrea marina protegida amb esculls verges, perfecta per a snorkel i busseig."
     - "🏘️ Visita l'illot Chachahuate per menjar i viure la cultura garífuna autèntica."
   links:
