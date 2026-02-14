@@ -6,10 +6,6 @@
 }
 
 /* Base styles */
-html, body {
-    overflow-x: hidden;
-}
-
 body {
     font-family: "Montserrat", sans-serif;
     scroll-behavior: smooth;
@@ -311,7 +307,7 @@ body.place-modal-open {
     position: absolute;
     inset: 0;
     background: linear-gradient(145deg, #faf6ec 0%, #f0ebdb 100%);
-    border-radius: 28px;
+    border-radius: 0;
     box-shadow:
         0 4px 20px rgba(0, 0, 0, 0.12),
         0 2px 6px rgba(0, 0, 0, 0.08);
@@ -460,18 +456,14 @@ body.place-modal-open {
 
 @media (max-width: 640px) {
     .envelope-overlay {
-        /* Use viewport units to extend to screen edges */
+        /* Fit within screen with proportional envelope aspect ratio */
         position: absolute;
         inset: auto;
         top: -16px;
-        bottom: -16px;
         left: 50%;
         transform: translateX(-50%);
-        width: 300vw;
-    }
-
-    .envelope-body {
-        border-radius: 0;
+        width: calc(100% + 32px);
+        aspect-ratio: 4 / 3;
     }
 
     .wax-seal {
