@@ -1,6 +1,6 @@
 {{ define "main" }}
 <!-- Hero Section -->
-<section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-mint section-colored">
+<section class="pt-32 pb-16 md:pt-40 md:pb-24 px-6 bg-ocean section-colored">
     <div class="max-w-4xl mx-auto text-center">
         <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/80 hover:text-white transition mb-8 font-sans">
             <i class="fa-solid fa-arrow-left mr-2"></i>
@@ -16,12 +16,12 @@
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
+                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}"
+                     class="flower-decoration flower-left"
                      alt="" aria-hidden="true">
                 <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
-                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
+                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}"
+                     class="flower-decoration flower-right"
                      alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_getting_there" }}</h2>
@@ -76,12 +76,12 @@
     <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
+                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}"
+                     class="flower-decoration flower-left"
                      alt="" aria-hidden="true">
                 <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "travel_agent_label" }}</span>
-                <img src="{{ "images/flowers/cluster-d.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
+                <img src="{{ "images/flowers/cluster-d.svg" | relURL }}"
+                     class="flower-decoration flower-right"
                      alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "travel_agent_title" }}</h2>
@@ -160,13 +160,7 @@
     <div class="max-w-5xl mx-auto">
         <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-e.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
-                     alt="" aria-hidden="true">
                 <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
-                <img src="{{ "images/flowers/cluster-f.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
-                     alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_why_copan" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_why_copan_intro" }}</p>
@@ -208,12 +202,12 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
+                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}"
+                     class="flower-decoration flower-left"
                      alt="" aria-hidden="true">
-                <span class="text-mint font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
-                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
+                <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "welcome" }}</span>
+                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}"
+                     class="flower-decoration flower-right"
                      alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_things_to_do" }}</h2>
@@ -258,9 +252,9 @@
                 </div>
 
                 <!-- Tuk-tuks -->
-                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-clay/30 transition-all duration-300">
+                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
                     <div class="flex items-center mb-6">
-                        <div class="w-12 h-12 bg-clay/20 text-clay rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
+                        <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
                             <i class="fa-solid fa-taxi text-xl"></i>
                         </div>
                         <h3 class="font-hand text-3xl text-gray-800">{{ i18n "traveling_tuktuk_title" }}</h3>
@@ -271,7 +265,7 @@
 
             <!-- Travel Agent Hint -->
             <p class="text-center text-gray-500 font-sans text-sm mt-8">
-                <i class="fa-solid fa-circle-info text-mint mr-1"></i>
+                <i class="fa-solid fa-circle-info text-rose mr-1"></i>
                 {{ i18n "travel_agent_hint" | markdownify }}
             </p>
         </div>
@@ -283,13 +277,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
-                     alt="" aria-hidden="true">
                 <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
-                <img src="{{ "images/flowers/cluster-d.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
-                     alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_explore" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_explore_intro" }}</p>
@@ -330,12 +318,12 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-e.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
+                <img src="{{ "images/flowers/cluster-e.svg" | relURL }}"
+                     class="flower-decoration flower-left"
                      alt="" aria-hidden="true">
-                <span class="text-rose font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
-                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
+                <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "logistics" }}</span>
+                <img src="{{ "images/flowers/cluster-a.svg" | relURL }}"
+                     class="flower-decoration flower-right"
                      alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "traveling_tips_title" }}</h2>
@@ -365,13 +353,7 @@
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-f.svg" | relURL }}" 
-                     class="flower-decoration flower-left" 
-                     alt="" aria-hidden="true">
                 <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
-                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}" 
-                     class="flower-decoration flower-right" 
-                     alt="" aria-hidden="true">
             </div>
             <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_where_to_stay" }}</h2>
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
