@@ -6,6 +6,10 @@
 }
 
 /* Base styles */
+html, body {
+    overflow-x: hidden;
+}
+
 body {
     font-family: "Montserrat", sans-serif;
     scroll-behavior: smooth;
