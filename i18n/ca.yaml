@@ -120,6 +120,7 @@ travel_agent_service_hotels: "Reserves d'hotels a Copán"
 travel_agent_service_shuttle: "Busos compartits de SPS a Copán"
 travel_agent_service_trips: "Planificació de viatges per Copán"
 travel_agent_contact: "Contacte"
+travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
 travel_agent_hint: "Necessites ajuda per planificar un viatge? [Contacta la nostra agent de viatges](#travel-agent) per a assistència!"
 
 # Getting Around Copán
