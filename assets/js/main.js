@@ -58,6 +58,45 @@
     initLanguageDetection();
 
     // ===================
+    // Preserve Code Parameter on Internal Links
+    // ===================
+    function preserveCodeParameter() {
+        const code = new URLSearchParams(window.location.search).get('code');
+        if (!code) return;
+
+        // Add click handler to all internal links
+        document.addEventListener('click', function(e) {
+            const link = e.target.closest('a');
+            if (!link) return;
+
+            const href = link.getAttribute('href');
+            if (!href) return;
+
+            // Check if it's an internal relative link (starts with / or doesn't have a protocol)
+            const isRelative = href.startsWith('/') || (!href.startsWith('http://') && !href.startsWith('https://') && !href.startsWith('#') && !href.startsWith('mailto:') && !href.startsWith('tel:'));
+            
+            if (isRelative) {
+                // Prevent default navigation
+                e.preventDefault();
+                
+                // Build new URL with code parameter
+                const url = new URL(link.href, window.location.origin);
+                url.searchParams.set('code', code);
+                
+                // Navigate to the new URL
+                window.location.href = url.toString();
+            }
+        });
+    }
+
+    // Run after DOM is loaded
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', preserveCodeParameter);
+    } else {
+        preserveCodeParameter();
+    }
+
+    // ===================
     // Confetti Effect (shared utility)
     // ===================
     const confettiColors = [
