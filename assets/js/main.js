@@ -590,6 +590,10 @@
                 
                 this.envelopeAnimating = true;
                 
+                // Trigger confetti explosion from wax seal
+                const sealElement = this.$el.querySelector('.wax-seal');
+                window.createConfetti(sealElement || this.$el, 100, true);
+                
                 // Wait for animations: seal(300ms) + flap(600ms) + fade(400ms) with overlap
                 setTimeout(() => {
                     this.envelopeOpened = true;
