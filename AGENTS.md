@@ -1,6 +1,6 @@
 # AGENTS.md – Operating Manual for AI Assistants
 
-Multilingual wedding experience built with Hugo (frontend) plus a Go RSVP API deployed on Fly.io. The site is live at [gerard.space/wedding](https://gerard.space/wedding/).
+Multilingual wedding experience built with Hugo (frontend) plus a Go RSVP API deployed on Fly.io. The site is live at [lauraygerard.wedding](https://lauraygerard.wedding/).
 
 This repository hosts a Hugo-based multilingual wedding site plus a Go RSVP backend. Follow the guardrails below whenever you act in this project.
 
@@ -34,7 +34,7 @@ Hermit provides pinned versions of `hugo`, `go`, `sqlc`, `gh`, `flyctl`, and `gc
 ### Frontend (Hugo)
 
 ```bash
-hugo server          # http://localhost:1313/wedding/
+hugo server          # http://localhost:1313/
 hugo --gc --minify   # production build into public/
 ```
 
@@ -65,7 +65,7 @@ go test -run TestUpsertInvitePreservesSyncedAt ./internal/db
 go fmt ./...
 ```
 
-The backend stores data in SQLite (`backend/tmp/wedding.db` locally, `/litefs/wedding.db` on Fly.io) and syncs bidirectionally with a Google Sheet when `GOOGLE_SHEET_ID` plus credentials are configured.
+The backend stores data in SQLite (`backend/tmp/wedding.db` locally, `/data/wedding.db` on Fly.io) and syncs bidirectionally with a Google Sheet when `GOOGLE_SHEET_ID` plus credentials are configured.
 
 ## Deployment
 

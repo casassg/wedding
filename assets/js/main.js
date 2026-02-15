@@ -19,6 +19,15 @@
         const currentLang = path.includes('/es/') ? 'es' :
                            path.includes('/ca/') ? 'ca' : 'en';
 
+        // Only redirect on the root paths - if user navigated to /es/ or /ca/ explicitly, respect that
+        const isRootPath = path === '/';
+        
+        if (!isRootPath) {
+            // User explicitly navigated to a language-specific path, mark it as selected
+            localStorage.setItem('lang-selected', 'true');
+            return;
+        }
+
         // Detect browser's preferred language
         // Priority: Catalan > then first supported language found
         const browserLangs = navigator.languages || [navigator.language || 'en'];
@@ -49,6 +58,9 @@
             // Preserve query parameters (e.g., ?code=ABC)
             const queryString = window.location.search;
             const newUrl = langPrefix + pagePath + queryString;
+            
+            // Mark that we've redirected based on browser language
+            localStorage.setItem('lang-selected', 'true');
             
             window.location.replace(newUrl);
         }
