@@ -4,7 +4,9 @@
      :class="{ 'shadow-md': scrolled }"
      class="fixed top-0 w-full z-50 glass-nav border-b border-gray-100">
     <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        <a href="{{ .Site.Home.RelPermalink }}" class="font-hand text-3xl font-bold tracking-tighter text-gray-800 hover:text-rose transition">L & G</a>
+        <a href="{{ .Site.Home.RelPermalink }}" class="hover:opacity-80 transition">
+            <img src="{{ "lg.svg" | absURL }}" alt="L & G" class="h-10 w-auto">
+        </a>
         
         <!-- Desktop Navigation -->
         <div class="hidden md:flex space-x-8 uppercase text-xs font-bold tracking-widest font-sans">
