@@ -1,20 +1,70 @@
 <!-- Hero Header -->
 <header id="home" class="section-colored relative min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Hero Background Slideshow -->
-    {{ $img1 := resources.Get "imgs/amphitheater.jpg" }}
-    {{ $img2 := resources.Get "imgs/cava.jpg" }}
-    {{ $img3 := resources.Get "imgs/laugh.jpg" }}
-    {{ $img5 := resources.Get "imgs/far.jpg" }}
-    {{ $img6 := resources.Get "imgs/hands.jpg" }}
-    {{ $img7 := resources.Get "imgs/views.jpg" }}
+    {{/* Desktop images (landscape) */}}
+    {{ $desktop1 := resources.Get "imgs/amphitheater.jpg" }}
+    {{ $desktop2 := resources.Get "imgs/cava.jpg" }}
+    {{ $desktop3 := resources.Get "imgs/laugh.jpg" }}
+    {{ $desktop4 := resources.Get "imgs/far.jpg" }}
+    {{ $desktop5 := resources.Get "imgs/hands.jpg" }}
+    {{ $desktop6 := resources.Get "imgs/views.jpg" }}
+    {{/* Mobile images (portrait, _h suffix) */}}
+    {{ $mobile1 := resources.Get "imgs/boulder_h.jpg" }}
+    {{ $mobile2 := resources.Get "imgs/smile_h.jpg" }}
+    {{ $mobile3 := resources.Get "imgs/looking_h.jpg" }}
+    {{ $mobile4 := resources.Get "imgs/sunset_h.jpg" }}
+    {{ $mobile5 := resources.Get "imgs/ring_h.jpg" }}
+    {{ $mobile6 := resources.Get "imgs/b&w_h.jpg" }}
     <div class="absolute inset-0 z-0">
         <div class="hero-slideshow">
-            {{ if $img1 }}<img src="{{ $img1.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
-            {{ if $img2 }}<img src="{{ $img2.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
-            {{ if $img3 }}<img src="{{ $img3.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
-            {{ if $img5 }}<img src="{{ $img5.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
-            {{ if $img6 }}<img src="{{ $img6.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
-            {{ if $img7 }}<img src="{{ $img7.RelPermalink }}" alt="Laura & Gerard" class="hero-slide">{{ end }}
+            {{/* Slide 1 */}}
+            {{ if and $desktop1 $mobile1 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile1.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop1.RelPermalink }}">
+                <img src="{{ $desktop1.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
+            {{/* Slide 2 */}}
+            {{ if and $desktop2 $mobile2 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile2.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop2.RelPermalink }}">
+                <img src="{{ $desktop2.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
+            {{/* Slide 3 */}}
+            {{ if and $desktop3 $mobile3 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile3.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop3.RelPermalink }}">
+                <img src="{{ $desktop3.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
+            {{/* Slide 4 */}}
+            {{ if and $desktop4 $mobile4 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile4.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop4.RelPermalink }}">
+                <img src="{{ $desktop4.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
+            {{/* Slide 5 */}}
+            {{ if and $desktop5 $mobile5 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile5.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop5.RelPermalink }}">
+                <img src="{{ $desktop5.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
+            {{/* Slide 6 */}}
+            {{ if and $desktop6 $mobile6 }}
+            <picture class="hero-slide">
+                <source media="(max-width: 767px)" srcset="{{ $mobile6.RelPermalink }}">
+                <source media="(min-width: 768px)" srcset="{{ $desktop6.RelPermalink }}">
+                <img src="{{ $desktop6.RelPermalink }}" alt="Laura & Gerard" class="hero-slide-img">
+            </picture>
+            {{ end }}
         </div>
         <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-black/10"></div>
     </div>
