@@ -484,17 +484,23 @@
                 song: ''
             },
             
-            // Error messages from data attributes
+            // Localized messages from data attributes
             errorMissingKids: '',
             errorGeneric: '',
-            inviteSizeText: '',
+            inviteSizeOne: '',
+            inviteSizeOther: '',
+            fillInfo: '',
+            fillInfoPlural: '',
             
             init() {
                 // Read config from data attributes
                 const el = this.$el;
                 this.errorMissingKids = el.dataset.errorMissingKids || 'Please select the number of kids.';
                 this.errorGeneric = el.dataset.errorGeneric || 'Something went wrong. Please try again.';
-                this.inviteSizeText = el.dataset.inviteSizeText || '';
+                this.inviteSizeOne = el.dataset.inviteSizeOne || '';
+                this.inviteSizeOther = el.dataset.inviteSizeOther || '';
+                this.fillInfo = el.dataset.fillInfo || '';
+                this.fillInfoPlural = el.dataset.fillInfoPlural || '';
                 
                 // Check for invite code
                 const params = new URLSearchParams(window.location.search);
@@ -545,9 +551,16 @@
             },
             
             get inviteSizeMessage() {
-                if (!this.invite || !this.inviteSizeText) return '';
+                if (!this.invite) return '';
                 const total = (this.invite.max_adults || 0) + (this.invite.max_kids || 0);
-                return this.inviteSizeText.replace('{n}', total);
+                const template = total === 1 ? this.inviteSizeOne : this.inviteSizeOther;
+                return template.replace('{n}', total);
+            },
+            
+            get fillInfoMessage() {
+                if (!this.invite) return '';
+                const adults = this.invite.max_adults || 0;
+                return adults > 1 ? this.fillInfoPlural : this.fillInfo;
             },
             
             async loadInvite() {

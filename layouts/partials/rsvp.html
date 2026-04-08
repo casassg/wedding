@@ -3,7 +3,14 @@
     <div class="max-w-4xl mx-auto">
         <div x-data="rsvpForm"
              x-show="showSection"
-             x-cloak>
+             x-cloak
+             data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}"
+             data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}"
+             data-error-generic="{{ i18n "rsvp_error_generic" }}"
+             data-invite-size-one="{{ i18n "rsvp_invite_size_one" }}"
+             data-invite-size-other="{{ i18n "rsvp_invite_size_other" }}"
+             data-fill-info="{{ i18n "rsvp_fill_info" }}"
+             data-fill-info-plural="{{ i18n "rsvp_fill_info_plural" }}">
 
             <!-- Stacking container for envelope overlay + card -->
             <div class="relative overflow-visible">
@@ -26,13 +33,7 @@
                 <!-- RSVP Card (always rendered, hidden behind envelope until opened) -->
                 <div id="rsvp"
                      class="card-shadow bg-white p-8 md:p-10 rounded-3xl border-2 border-mint/20 group"
-                     :class="{ 'rsvp-card-collapsed': invite && !submitted && !envelopeOpened }"
-                     id="rsvp-card"
-                     data-api-base="https://api.lauraygerard.wedding/api/v1"
-                     data-error-missing-plus-one="{{ i18n "rsvp_error_missing_plus_one" }}"
-                     data-error-missing-kids="{{ i18n "rsvp_error_missing_kids" }}"
-                     data-error-generic="{{ i18n "rsvp_error_generic" }}"
-                     data-invite-size-text="{{ i18n "rsvp_invite_size" }}">
+                     :class="{ 'rsvp-card-collapsed': invite && !submitted && !envelopeOpened }">
                     <div class="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-8">
                         <div class="w-16 h-16 bg-mint/20 text-mint rounded-2xl flex items-center justify-center shrink-0 group-hover:rotate-12 transition-transform">
                             <i class="fa-solid fa-envelope-open-text text-2xl"></i>
@@ -69,9 +70,7 @@
                                  x-cloak
                                  class="mt-6">
                                 <div class="mb-6 space-y-2">
-                                    <p class="text-gray-700 font-sans">
-                                        {{ i18n "rsvp_fill_info" }}
-                                    </p>
+                                    <p x-text="fillInfoMessage" class="text-gray-700 font-sans"></p>
                                     <p class="text-gray-700 font-sans">
                                         <span x-text="inviteSizeMessage" class="font-semibold"></span>
                                     </p>
