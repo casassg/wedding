@@ -162,7 +162,7 @@
                             <div x-show="!loading && !submitted && invite && declining"
                                  x-cloak
                                  class="mt-6">
-                                <p class="text-gray-700 font-sans mb-2">{{ i18n "rsvp_decline_prompt" }}</p>
+                                <p class="text-gray-700 font-sans mb-2">{{ i18n "rsvp_decline_prompt" | markdownify }}</p>
                                 <p class="text-sm font-semibold text-gray-700 font-sans mb-4">{{ i18n "rsvp_decline_message_label" }}</p>
                                 <form @submit.prevent="submitDecline()" class="space-y-5">
                                     <div>
