@@ -472,6 +472,11 @@
             submitting: false,
             code: null,
             
+            // Attendance state: null = undecided (main form), false = declining
+            declining: false,
+            // Whether the guest confirmed attending (for thank-you variant)
+            confirmedAttending: true,
+            
             // Envelope state
             envelopeOpened: false,
             envelopeAnimating: false,
@@ -579,6 +584,7 @@
                     
                     this.invite = await response.json();
                     this.submitted = this.invite.has_responded;
+                    this.confirmedAttending = this.invite.is_attending;
                     
                     // Skip envelope animation if already responded
                     if (this.submitted) {
@@ -637,11 +643,61 @@
                     }
                     
                     this.submitted = true;
+                    this.confirmedAttending = true;
                     
                     // Trigger confetti explosion
                     setTimeout(() => {
                         window.createConfetti(this.$el, 100, true);
                     }, 200);
+                } catch (err) {
+                    this.error = err.message || this.errorGeneric;
+                } finally {
+                    this.submitting = false;
+                }
+            },
+            
+            startDecline() {
+                this.declining = true;
+                this.error = null;
+            },
+            
+            cancelDecline() {
+                this.declining = false;
+                this.error = null;
+            },
+            
+            async submitDecline() {
+                if (this.submitting) return;
+                
+                this.error = null;
+                
+                const payload = {
+                    adult_count: 0,
+                    kid_count: 0,
+                    dietary_info: '',
+                    message_for_us: this.formData.message.trim(),
+                    song_request: ''
+                };
+                
+                try {
+                    this.submitting = true;
+                    
+                    const response = await fetch(`${this.apiBase}/invite/${encodeURIComponent(this.code)}/rsvp`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        const payloadError = await this.parseErrorResponse(response);
+                        throw new Error(this.formatErrorMessage(payloadError));
+                    }
+                    
+                    this.submitted = true;
+                    this.confirmedAttending = false;
                 } catch (err) {
                     this.error = err.message || this.errorGeneric;
                 } finally {

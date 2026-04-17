@@ -61,6 +61,12 @@ rsvp_error_missing_plus_one: "Por favor indica si vendrás con +1."
 rsvp_error_missing_kids: "Selecciona el número de niños."
 rsvp_error_generic: "Algo salió mal. Inténtalo de nuevo."
 rsvp_open_envelope: "Abrir invitación"
+rsvp_decline_button: "No voy a poder ir :("
+rsvp_decline_prompt: "Sentimos mucho que no puedas venir."
+rsvp_decline_message_label: "Aunque no puedas asistir, ¡nos encantaría saber de ti! Déjanos una nota:"
+rsvp_decline_send: "Enviar"
+rsvp_decline_go_back: "Volver"
+rsvp_thanks_decline: "¡Te echaremos de menos! Gracias por avisarnos. ❤️ Si cambian tus planes, escríbenos a [hola@lauraygerard.wedding](mailto:hola@lauraygerard.wedding)."
 
 # Travel
 logistics: "Logística"

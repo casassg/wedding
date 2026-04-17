@@ -60,6 +60,12 @@ rsvp_error_missing_plus_one: "Please indicate if you'll bring a +1."
 rsvp_error_missing_kids: "Please select the number of kids."
 rsvp_error_generic: "Something went wrong. Please try again."
 rsvp_open_envelope: "Open invitation"
+rsvp_decline_button: "I won't be able to make it :("
+rsvp_decline_prompt: "We're sorry you won't be able to make it."
+rsvp_decline_message_label: "Even if you can't be there, we'd love to hear from you! Leave us a note:"
+rsvp_decline_send: "Send"
+rsvp_decline_go_back: "Go back"
+rsvp_thanks_decline: "We'll miss you! Thanks for letting us know. ❤️ If your plans change, reach out at [hola@lauraygerard.wedding](mailto:hola@lauraygerard.wedding)."
 
 # Travel
 logistics: "Logistics"

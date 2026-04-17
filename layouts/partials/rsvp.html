@@ -57,16 +57,24 @@
                                 <p x-text="error" class="mt-1 text-sm text-gray-600 font-sans whitespace-pre-line"></p>
                             </div>
 
-                            <!-- Thank You State -->
-                            <div x-show="submitted && !loading"
+                            <!-- Thank You State (attending) -->
+                            <div x-show="submitted && confirmedAttending && !loading"
                                  x-cloak
                                  class="mt-6">
 
                                 <p class="text-lg text-gray-700 font-sans mt-2">{{ i18n "rsvp_thanks_note" | markdownify }}</p>
                             </div>
 
-                            <!-- RSVP Form -->
-                            <div x-show="!loading && !submitted && invite"
+                            <!-- Thank You State (declined) -->
+                            <div x-show="submitted && !confirmedAttending && !loading"
+                                 x-cloak
+                                 class="mt-6">
+
+                                <p class="text-lg text-gray-700 font-sans mt-2">{{ i18n "rsvp_thanks_decline" | markdownify }}</p>
+                            </div>
+
+                            <!-- RSVP Form (confirm attendance) -->
+                            <div x-show="!loading && !submitted && invite && !declining"
                                  x-cloak
                                  class="mt-6">
                                 <div class="mb-6 space-y-2">
@@ -131,15 +139,56 @@
                                                   placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
                                     </div>
 
-                                    <button type="submit"
-                                            :disabled="submitting"
-                                            :class="{ 'opacity-70': submitting }"
-                                            class="w-full md:w-auto md:mx-auto md:block rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
-                                        <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
-                                        <span x-show="submitting" x-cloak>
-                                            <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
-                                        </span>
-                                    </button>
+                                    <div class="flex flex-col sm:flex-row items-center gap-3">
+                                        <button type="submit"
+                                                :disabled="submitting"
+                                                :class="{ 'opacity-70': submitting }"
+                                                class="w-full sm:w-auto rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
+                                            <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
+                                            <span x-show="submitting" x-cloak>
+                                                <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
+                                            </span>
+                                        </button>
+                                        <button type="button"
+                                                @click="startDecline()"
+                                                class="w-full sm:w-auto rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-500 transition hover:border-gray-400 hover:text-gray-700">
+                                            {{ i18n "rsvp_decline_button" }}
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Decline Form (not attending) -->
+                            <div x-show="!loading && !submitted && invite && declining"
+                                 x-cloak
+                                 class="mt-6">
+                                <p class="text-gray-700 font-sans mb-2">{{ i18n "rsvp_decline_prompt" }}</p>
+                                <p class="text-sm font-semibold text-gray-700 font-sans mb-4">{{ i18n "rsvp_decline_message_label" }}</p>
+                                <form @submit.prevent="submitDecline()" class="space-y-5">
+                                    <div>
+                                        <textarea x-model="formData.message"
+                                                  id="rsvp-decline-message"
+                                                  rows="3"
+                                                  class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
+                                                  placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
+                                    </div>
+
+                                    <div class="flex flex-col sm:flex-row items-center gap-3">
+                                        <button type="submit"
+                                                :disabled="submitting"
+                                                :class="{ 'opacity-70': submitting }"
+                                                class="w-full sm:w-auto rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
+                                            <span x-show="!submitting">{{ i18n "rsvp_decline_send" }}</span>
+                                            <span x-show="submitting" x-cloak>
+                                                <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
+                                            </span>
+                                        </button>
+                                        <button type="button"
+                                                @click="cancelDecline()"
+                                                class="w-full sm:w-auto rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-500 transition hover:border-gray-400 hover:text-gray-700">
+                                            <i class="fa-solid fa-arrow-left mr-1 text-xs"></i>{{ i18n "rsvp_decline_go_back" }}
+                                        </button>
+                                    </div>
                                 </form>
                             </div>
                         </div>

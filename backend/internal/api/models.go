@@ -10,6 +10,7 @@ type InviteResponse struct {
 	MaxAdults    int    `json:"max_adults"`
 	MaxKids      int    `json:"max_kids"`
 	HasResponded bool   `json:"has_responded"`
+	IsAttending  bool   `json:"is_attending"`
 }
 
 // RSVPRequest is the request payload for POST /invite/{uuid}/rsvp
@@ -90,6 +91,7 @@ func ToInviteResponse(invite *store.Invite) InviteResponse {
 		Name:         invite.Name,
 		MaxAdults:    int(invite.MaxAdults),
 		MaxKids:      int(invite.MaxKids),
-		HasResponded: invite.ConfirmedAdults > 0,
+		HasResponded: invite.ResponseAt != nil,
+		IsAttending:  invite.ConfirmedAdults > 0,
 	}
 }
