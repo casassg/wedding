@@ -109,6 +109,29 @@
     }
 
     // ===================
+    // Dynamic Stripe Link (EUR for EU visitors, USD otherwise)
+    // ===================
+    function localizeStripeLinks() {
+        const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+        if (!tz.startsWith('Europe/')) return;
+
+        const path = window.location.pathname;
+        const locale = path.includes('/es/') ? 'es-419' :
+                       path.includes('/ca/') ? 'es' : 'en';
+
+        const eurBase = 'https://donate.stripe.com/dRm00igIzfOB2YMbn90Ny01';
+        document.querySelectorAll('a[href*="donate.stripe.com"]').forEach(link => {
+            link.href = eurBase + '?locale=' + locale;
+        });
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', localizeStripeLinks);
+    } else {
+        localizeStripeLinks();
+    }
+
+    // ===================
     // Confetti Effect (shared utility)
     // ===================
     const confettiColors = [
