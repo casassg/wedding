@@ -40,6 +40,22 @@ body {
     animation: heroFade 70s infinite;
 }
 
+/* First slide visible by default so something shows even if animation is delayed */
+.hero-slide:first-child {
+    opacity: 1;
+}
+
+/* Respect reduced-motion preferences: show first slide, hide animation */
+@media (prefers-reduced-motion: reduce) {
+    .hero-slide {
+        animation: none !important;
+        opacity: 0 !important;
+    }
+    .hero-slide:first-child {
+        opacity: 1 !important;
+    }
+}
+
 .hero-slide img,
 .hero-slide.hero-slide-img,
 img.hero-slide {
