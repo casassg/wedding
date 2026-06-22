@@ -3,7 +3,7 @@ name: Sync RSVP Data
 on:
   schedule:
     # Run every 15 minutes
-    - cron: "0 * * * *"
+    - cron: "42 */3 * * *"
   workflow_dispatch: # Allow manual triggering
 
 jobs:
