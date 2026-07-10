@@ -201,7 +201,7 @@ last_updated: "Last updated"
 # Schedule Page
 nav_schedule: "Schedule"
 schedule_title: "Wedding Schedule"
-schedule_subtitle: "Here's what we have planned for the celebration. Times shown in your local timezone."
+schedule_subtitle: "Here's what we have planned for the celebration. Times shown in Copán, Honduras (UTC-6)."
 schedule_back_home: "Back to Home"
 schedule_loading: "Loading schedule..."
 schedule_error: "Could not load the schedule. Please try again."

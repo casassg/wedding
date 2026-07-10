@@ -202,7 +202,7 @@ last_updated: "Actualizado hace"
 # Schedule Page
 nav_schedule: "Horario"
 schedule_title: "Horario de la Boda"
-schedule_subtitle: "Esto es lo que tenemos planeado para la celebración. Horarios mostrados en tu zona horaria local."
+schedule_subtitle: "Esto es lo que tenemos planeado para la celebración. Horarios en Copán, Honduras (UTC-6)."
 schedule_back_home: "Volver al Inicio"
 schedule_loading: "Cargando horario..."
 schedule_error: "No se pudo cargar el horario. Por favor, inténtalo de nuevo."

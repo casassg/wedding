@@ -201,7 +201,7 @@ last_updated: "Actualitzat fa"
 # Schedule Page
 nav_schedule: "Horari"
 schedule_title: "Horari del Casament"
-schedule_subtitle: "Això és el que tenim planejat per a la celebració. Horaris mostrats a la teva zona horària local."
+schedule_subtitle: "Això és el que tenim planejat per a la celebració. Horaris a Copán, Hondures (UTC-6)."
 schedule_back_home: "Tornar a l'Inici"
 schedule_loading: "Carregant horari..."
 schedule_error: "No s'ha pogut carregar l'horari. Si us plau, torna-ho a provar."
