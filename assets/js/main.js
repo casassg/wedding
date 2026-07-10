@@ -806,6 +806,7 @@
             lastUpdated: null,
             refreshInterval: null,
             lang: lang, // Language passed from Hugo template
+            COPAN_TZ: 'America/Tegucigalpa', // Copan, Honduras timezone (UTC-6, no DST)
             
             init() {
                 this.fetchSchedule();
@@ -873,26 +874,29 @@
                 return new Date(isoString);
             },
             
-            // Format time in user's local timezone
-            // Uses locale-appropriate format: 24h for es/ca, 12h for en
+            // Format time in Copan, Honduras timezone (not user's local time)
+            // All events happen in Copan so we always show Copan time
             formatLocalTime(isoString) {
                 const date = this.parseDateTime(isoString);
                 if (!date) return '';
                 
                 return date.toLocaleTimeString(this.locale, { 
                     hour: '2-digit', 
-                    minute: '2-digit'
+                    minute: '2-digit',
+                    timeZone: this.COPAN_TZ
                 });
             },
             
             // Extract date string (YYYY-MM-DD) from ISO datetime for grouping
+            // Uses Copan timezone so events group by the correct day
             getDateKey(isoString) {
                 const date = this.parseDateTime(isoString);
                 if (!date) return '';
-                const year = date.getFullYear();
-                const month = String(date.getMonth() + 1).padStart(2, '0');
-                const day = String(date.getDate()).padStart(2, '0');
-                return `${year}-${month}-${day}`;
+                const formatter = new Intl.DateTimeFormat('en-CA', {
+                    timeZone: this.COPAN_TZ,
+                    year: 'numeric', month: '2-digit', day: '2-digit'
+                });
+                return formatter.format(date); // en-CA returns YYYY-MM-DD
             },
             
             // Check if an event is in the past
@@ -947,6 +951,7 @@
             },
             
             // Format date header (e.g., "Friday, December 19")
+            // dateStr is YYYY-MM-DD from getDateKey (already in Copan TZ)
             formatDateHeader(dateStr) {
                 const date = new Date(dateStr + 'T12:00:00');
                 return date.toLocaleDateString(this.locale, {
