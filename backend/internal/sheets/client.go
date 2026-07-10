@@ -226,27 +226,27 @@ type ScheduleEventRow struct {
 	StartTime     string  // ISO8601 format: "2026-12-19T16:00:00-06:00"
 	EndTime       *string // ISO8601 format (nullable)
 	EventNameES   string  // Spanish (from "Evento" column D)
-	EventNameEN   string  // English (from column H)
-	EventNameCA   string  // Catalan (from column I)
-	Location      string  // Location (column F)
-	DescriptionES string  // Spanish (from "Description" column G)
-	DescriptionEN string  // English (from column J)
-	DescriptionCA string  // Catalan (from column K)
+	EventNameEN   string  // English (from column I)
+	EventNameCA   string  // Catalan (from column J)
+	Location      string  // Location (column G)
+	DescriptionES string  // Spanish (from "Description" column H)
+	DescriptionEN string  // English (from column K)
+	DescriptionCA string  // Catalan (from column L)
 }
 
 // ReadScheduleSheet reads schedule events from the "Schedule" sheet
 // Only returns public events (filtered here before returning).
 // Column mapping (based on user's sheet):
 // A: Start Time, B: End Time, C: Public (checkbox), D: Evento (Spanish name)
-// E: Team/Person, F: Location, G: Description (Spanish)
-// H: Event name (English), I: Nombre catalan, J: Descripcion English, K: Descripcion Catalan
+// E: Team/Person, F: Comments (internal), G: Location, H: Description (Spanish)
+// I: Event name (English), J: Nombre catalan, K: Descripcion English, L: Descripcion Catalan
 func (c *Client) ReadScheduleSheet(ctx context.Context, weddingYear int) ([]*ScheduleEventRow, error) {
 	if !c.IsConfigured() {
 		return nil, nil // Return empty when not configured
 	}
 
-	// Read data from 'Schedule' sheet (rows 2+, columns A-K)
-	readRange := "'Schedule'!A2:K"
+	// Read data from 'Schedule' sheet (rows 2+, columns A-L)
+	readRange := "'Schedule'!A2:L"
 	resp, err := c.service.Spreadsheets.Values.Get(c.sheetID, readRange).Context(ctx).Do()
 	if err != nil {
 		return nil, fmt.Errorf("failed to read schedule sheet: %w", err)
@@ -305,40 +305,42 @@ func (c *Client) ReadScheduleSheet(ctx context.Context, weddingYear int) ([]*Sch
 
 		// Column E: Team/Person (skip - internal use only)
 
-		// Column F: Location
+		// Column F: Comments (internal - skip)
+
+		// Column G: Location
 		location := ""
-		if len(row) > 5 {
-			location = strings.TrimSpace(toString(row[5]))
-		}
-
-		// Column G: Description (Spanish - default)
-		descriptionES := ""
 		if len(row) > 6 {
-			descriptionES = strings.TrimSpace(toString(row[6]))
+			location = strings.TrimSpace(toString(row[6]))
 		}
 
-		// Column H: Event name (English)
-		eventNameEN := ""
+		// Column H: Description (Spanish - default)
+		descriptionES := ""
 		if len(row) > 7 {
-			eventNameEN = strings.TrimSpace(toString(row[7]))
+			descriptionES = strings.TrimSpace(toString(row[7]))
 		}
 
-		// Column I: Nombre catalan
-		eventNameCA := ""
+		// Column I: Event name (English)
+		eventNameEN := ""
 		if len(row) > 8 {
-			eventNameCA = strings.TrimSpace(toString(row[8]))
+			eventNameEN = strings.TrimSpace(toString(row[8]))
 		}
 
-		// Column J: Descripcion English
-		descriptionEN := ""
+		// Column J: Nombre catalan
+		eventNameCA := ""
 		if len(row) > 9 {
-			descriptionEN = strings.TrimSpace(toString(row[9]))
+			eventNameCA = strings.TrimSpace(toString(row[9]))
 		}
 
-		// Column K: Descripcion Catalan
-		descriptionCA := ""
+		// Column K: Descripcion English
+		descriptionEN := ""
 		if len(row) > 10 {
-			descriptionCA = strings.TrimSpace(toString(row[10]))
+			descriptionEN = strings.TrimSpace(toString(row[10]))
+		}
+
+		// Column L: Descripcion Catalan
+		descriptionCA := ""
+		if len(row) > 11 {
+			descriptionCA = strings.TrimSpace(toString(row[11]))
 		}
 
 		// Check if this is a day header row (empty times, event name matches day pattern)
