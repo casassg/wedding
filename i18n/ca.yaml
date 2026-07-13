@@ -221,7 +221,8 @@ travel_form_bus_schedule_body: |
   | Dv. 18 de des. | Recollida SAP fins a 1:00 PM; autobús 2:00 PM | Copán ~5:00 PM |
   | Dg. 20 de des. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Dl. 21 de des. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_section_title: "Detalls del viatge"
+travel_form_intro: "Explica'ns on, quan i com arribaràs perquè puguem ajudar-te a organitzar el viatge. Per als qui veniu de l'estranger, estem organitzant autobusos des de San Pedro Sula fins a Copán."
+travel_form_intro_honduras: "Per ajudar-nos a organitzar-ho tot, explica'ns on t'allotjaràs i qualsevol altre detall del viatge que hàgim de saber."
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "Dijous, 17 de des."
 travel_form_bus_to_friday: "Divendres, 18 de des."
