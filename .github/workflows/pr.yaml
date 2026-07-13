@@ -27,8 +27,8 @@ jobs:
           TZ: America/Tegucigalpa
         run: |
           ./bin/hugo --gc --minify --baseURL "/"
-          node --check assets/js/main.js
-          python3 scripts/check-i18n.py
+          ./bin/node --check assets/js/main.js
+          ./bin/uv run scripts/check-i18n.py
 
   review_app:
     needs: checks

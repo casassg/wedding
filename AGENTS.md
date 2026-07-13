@@ -29,8 +29,8 @@ Never commit `.env`, credentials, tokens, or generated secrets.
 ./bin/hugo server
 ./bin/hugo server -D
 ./bin/hugo --gc --minify
-python3 scripts/check-i18n.py
-node --check assets/js/main.js
+./bin/uv run scripts/check-i18n.py
+./bin/node --check assets/js/main.js
 ```
 
 - Put guest-visible UI strings in all three `i18n/*.yaml` files.
@@ -76,8 +76,8 @@ Run the narrowest relevant checks, then the full checks before committing substa
 ./bin/go -C backend test ./...
 ./bin/go -C backend vet ./...
 ./bin/hugo --gc --minify
-node --check assets/js/main.js
-python3 scripts/check-i18n.py
+./bin/node --check assets/js/main.js
+./bin/uv run scripts/check-i18n.py
 ```
 
 ## Deployment
