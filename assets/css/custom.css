@@ -643,7 +643,7 @@ body.place-modal-open {
 
 .tf-schedule-table table {
     width: 100%;
-    min-width: 34rem;
+    table-layout: fixed;
     text-align: left;
 }
 
