@@ -837,7 +837,6 @@
                     saving: el.dataset.saving || '',
                     saved: el.dataset.saved || '',
                     retry: el.dataset.retry || '',
-                    busScheduleTitle: el.dataset.busScheduleTitle || '',
                     busToLabel: el.dataset.busToLabel || '',
                     busToThursday: el.dataset.busToThursday || '',
                     busToThursdaySub: el.dataset.busToThursdaySub || '',

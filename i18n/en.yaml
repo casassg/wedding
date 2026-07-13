@@ -218,18 +218,12 @@ travel_form_saving: "Saving..."
 travel_form_saved: "Saved ✓"
 travel_form_retry: "Couldn't save, will retry..."
 travel_form_bus_schedule_title: "Bus schedule"
-travel_form_schedule_day: "Day"
-travel_form_schedule_departure: "Departure"
-travel_form_schedule_arrival: "Arrival"
-travel_form_schedule_outbound_days: "Thu Dec 17 & Fri Dec 18"
-travel_form_schedule_outbound_departure: "Last SAP pickup 1:00 PM; bus 2:00 PM"
-travel_form_schedule_outbound_arrival: "Copán 5:00 PM"
-travel_form_schedule_sunday: "Sun Dec 20"
-travel_form_schedule_sunday_departure: "Copán 1:00 PM"
-travel_form_schedule_sunday_arrival: "San Pedro 5:00 PM; SAP 6:00 PM"
-travel_form_schedule_monday: "Mon Dec 21"
-travel_form_schedule_monday_departure: "Copán 10:00 AM"
-travel_form_schedule_monday_arrival: "San Pedro 2:00 PM; SAP 3:00 PM"
+travel_form_bus_schedule_body: |
+  | Day | Departure | Arrival |
+  | --- | --- | --- |
+  | Thu Dec 17 & Fri Dec 18 | Last SAP pickup 1:00 PM; bus 2:00 PM | Copán 5:00 PM |
+  | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
+  | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
 travel_form_bus_to_thursday_sub: "Last SAP pickup 1:00 PM · departs 2:00 PM · arrives ~5:00 PM"

@@ -218,18 +218,12 @@ travel_form_saving: "Guardant..."
 travel_form_saved: "Guardat ✓"
 travel_form_retry: "No s'ha pogut guardar, reintentant..."
 travel_form_bus_schedule_title: "Horaris de l'autobús"
-travel_form_schedule_day: "Dia"
-travel_form_schedule_departure: "Sortida"
-travel_form_schedule_arrival: "Arribada"
-travel_form_schedule_outbound_days: "Dj. 17 i dv. 18 de des."
-travel_form_schedule_outbound_departure: "Última recollida SAP 1:00 PM; autobús 2:00 PM"
-travel_form_schedule_outbound_arrival: "Copán 5:00 PM"
-travel_form_schedule_sunday: "Dg. 20 de des."
-travel_form_schedule_sunday_departure: "Copán 1:00 PM"
-travel_form_schedule_sunday_arrival: "San Pedro 5:00 PM; SAP 6:00 PM"
-travel_form_schedule_monday: "Dl. 21 de des."
-travel_form_schedule_monday_departure: "Copán 10:00 AM"
-travel_form_schedule_monday_arrival: "San Pedro 2:00 PM; SAP 3:00 PM"
+travel_form_bus_schedule_body: |
+  | Dia | Sortida | Arribada |
+  | --- | --- | --- |
+  | Dj. 17 i dv. 18 de des. | Última recollida SAP 1:00 PM; autobús 2:00 PM | Copán 5:00 PM |
+  | Dg. 20 de des. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
+  | Dl. 21 de des. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "Dijous, 17 de des."
 travel_form_bus_to_thursday_sub: "Última recollida SAP 1:00 PM · surt 2:00 PM · arriba ~5:00 PM"
