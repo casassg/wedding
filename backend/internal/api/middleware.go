@@ -109,6 +109,11 @@ func (rl *RateLimiter) getLimiter(ip string) *rate.Limiter {
 // Middleware returns the rate limiting middleware
 func (rl *RateLimiter) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		if !strings.HasPrefix(r.URL.Path, "/api/") {
+			next.ServeHTTP(w, r)
+			return
+		}
+
 		ip := getIP(r)
 		limiter := rl.getLimiter(ip)
 
