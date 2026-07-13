@@ -24,7 +24,7 @@ func NewSyncer(s *store.Store, client *Client) *Syncer {
 	return &Syncer{
 		store:        s,
 		sheetsClient: client,
-		listener:     make(chan struct{}),
+		listener:     make(chan struct{}, 1),
 	}
 }
 
@@ -61,7 +61,10 @@ func (s *Syncer) Start(ctx context.Context, interval time.Duration) {
 
 // TriggerSync signals the syncer to perform an immediate sync
 func (s *Syncer) TriggerSync() {
-	s.listener <- struct{}{}
+	select {
+	case s.listener <- struct{}{}:
+	default:
+	}
 }
 
 // SyncOnce performs a single sync cycle (used for manual sync command)

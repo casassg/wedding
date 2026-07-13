@@ -216,7 +216,7 @@ travel_form_title: "Travel Details"
 travel_form_subtitle: "Help us coordinate — takes about a minute."
 travel_form_saving: "Saving..."
 travel_form_saved: "Saved ✓"
-travel_form_retry: "Couldn't save, will retry..."
+travel_form_retry: "Couldn't save. Make another change to retry."
 travel_form_bus_schedule_title: "Bus schedule"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |

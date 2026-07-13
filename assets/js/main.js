@@ -782,9 +782,6 @@
         // Travel Form Component
         // -----------------------
         Alpine.data('travelForm', () => ({
-            // i18n strings read from data attributes
-            strings: {},
-
             // Flight data from embedded JSON
             allFlights: [],
             hotels: [],
@@ -796,6 +793,7 @@
             saveQueued: false,
             saveVersion: 0,
             flightOpen: false,
+            flightArrives: '',
             inHonduras: false,
 
             // The invite code — pulled from URL
@@ -829,43 +827,7 @@
             },
 
             init() {
-                // Read i18n strings from data attributes
-                const el = this.$el;
-                this.strings = {
-                    title: el.dataset.title || '',
-                    subtitle: el.dataset.subtitle || '',
-                    saving: el.dataset.saving || '',
-                    saved: el.dataset.saved || '',
-                    retry: el.dataset.retry || '',
-                    busToLabel: el.dataset.busToLabel || '',
-                    busToThursday: el.dataset.busToThursday || '',
-                    busToThursdaySub: el.dataset.busToThursdaySub || '',
-                    busToFriday: el.dataset.busToFriday || '',
-                    busToFridaySub: el.dataset.busToFridaySub || '',
-                    busToNone: el.dataset.busToNone || '',
-                    pickupLabel: el.dataset.pickupLabel || '',
-                    pickupSap: el.dataset.pickupSap || '',
-                    pickupWelchez: el.dataset.pickupWelchez || '',
-                    flightLabel: el.dataset.flightLabel || '',
-                    flightPlaceholder: el.dataset.flightPlaceholder || '',
-                    flightHint: el.dataset.flightHint || '',
-                    flightArrives: el.dataset.flightArrives || '',
-                    busReturnLabel: el.dataset.busReturnLabel || '',
-                    busReturnSundaySp: el.dataset.busReturnSundaySp || '',
-                    busReturnSundaySpSub: el.dataset.busReturnSundaySpSub || '',
-                    busReturnSundaySap: el.dataset.busReturnSundaySap || '',
-                    busReturnSundaySapSub: el.dataset.busReturnSundaySapSub || '',
-                    busReturnMondaySp: el.dataset.busReturnMondaySp || '',
-                    busReturnMondaySpSub: el.dataset.busReturnMondaySpSub || '',
-                    busReturnMondaySap: el.dataset.busReturnMondaySap || '',
-                    busReturnMondaySapSub: el.dataset.busReturnMondaySapSub || '',
-                    busReturnNone: el.dataset.busReturnNone || '',
-                    hotelLabel: el.dataset.hotelLabel || '',
-                    hotelOther: el.dataset.hotelOther || '',
-                    hotelOtherPlaceholder: el.dataset.hotelOtherPlaceholder || '',
-                    notesLabel: el.dataset.notesLabel || '',
-                    notesPlaceholder: el.dataset.notesPlaceholder || '',
-                };
+                this.flightArrives = this.$el.dataset.flightArrives || '';
 
                 // Load flight data
                 try {
@@ -944,7 +906,7 @@
                 this.travel.flightInput = f.flight;
                 this.flightOpen = false;
                 // Append useful detail to notes without duplicating
-                const detail = `${f.flight} (${f.airline}, ${f.from}, ${this.strings.flightArrives.toLowerCase()} ${f.arrives})`;
+                const detail = `${f.flight} (${f.airline}, ${f.from}, ${this.flightArrives.toLowerCase()} ${f.arrives})`;
                 if (!this.travel.notes.includes(f.flight)) {
                     this.travel.notes = this.travel.notes
                         ? this.travel.notes.trimEnd() + '\n' + detail
@@ -965,7 +927,10 @@
                 if (this.saveTimer) clearTimeout(this.saveTimer);
                 this.saveVersion++;
                 this.saveStatus = 'saving';
-                this.saveTimer = setTimeout(() => this.doSave(), 1500);
+                this.saveTimer = setTimeout(() => {
+                    this.saveTimer = null;
+                    this.doSave();
+                }, 1500);
             },
 
             async doSave() {
@@ -1011,13 +976,14 @@
                 } catch(e) {
                     if (version === this.saveVersion) {
                         this.saveStatus = 'retry';
-                        this.saveTimer = setTimeout(() => this.doSave(), 5000);
                     }
                 } finally {
                     this.saveInFlight = false;
                     if (this.saveQueued || version !== this.saveVersion) {
                         this.saveQueued = false;
                         this.saveStatus = 'saving';
+                        if (this.saveTimer) clearTimeout(this.saveTimer);
+                        this.saveTimer = null;
                         this.doSave();
                     }
                 }

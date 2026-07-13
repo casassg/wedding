@@ -216,7 +216,7 @@ travel_form_title: "Detalls del viatge"
 travel_form_subtitle: "Ajuda'ns a coordinar — tarda només un minut."
 travel_form_saving: "Guardant..."
 travel_form_saved: "Guardat ✓"
-travel_form_retry: "No s'ha pogut guardar, reintentant..."
+travel_form_retry: "No s'ha pogut guardar. Fes un altre canvi per tornar-ho a provar."
 travel_form_bus_schedule_title: "Horaris de l'autobús"
 travel_form_bus_schedule_body: |
   | Dia | Sortida | Arribada |

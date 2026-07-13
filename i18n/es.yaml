@@ -217,7 +217,7 @@ travel_form_title: "Detalles de viaje"
 travel_form_subtitle: "Ayúdanos a coordinar — tarda solo un minuto."
 travel_form_saving: "Guardando..."
 travel_form_saved: "Guardado ✓"
-travel_form_retry: "No se pudo guardar, reintentando..."
+travel_form_retry: "No se pudo guardar. Haz otro cambio para reintentar."
 travel_form_bus_schedule_title: "Horarios del autobús"
 travel_form_bus_schedule_body: |
   | Día | Salida | Llegada |
