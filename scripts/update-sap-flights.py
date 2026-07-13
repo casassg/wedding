@@ -106,14 +106,14 @@ def flight_label(flight):
     operator = flight.get("operator_iata")
     number = flight.get("flight_number")
     if operator and number:
-        return f"{operator.upper()} {number.upper()}"
+        return f"{operator.upper()}{number.upper()}"
 
     ident = flight.get("ident_iata") or flight.get("ident")
     if not ident:
         return ""
     ident = ident.replace(" ", "").upper()
     match = re.fullmatch(r"([A-Z0-9]{2})(\d+[A-Z]?)", ident)
-    return f"{match.group(1)} {match.group(2)}" if match else ident
+    return f"{match.group(1)}{match.group(2)}" if match else ident
 
 
 def scheduled_arrival(flight):

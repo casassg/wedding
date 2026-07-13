@@ -1,63 +1,91 @@
 arrivals:
-  - flight: "S0 RTB-SAP"
+  - flight: "UX15"
+    airline: "Air Europa"
+    from: "Madrid (MAD)"
+    arrives: "06:00"
+    thursday: false
+    friday: true
+
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives: "06:30"
+    thursday: true
+    friday: true
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "07:00"
+    thursday: true
+    friday: true
+
+  - flight: "9N2200"
+    airline: "Tropic Air"
+    from: "Belize City (BZE)"
+    arrives: "08:00"
+    thursday: false
+    friday: true
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives: "08:10"
+    thursday: true
+    friday: true
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "08:30"
+    thursday: true
+    friday: true
+
+  - flight: "S085"
     airline: "Aerolíneas Sosa"
     from: "Roatán (RTB)"
     arrives: "08:45"
     thursday: true
     friday: true
 
-  - flight: "H5 RTB-SAP"
+  - flight: "H53013"
     airline: "CM Airlines"
     from: "Roatán (RTB)"
     arrives: "08:50"
     thursday: true
     friday: true
 
-  - flight: "AV 620"
-    airline: "Avianca"
-    from: "San Salvador (SAL)"
+  - flight: "H53039"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "09:15"
+    thursday: false
+    friday: true
+
+  - flight: "AM674"
+    airline: "Aeromexico"
+    from: "Mexico City (MEX)"
+    arrives: "11:25"
+    thursday: true
+    friday: false
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives: "12:05"
+    thursday: true
+    friday: true
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
     arrives: "12:35"
     thursday: true
     friday: true
 
-  - flight: "AV 372"
-    airline: "Avianca"
-    from: "Guatemala City (GUA)"
-    arrives: "10:05"
-    thursday: true
-    friday: true
-
-  - flight: "CM 484"
+  - flight: "CM286"
     airline: "Copa Airlines"
     from: "Panama City (PTY)"
-    arrives: "11:10"
-    thursday: true
-    friday: true
-
-  - flight: "AA 900"
-    airline: "American Airlines"
-    from: "Miami (MIA)"
-    arrives: "09:45"
-    thursday: true
-    friday: true
-
-  - flight: "AA 2110"
-    airline: "American Airlines"
-    from: "Dallas/Fort Worth (DFW)"
-    arrives: "11:20"
-    thursday: true
-    friday: false
-
-  - flight: "UA 1630"
-    airline: "United Airlines"
-    from: "Houston (IAH)"
-    arrives: "10:55"
-    thursday: true
-    friday: true
-
-  - flight: "NK 322"
-    airline: "Spirit Airlines"
-    from: "Fort Lauderdale (FLL)"
-    arrives: "10:30"
+    arrives: "12:42"
     thursday: true
     friday: true

@@ -60,7 +60,7 @@ class UpdateSapFlightsTest(unittest.TestCase):
         self.assertEqual(
             [
                 {
-                    "flight": "UX 15",
+                    "flight": "UX15",
                     "airline": "Air Europa",
                     "from": "Madrid (MAD)",
                     "arrives": "12:00",
