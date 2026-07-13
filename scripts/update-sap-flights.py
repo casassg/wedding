@@ -2,14 +2,13 @@
 """Refresh data/sap_flights.yaml from FlightAware AeroAPI.
 
 Fetches SAP arrivals for Wednesday through Friday (the day before Thursday bus
-through the Friday bus day). Every arrival occurrence is included regardless of
-the pickup-cutoff — the frontend uses the per-entry `date` and `bus_dates`
-fields to decide selectability.
+through the Friday bus day). Every arrival occurrence is stored with a compact
+RFC3339 UTC arrives_at timestamp. The frontend derives local date/time and bus
+day eligibility from arrives_at using the America/Tegucigalpa timezone.
 
-Each YAML entry represents a distinct (flight, origin, arrival-time, date)
-occurrence. `bus_dates` lists the bus dates (Thu / Fri ISO strings) that
-guests on this flight can use for the bus. The selectable window is exposed
-as a frontend concern using `arrives` ≤ 13:00 and matching `date`.
+Each YAML entry represents a distinct (flight, origin, arrives_at) occurrence.
+The bus window is derived from the wedding date in config.toml. Reruns fetch a
+fresh snapshot and atomically replace the file, so stale entries are removed.
 """
 
 import argparse
@@ -18,17 +17,17 @@ import os
 import re
 import sys
 import tempfile
+import tomllib
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, timezone, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
 
 API_BASE = "https://aeroapi.flightaware.com/aeroapi"
 SAP_TIMEZONE = ZoneInfo("America/Tegucigalpa")
-PICKUP_CUTOFF = time(13, 0)
 AIRLINES = {
     "5U": "TAG Airlines",
     "9N": "Tropic Air",
@@ -62,12 +61,7 @@ ORIGIN_CITIES = {
 
 
 def api_get(api_key, path, params=None):
-    if path.startswith("http"):
-        url = path
-    elif path.startswith("/aeroapi/"):
-        url = f"https://aeroapi.flightaware.com{path}"
-    else:
-        url = f"{API_BASE}/{path.lstrip('/')}"
+    url = f"{API_BASE}/{path.lstrip('/')}"
     if params:
         url = f"{url}?{urllib.parse.urlencode(params)}"
 
@@ -93,8 +87,6 @@ def parse_args():
     parser = argparse.ArgumentParser(
         description="Refresh data/sap_flights.yaml from FlightAware AeroAPI.",
     )
-    parser.add_argument("--thursday", default="2026-12-17", help="Thursday bus date (YYYY-MM-DD).")
-    parser.add_argument("--friday", default="2026-12-18", help="Friday bus date (YYYY-MM-DD).")
     parser.add_argument(
         "--output",
         type=Path,
@@ -104,14 +96,19 @@ def parse_args():
     return parser.parse_args()
 
 
-def parse_bus_date(value, weekday, label):
+def arrival_window():
+    config_path = Path(__file__).resolve().parents[1] / "config.toml"
     try:
-        parsed = date.fromisoformat(value)
-    except ValueError as err:
-        raise ValueError(f"{label} must use YYYY-MM-DD") from err
-    if parsed.weekday() != weekday:
-        raise ValueError(f"{label} date {parsed} is not a {label}")
-    return parsed
+        with config_path.open("rb") as config_file:
+            wedding = datetime.fromisoformat(tomllib.load(config_file)["params"]["weddingDate"]).date()
+    except (KeyError, TypeError, ValueError, OSError) as err:
+        raise ValueError(f"Could not read params.weddingDate from {config_path}") from err
+
+    wednesday = wedding - timedelta(days=3)
+    friday = wedding - timedelta(days=1)
+    if wednesday.weekday() != 2 or friday.weekday() != 4:
+        raise ValueError("params.weddingDate must be a Saturday")
+    return wednesday, friday
 
 
 def flight_label(flight):
@@ -128,14 +125,13 @@ def flight_label(flight):
     return f"{match.group(1)}{match.group(2)}" if match else ident
 
 
-def scheduled_arrival(flight):
-    value = (
-        flight.get("scheduled_in")
-        or flight.get("scheduled_on")
-    )
+def scheduled_arrival_utc(flight):
+    """Return the scheduled arrival as a compact RFC3339 UTC string, or None."""
+    value = flight.get("scheduled_in") or flight.get("scheduled_on")
     if not value:
         return None
-    return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(SAP_TIMEZONE)
+    dt = datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+    return dt.strftime("%Y-%m-%dT%H:%MZ")
 
 
 def fetch_schedules(api_key, wednesday, friday):
@@ -153,37 +149,23 @@ def fetch_schedules(api_key, wednesday, friday):
     return payload.get("scheduled", [])
 
 
-def compute_bus_dates(arrival_date, wednesday, thursday, friday):
-    """Return list of bus dates (ISO strings) that guests on this flight can use.
+def build_arrivals(flights, wednesday, friday):
+    """Build one YAML entry per distinct (flight, origin, arrives_at) occurrence.
 
-    Rules:
-    - A Wednesday or Thursday arrival can use the Thursday bus (guests stay
-      overnight in San Pedro when arriving Wednesday).
-    - A Thursday or Friday arrival can use the Friday bus.
-    There is no pickup-cutoff applied here; the frontend handles selectability.
-    """
-    bus_dates = []
-    if arrival_date in (wednesday, thursday):
-        bus_dates.append(thursday.isoformat())
-    if arrival_date in (thursday, friday):
-        bus_dates.append(friday.isoformat())
-    return bus_dates
-
-
-def build_arrivals(flights, wednesday, thursday, friday):
-    """Build one YAML entry per distinct (flight, date, arrives) occurrence.
-
-    All arrivals on Wed/Thu/Fri are included regardless of pickup cutoff —
-    the frontend uses `date`, `bus_dates`, and `arrives` for selectability.
+    Arrivals on Wed/Thu/Fri local SAP time are included. The arrives_at UTC
+    timestamp is the deduplication key — same flight can appear multiple days.
     """
     arrivals = {}
 
     for flight in flights:
-        arrival = scheduled_arrival(flight)
-        if not arrival:
+        arrives_at = scheduled_arrival_utc(flight)
+        if not arrives_at:
             continue
-        arrival_date = arrival.date()
-        if arrival_date not in (wednesday, thursday, friday):
+
+        # Convert UTC back to local to check it falls in the fetch window
+        dt_utc = datetime.fromisoformat(arrives_at.replace("Z", "+00:00"))
+        local_date = dt_utc.astimezone(SAP_TIMEZONE).date()
+        if not wednesday <= local_date <= friday:
             continue
 
         label = flight_label(flight)
@@ -200,56 +182,36 @@ def build_arrivals(flights, wednesday, thursday, friday):
         airline_code = flight.get("operator_iata") or (match.group(1) if match else "")
         airline = AIRLINES.get(airline_code, airline_code)
         city = ORIGIN_CITIES.get(origin_code, origin_code)
-        arrives_str = arrival.strftime("%H:%M")
-        date_str = arrival_date.isoformat()
 
-        # Key per unique occurrence (flight number + physical arrival date)
-        key = (label, origin_code, date_str)
+        # Deduplicate by (flight, origin, timestamp) — preserves same-day
+        # duplicate codeshares while keeping distinct days for recurring flights.
+        key = (label, origin_code, arrives_at)
         if key in arrivals:
-            continue  # deduplicate codeshares on the same day
-
-        bus_dates = compute_bus_dates(arrival_date, wednesday, thursday, friday)
+            continue
 
         arrivals[key] = {
             "flight": label,
             "airline": airline,
             "from": f"{city} ({origin_code})",
-            "arrives": arrives_str,
-            "date": date_str,
-            "bus_dates": bus_dates,
-            # Legacy booleans for backwards compatibility with static YAML consumers
-            "thursday": thursday.isoformat() in bus_dates,
-            "friday": friday.isoformat() in bus_dates,
+            "arrives_at": arrives_at,
         }
 
-    return sorted(arrivals.values(), key=lambda item: (item["date"], item["arrives"], item["flight"]))
+    return sorted(arrivals.values(), key=lambda item: item["arrives_at"])
 
 
 def yaml_quote(value):
     return json.dumps(value, ensure_ascii=False)
 
 
-def write_yaml(path, arrivals, thursday, friday):
-    lines = [
-        "bus_dates:",
-        f"  thursday: {yaml_quote(thursday.isoformat())}",
-        f"  friday: {yaml_quote(friday.isoformat())}",
-        "",
-        "arrivals:",
-    ]
+def write_yaml(path, arrivals):
+    lines = ["arrivals:"]
     for flight in arrivals:
-        bus_dates_yaml = "\n".join(f"      - {yaml_quote(d)}" for d in flight["bus_dates"])
         lines.extend(
             [
                 f"  - flight: {yaml_quote(flight['flight'])}",
                 f"    airline: {yaml_quote(flight['airline'])}",
                 f"    from: {yaml_quote(flight['from'])}",
-                f"    arrives: {yaml_quote(flight['arrives'])}",
-                f"    date: {yaml_quote(flight['date'])}",
-                f"    bus_dates:",
-                bus_dates_yaml,
-                f"    thursday: {str(flight['thursday']).lower()}",
-                f"    friday: {str(flight['friday']).lower()}",
+                f"    arrives_at: {yaml_quote(flight['arrives_at'])}",
                 "",
             ]
         )
@@ -263,25 +225,20 @@ def write_yaml(path, arrivals, thursday, friday):
 
 def main():
     args = parse_args()
-    thursday = parse_bus_date(args.thursday, 3, "Thursday")
-    friday = parse_bus_date(args.friday, 4, "Friday")
-    if friday <= thursday or friday - thursday > timedelta(days=21):
-        raise ValueError("Friday must follow Thursday")
+    wednesday, friday = arrival_window()
     if friday > date.today() + timedelta(days=365):
         raise ValueError("AeroAPI schedules are only available up to one year ahead")
-
-    wednesday = thursday - timedelta(days=1)
 
     api_key = os.environ.get("AEROAPI_KEY")
     if not api_key:
         raise ValueError("AEROAPI_KEY is required")
 
     flights = fetch_schedules(api_key, wednesday, friday)
-    arrivals = build_arrivals(flights, wednesday, thursday, friday)
+    arrivals = build_arrivals(flights, wednesday, friday)
     if not arrivals:
         raise RuntimeError("AeroAPI returned no SAP arrivals for the bus window; output unchanged")
 
-    write_yaml(args.output, arrivals, thursday, friday)
+    write_yaml(args.output, arrivals)
     print(f"Wrote {len(arrivals)} arrivals to {args.output}")
 
 

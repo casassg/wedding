@@ -782,7 +782,7 @@
         // Travel Form Component
         // -----------------------
         Alpine.data('travelForm', () => ({
-            // Flight data from embedded JSON
+            // Flight data from embedded JSON (normalized on load)
             allFlights: [],
             hotels: [],
 
@@ -793,18 +793,14 @@
             saveQueued: false,
             saveVersion: 0,
             flightOpen: false,
-            flightArrives: '',
             prevDayWarning: '',
             lateWarning: '',
-            strSaving: '',
-            strSaved: '',
-            strRetry: '',
             lang: 'en',
             inHonduras: false,
 
-            // Bus date ISO strings (set from YAML data at init)
-            thursdayDate: '2026-12-17',
-            fridayDate: '2026-12-18',
+            // Bus date ISO strings derived from the configured wedding date
+            thursdayDate: '',
+            fridayDate: '',
 
             // The invite code — pulled from URL
             get code() {
@@ -823,47 +819,37 @@
             },
 
             // All flights relevant to the selected bus day (Thursday or Friday).
-            // Thursday bus: show flights whose bus_dates include thursdayDate
-            //   (i.e. Wednesday arrivals and Thursday arrivals).
-            // Friday bus: show flights whose bus_dates include fridayDate
-            //   (i.e. Thursday arrivals and Friday arrivals).
-            // Falls back to legacy thursday/friday booleans when bus_dates is absent.
+            // Thursday bus: arrivals whose SAP-local date is Wednesday or Thursday.
+            // Friday bus: arrivals whose SAP-local date is Thursday or Friday.
+            // Uses pre-computed localDate from normalize step.
             get visibleFlights() {
                 const day = this.travel.busto;
+                if (!day || day === 'none') return [];
+                const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
+                if (!busDate) return [];
+                const prevDate = new Date(busDate + 'T12:00:00Z');
+                prevDate.setUTCDate(prevDate.getUTCDate() - 1);
+                const prevDateStr = prevDate.toISOString().slice(0, 10);
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
                 return this.allFlights.filter(f => {
-                    // Filter by selected bus day
-                    if (day === 'thursday') {
-                        const inBusDates = Array.isArray(f.bus_dates)
-                            ? f.bus_dates.includes(this.thursdayDate)
-                            : !!f.thursday;
-                        if (!inBusDates) return false;
-                    } else if (day === 'friday') {
-                        const inBusDates = Array.isArray(f.bus_dates)
-                            ? f.bus_dates.includes(this.fridayDate)
-                            : !!f.friday;
-                        if (!inBusDates) return false;
-                    } else {
-                        return false;
-                    }
-                    // Filter by text search
+                    if (f.localDate !== busDate && f.localDate !== prevDateStr) return false;
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
-                }).sort((a, b) => `${a.date || ''}${a.arrives}`.localeCompare(`${b.date || ''}${b.arrives}`));
+                });
             },
 
             // 'previous_day' | 'late' | null
-            // A flight is selectable (null) only if it arrives same day as bus and ≤13:00.
+            // A flight is selectable (null) only if it arrives same day as bus and ≤13:00 local.
             // 'previous_day': arrives the day before the bus day.
-            // 'late': arrives same day but after 13:00.
+            // 'late': arrives same day but after 13:00 local.
             flightWarning(f) {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return null;
                 const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
-                const flightDate = f.date || null;
-                if (flightDate && flightDate !== busDate) return 'previous_day';
-                // Compare time string HH:MM
-                const [h, m] = (f.arrives || '00:00').split(':').map(Number);
+                if (!busDate) return null;
+                if (f.localDate !== busDate) return 'previous_day';
+                // Compare local time HH:MM
+                const [h, m] = f.localTime.split(':').map(Number);
                 if (h > 13 || (h === 13 && m > 0)) return 'late';
                 return null;
             },
@@ -879,33 +865,45 @@
                 return '';
             },
 
-            formatFlightDate(value) {
-                const locale = { en: 'en-US', es: 'es-ES', ca: 'ca-ES' }[this.lang] || 'en-US';
-                return new Date(`${value}T12:00:00`).toLocaleDateString(locale, {
-                    weekday: 'short',
-                    month: 'short',
-                    day: 'numeric',
-                });
-            },
-
             init() {
                 const el = this.$el;
-                this.flightArrives = el.dataset.flightArrives || '';
                 this.prevDayWarning = el.dataset.flightPrevDayWarning || '';
                 this.lateWarning = el.dataset.flightLateWarning || '';
-                this.strSaving = el.dataset.strSaving || '';
-                this.strSaved = el.dataset.strSaved || '';
-                this.strRetry = el.dataset.strRetry || '';
                 this.lang = el.dataset.lang || 'en';
 
-                // Load flight data
+                const weddingDate = (el.dataset.weddingDate || '').slice(0, 10);
+                if (weddingDate) {
+                    const date = new Date(weddingDate + 'T12:00:00Z');
+                    date.setUTCDate(date.getUTCDate() - 2);
+                    this.thursdayDate = date.toISOString().slice(0, 10);
+                    date.setUTCDate(date.getUTCDate() + 1);
+                    this.fridayDate = date.toISOString().slice(0, 10);
+                }
+
+                // Load and normalize flight data
                 try {
                     const flightEl = document.getElementById('sap-flights-data');
                     if (flightEl) {
                         const data = JSON.parse(flightEl.textContent);
-                        this.allFlights = data.arrivals || [];
-                        this.thursdayDate = data.bus_dates?.thursday || this.thursdayDate;
-                        this.fridayDate = data.bus_dates?.friday || this.fridayDate;
+                        const SAP_TZ = 'America/Tegucigalpa';
+                        this.allFlights = (data.arrivals || []).map(f => {
+                            const dt = new Date(f.arrives_at);
+                            const dateParts = new Intl.DateTimeFormat('en', {
+                                timeZone: SAP_TZ, year: 'numeric', month: '2-digit', day: '2-digit'
+                            }).formatToParts(dt).reduce((parts, part) => {
+                                parts[part.type] = part.value;
+                                return parts;
+                            }, {});
+                            const localDate = `${dateParts.year}-${dateParts.month}-${dateParts.day}`;
+                            const localTime = dt.toLocaleTimeString('en-GB', {
+                                timeZone: SAP_TZ, hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+                            });
+                            const localDateDisplay = dt.toLocaleDateString(this.lang, {
+                                timeZone: SAP_TZ, weekday: 'short', month: 'short', day: 'numeric'
+                            });
+                            return { ...f, localDate, localTime, localDateDisplay };
+                        });
+                        // allFlights already sorted by arrives_at from YAML
                     }
                 } catch(e) { /* non-fatal */ }
 
@@ -969,13 +967,6 @@
             selectFlight(f) {
                 this.travel.flightInput = f.flight;
                 this.flightOpen = false;
-                // Append useful detail to notes without duplicating
-                const detail = `${f.flight} (${f.airline}, ${f.from}, ${this.flightArrives.toLowerCase()} ${f.arrives})`;
-                if (!this.travel.notes.includes(f.flight)) {
-                    this.travel.notes = this.travel.notes
-                        ? this.travel.notes.trimEnd() + '\n' + detail
-                        : detail;
-                }
                 this.scheduleSave();
             },
 
@@ -992,6 +983,7 @@
                 if (this.saveTimer) {
                     clearTimeout(this.saveTimer);
                     this.saveTimer = null;
+                    this.saveQueued = false;
                 }
                 this.saveVersion++;
                 this.saveStatus = 'saving';
@@ -999,7 +991,9 @@
             },
 
             scheduleSave() {
-                if (this.saveTimer) clearTimeout(this.saveTimer);
+                if (this.saveTimer) {
+                    clearTimeout(this.saveTimer);
+                }
                 this.saveVersion++;
                 this.saveStatus = 'saving';
                 this.saveTimer = setTimeout(() => {
@@ -1054,11 +1048,9 @@
                     }
                 } finally {
                     this.saveInFlight = false;
-                    if (this.saveQueued || version !== this.saveVersion) {
+                    if (this.saveQueued) {
                         this.saveQueued = false;
                         this.saveStatus = 'saving';
-                        if (this.saveTimer) clearTimeout(this.saveTimer);
-                        this.saveTimer = null;
                         this.doSave();
                     }
                 }
