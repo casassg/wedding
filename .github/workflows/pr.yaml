@@ -1,17 +1,43 @@
-name: Deploy Review App
+name: PR
 
 on:
   pull_request:
     types: [opened, reopened, synchronize, closed]
 
-env:
-  FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_SECRET }}
-  FLY_REGION: iad
-  FLY_ORG: personal
-
 jobs:
-  review_app:
+  checks:
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
+
+      - name: Test Go backend
+        run: ./bin/go -C backend test ./...
+
+      - name: Check frontend
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Tegucigalpa
+        run: |
+          ./bin/hugo --gc --minify --baseURL "/"
+          node --check assets/js/main.js
+          python3 scripts/check-i18n.py
+
+  review_app:
+    needs: checks
+    if: ${{ always() && (github.event.action == 'closed' || needs.checks.result == 'success') }}
+    runs-on: ubuntu-latest
+    env:
+      FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_SECRET }}
+      FLY_REGION: iad
+      FLY_ORG: personal
     outputs:
       url: ${{ steps.deploy.outputs.url }}
       name: ${{ steps.deploy.outputs.name }}
@@ -29,13 +55,6 @@ jobs:
 
       - name: Init Hermit
         uses: cashapp/activate-hermit@v1
-
-      - name: Build Hugo frontend
-        env:
-          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
-          HUGO_ENVIRONMENT: production
-          TZ: America/Tegucigalpa
-        run: hugo --gc --minify --baseURL "/"
 
       - name: Deploy or destroy PR app on Fly.io
         id: deploy
