@@ -75,7 +75,7 @@ getting_there: "Cómo llegar"
 getting_there_desc: "Para los que vienen de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) porque es el más cercano a Copán (4 horas en autobús). <br><br>Lo ideal sería llegar alrededor del mediodía del viernes 18 de diciembre para tener tiempo suficiente de llegar a Copán durante el día. ¡Pero organícense como les vaya mejor!"
 transportation: "Transporte"
 transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
-
+transport_venue_city: "Pronto compartiremos información sobre el transporte compartido desde San Pedro a Copán — probablemente será **jueves 17 de diciembre** y **viernes 18 de diciembre**."
 transport_around_copan: "¿Moverse por Copán? ¡A pie o en _tuktuk_!"
 travel_guide_reference: "¡Echa un vistazo a [nuestra página de viajes](/traveling/) para más información sobre qué hacer en Copán y en Honduras!"
 
@@ -117,7 +117,7 @@ traveling_from_europe_desc: "Vuela a San Pedro Sula (SAP) vía Madrid o Ámsterd
 traveling_from_us: "Desde EE.UU. y Canadá"
 traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde los principales aeropuertos de EE.UU. United vuela desde Houston (IAH), American desde Miami (MIA) y Dallas (DFW), y Spirit desde Fort Lauderdale (FLL). Si hacen escala en Houston, ¡avísennos!"
 traveling_to_copan: "De San Pedro Sula a Copán"
-traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas."
+traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. ¡Más detalles sobre transporte próximamente!"
 
 # Travel Agent
 travel_agent_label: "¿Necesitas ayuda?"
