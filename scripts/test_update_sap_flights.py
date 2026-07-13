@@ -1,6 +1,6 @@
 import importlib.util
 import unittest
-from datetime import date, datetime, timezone
+from datetime import date
 from pathlib import Path
 from unittest import mock
 
@@ -12,54 +12,46 @@ SPEC.loader.exec_module(MODULE)
 
 
 class UpdateSapFlightsTest(unittest.TestCase):
-    def test_fetch_uses_one_scheduled_arrivals_request(self):
-        start = datetime(2026, 12, 17, 6, tzinfo=timezone.utc)
-        end = datetime(2026, 12, 19, 6, tzinfo=timezone.utc)
-        response = {"links": {"next": None}, "scheduled_arrivals": [{"ident": "UAL123"}]}
+    def test_fetch_uses_one_schedules_request(self):
+        response = {"links": {"next": None}, "scheduled": [{"ident": "UAL123"}]}
 
         with mock.patch.object(MODULE, "api_get", return_value=response) as api_get:
-            flights = MODULE.fetch_scheduled_arrivals("key", start, end)
+            flights = MODULE.fetch_schedules("key", date(2026, 12, 17), date(2026, 12, 18))
 
         self.assertEqual([{"ident": "UAL123"}], flights)
         api_get.assert_called_once_with(
             "key",
-            "airports/SAP/flights/scheduled_arrivals",
+            "schedules/2026-12-17/2026-12-19",
             {
-                "start": "2026-12-17T06:00:00Z",
-                "end": "2026-12-19T06:00:00Z",
-                "type": "Airline",
+                "destination": "SAP",
+                "include_codeshares": "false",
+                "include_regional": "true",
                 "max_pages": 10,
             },
         )
 
     def test_fetch_refuses_incomplete_response(self):
-        response = {"links": {"next": "/more"}, "scheduled_arrivals": []}
+        response = {"links": {"next": "/more"}, "scheduled": []}
         with mock.patch.object(MODULE, "api_get", return_value=response):
             with self.assertRaisesRegex(RuntimeError, "more than 10 pages"):
-                MODULE.fetch_scheduled_arrivals("key", datetime.now(timezone.utc), datetime.now(timezone.utc))
+                MODULE.fetch_schedules("key", date(2026, 12, 17), date(2026, 12, 18))
 
-    def test_build_arrivals_uses_inline_metadata_and_combines_days(self):
+    def test_build_arrivals_uses_local_names_and_combines_days(self):
         flights = [
             {
-                "operator_iata": "UX",
-                "flight_number": "15",
-                "origin": {"city": "Madrid", "code_iata": "MAD"},
-                "estimated_on": "2026-12-17T18:00:00Z",
-                "cancelled": False,
+                "ident_iata": "UX15",
+                "origin_iata": "MAD",
+                "scheduled_in": "2026-12-17T18:00:00Z",
             },
             {
-                "operator_iata": "UX",
-                "flight_number": "15",
-                "origin": {"city": "Madrid", "code_iata": "MAD"},
-                "estimated_on": "2026-12-18T18:00:00Z",
-                "cancelled": False,
+                "ident_iata": "UX15",
+                "origin_iata": "MAD",
+                "scheduled_in": "2026-12-18T18:00:00Z",
             },
             {
-                "operator_iata": "UA",
-                "flight_number": "123",
-                "origin": {"city": "Houston", "code_iata": "IAH"},
-                "estimated_on": "2026-12-18T20:00:00Z",
-                "cancelled": False,
+                "ident_iata": "UA123",
+                "origin_iata": "IAH",
+                "scheduled_in": "2026-12-18T20:00:00Z",
             },
         ]
 
@@ -69,7 +61,7 @@ class UpdateSapFlightsTest(unittest.TestCase):
             [
                 {
                     "flight": "UX 15",
-                    "airline": "UX",
+                    "airline": "Air Europa",
                     "from": "Madrid (MAD)",
                     "arrives": "12:00",
                     "thursday": True,
@@ -79,13 +71,14 @@ class UpdateSapFlightsTest(unittest.TestCase):
             arrivals,
         )
 
-    def test_window_must_be_within_two_days(self):
-        thursday = date(2026, 12, 17)
-        friday = date(2026, 12, 18)
-        MODULE.validate_api_window(thursday, friday, datetime(2026, 12, 17, 6, tzinfo=timezone.utc))
-
-        with self.assertRaisesRegex(ValueError, "only available two days ahead"):
-            MODULE.validate_api_window(thursday, friday, datetime(2026, 12, 17, 5, 59, tzinfo=timezone.utc))
+    def test_unknown_codes_fall_back_without_more_requests(self):
+        arrivals = MODULE.build_arrivals(
+            [{"ident_iata": "ZZ42", "origin_iata": "XYZ", "scheduled_in": "2026-12-17T18:00:00Z"}],
+            date(2026, 12, 17),
+            date(2026, 12, 18),
+        )
+        self.assertEqual("ZZ", arrivals[0]["airline"])
+        self.assertEqual("XYZ (XYZ)", arrivals[0]["from"])
 
 
 if __name__ == "__main__":

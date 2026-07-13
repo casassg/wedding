@@ -9,7 +9,7 @@ import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, time, timedelta, timezone
+from datetime import date, datetime, time, timedelta
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -17,6 +17,36 @@ from zoneinfo import ZoneInfo
 API_BASE = "https://aeroapi.flightaware.com/aeroapi"
 SAP_TIMEZONE = ZoneInfo("America/Tegucigalpa")
 PICKUP_CUTOFF = time(13, 0)
+AIRLINES = {
+    "5U": "TAG Airlines",
+    "9N": "Tropic Air",
+    "AA": "American Airlines",
+    "AM": "Aeromexico",
+    "AV": "Avianca",
+    "CM": "Copa Airlines",
+    "DL": "Delta Air Lines",
+    "H5": "CM Airlines",
+    "NK": "Spirit Airlines",
+    "S0": "Aerolíneas Sosa",
+    "UA": "United Airlines",
+    "UX": "Air Europa",
+}
+ORIGIN_CITIES = {
+    "ATL": "Atlanta",
+    "BZE": "Belize City",
+    "DFW": "Dallas/Fort Worth",
+    "FLL": "Fort Lauderdale",
+    "GUA": "Guatemala City",
+    "IAH": "Houston",
+    "LCE": "La Ceiba",
+    "MAD": "Madrid",
+    "MEX": "Mexico City",
+    "MIA": "Miami",
+    "PTY": "Panama City",
+    "RTB": "Roatán",
+    "SAL": "San Salvador",
+    "TGU": "Tegucigalpa",
+}
 
 
 def api_get(api_key, path, params=None):
@@ -88,66 +118,45 @@ def flight_label(flight):
 
 def scheduled_arrival(flight):
     value = (
-        flight.get("estimated_on")
+        flight.get("scheduled_in")
         or flight.get("scheduled_on")
-        or flight.get("estimated_in")
-        or flight.get("scheduled_in")
     )
     if not value:
         return None
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(SAP_TIMEZONE)
 
 
-def flight_window(thursday, friday):
-    start = datetime.combine(thursday, time.min, tzinfo=SAP_TIMEZONE).astimezone(timezone.utc)
-    end = datetime.combine(friday + timedelta(days=1), time.min, tzinfo=SAP_TIMEZONE).astimezone(timezone.utc)
-    return start, end
-
-
-def validate_api_window(thursday, friday, now=None):
-    start, end = flight_window(thursday, friday)
-    now = now or datetime.now(timezone.utc)
-    if start < now - timedelta(days=10):
-        raise ValueError("AeroAPI scheduled arrivals are only available for the last 10 days")
-    if end > now + timedelta(days=2):
-        raise ValueError(
-            "AeroAPI scheduled arrivals are only available two days ahead; "
-            f"refresh {thursday}–{friday} on or after midnight in Honduras on {thursday}"
-        )
-    return start, end
-
-
-def fetch_scheduled_arrivals(api_key, start, end):
+def fetch_schedules(api_key, thursday, friday):
     params = {
-        "start": start.isoformat().replace("+00:00", "Z"),
-        "end": end.isoformat().replace("+00:00", "Z"),
-        "type": "Airline",
+        "destination": "SAP",
+        "include_codeshares": "false",
+        "include_regional": "true",
         "max_pages": 10,
     }
-    payload = api_get(api_key, "airports/SAP/flights/scheduled_arrivals", params)
+    end = friday + timedelta(days=1)
+    payload = api_get(api_key, f"schedules/{thursday.isoformat()}/{end.isoformat()}", params)
     if (payload.get("links") or {}).get("next"):
         raise RuntimeError("AeroAPI returned more than 10 pages; output unchanged")
-    return payload.get("scheduled_arrivals", [])
+    return payload.get("scheduled", [])
 
 
 def build_arrivals(flights, thursday, friday):
     arrivals = {}
 
     for flight in flights:
-        if flight.get("cancelled"):
-            continue
         arrival = scheduled_arrival(flight)
         if not arrival or arrival.date() not in (thursday, friday) or arrival.time() > PICKUP_CUTOFF:
             continue
 
         label = flight_label(flight)
-        origin = flight.get("origin") or {}
-        origin_code = origin.get("code_iata") or origin.get("code_icao") or origin.get("code") or ""
+        origin_code = flight.get("origin_iata") or flight.get("origin_icao") or flight.get("origin") or ""
         if not label or not origin_code:
             continue
 
-        city = origin.get("city") or origin.get("name") or origin_code
-        airline = flight.get("operator_iata") or flight.get("operator_icao") or flight.get("operator") or ""
+        match = re.match(r"^([A-Z0-9]{2})", label.replace(" ", ""))
+        airline_code = flight.get("operator_iata") or (match.group(1) if match else "")
+        airline = AIRLINES.get(airline_code, airline_code)
+        city = ORIGIN_CITIES.get(origin_code, origin_code)
         key = (label, airline, city, origin_code, arrival.strftime("%H:%M"))
         entry = arrivals.setdefault(
             key,
@@ -197,13 +206,14 @@ def main():
     friday = parse_bus_date(args.friday, 4, "Friday")
     if friday <= thursday or friday - thursday > timedelta(days=21):
         raise ValueError("Friday must follow Thursday")
-    start, end = validate_api_window(thursday, friday)
+    if friday > date.today() + timedelta(days=365):
+        raise ValueError("AeroAPI schedules are only available up to one year ahead")
 
     api_key = os.environ.get("AEROAPI_KEY")
     if not api_key:
         raise ValueError("AEROAPI_KEY is required")
 
-    flights = fetch_scheduled_arrivals(api_key, start, end)
+    flights = fetch_schedules(api_key, thursday, friday)
     arrivals = build_arrivals(flights, thursday, friday)
     if not arrivals:
         raise RuntimeError("AeroAPI returned no SAP arrivals before the 1:00 PM pickup cutoff; output unchanged")
