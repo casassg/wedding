@@ -51,7 +51,17 @@ jobs:
         uses: superfly/fly-pr-review-apps@1.6.0
         with:
           config: fly.review.toml
-          secrets: GOOGLE_SHEET_ID=${{ secrets.GOOGLE_SHEET_ID }} GOOGLE_SHEETS_CREDENTIALS=${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+
+      - name: Set Fly secrets
+        if: github.event.action != 'closed'
+        env:
+          APP_NAME: ${{ steps.deploy.outputs.name }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: |
+          printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
+            "$GOOGLE_SHEET_ID" "$GOOGLE_SHEETS_CREDENTIALS" \
+            | flyctl secrets import --app "$APP_NAME"
       - name: Clean up GitHub environment
         uses: strumwolf/delete-deployment-environment@v2
         if: ${{ github.event.action == 'closed' }}
