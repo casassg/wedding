@@ -52,16 +52,9 @@ jobs:
         with:
           config: fly.review.toml
           secrets: GOOGLE_SHEET_ID=${{ secrets.GOOGLE_SHEET_ID }} GOOGLE_SHEETS_CREDENTIALS=${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
-
-      - name: Create or update PR comment
-        uses: peter-evans/create-or-update-comment@v4
+      - name: Clean up GitHub environment
+        uses: strumwolf/delete-deployment-environment@v2
+        if: ${{ github.event.action == 'closed' }}
         with:
-          issue-number: ${{ github.event.number }}
           token: ${{ secrets.GITHUB_TOKEN }}
-          comment-id: ${{ steps.find_comment.outputs.comment-id }}
-          edit-mode: replace
-          body: |
-            <!-- fly-review-url -->
-            🚀 **Review app${{ github.event.action == 'closed' && ' (destroyed)' || '' }}**
-
-            ${{ github.event.action == 'closed' && 'The review app has been torn down.' || format('URL: {0}', steps.deploy.outputs.url) }}
+          environment: pr-${{ github.event.number }}
