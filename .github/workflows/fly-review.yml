@@ -48,7 +48,7 @@ jobs:
 
       - name: Deploy or destroy PR app on Fly.io
         id: deploy
-        uses: superfly/fly-pr-review-apps@1.2
+        uses: superfly/fly-pr-review-apps@1.6.0
         with:
           config: fly.review.toml
           secrets: GOOGLE_SHEET_ID=${{ secrets.GOOGLE_SHEET_ID }} GOOGLE_SHEETS_CREDENTIALS=${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
@@ -65,5 +65,3 @@ jobs:
             🚀 **Review app${{ github.event.action == 'closed' && ' (destroyed)' || '' }}**
 
             ${{ github.event.action == 'closed' && 'The review app has been torn down.' || format('URL: {0}', steps.deploy.outputs.url) }}
-
-            _beep boop :robot:, message from your friendly AI_
