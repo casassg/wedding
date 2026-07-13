@@ -794,7 +794,17 @@
             saveVersion: 0,
             flightOpen: false,
             flightArrives: '',
+            prevDayWarning: '',
+            lateWarning: '',
+            strSaving: '',
+            strSaved: '',
+            strRetry: '',
+            lang: 'en',
             inHonduras: false,
+
+            // Bus date ISO strings (set from YAML data at init)
+            thursdayDate: '2026-12-17',
+            fridayDate: '2026-12-18',
 
             // The invite code — pulled from URL
             get code() {
@@ -812,22 +822,81 @@
                 notes: '',       // textarea
             },
 
-            // Filtered flight suggestions based on bus day and search text
-            get filteredFlights() {
+            // All flights relevant to the selected bus day (Thursday or Friday).
+            // Thursday bus: show flights whose bus_dates include thursdayDate
+            //   (i.e. Wednesday arrivals and Thursday arrivals).
+            // Friday bus: show flights whose bus_dates include fridayDate
+            //   (i.e. Thursday arrivals and Friday arrivals).
+            // Falls back to legacy thursday/friday booleans when bus_dates is absent.
+            get visibleFlights() {
                 const day = this.travel.busto;
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
                 return this.allFlights.filter(f => {
                     // Filter by selected bus day
-                    if (day === 'thursday' && !f.thursday) return false;
-                    if (day === 'friday' && !f.friday) return false;
+                    if (day === 'thursday') {
+                        const inBusDates = Array.isArray(f.bus_dates)
+                            ? f.bus_dates.includes(this.thursdayDate)
+                            : !!f.thursday;
+                        if (!inBusDates) return false;
+                    } else if (day === 'friday') {
+                        const inBusDates = Array.isArray(f.bus_dates)
+                            ? f.bus_dates.includes(this.fridayDate)
+                            : !!f.friday;
+                        if (!inBusDates) return false;
+                    } else {
+                        return false;
+                    }
                     // Filter by text search
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
+                }).sort((a, b) => `${a.date || ''}${a.arrives}`.localeCompare(`${b.date || ''}${b.arrives}`));
+            },
+
+            // 'previous_day' | 'late' | null
+            // A flight is selectable (null) only if it arrives same day as bus and ≤13:00.
+            // 'previous_day': arrives the day before the bus day.
+            // 'late': arrives same day but after 13:00.
+            flightWarning(f) {
+                const day = this.travel.busto;
+                if (!day || day === 'none') return null;
+                const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
+                const flightDate = f.date || null;
+                if (flightDate && flightDate !== busDate) return 'previous_day';
+                // Compare time string HH:MM
+                const [h, m] = (f.arrives || '00:00').split(':').map(Number);
+                if (h > 13 || (h === 13 && m > 0)) return 'late';
+                return null;
+            },
+
+            isFlightSelectable(f) {
+                return this.flightWarning(f) === null;
+            },
+
+            flightWarningText(f) {
+                const w = this.flightWarning(f);
+                if (w === 'previous_day') return this.prevDayWarning;
+                if (w === 'late') return this.lateWarning;
+                return '';
+            },
+
+            formatFlightDate(value) {
+                const locale = { en: 'en-US', es: 'es-ES', ca: 'ca-ES' }[this.lang] || 'en-US';
+                return new Date(`${value}T12:00:00`).toLocaleDateString(locale, {
+                    weekday: 'short',
+                    month: 'short',
+                    day: 'numeric',
                 });
             },
 
             init() {
-                this.flightArrives = this.$el.dataset.flightArrives || '';
+                const el = this.$el;
+                this.flightArrives = el.dataset.flightArrives || '';
+                this.prevDayWarning = el.dataset.flightPrevDayWarning || '';
+                this.lateWarning = el.dataset.flightLateWarning || '';
+                this.strSaving = el.dataset.strSaving || '';
+                this.strSaved = el.dataset.strSaved || '';
+                this.strRetry = el.dataset.strRetry || '';
+                this.lang = el.dataset.lang || 'en';
 
                 // Load flight data
                 try {
@@ -835,6 +904,8 @@
                     if (flightEl) {
                         const data = JSON.parse(flightEl.textContent);
                         this.allFlights = data.arrivals || [];
+                        this.thursdayDate = data.bus_dates?.thursday || this.thursdayDate;
+                        this.fridayDate = data.bus_dates?.friday || this.fridayDate;
                     }
                 } catch(e) { /* non-fatal */ }
 
@@ -845,7 +916,6 @@
                         this.hotels = JSON.parse(hotelEl.textContent) || [];
                     }
                 } catch(e) { /* non-fatal */ }
-
             },
 
             setInvite(invite) {
@@ -871,20 +941,14 @@
 
             // Called when bus day changes — clear stale dependent state
             onBusToChange() {
-                // Reset pickup and flight if they no longer apply
                 if (this.travel.busto === 'none') {
                     this.travel.pickup = '';
                     this.travel.flightInput = '';
                 }
-                // Re-filter: if current flight is no longer valid for new day, clear it
+                // If the saved flight is no longer in the visible list, clear it
                 if (this.travel.flightInput) {
-                    const match = this.allFlights.find(f => f.flight === this.travel.flightInput);
-                    if (match) {
-                        const day = this.travel.busto;
-                        if ((day === 'thursday' && !match.thursday) || (day === 'friday' && !match.friday)) {
-                            this.travel.flightInput = '';
-                        }
-                    }
+                    const still = this.visibleFlights.find(f => f.flight === this.travel.flightInput && this.isFlightSelectable(f));
+                    if (!still) this.travel.flightInput = '';
                 }
                 this.scheduleSave();
             },
@@ -921,6 +985,17 @@
                     this.travel.hotelOther = '';
                 }
                 this.scheduleSave();
+            },
+
+            // Manual save: flush any pending debounce immediately, avoiding duplicate request
+            manualSave() {
+                if (this.saveTimer) {
+                    clearTimeout(this.saveTimer);
+                    this.saveTimer = null;
+                }
+                this.saveVersion++;
+                this.saveStatus = 'saving';
+                this.doSave();
             },
 
             scheduleSave() {

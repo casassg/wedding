@@ -1,8 +1,26 @@
+bus_dates:
+  thursday: "2026-12-17"
+  friday: "2026-12-18"
+
 arrivals:
   - flight: "UX15"
     airline: "Air Europa"
     from: "Madrid (MAD)"
+    arrives: "04:00"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "UX15"
+    airline: "Air Europa"
+    from: "Madrid (MAD)"
     arrives: "06:00"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
     thursday: false
     friday: true
 
@@ -10,6 +28,51 @@ arrivals:
     airline: "TAG Airlines"
     from: "Guatemala City (GUA)"
     arrives: "06:30"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives: "06:30"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives: "06:30"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "07:00"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "07:00"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -17,13 +80,29 @@ arrivals:
     airline: "CM Airlines"
     from: "Tegucigalpa (TGU)"
     arrives: "07:00"
-    thursday: true
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
     friday: true
 
   - flight: "9N2200"
     airline: "Tropic Air"
     from: "Belize City (BZE)"
     arrives: "08:00"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "9N2200"
+    airline: "Tropic Air"
+    from: "Belize City (BZE)"
+    arrives: "08:00"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
     thursday: false
     friday: true
 
@@ -31,6 +110,51 @@ arrivals:
     airline: "Aerolíneas Sosa"
     from: "La Ceiba (LCE)"
     arrives: "08:10"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives: "08:10"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives: "08:10"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "08:30"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "08:30"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -38,6 +162,30 @@ arrivals:
     airline: "Avianca"
     from: "San Salvador (SAL)"
     arrives: "08:30"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "S085"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "08:45"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "S085"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "08:45"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -45,6 +193,30 @@ arrivals:
     airline: "Aerolíneas Sosa"
     from: "Roatán (RTB)"
     arrives: "08:45"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H53013"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "08:50"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H53013"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "08:50"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -52,13 +224,19 @@ arrivals:
     airline: "CM Airlines"
     from: "Roatán (RTB)"
     arrives: "08:50"
-    thursday: true
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
     friday: true
 
   - flight: "H53039"
     airline: "CM Airlines"
     from: "Roatán (RTB)"
     arrives: "09:15"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
     thursday: false
     friday: true
 
@@ -66,6 +244,41 @@ arrivals:
     airline: "Aeromexico"
     from: "Mexico City (MEX)"
     arrives: "11:25"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AA339"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "11:55"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives: "12:05"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives: "12:05"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -73,6 +286,30 @@ arrivals:
     airline: "Delta Air Lines"
     from: "Atlanta (ATL)"
     arrives: "12:05"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives: "12:35"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives: "12:35"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -80,6 +317,30 @@ arrivals:
     airline: "United Airlines"
     from: "Houston (IAH)"
     arrives: "12:35"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "CM286"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives: "12:42"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "CM286"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives: "12:42"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true
 
@@ -87,5 +348,361 @@ arrivals:
     airline: "Copa Airlines"
     from: "Panama City (PTY)"
     arrives: "12:42"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "M6734"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives: "13:50"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "M6744"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives: "13:50"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "M6754"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives: "13:50"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "B62089"
+    airline: "B6"
+    from: "Fort Lauderdale (FLL)"
+    arrives: "14:05"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "B62089"
+    airline: "B6"
+    from: "Fort Lauderdale (FLL)"
+    arrives: "14:20"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "AA319"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "14:50"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AA319"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "14:50"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "W85457"
+    airline: "W8"
+    from: "Guatemala City (GUA)"
+    arrives: "15:00"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "W85457"
+    airline: "W8"
+    from: "Guatemala City (GUA)"
+    arrives: "15:00"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "15:15"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "15:15"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "15:15"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "W85240"
+    airline: "W8"
+    from: "SJO (SJO)"
+    arrives: "15:25"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "15:45"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "15:45"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "15:45"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H5322"
+    airline: "CM Airlines"
+    from: "Guatemala City (GUA)"
+    arrives: "17:00"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H5322"
+    airline: "CM Airlines"
+    from: "Guatemala City (GUA)"
+    arrives: "17:00"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "17:15"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "17:15"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives: "17:15"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "H53029"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "18:15"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "H53029"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "18:15"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "18:50"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "18:50"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "18:50"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "AA3055"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "19:52"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AA3055"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "19:52"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "UA1474"
+    airline: "United Airlines"
+    from: "EWR (EWR)"
+    arrives: "22:45"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "UA1474"
+    airline: "United Airlines"
+    from: "EWR (EWR)"
+    arrives: "22:45"
+    date: "2026-12-18"
+    bus_dates:
+      - "2026-12-18"
+    thursday: false
+    friday: true
+
+  - flight: "UA432"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives: "22:57"
+    date: "2026-12-16"
+    bus_dates:
+      - "2026-12-17"
+    thursday: true
+    friday: false
+
+  - flight: "UA432"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives: "22:57"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "AV574"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "23:25"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
+    thursday: true
+    friday: true
+
+  - flight: "CM457"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives: "23:32"
+    date: "2026-12-17"
+    bus_dates:
+      - "2026-12-17"
+      - "2026-12-18"
     thursday: true
     friday: true

@@ -212,31 +212,35 @@ schedule_auto_refresh: "Schedule updates automatically"
 schedule_view_map: "View on map"
 
 # Travel Form
-travel_form_title: "Travel Details"
-travel_form_subtitle: "Help us coordinate — takes about a minute."
-travel_form_saving: "Saving..."
-travel_form_saved: "Saved ✓"
 travel_form_retry: "Couldn't save. Make another change to retry."
 travel_form_bus_schedule_title: "Bus schedule"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |
   | --- | --- | --- |
-  | Thu Dec 17 & Fri Dec 18 | Last SAP pickup 1:00 PM; bus 2:00 PM | Copán 5:00 PM |
+  | Thu Dec 17 | SAP pickup by 1:00 PM; bus 2:00 PM | Copán ~5:00 PM |
+  | Fri Dec 18 | SAP pickup by 1:00 PM; bus 2:00 PM | Copán ~5:00 PM |
   | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
+travel_form_section_title: "Travel Details"
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
-travel_form_bus_to_thursday_sub: "Last SAP pickup 1:00 PM · departs 2:00 PM · arrives ~5:00 PM"
 travel_form_bus_to_friday: "Friday, Dec 18"
-travel_form_bus_to_friday_sub: "Last SAP pickup 1:00 PM · departs 2:00 PM · arrives ~5:00 PM"
 travel_form_bus_to_none: "No, I'll get there on my own"
 travel_form_pickup_label: "Where should we pick you up?"
 travel_form_pickup_sap: "SAP airport, San Pedro Sula"
+travel_form_pickup_sap_sub: "Last airport pickup 1:00 PM"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
+travel_form_pickup_welchez_sub: "Bus departs Welchez Café 2:00 PM"
 travel_form_flight_label: "Which flight do you arrive on?"
 travel_form_flight_placeholder: "Search by flight number or city..."
 travel_form_flight_hint: "Optional — helps us time the pickup. Free text if your flight isn't listed."
 travel_form_flight_arrives: "Arrives"
+travel_form_flight_prev_day_warning: "This flight arrives the day before. Please arrange to stay overnight in San Pedro Sula and meet us at Welchez Café."
+travel_form_flight_late_warning: "Airport pickup is unavailable after 1:00 PM. Please choose Welchez Café as your pickup point."
+travel_form_save: "Save"
+travel_form_saving_btn: "Saving..."
+travel_form_saved_btn: "Saved ✓"
+travel_form_retry_btn: "Try again"
 travel_form_bus_return_label: "Do you want a seat on the bus back?"
 travel_form_bus_return_sunday_sp: "Sunday, Dec 20 → San Pedro"
 travel_form_bus_return_sunday_sp_sub: "Departs Copán 1:00 PM · arrives ~5:00 PM"

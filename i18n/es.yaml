@@ -213,31 +213,35 @@ schedule_auto_refresh: "El horario se actualiza automáticamente"
 schedule_view_map: "Ver en mapa"
 
 # Travel Form
-travel_form_title: "Detalles de viaje"
-travel_form_subtitle: "Ayúdanos a coordinar — tarda solo un minuto."
-travel_form_saving: "Guardando..."
-travel_form_saved: "Guardado ✓"
 travel_form_retry: "No se pudo guardar. Haz otro cambio para reintentar."
 travel_form_bus_schedule_title: "Horarios del autobús"
 travel_form_bus_schedule_body: |
   | Día | Salida | Llegada |
   | --- | --- | --- |
-  | Jue. 17 y vie. 18 de dic. | Última recogida SAP 1:00 PM; autobús 2:00 PM | Copán 5:00 PM |
+  | Jue. 17 de dic. | Recogida SAP hasta 1:00 PM; autobús 2:00 PM | Copán ~5:00 PM |
+  | Vie. 18 de dic. | Recogida SAP hasta 1:00 PM; autobús 2:00 PM | Copán ~5:00 PM |
   | Dom. 20 de dic. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Lun. 21 de dic. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
+travel_form_section_title: "Detalles de viaje"
 travel_form_bus_to_label: "¿Quieres un lugar en nuestro autobús a Copán?"
 travel_form_bus_to_thursday: "Jueves, 17 de dic."
-travel_form_bus_to_thursday_sub: "Última recogida SAP 1:00 PM · sale 2:00 PM · llega ~5:00 PM"
 travel_form_bus_to_friday: "Viernes, 18 de dic."
-travel_form_bus_to_friday_sub: "Última recogida SAP 1:00 PM · sale 2:00 PM · llega ~5:00 PM"
 travel_form_bus_to_none: "No, llegaré por mi cuenta"
 travel_form_pickup_label: "¿Dónde te recogemos?"
 travel_form_pickup_sap: "Aeropuerto SAP, San Pedro Sula"
+travel_form_pickup_sap_sub: "Última recogida en aeropuerto 1:00 PM"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
+travel_form_pickup_welchez_sub: "El autobús sale de Welchez Café a las 2:00 PM"
 travel_form_flight_label: "¿En qué vuelo llegas?"
 travel_form_flight_placeholder: "Busca por número de vuelo o ciudad..."
 travel_form_flight_hint: "Opcional — nos ayuda a coordinar. Escribe libremente si tu vuelo no aparece."
 travel_form_flight_arrives: "Llega"
+travel_form_flight_prev_day_warning: "Este vuelo llega el día anterior. Por favor, organiza alojamiento nocturno en San Pedro Sula y únete a nosotros en el Welchez Café."
+travel_form_flight_late_warning: "La recogida en el aeropuerto no está disponible después de la 1:00 PM. Por favor, elige el Welchez Café como punto de recogida."
+travel_form_save: "Guardar"
+travel_form_saving_btn: "Guardando..."
+travel_form_saved_btn: "Guardado ✓"
+travel_form_retry_btn: "Reintentar"
 travel_form_bus_return_label: "¿Quieres un lugar en el autobús de regreso?"
 travel_form_bus_return_sunday_sp: "Domingo, 20 de dic. → San Pedro"
 travel_form_bus_return_sunday_sp_sub: "Sale de Copán 1:00 PM · llega ~5:00 PM"
