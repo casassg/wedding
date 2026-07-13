@@ -39,61 +39,28 @@ jobs:
 
       - name: Deploy or destroy PR app on Fly.io
         id: deploy
+        uses: superfly/fly-pr-review-apps@1.6.0
+        with:
+          config: fly.review.toml
+
+      - name: Set Fly secrets
+        if: github.event.action != 'closed'
         env:
-          PR_NUMBER: ${{ github.event.number }}
-          EVENT_ACTION: ${{ github.event.action }}
-          GITHUB_REPOSITORY_OWNER: ${{ github.repository_owner }}
+          APP_NAME: ${{ steps.deploy.outputs.name }}
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
           GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: |
-          set -e
-          repo_name="${GITHUB_REPOSITORY##*/}"
-          app="pr-${PR_NUMBER}-${GITHUB_REPOSITORY_OWNER}-${repo_name}"
-          app="${app//_/-}"
-          app=$(echo "$app" | tr '[:upper:]' '[:lower:]')
-          config="fly.review.toml"
-
-          echo "App: $app"
-
-          if [ "$EVENT_ACTION" = "closed" ]; then
-            flyctl apps destroy "$app" -y || true
-            echo "name=$app" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-
-          # Create app if it doesn't exist
-          if ! flyctl status --app "$app" 2>/dev/null; then
-            cp "$config" "$config.bak"
-            flyctl launch --no-deploy --copy-config --name "$app" \
-              --region "$FLY_REGION" --org "$FLY_ORG"
-            cp "$config.bak" "$config"
-          fi
-
-          # Set secrets via stdin (avoids leaking via argv)
-          printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
-            "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
-            | flyctl secrets import --app "$app"
-
-          # Deploy with retry (transient "concurrent update" races on Fly)
           for attempt in 1 2 3; do
-            echo "Deploy attempt $attempt..."
-            if flyctl deploy --config "$config" --app "$app" \
-              --regions "$FLY_REGION" --strategy immediate --ha=false \
-              --vm-cpu-kind shared --vm-cpus 1 --vm-memory 256; then
-              break
-            fi
+            printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
+              "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
+              | flyctl secrets import --app "$APP_NAME" && break
             if [ "$attempt" = 3 ]; then
-              echo "::error::Deploy failed after 3 attempts"
+              echo "::error::Failed to set secrets after 3 attempts"
               exit 1
             fi
             echo "Retrying in 15s..."
             sleep 15
           done
-
-          # Extract hostname for PR environment URL
-          hostname=$(flyctl status --app "$app" --json | jq -r .Hostname)
-          echo "url=https://$hostname" >> "$GITHUB_OUTPUT"
-          echo "name=$app" >> "$GITHUB_OUTPUT"
 
       - name: Clean up GitHub environment
         uses: strumwolf/delete-deployment-environment@v2
