@@ -9,7 +9,7 @@ import tempfile
 import urllib.error
 import urllib.parse
 import urllib.request
-from datetime import date, datetime, time, timedelta
+from datetime import date, datetime, time, timedelta, timezone
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
@@ -73,85 +73,88 @@ def parse_bus_date(value, weekday, label):
 
 
 def flight_label(flight):
-    ident = flight.get("ident_iata") or flight.get("actual_ident_iata") or flight.get("ident")
+    operator = flight.get("operator_iata")
+    number = flight.get("flight_number")
+    if operator and number:
+        return f"{operator.upper()} {number.upper()}"
+
+    ident = flight.get("ident_iata") or flight.get("ident")
     if not ident:
         return ""
     ident = ident.replace(" ", "").upper()
-    match = re.fullmatch(r"([A-Z0-9]{2,3})(\d+[A-Z]?)", ident)
+    match = re.fullmatch(r"([A-Z0-9]{2})(\d+[A-Z]?)", ident)
     return f"{match.group(1)} {match.group(2)}" if match else ident
 
 
-def operator_code(flight):
-    ident = flight.get("actual_ident_iata") or flight.get("ident_iata") or ""
-    match = re.match(r"^([A-Z0-9]{2})\d", ident.replace(" ", "").upper())
-    return match.group(1) if match else ""
-
-
 def scheduled_arrival(flight):
-    value = flight.get("scheduled_in") or flight.get("scheduled_on")
+    value = (
+        flight.get("estimated_on")
+        or flight.get("scheduled_on")
+        or flight.get("estimated_in")
+        or flight.get("scheduled_in")
+    )
     if not value:
         return None
     return datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(SAP_TIMEZONE)
 
 
-def fetch_schedules(api_key, thursday, friday):
+def flight_window(thursday, friday):
+    start = datetime.combine(thursday, time.min, tzinfo=SAP_TIMEZONE).astimezone(timezone.utc)
+    end = datetime.combine(friday + timedelta(days=1), time.min, tzinfo=SAP_TIMEZONE).astimezone(timezone.utc)
+    return start, end
+
+
+def validate_api_window(thursday, friday, now=None):
+    start, end = flight_window(thursday, friday)
+    now = now or datetime.now(timezone.utc)
+    if start < now - timedelta(days=10):
+        raise ValueError("AeroAPI scheduled arrivals are only available for the last 10 days")
+    if end > now + timedelta(days=2):
+        raise ValueError(
+            "AeroAPI scheduled arrivals are only available two days ahead; "
+            f"refresh {thursday}–{friday} on or after midnight in Honduras on {thursday}"
+        )
+    return start, end
+
+
+def fetch_scheduled_arrivals(api_key, start, end):
     params = {
-        "destination": "SAP",
-        "include_codeshares": "false",
-        "include_regional": "true",
+        "start": start.isoformat().replace("+00:00", "Z"),
+        "end": end.isoformat().replace("+00:00", "Z"),
+        "type": "Airline",
         "max_pages": 10,
     }
-    path = f"schedules/{thursday.isoformat()}/{(friday + timedelta(days=1)).isoformat()}"
-    flights = []
-
-    while path:
-        payload = api_get(api_key, path, params)
-        flights.extend(payload.get("scheduled", []))
-        next_url = (payload.get("links") or {}).get("next")
-        path = next_url or ""
-        params = None
-
-    return flights
+    payload = api_get(api_key, "airports/SAP/flights/scheduled_arrivals", params)
+    if (payload.get("links") or {}).get("next"):
+        raise RuntimeError("AeroAPI returned more than 10 pages; output unchanged")
+    return payload.get("scheduled_arrivals", [])
 
 
-def metadata_name(api_key, resource, code, field, cache):
-    if not code:
-        return ""
-    key = (resource, code)
-    if key not in cache:
-        try:
-            cache[key] = api_get(api_key, f"{resource}/{urllib.parse.quote(code)}")
-        except RuntimeError as err:
-            print(f"warning: could not resolve {resource} {code}: {err}", file=sys.stderr)
-            cache[key] = {}
-    return cache[key].get(field) or ""
-
-
-def build_arrivals(api_key, flights, thursday, friday):
-    cache = {}
+def build_arrivals(flights, thursday, friday):
     arrivals = {}
 
     for flight in flights:
+        if flight.get("cancelled"):
+            continue
         arrival = scheduled_arrival(flight)
         if not arrival or arrival.date() not in (thursday, friday) or arrival.time() > PICKUP_CUTOFF:
             continue
 
         label = flight_label(flight)
-        origin_ref = flight.get("origin_iata") or flight.get("origin") or ""
-        if not label or not origin_ref:
+        origin = flight.get("origin") or {}
+        origin_code = origin.get("code_iata") or origin.get("code_icao") or origin.get("code") or ""
+        if not label or not origin_code:
             continue
 
-        city = metadata_name(api_key, "airports", origin_ref, "city", cache) or origin_ref
-        origin = metadata_name(api_key, "airports", origin_ref, "code_iata", cache) or origin_ref
-        code = operator_code(flight)
-        airline = metadata_name(api_key, "operators", code, "name", cache) or code
-        key = (label, airline, city, origin, arrival.strftime("%H:%M"))
+        city = origin.get("city") or origin.get("name") or origin_code
+        airline = flight.get("operator_iata") or flight.get("operator_icao") or flight.get("operator") or ""
+        key = (label, airline, city, origin_code, arrival.strftime("%H:%M"))
         entry = arrivals.setdefault(
             key,
             {
                 "flight": label,
                 "airline": airline,
-                "from": f"{city} ({origin})",
+                "from": f"{city} ({origin_code})",
                 "arrives": arrival.strftime("%H:%M"),
                 "thursday": False,
                 "friday": False,
@@ -190,19 +193,18 @@ def write_yaml(path, arrivals):
 
 def main():
     args = parse_args()
+    thursday = parse_bus_date(args.thursday, 3, "Thursday")
+    friday = parse_bus_date(args.friday, 4, "Friday")
+    if friday <= thursday or friday - thursday > timedelta(days=21):
+        raise ValueError("Friday must follow Thursday")
+    start, end = validate_api_window(thursday, friday)
+
     api_key = os.environ.get("AEROAPI_KEY")
     if not api_key:
         raise ValueError("AEROAPI_KEY is required")
 
-    thursday = parse_bus_date(args.thursday, 3, "Thursday")
-    friday = parse_bus_date(args.friday, 4, "Friday")
-    if friday <= thursday or friday - thursday > timedelta(days=21):
-        raise ValueError("Friday must follow Thursday within AeroAPI's three-week schedule window")
-    if friday > date.today() + timedelta(days=365):
-        raise ValueError("AeroAPI schedules are only available up to one year ahead")
-
-    flights = fetch_schedules(api_key, thursday, friday)
-    arrivals = build_arrivals(api_key, flights, thursday, friday)
+    flights = fetch_scheduled_arrivals(api_key, start, end)
+    arrivals = build_arrivals(flights, thursday, friday)
     if not arrivals:
         raise RuntimeError("AeroAPI returned no SAP arrivals before the 1:00 PM pickup cutoff; output unchanged")
 
