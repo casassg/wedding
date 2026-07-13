@@ -793,8 +793,6 @@
             saveQueued: false,
             saveVersion: 0,
             flightOpen: false,
-            prevDayWarning: '',
-            lateWarning: '',
             lang: 'en',
             inHonduras: false,
 
@@ -818,57 +816,25 @@
                 notes: '',       // textarea
             },
 
-            // All flights relevant to the selected bus day (Thursday or Friday).
-            // Thursday bus: arrivals whose SAP-local date is Wednesday or Thursday.
-            // Friday bus: arrivals whose SAP-local date is Thursday or Friday.
-            // Uses pre-computed localDate from normalize step.
+            // Only flights that land on the bus day at or before 13:00 local time.
+            // Previous-day and late-arriving flights are excluded entirely.
             get visibleFlights() {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return [];
                 const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
                 if (!busDate) return [];
-                const prevDate = new Date(busDate + 'T12:00:00Z');
-                prevDate.setUTCDate(prevDate.getUTCDate() - 1);
-                const prevDateStr = prevDate.toISOString().slice(0, 10);
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
                 return this.allFlights.filter(f => {
-                    if (f.localDate !== busDate && f.localDate !== prevDateStr) return false;
+                    if (f.localDate !== busDate) return false;
+                    const [h, m] = f.localTime.split(':').map(Number);
+                    if (h > 13 || (h === 13 && m > 0)) return false;
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
                 });
             },
 
-            // 'previous_day' | 'late' | null
-            // A flight is selectable (null) only if it arrives same day as bus and ≤13:00 local.
-            // 'previous_day': arrives the day before the bus day.
-            // 'late': arrives same day but after 13:00 local.
-            flightWarning(f) {
-                const day = this.travel.busto;
-                if (!day || day === 'none') return null;
-                const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
-                if (!busDate) return null;
-                if (f.localDate !== busDate) return 'previous_day';
-                // Compare local time HH:MM
-                const [h, m] = f.localTime.split(':').map(Number);
-                if (h > 13 || (h === 13 && m > 0)) return 'late';
-                return null;
-            },
-
-            isFlightSelectable(f) {
-                return this.flightWarning(f) === null;
-            },
-
-            flightWarningText(f) {
-                const w = this.flightWarning(f);
-                if (w === 'previous_day') return this.prevDayWarning;
-                if (w === 'late') return this.lateWarning;
-                return '';
-            },
-
             init() {
                 const el = this.$el;
-                this.prevDayWarning = el.dataset.flightPrevDayWarning || '';
-                this.lateWarning = el.dataset.flightLateWarning || '';
                 this.lang = el.dataset.lang || 'en';
 
                 const weddingDate = (el.dataset.weddingDate || '').slice(0, 10);
@@ -945,7 +911,7 @@
                 }
                 // If the saved flight is no longer in the visible list, clear it
                 if (this.travel.flightInput) {
-                    const still = this.visibleFlights.find(f => f.flight === this.travel.flightInput && this.isFlightSelectable(f));
+                    const still = this.visibleFlights.find(f => f.flight === this.travel.flightInput);
                     if (!still) this.travel.flightInput = '';
                 }
                 this.scheduleSave();

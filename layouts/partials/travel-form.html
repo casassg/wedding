@@ -6,20 +6,24 @@
 
 <div x-data="travelForm"
      x-init="setInvite(invite); $watch('invite', value => setInvite(value))"
-     data-flight-prev-day-warning="{{ i18n "travel_form_flight_prev_day_warning" }}"
-     data-flight-late-warning="{{ i18n "travel_form_flight_late_warning" }}"
      data-wedding-date="{{ .Site.Params.weddingDate }}"
      data-lang="{{ .Site.Language.Lang }}">
 
     <!-- Divider -->
     <hr class="my-6 border-mint/20">
 
-    <p x-show="!inHonduras" x-cloak class="mb-6 text-sm leading-relaxed text-gray-600 font-sans">
+    <p x-show="!inHonduras" x-cloak class="mb-4 text-sm leading-relaxed text-gray-600 font-sans">
         {{ i18n "travel_form_intro" }}
     </p>
     <p x-show="inHonduras" x-cloak class="mb-6 text-sm leading-relaxed text-gray-600 font-sans">
         {{ i18n "travel_form_intro_honduras" }}
     </p>
+
+    <!-- Bus rules explanation (hidden for Honduras guests) -->
+    <div x-show="!inHonduras" x-cloak
+         class="mb-4 space-y-2 text-sm leading-relaxed text-gray-600 font-sans">
+        {{ i18n "travel_form_bus_rules" | markdownify }}
+    </div>
 
     <!-- Bus schedule info card (hidden for Honduras guests) -->
     <div x-show="!inHonduras" x-cloak
@@ -104,21 +108,14 @@
                     x-cloak
                     class="tf-autocomplete absolute z-20 w-full mt-1 bg-white border border-gray-200 rounded-2xl shadow-lg overflow-y-auto">
                     <template x-for="f in visibleFlights" :key="f.flight + '-' + f.from + '-' + f.arrives_at">
-                        <li :class="{ 'bg-amber-50': flightWarning(f) === 'previous_day', 'bg-rose/5': flightWarning(f) === 'late' }">
+                        <li>
                             <button type="button"
                                     @click="selectFlight(f)"
-                                    :disabled="!isFlightSelectable(f)"
-                                    :title="flightWarningText(f)"
-                                    class="w-full text-left px-4 py-3 transition flex items-start gap-3"
-                                    :class="isFlightSelectable(f) ? 'hover:bg-mint/10 cursor-pointer' : 'cursor-not-allowed'">
+                                    class="w-full text-left px-4 py-3 transition flex items-start gap-3 hover:bg-mint/10 cursor-pointer">
                                 <div class="flex-1 min-w-0">
                                     <span class="font-semibold text-sm text-gray-800" x-text="f.flight"></span>
                                     <span class="text-xs text-gray-500 ml-1" x-text="f.airline"></span>
                                     <div class="text-xs text-gray-400 mt-0.5" x-text="f.from"></div>
-                                    <div x-show="flightWarningText(f)"
-                                         class="text-xs mt-1 font-sans"
-                                         :class="flightWarning(f) === 'previous_day' ? 'text-amber-600' : 'text-rose'"
-                                         x-text="flightWarningText(f)"></div>
                                 </div>
                                 <div class="text-right shrink-0">
                                     <span class="text-xs text-gray-500">{{ i18n "travel_form_flight_arrives" }}</span>
@@ -170,7 +167,8 @@
 
         <!-- Q5: Hotel (everyone) -->
         <div>
-            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_hotel_label" }}</p>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-1">{{ i18n "travel_form_hotel_label" }}</p>
+            <p x-show="!inHonduras" x-cloak class="text-xs text-gray-400 font-sans mb-3">{{ i18n "travel_form_hotel_help" }}</p>
             <div class="grid sm:grid-cols-2 gap-2">
                 <template x-for="h in hotels" :key="h.id">
                     <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.hotel === h.id }">

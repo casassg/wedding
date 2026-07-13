@@ -200,28 +200,31 @@ travel_form_bus_schedule_title: "Horaris de l'autobús"
 travel_form_bus_schedule_body: |
   | Dia | Sortida | Arribada |
   | --- | --- | --- |
-  | Dj. 17 de des. | Recollida SAP fins a 1:00 PM; autobús 2:00 PM | Copán ~5:00 PM |
-  | Dv. 18 de des. | Recollida SAP fins a 1:00 PM; autobús 2:00 PM | Copán ~5:00 PM |
+  | Dj. 17 de des. | Welchez Café 2:00 PM (recollida SAP fins a 1:00 PM) | Copán ~5:00 PM, segons el trànsit |
+  | Dv. 18 de des. | Welchez Café 2:00 PM (recollida SAP fins a 1:00 PM) | Copán ~5:00 PM, segons el trànsit |
   | Dg. 20 de des. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Dl. 21 de des. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Explica'ns on, quan i com arribaràs perquè puguem ajudar-te a organitzar el viatge. Per als qui veniu de l'estranger, estem organitzant autobusos des de San Pedro Sula fins a Copán."
+travel_form_intro: "Estem organitzant autobusos compartits des de San Pedro Sula fins a Copán per als convidats que venen de l'estranger. Comparteix els teus detalls de viatge perquè puguem coordinar l'arribada."
 travel_form_intro_honduras: "Per ajudar-nos a organitzar-ho tot, explica'ns on t'allotjaràs i qualsevol altre detall del viatge que hàgim de saber."
+travel_form_bus_rules: |
+  **Els autobusos del dijous i el divendres surten a les 2:00 PM** des del Welchez Café. La recollida a l'aeroport només està disponible per a vols que aterrin a SAP com a màxim a la 1:00 PM. **El Welchez Café** és un cafè amb aire condicionat a San Pedro Sula i el punt de trobada per als convidats que no recollim a l'aeroport.
+
+  Si arribes el dijous després de la 1:00 PM, pots quedar-te a dormir a San Pedro i agafar l'autobús del divendres des del Welchez Café. Si aquests horaris no et van bé, escriu-nos i t'ajudarem a coordinar un transport privat, que anirà a càrrec teu.
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "Dijous, 17 de des."
 travel_form_bus_to_friday: "Divendres, 18 de des."
 travel_form_bus_to_none: "No, hi arribaré pel meu compte"
-travel_form_pickup_label: "On et recollim?"
+travel_form_pickup_label: "On puges a l'autobús?"
 travel_form_pickup_sap: "Aeroport SAP, San Pedro Sula"
-travel_form_pickup_sap_sub: "Última recollida a l'aeroport 1:00 PM"
+travel_form_pickup_sap_sub: "Només per a vols que aterrin com a màxim a la 1:00 PM"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub: "L'autobús surt del Welchez Café a les 2:00 PM"
+travel_form_pickup_welchez_sub: "Punt de trobada amb aire condicionat · sortida 2:00 PM"
 travel_form_pickup_welchez_map: "Veure Welchez Café a Google Maps"
 travel_form_flight_label: "En quin vol arribes?"
 travel_form_flight_placeholder: "Cerca per número de vol o ciutat..."
-travel_form_flight_hint: "Opcional — ens ajuda a coordinar. Escriu lliurement si el teu vol no apareix."
+travel_form_flight_hint: "Opcional — ens ajuda a coordinar la recollida. Si el teu vol compleix l'horari però no apareix, escriu-lo lliurement."
 travel_form_flight_arrives: "Arriba"
-travel_form_flight_prev_day_warning: "Aquest vol arriba el dia anterior. Si us plau, organitza allotjament nocturn a San Pedro Sula i troba't amb nosaltres al Welchez Café."
-travel_form_flight_late_warning: "La recollida a l'aeroport no està disponible després de la 1:00 PM. Si us plau, tria el Welchez Café com a punt de recollida."
+
 travel_form_save: "Desar"
 travel_form_saving_btn: "Desant..."
 travel_form_saved_btn: "Desat ✓"
@@ -236,6 +239,7 @@ travel_form_bus_return_monday_sp_sub: "Surt de Copán 10:00 AM · arriba ~2:00 P
 travel_form_bus_return_monday_sap: "Dilluns, 21 de des. → Aeroport SAP"
 travel_form_bus_return_monday_sap_sub: "Surt de Copán 10:00 AM · arriba ~3:00 PM"
 travel_form_bus_return_none: "No necessito autobús"
+travel_form_hotel_help: "Compartim aquesta informació amb l'empresa d'autobusos per coordinar les parades a Copán. No es pot garantir parada individual a cada hotel."
 travel_form_hotel_label: "On t'allotges a Copán?"
 travel_form_hotel_other: "En un altre lloc"
 travel_form_hotel_other_placeholder: "Nom de l'hotel o adreça..."

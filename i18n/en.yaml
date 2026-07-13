@@ -200,28 +200,31 @@ travel_form_bus_schedule_title: "Bus schedule"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |
   | --- | --- | --- |
-  | Thu Dec 17 | SAP pickup by 1:00 PM; bus 2:00 PM | Copán ~5:00 PM |
-  | Fri Dec 18 | SAP pickup by 1:00 PM; bus 2:00 PM | Copán ~5:00 PM |
+  | Thu Dec 17 | Welchez Café 2:00 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
+  | Fri Dec 18 | Welchez Café 2:00 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
   | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Please let us know where, when, and how you're arriving so we can help make your journey smooth. For those traveling from overseas, we're organizing buses from San Pedro Sula to Copán."
+travel_form_intro: "We're organizing shared buses from San Pedro Sula to Copán for guests traveling from abroad. Please share your travel details so we can coordinate your journey."
 travel_form_intro_honduras: "To help us organize everything, please share where you'll be staying and any other travel notes we should know."
+travel_form_bus_rules: |
+  **Thursday and Friday buses depart at 2:00 PM** from Welchez Café. Airport pickup is only available for flights landing at SAP by 1:00 PM. **Welchez Café** is an air-conditioned café in San Pedro Sula and the meeting point for guests we are not collecting at the airport.
+
+  If you land on Thursday after 1:00 PM, you're welcome to stay overnight in San Pedro and join the Friday bus from Welchez Café. If these times do not work for you, text us and we will help coordinate private transport at your own expense.
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
 travel_form_bus_to_friday: "Friday, Dec 18"
 travel_form_bus_to_none: "No, I'll get there on my own"
-travel_form_pickup_label: "Where should we pick you up?"
+travel_form_pickup_label: "Where will you board the bus?"
 travel_form_pickup_sap: "SAP airport, San Pedro Sula"
-travel_form_pickup_sap_sub: "Last airport pickup 1:00 PM"
+travel_form_pickup_sap_sub: "Flight landing by 1:00 PM only"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub: "Bus departs Welchez Café 2:00 PM"
+travel_form_pickup_welchez_sub: "Air-conditioned meeting point · departs 2:00 PM"
 travel_form_pickup_welchez_map: "View Welchez Café on Google Maps"
 travel_form_flight_label: "Which flight do you arrive on?"
 travel_form_flight_placeholder: "Search by flight number or city..."
-travel_form_flight_hint: "Optional — helps us time the pickup. Free text if your flight isn't listed."
+travel_form_flight_hint: "Optional — helps us time your airport pickup. If your eligible flight isn't listed, type it in freely."
 travel_form_flight_arrives: "Arrives"
-travel_form_flight_prev_day_warning: "This flight arrives the day before. Please arrange to stay overnight in San Pedro Sula and meet us at Welchez Café."
-travel_form_flight_late_warning: "Airport pickup is unavailable after 1:00 PM. Please choose Welchez Café as your pickup point."
+
 travel_form_save: "Save"
 travel_form_saving_btn: "Saving..."
 travel_form_saved_btn: "Saved ✓"
@@ -236,6 +239,7 @@ travel_form_bus_return_monday_sp_sub: "Departs Copán 10:00 AM · arrives ~2:00 
 travel_form_bus_return_monday_sap: "Monday, Dec 21 → SAP airport"
 travel_form_bus_return_monday_sap_sub: "Departs Copán 10:00 AM · arrives ~3:00 PM"
 travel_form_bus_return_none: "No bus needed"
+travel_form_hotel_help: "We share this with the bus company to coordinate drop-off points in Copán. Individual hotel stops cannot be guaranteed."
 travel_form_hotel_label: "Where are you staying in Copán?"
 travel_form_hotel_other: "Somewhere else"
 travel_form_hotel_other_placeholder: "Hotel name or address..."
