@@ -1,0 +1,30 @@
+primary_region = "iad"
+
+[build]
+  dockerfile = "Dockerfile.review"
+
+[deploy]
+  strategy = "immediate"
+
+[env]
+  PRIMARY_REGION = "iad"
+  SHEETS_SYNC_INTERVAL = "1m"
+  STATIC_DIR = "/app/public"
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "suspend"
+  auto_start_machines = true
+  min_machines_running = 0
+  processes = ["app"]
+
+[checks]
+  [checks.health]
+    type = "http"
+    port = 8080
+    interval = "30s"
+    timeout = "30s"
+    grace_period = "30s"
+    method = "GET"
+    path = "/health"

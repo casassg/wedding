@@ -2,6 +2,7 @@ package api
 
 import (
 	"net/http"
+	"os"
 
 	"github.com/casassg/wedding/backend/internal/sheets"
 	"github.com/casassg/wedding/backend/internal/store"
@@ -22,6 +23,12 @@ func NewRouter(database *store.Store, syncer *sheets.Syncer, allowedOrigins []st
 	mux.HandleFunc("GET /api/v1/invite/{invite_code}/", handler.GetInvite)
 	mux.HandleFunc("POST /api/v1/invite/{invite_code}/rsvp", handler.PostRSVP)
 	mux.HandleFunc("GET /api/v1/schedule", handler.GetSchedule)
+
+	if dir := os.Getenv("STATIC_DIR"); dir != "" {
+		if _, err := os.Stat(dir); err == nil {
+			mux.Handle("/", http.FileServer(http.Dir(dir)))
+		}
+	}
 
 	// Apply middleware chain
 	return Chain(

@@ -1,0 +1,41 @@
+# Build stage - Go backend
+FROM golang:1.25-alpine AS builder
+
+WORKDIR /build
+
+# Copy go mod files
+COPY backend/go.mod backend/go.sum ./
+RUN go mod download
+
+# Copy backend source code
+COPY backend/ .
+
+# Build the application
+RUN CGO_ENABLED=0 GOOS=linux go build -ldflags='-w -s -extldflags "-static"' -o server ./cmd/server
+
+# Runtime stage
+FROM alpine:3.19
+
+RUN apk add --no-cache ca-certificates sqlite
+
+# Copy application binary and migrations
+COPY --from=builder /build/server /app/server
+COPY backend/migrations/ddl.sql /app/migrations/ddl.sql
+
+# Copy pre-built Hugo frontend (from public/ at repo root, built by CI)
+COPY public/ /app/public/
+
+# Create directories and user
+RUN addgroup -g 1000 app && \
+    adduser -D -u 1000 -G app app && \
+    mkdir -p /data && \
+    chown -R app:app /app /data
+
+WORKDIR /data
+
+# Run database migrations
+RUN sqlite3 /data/wedding.db < /app/migrations/ddl.sql
+
+EXPOSE 8080
+
+CMD ["/app/server", "serve"]

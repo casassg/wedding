@@ -1,0 +1,69 @@
+name: Deploy Review App
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  FLY_REGION: iad
+  FLY_ORG: personal
+
+jobs:
+  review_app:
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
+      app: ${{ steps.deploy.outputs.name }}
+    concurrency:
+      group: pr-${{ github.event.number }}
+    environment:
+      name: review
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
+
+      - name: Build Hugo frontend
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Tegucigalpa
+        run: hugo --gc --minify --baseURL "/"
+
+      - name: Find existing review comment
+        id: find_comment
+        if: always()
+        uses: peter-evans/find-comment@v3
+        with:
+          issue-number: ${{ github.event.number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          body-includes: "<!-- fly-review-url -->"
+
+      - name: Deploy or destroy PR app on Fly.io
+        id: deploy
+        uses: superfly/fly-pr-review-apps@1.2
+        with:
+          config: fly.review.toml
+          secrets: GOOGLE_SHEET_ID=${{ secrets.GOOGLE_SHEET_ID }} GOOGLE_SHEETS_CREDENTIALS=${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+
+      - name: Create or update PR comment
+        uses: peter-evans/create-or-update-comment@v4
+        with:
+          issue-number: ${{ github.event.number }}
+          token: ${{ secrets.GITHUB_TOKEN }}
+          comment-id: ${{ steps.find_comment.outputs.comment-id }}
+          edit-mode: replace
+          body: |
+            <!-- fly-review-url -->
+            🚀 **Review app${{ github.event.action == 'closed' && ' (destroyed)' || '' }}**
+
+            ${{ github.event.action == 'closed' && 'The review app has been torn down.' || format('URL: {0}', steps.deploy.outputs.url) }}
+
+            _beep boop :robot:, message from your friendly AI_
