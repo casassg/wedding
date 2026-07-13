@@ -162,6 +162,13 @@ func (s *Syncer) SyncToSheet(ctx context.Context) error {
 			continue
 		}
 
+		if invite.TravelUpdatedAt != nil {
+			if err := s.sheetsClient.WriteTravel(ctx, invite); err != nil {
+				log.Printf("Failed to write travel for invite %s: %v", invite.InviteCode, err)
+				continue
+			}
+		}
+
 		// Mark as synced in database
 		if err := q.MarkInviteSynced(ctx, invite.InviteCode); err != nil {
 			log.Printf("Failed to mark invite %s as synced: %v", invite.InviteCode, err)

@@ -1,6 +1,8 @@
 package api
 
 import (
+	"strings"
+
 	"github.com/casassg/wedding/backend/internal/store"
 )
 
@@ -11,6 +13,26 @@ type InviteResponse struct {
 	MaxKids      int    `json:"max_kids"`
 	HasResponded bool   `json:"has_responded"`
 	IsAttending  bool   `json:"is_attending"`
+
+	// Travel fields
+	HasTravelInfo       bool   `json:"has_travel_info"`
+	InHonduras          bool   `json:"in_honduras"`
+	TravelBusTo         string `json:"travel_bus_to"`
+	TravelPickup        string `json:"travel_pickup"`
+	TravelArrivalFlight string `json:"travel_arrival_flight"`
+	TravelBusReturn     string `json:"travel_bus_return"`
+	TravelHotel         string `json:"travel_hotel"`
+	TravelNotes         string `json:"travel_notes"`
+}
+
+// TravelRequest is the request payload for POST /invite/{code}/travel
+type TravelRequest struct {
+	BusTo         string `json:"bus_to"`
+	Pickup        string `json:"pickup"`
+	ArrivalFlight string `json:"arrival_flight"`
+	BusReturn     string `json:"bus_return"`
+	Hotel         string `json:"hotel"`
+	Notes         string `json:"notes"`
 }
 
 // RSVPRequest is the request payload for POST /invite/{uuid}/rsvp
@@ -88,10 +110,18 @@ func ToScheduleEventResponse(event *store.ScheduleEvent) ScheduleEventResponse {
 // ToInviteResponse converts sqlc Invite to API InviteResponse
 func ToInviteResponse(invite *store.Invite) InviteResponse {
 	return InviteResponse{
-		Name:         invite.Name,
-		MaxAdults:    int(invite.MaxAdults),
-		MaxKids:      int(invite.MaxKids),
-		HasResponded: invite.ResponseAt != nil,
-		IsAttending:  invite.ConfirmedAdults > 0,
+		Name:                invite.Name,
+		MaxAdults:           int(invite.MaxAdults),
+		MaxKids:             int(invite.MaxKids),
+		HasResponded:        invite.ResponseAt != nil,
+		IsAttending:         invite.ConfirmedAdults > 0,
+		HasTravelInfo:       invite.TravelUpdatedAt != nil,
+		InHonduras:          strings.EqualFold(invite.Location, "HONDURAS"),
+		TravelBusTo:         invite.TravelBusTo,
+		TravelPickup:        invite.TravelPickup,
+		TravelArrivalFlight: invite.TravelArrivalFlight,
+		TravelBusReturn:     invite.TravelBusReturn,
+		TravelHotel:         invite.TravelHotel,
+		TravelNotes:         invite.TravelNotes,
 	}
 }

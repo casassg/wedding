@@ -610,3 +610,42 @@ body.place-modal-open {
         width: 80px;
     }
 }
+
+/* Travel Form */
+.tf-radio-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 1rem;
+    border: 2px solid #e5e7eb;
+    background: #fff;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s;
+    user-select: none;
+}
+
+.tf-radio-card:hover {
+    border-color: #8FA876;
+    background: #f6fbf4;
+}
+
+.tf-radio-card--selected {
+    border-color: #8FA876;
+    background: #f0f7ec;
+}
+
+.tf-schedule-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+}
+
+.tf-autocomplete {
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.tf-autocomplete li + li {
+    border-top: 1px solid #f3f4f6;
+}

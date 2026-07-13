@@ -1,0 +1,63 @@
+arrivals:
+  - flight: "S0 RTB-SAP"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives: "08:45"
+    thursday: true
+    friday: true
+
+  - flight: "H5 RTB-SAP"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives: "08:50"
+    thursday: true
+    friday: true
+
+  - flight: "AV 620"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives: "12:35"
+    thursday: true
+    friday: true
+
+  - flight: "AV 372"
+    airline: "Avianca"
+    from: "Guatemala City (GUA)"
+    arrives: "10:05"
+    thursday: true
+    friday: true
+
+  - flight: "CM 484"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives: "11:10"
+    thursday: true
+    friday: true
+
+  - flight: "AA 900"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives: "09:45"
+    thursday: true
+    friday: true
+
+  - flight: "AA 2110"
+    airline: "American Airlines"
+    from: "Dallas/Fort Worth (DFW)"
+    arrives: "11:20"
+    thursday: true
+    friday: false
+
+  - flight: "UA 1630"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives: "10:55"
+    thursday: true
+    friday: true
+
+  - flight: "NK 322"
+    airline: "Spirit Airlines"
+    from: "Fort Lauderdale (FLL)"
+    arrives: "10:30"
+    thursday: true
+    friday: true

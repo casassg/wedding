@@ -22,20 +22,11 @@ func (q *Queries) DeleteAllScheduleEvents(ctx context.Context) error {
 }
 
 const DeleteInvite = `-- name: DeleteInvite :exec
-    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
-
-
-
 DELETE FROM invites
 WHERE invite_code = ?
 `
 
-// Note: The WHERE clause prevents updates when synced_at IS NULL,
 // HARD DELETE: This permanently removes the row.
-//
-//	    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
-//
-//
 //
 //	DELETE FROM invites
 //	WHERE invite_code = ?
@@ -45,12 +36,12 @@ func (q *Queries) DeleteInvite(ctx context.Context, inviteCode string) error {
 }
 
 const GetInviteByInviteCode = `-- name: GetInviteByInviteCode :one
-SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, created_at, updated_at FROM invites WHERE invite_code = ?
+SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
 `
 
 // GetInviteByInviteCode
 //
-//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, created_at, updated_at FROM invites WHERE invite_code = ?
+//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
 func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) (*Invite, error) {
 	row := q.queryRow(ctx, q.getInviteByInviteCodeStmt, GetInviteByInviteCode, inviteCode)
 	var i Invite
@@ -66,6 +57,14 @@ func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) 
 		&i.SongRequest,
 		&i.ResponseAt,
 		&i.SheetRow,
+		&i.Location,
+		&i.TravelBusTo,
+		&i.TravelPickup,
+		&i.TravelArrivalFlight,
+		&i.TravelBusReturn,
+		&i.TravelHotel,
+		&i.TravelNotes,
+		&i.TravelUpdatedAt,
 		&i.CreatedAt,
 		&i.UpdatedAt,
 	)
@@ -73,7 +72,7 @@ func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) 
 }
 
 const GetPendingSyncInvites = `-- name: GetPendingSyncInvites :many
-SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, created_at, updated_at FROM invites
+SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites
 WHERE response_at IS NOT NULL
   AND response_at > updated_at
 ORDER BY response_at ASC
@@ -81,7 +80,7 @@ ORDER BY response_at ASC
 
 // Finds rows that have responded but haven't been synced OR have changed since sync.
 //
-//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, created_at, updated_at FROM invites
+//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites
 //	WHERE response_at IS NOT NULL
 //	  AND response_at > updated_at
 //	ORDER BY response_at ASC
@@ -106,6 +105,14 @@ func (q *Queries) GetPendingSyncInvites(ctx context.Context) ([]*Invite, error) 
 			&i.SongRequest,
 			&i.ResponseAt,
 			&i.SheetRow,
+			&i.Location,
+			&i.TravelBusTo,
+			&i.TravelPickup,
+			&i.TravelArrivalFlight,
+			&i.TravelBusReturn,
+			&i.TravelHotel,
+			&i.TravelNotes,
+			&i.TravelUpdatedAt,
 			&i.CreatedAt,
 			&i.UpdatedAt,
 		); err != nil {
@@ -299,11 +306,70 @@ func (q *Queries) UpdateRSVP(ctx context.Context, arg *UpdateRSVPParams) error {
 	return err
 }
 
+const UpdateTravelInfo = `-- name: UpdateTravelInfo :exec
+    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
+
+
+
+UPDATE invites
+SET
+    travel_bus_to        = ?1,
+    travel_pickup        = ?2,
+    travel_arrival_flight = ?3,
+    travel_bus_return    = ?4,
+    travel_hotel         = ?5,
+    travel_notes         = ?6,
+    travel_updated_at    = datetime('now', 'utc'),
+    response_at          = datetime('now', 'utc')
+WHERE invite_code = ?7
+`
+
+type UpdateTravelInfoParams struct {
+	InputBusTo         string `json:"input_bus_to"`
+	InputPickup        string `json:"input_pickup"`
+	InputArrivalFlight string `json:"input_arrival_flight"`
+	InputBusReturn     string `json:"input_bus_return"`
+	InputHotel         string `json:"input_hotel"`
+	InputNotes         string `json:"input_notes"`
+	InputInviteCode    string `json:"input_invite_code"`
+}
+
+// Note: The WHERE clause prevents updates when synced_at IS NULL,
+// Updates travel fields and bumps response_at so GetPendingSyncInvites picks it up.
+//
+//	    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
+//
+//
+//
+//	UPDATE invites
+//	SET
+//	    travel_bus_to        = ?1,
+//	    travel_pickup        = ?2,
+//	    travel_arrival_flight = ?3,
+//	    travel_bus_return    = ?4,
+//	    travel_hotel         = ?5,
+//	    travel_notes         = ?6,
+//	    travel_updated_at    = datetime('now', 'utc'),
+//	    response_at          = datetime('now', 'utc')
+//	WHERE invite_code = ?7
+func (q *Queries) UpdateTravelInfo(ctx context.Context, arg *UpdateTravelInfoParams) error {
+	_, err := q.exec(ctx, q.updateTravelInfoStmt, UpdateTravelInfo,
+		arg.InputBusTo,
+		arg.InputPickup,
+		arg.InputArrivalFlight,
+		arg.InputBusReturn,
+		arg.InputHotel,
+		arg.InputNotes,
+		arg.InputInviteCode,
+	)
+	return err
+}
+
 const UpsertInvite = `-- name: UpsertInvite :exec
 INSERT INTO invites (
-    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, updated_at
+    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
     name       = excluded.name,
@@ -311,6 +377,7 @@ ON CONFLICT(invite_code) DO UPDATE SET
     max_kids   = excluded.max_kids,
     sheet_row  = excluded.sheet_row,
     confirmed_adults = excluded.confirmed_adults,
+    location   = excluded.location,
     updated_at = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 `
@@ -322,15 +389,16 @@ type UpsertInviteParams struct {
 	MaxKids         int64  `json:"max_kids"`
 	ConfirmedAdults int64  `json:"confirmed_adults"`
 	SheetRow        *int64 `json:"sheet_row"`
+	Location        string `json:"location"`
 }
 
 // Syncs Master Data from Google Sheets -> DB.
 // Skips updates if invite has unsynced local changes (synced_at IS NULL).
 //
 //	INSERT INTO invites (
-//	    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, updated_at
+//	    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
 //	) VALUES (
-//	    ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+//	    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 //	)
 //	ON CONFLICT(invite_code) DO UPDATE SET
 //	    name       = excluded.name,
@@ -338,6 +406,7 @@ type UpsertInviteParams struct {
 //	    max_kids   = excluded.max_kids,
 //	    sheet_row  = excluded.sheet_row,
 //	    confirmed_adults = excluded.confirmed_adults,
+//	    location   = excluded.location,
 //	    updated_at = excluded.updated_at
 //	WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) error {
@@ -348,6 +417,7 @@ func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) err
 		arg.MaxKids,
 		arg.ConfirmedAdults,
 		arg.SheetRow,
+		arg.Location,
 	)
 	return err
 }

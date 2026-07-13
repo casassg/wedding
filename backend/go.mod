@@ -8,6 +8,7 @@ require (
 	github.com/alecthomas/kong v1.7.0
 	github.com/joho/godotenv v1.5.1
 	github.com/pkg/errors v0.9.1
+	github.com/stretchr/testify v1.11.1
 	golang.org/x/time v0.14.0
 	google.golang.org/api v0.262.0
 	modernc.org/sqlite v1.44.3
@@ -45,6 +46,7 @@ require (
 	google.golang.org/genproto/googleapis/rpc v0.0.0-20260120174246-409b4a993575 // indirect
 	google.golang.org/grpc v1.78.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 	modernc.org/libc v1.67.6 // indirect
 	modernc.org/mathutil v1.7.1 // indirect
 	modernc.org/memory v1.11.0 // indirect

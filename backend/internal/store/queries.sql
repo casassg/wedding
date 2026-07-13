@@ -21,9 +21,9 @@ WHERE
 -- Syncs Master Data from Google Sheets -> DB.
 -- Skips updates if invite has unsynced local changes (synced_at IS NULL).
 INSERT INTO invites (
-    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, updated_at
+    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
     name       = excluded.name,
@@ -31,12 +31,27 @@ ON CONFLICT(invite_code) DO UPDATE SET
     max_kids   = excluded.max_kids,
     sheet_row  = excluded.sheet_row,
     confirmed_adults = excluded.confirmed_adults,
+    location   = excluded.location,
     updated_at = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at;
     -- Note: The WHERE clause prevents updates when synced_at IS NULL,
     -- protecting local RSVP changes that haven't been pushed to the sheet yet.
 
 
+
+-- name: UpdateTravelInfo :exec
+-- Updates travel fields and bumps response_at so GetPendingSyncInvites picks it up.
+UPDATE invites
+SET
+    travel_bus_to        = :input_bus_to,
+    travel_pickup        = :input_pickup,
+    travel_arrival_flight = :input_arrival_flight,
+    travel_bus_return    = :input_bus_return,
+    travel_hotel         = :input_hotel,
+    travel_notes         = :input_notes,
+    travel_updated_at    = datetime('now', 'utc'),
+    response_at          = datetime('now', 'utc')
+WHERE invite_code = :input_invite_code;
 
 -- name: DeleteInvite :exec
 -- HARD DELETE: This permanently removes the row.

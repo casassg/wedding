@@ -22,6 +22,7 @@ func NewRouter(database *store.Store, syncer *sheets.Syncer, allowedOrigins []st
 	mux.HandleFunc("/health", handler.Health)
 	mux.HandleFunc("GET /api/v1/invite/{invite_code}/", handler.GetInvite)
 	mux.HandleFunc("POST /api/v1/invite/{invite_code}/rsvp", handler.PostRSVP)
+	mux.HandleFunc("POST /api/v1/invite/{invite_code}/travel", handler.PostTravel)
 	mux.HandleFunc("GET /api/v1/schedule", handler.GetSchedule)
 
 	if dir := os.Getenv("STATIC_DIR"); dir != "" {

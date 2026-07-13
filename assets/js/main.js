@@ -779,6 +779,253 @@
         }));
 
         // -----------------------
+        // Travel Form Component
+        // -----------------------
+        Alpine.data('travelForm', () => ({
+            // i18n strings read from data attributes
+            strings: {},
+
+            // Flight data from embedded JSON
+            allFlights: [],
+            hotels: [],
+
+            // UI state
+            saveStatus: '', // '', 'saving', 'saved', 'retry'
+            saveTimer: null,
+            saveInFlight: false,
+            saveQueued: false,
+            saveVersion: 0,
+            flightOpen: false,
+            inHonduras: false,
+
+            // The invite code — pulled from URL
+            get code() {
+                return new URLSearchParams(window.location.search).get('code');
+            },
+
+            // Travel form state
+            travel: {
+                busto: '',       // 'thursday' | 'friday' | 'none' | ''
+                pickup: '',      // 'sap' | 'welchez' | ''
+                flightInput: '', // free text / autocomplete input
+                busreturn: '',   // 'sunday_san_pedro' | 'sunday_sap' | 'monday_san_pedro' | 'monday_sap' | 'none' | ''
+                hotel: '',       // hotel id | '__other__' | ''
+                hotelOther: '',  // free text when hotel === '__other__'
+                notes: '',       // textarea
+            },
+
+            // Filtered flight suggestions based on bus day and search text
+            get filteredFlights() {
+                const day = this.travel.busto;
+                const q = (this.travel.flightInput || '').toLowerCase().trim();
+                return this.allFlights.filter(f => {
+                    // Filter by selected bus day
+                    if (day === 'thursday' && !f.thursday) return false;
+                    if (day === 'friday' && !f.friday) return false;
+                    // Filter by text search
+                    if (!q) return true;
+                    return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
+                });
+            },
+
+            init() {
+                // Read i18n strings from data attributes
+                const el = this.$el;
+                this.strings = {
+                    title: el.dataset.title || '',
+                    subtitle: el.dataset.subtitle || '',
+                    saving: el.dataset.saving || '',
+                    saved: el.dataset.saved || '',
+                    retry: el.dataset.retry || '',
+                    busScheduleTitle: el.dataset.busScheduleTitle || '',
+                    busToLabel: el.dataset.busToLabel || '',
+                    busToThursday: el.dataset.busToThursday || '',
+                    busToThursdaySub: el.dataset.busToThursdaySub || '',
+                    busToFriday: el.dataset.busToFriday || '',
+                    busToFridaySub: el.dataset.busToFridaySub || '',
+                    busToNone: el.dataset.busToNone || '',
+                    pickupLabel: el.dataset.pickupLabel || '',
+                    pickupSap: el.dataset.pickupSap || '',
+                    pickupWelchez: el.dataset.pickupWelchez || '',
+                    flightLabel: el.dataset.flightLabel || '',
+                    flightPlaceholder: el.dataset.flightPlaceholder || '',
+                    flightHint: el.dataset.flightHint || '',
+                    flightArrives: el.dataset.flightArrives || '',
+                    busReturnLabel: el.dataset.busReturnLabel || '',
+                    busReturnSundaySp: el.dataset.busReturnSundaySp || '',
+                    busReturnSundaySpSub: el.dataset.busReturnSundaySpSub || '',
+                    busReturnSundaySap: el.dataset.busReturnSundaySap || '',
+                    busReturnSundaySapSub: el.dataset.busReturnSundaySapSub || '',
+                    busReturnMondaySp: el.dataset.busReturnMondaySp || '',
+                    busReturnMondaySpSub: el.dataset.busReturnMondaySpSub || '',
+                    busReturnMondaySap: el.dataset.busReturnMondaySap || '',
+                    busReturnMondaySapSub: el.dataset.busReturnMondaySapSub || '',
+                    busReturnNone: el.dataset.busReturnNone || '',
+                    hotelLabel: el.dataset.hotelLabel || '',
+                    hotelOther: el.dataset.hotelOther || '',
+                    hotelOtherPlaceholder: el.dataset.hotelOtherPlaceholder || '',
+                    notesLabel: el.dataset.notesLabel || '',
+                    notesPlaceholder: el.dataset.notesPlaceholder || '',
+                };
+
+                // Load flight data
+                try {
+                    const flightEl = document.getElementById('sap-flights-data');
+                    if (flightEl) {
+                        const data = JSON.parse(flightEl.textContent);
+                        this.allFlights = data.arrivals || [];
+                    }
+                } catch(e) { /* non-fatal */ }
+
+                // Load hotel list
+                try {
+                    const hotelEl = document.getElementById('accommodations-data');
+                    if (hotelEl) {
+                        this.hotels = JSON.parse(hotelEl.textContent) || [];
+                    }
+                } catch(e) { /* non-fatal */ }
+
+            },
+
+            setInvite(invite) {
+                if (!invite) return;
+
+                this.inHonduras = !!invite.in_honduras;
+                const t = this.travel;
+                t.busto = invite.travel_bus_to || '';
+                t.pickup = invite.travel_pickup || '';
+                t.flightInput = invite.travel_arrival_flight || '';
+                t.busreturn = invite.travel_bus_return || '';
+                t.notes = invite.travel_notes || '';
+
+                const hotel = invite.travel_hotel || '';
+                if (!hotel || this.hotels.some(h => h.id === hotel)) {
+                    t.hotel = hotel;
+                    t.hotelOther = '';
+                } else {
+                    t.hotel = '__other__';
+                    t.hotelOther = hotel;
+                }
+            },
+
+            // Called when bus day changes — clear stale dependent state
+            onBusToChange() {
+                // Reset pickup and flight if they no longer apply
+                if (this.travel.busto === 'none') {
+                    this.travel.pickup = '';
+                    this.travel.flightInput = '';
+                }
+                // Re-filter: if current flight is no longer valid for new day, clear it
+                if (this.travel.flightInput) {
+                    const match = this.allFlights.find(f => f.flight === this.travel.flightInput);
+                    if (match) {
+                        const day = this.travel.busto;
+                        if ((day === 'thursday' && !match.thursday) || (day === 'friday' && !match.friday)) {
+                            this.travel.flightInput = '';
+                        }
+                    }
+                }
+                this.scheduleSave();
+            },
+
+            // Called when pickup changes — clear flight if not SAP
+            onPickupChange() {
+                if (this.travel.pickup !== 'sap') {
+                    this.travel.flightInput = '';
+                }
+                this.scheduleSave();
+            },
+
+            onFlightInput() {
+                this.flightOpen = true;
+                this.scheduleSave();
+            },
+
+            selectFlight(f) {
+                this.travel.flightInput = f.flight;
+                this.flightOpen = false;
+                // Append useful detail to notes without duplicating
+                const detail = `${f.flight} (${f.airline}, ${f.from}, ${this.strings.flightArrives.toLowerCase()} ${f.arrives})`;
+                if (!this.travel.notes.includes(f.flight)) {
+                    this.travel.notes = this.travel.notes
+                        ? this.travel.notes.trimEnd() + '\n' + detail
+                        : detail;
+                }
+                this.scheduleSave();
+            },
+
+            // Called when hotel radio changes — clear other if switching away
+            onHotelChange() {
+                if (this.travel.hotel !== '__other__') {
+                    this.travel.hotelOther = '';
+                }
+                this.scheduleSave();
+            },
+
+            scheduleSave() {
+                if (this.saveTimer) clearTimeout(this.saveTimer);
+                this.saveVersion++;
+                this.saveStatus = 'saving';
+                this.saveTimer = setTimeout(() => this.doSave(), 1500);
+            },
+
+            async doSave() {
+                const code = this.code;
+                if (!code) return;
+                if (this.saveInFlight) {
+                    this.saveQueued = true;
+                    return;
+                }
+
+                this.saveInFlight = true;
+                const version = this.saveVersion;
+
+                const hotelValue = this.travel.hotel === '__other__'
+                    ? (this.travel.hotelOther || '')
+                    : (this.travel.hotel || '');
+
+                const payload = {
+                    bus_to: this.travel.busto,
+                    pickup: this.travel.pickup,
+                    arrival_flight: this.travel.flightInput,
+                    bus_return: this.travel.busreturn,
+                    hotel: hotelValue,
+                    notes: this.travel.notes,
+                };
+
+                try {
+                    const response = await fetch(`${apiBaseUrl()}/invite/${encodeURIComponent(code)}/travel`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json',
+                        },
+                        body: JSON.stringify(payload),
+                    });
+                    if (!response.ok) throw new Error('save failed');
+                    if (version === this.saveVersion) {
+                        this.saveStatus = 'saved';
+                        setTimeout(() => {
+                            if (this.saveStatus === 'saved' && version === this.saveVersion) this.saveStatus = '';
+                        }, 3000);
+                    }
+                } catch(e) {
+                    if (version === this.saveVersion) {
+                        this.saveStatus = 'retry';
+                        this.saveTimer = setTimeout(() => this.doSave(), 5000);
+                    }
+                } finally {
+                    this.saveInFlight = false;
+                    if (this.saveQueued || version !== this.saveVersion) {
+                        this.saveQueued = false;
+                        this.saveStatus = 'saving';
+                        this.doSave();
+                    }
+                }
+            },
+        }));
+
+        // -----------------------
         // Scroll Animation Component (IntersectionObserver)
         // -----------------------
         Alpine.data('scrollReveal', () => ({

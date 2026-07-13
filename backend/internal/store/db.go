@@ -48,6 +48,9 @@ func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 	if q.updateRSVPStmt, err = db.PrepareContext(ctx, UpdateRSVP); err != nil {
 		return nil, fmt.Errorf("error preparing query UpdateRSVP: %w", err)
 	}
+	if q.updateTravelInfoStmt, err = db.PrepareContext(ctx, UpdateTravelInfo); err != nil {
+		return nil, fmt.Errorf("error preparing query UpdateTravelInfo: %w", err)
+	}
 	if q.upsertInviteStmt, err = db.PrepareContext(ctx, UpsertInvite); err != nil {
 		return nil, fmt.Errorf("error preparing query UpsertInvite: %w", err)
 	}
@@ -94,6 +97,11 @@ func (q *Queries) Close() error {
 	if q.updateRSVPStmt != nil {
 		if cerr := q.updateRSVPStmt.Close(); cerr != nil {
 			err = fmt.Errorf("error closing updateRSVPStmt: %w", cerr)
+		}
+	}
+	if q.updateTravelInfoStmt != nil {
+		if cerr := q.updateTravelInfoStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing updateTravelInfoStmt: %w", cerr)
 		}
 	}
 	if q.upsertInviteStmt != nil {
@@ -148,6 +156,7 @@ type Queries struct {
 	insertScheduleEventStmt     *sql.Stmt
 	markInviteSyncedStmt        *sql.Stmt
 	updateRSVPStmt              *sql.Stmt
+	updateTravelInfoStmt        *sql.Stmt
 	upsertInviteStmt            *sql.Stmt
 }
 
@@ -163,6 +172,7 @@ func (q *Queries) WithTx(tx *sql.Tx) *Queries {
 		insertScheduleEventStmt:     q.insertScheduleEventStmt,
 		markInviteSyncedStmt:        q.markInviteSyncedStmt,
 		updateRSVPStmt:              q.updateRSVPStmt,
+		updateTravelInfoStmt:        q.updateTravelInfoStmt,
 		upsertInviteStmt:            q.upsertInviteStmt,
 	}
 }
