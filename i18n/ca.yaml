@@ -31,9 +31,7 @@ convention_center: "Centre de Convencions"
 view_map: "Veure mapa"
 
 # RSVP
-rsvp_label: "Confirmació d'assistència"
 rsvp_title: "Confirmació d'assistència"
-rsvp_coming_soon: "Aviat compartirem un formulari de confirmació perquè ens digueu si veniu!"
 rsvp_loading: "Buscant la teva invitació..."
 rsvp_greeting: "👀 Hola"
 rsvp_fill_info: "Esperem que ens puguis acompanyar! Si us plau, omple la següent informació per confirmar la teva assistència."
@@ -53,7 +51,6 @@ rsvp_song_label: "Prometo sortir a la pista si sona...💃🕺"
 rsvp_song_placeholder: "Diga'ns què t'agradaria escoltar a la festa!"
 rsvp_submit: "Confirmar"
 rsvp_submitting: "Confirmant assistència..."
-rsvp_thanks: "Moltíssimes gràcies,"
 rsvp_thanks_note: "Moltíssimes gràcies per confirmar la teva assistència! ❤️ Si per qualsevol motiu has de canviar de plans, escriu-nos o contacta'ns a [hola@lauraygerard.wedding](mailto:hola@lauraygerard.wedding)."
 rsvp_error_title: "No hem pogut carregar la teva invitació"
 rsvp_error_missing_plus_one: "Si us plau, indica si vindràs amb +1."
@@ -163,24 +160,14 @@ traveling_tips_subtitle: "Informació essencial perquè el teu viatge sigui còm
 # Where to Stay
 traveling_where_to_stay: "On allotjar-se"
 traveling_accommodation_intro: "Copán Ruinas té una gran varietat d'opcions d'allotjament per a diferents pressupostos i gustos."
-traveling_accommodation_soon: "Estem treballant en recomanacions d'hotels i possibles tarifes de grup. Detalls properament!"
 
 # Allotjaments
 accommodation_room_block: "Bloc d'habitacions"
 accommodation_block_reserved: "habitacions reservades"
 accommodation_block_dates: "Dates del bloc"
-accommodation_reserve_via: "Reserva per"
-accommodation_email: "Email"
-accommodation_whatsapp: "WhatsApp"
-accommodation_per_night: "/nit"
-accommodation_includes: "Inclou"
-accommodation_other_options: "Altres opcions"
-accommodation_visit_website: "Visitar web"
-accommodation_view_maps: "Veure a Maps"
 accommodation_block_discount_suffix: "%"
 accommodation_mention_name: "Menciona {name} al reservar per obtenir el nostre {discount} de descompte."
 accommodation_mention_block: "Menciona {name} en reservar per utilitzar la nostra reserva de grup."
-accommodation_included_categories: "Vàlid per a habitacions Estàndard, Premium i Suites."
 accommodation_view_rates: "Veure tarifes"
 accommodation_rates_disclaimer: "Els preus inclouen el 19% d'impostos (15% ISV + 4% turisme). Per nit."
 
@@ -193,7 +180,6 @@ place_previous: "Lloc anterior"
 place_next: "Lloc següent"
 
 # Footer
-footer_message: ""
 made_with_love: "Fet amb <3 per en Gerard i la Laura"
 last_updated: "Actualitzat fa"
 
@@ -206,10 +192,7 @@ schedule_loading: "Carregant horari..."
 schedule_error: "No s'ha pogut carregar l'horari. Si us plau, torna-ho a provar."
 schedule_retry: "Tornar-ho a provar"
 schedule_empty: "No hi ha esdeveniments propers en aquest moment."
-schedule_timezone_notice: "Horaris mostrats a la teva zona horària local"
 schedule_completed: "Completat"
-schedule_auto_refresh: "L'horari s'actualitza automàticament"
-schedule_view_map: "Veure al mapa"
 
 # Travel Form
 travel_form_retry: "No s'ha pogut guardar. Fes un altre canvi per tornar-ho a provar."
