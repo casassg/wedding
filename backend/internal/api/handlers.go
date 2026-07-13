@@ -54,6 +54,8 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	log.Printf("Invite viewed: %s (%s)", invite.Name, invite.InviteCode)
+
 	// Return public response
 	respondJSON(w, ToInviteResponse(invite), http.StatusOK)
 }
