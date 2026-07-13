@@ -60,7 +60,7 @@ jobs:
           GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: |
           printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
-            "$GOOGLE_SHEET_ID" "$GOOGLE_SHEETS_CREDENTIALS" \
+            "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
             | flyctl secrets import --app "$APP_NAME"
       - name: Clean up GitHub environment
         uses: strumwolf/delete-deployment-environment@v2
