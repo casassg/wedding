@@ -145,7 +145,12 @@ def build_arrivals(flights, thursday, friday):
 
     for flight in flights:
         arrival = scheduled_arrival(flight)
-        if not arrival or arrival.date() not in (thursday, friday) or arrival.time() > PICKUP_CUTOFF:
+        if not arrival or arrival.date() not in (thursday, friday):
+            continue
+
+        works_for_thursday = arrival.date() == thursday and arrival.time() <= PICKUP_CUTOFF
+        works_for_friday = arrival.date() == thursday or arrival.time() <= PICKUP_CUTOFF
+        if not works_for_thursday and not works_for_friday:
             continue
 
         label = flight_label(flight)
@@ -169,7 +174,8 @@ def build_arrivals(flights, thursday, friday):
                 "friday": False,
             },
         )
-        entry["thursday" if arrival.date() == thursday else "friday"] = True
+        entry["thursday"] = entry["thursday"] or works_for_thursday
+        entry["friday"] = entry["friday"] or works_for_friday
 
     return sorted(arrivals.values(), key=lambda item: (item["arrives"], item["flight"], item["from"]))
 
@@ -216,7 +222,7 @@ def main():
     flights = fetch_schedules(api_key, thursday, friday)
     arrivals = build_arrivals(flights, thursday, friday)
     if not arrivals:
-        raise RuntimeError("AeroAPI returned no SAP arrivals before the 1:00 PM pickup cutoff; output unchanged")
+        raise RuntimeError("AeroAPI returned no SAP arrivals compatible with the bus schedule; output unchanged")
 
     write_yaml(args.output, arrivals)
     print(f"Wrote {len(arrivals)} arrivals to {args.output}")

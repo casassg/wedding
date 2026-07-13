@@ -67,7 +67,7 @@ arrivals:
     from: "Mexico City (MEX)"
     arrives: "11:25"
     thursday: true
-    friday: false
+    friday: true
 
   - flight: "DL1782"
     airline: "Delta Air Lines"
