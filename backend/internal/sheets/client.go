@@ -142,6 +142,30 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 			sheetRow.ConfirmedAdults = toInt(row[8])
 		}
 
+		// Columns J-N: RSVP details
+		if len(row) > 9 {
+			sheetRow.ConfirmedKids = toInt(row[9])
+		}
+		if len(row) > 10 {
+			sheetRow.DietaryInfo = toString(row[10])
+		}
+		if len(row) > 11 {
+			sheetRow.MessageForUs = toString(row[11])
+		}
+		if len(row) > 12 {
+			sheetRow.SongRequest = toString(row[12])
+		}
+		if len(row) > 13 {
+			responseAt, err := time.Parse(time.RFC3339, toString(row[13]))
+			if err != nil && toString(row[13]) != "" {
+				log.Printf("Invalid response timestamp for invite %s: %v", sheetRow.InviteCode, err)
+				responseAt = time.Unix(0, 0).UTC()
+			}
+			if !responseAt.IsZero() {
+				sheetRow.ResponseAt = &responseAt
+			}
+		}
+
 		// Skip rows without invite code or name
 		if sheetRow.InviteCode == "" || sheetRow.Name == "" {
 			continue

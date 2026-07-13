@@ -7,6 +7,7 @@ package store
 
 import (
 	"context"
+	"time"
 )
 
 const DeleteAllScheduleEvents = `-- name: DeleteAllScheduleEvents :exec
@@ -334,7 +335,7 @@ type UpdateTravelInfoParams struct {
 	InputInviteCode    string `json:"input_invite_code"`
 }
 
-// Note: The WHERE clause prevents updates when synced_at IS NULL,
+// Note: The WHERE clause prevents updates when local RSVP changes are pending,
 // Updates travel fields and bumps response_at so GetPendingSyncInvites picks it up.
 //
 //	    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
@@ -367,47 +368,66 @@ func (q *Queries) UpdateTravelInfo(ctx context.Context, arg *UpdateTravelInfoPar
 
 const UpsertInvite = `-- name: UpsertInvite :exec
 INSERT INTO invites (
-    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
+    invite_code, name, max_adults, max_kids,
+    confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
+    sheet_row, location, updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
-    name       = excluded.name,
-    max_adults = excluded.max_adults,
-    max_kids   = excluded.max_kids,
-    sheet_row  = excluded.sheet_row,
+    name             = excluded.name,
+    max_adults       = excluded.max_adults,
+    max_kids         = excluded.max_kids,
     confirmed_adults = excluded.confirmed_adults,
-    location   = excluded.location,
-    updated_at = excluded.updated_at
+    confirmed_kids   = excluded.confirmed_kids,
+    dietary_info     = excluded.dietary_info,
+    message_for_us   = excluded.message_for_us,
+    song_request     = excluded.song_request,
+    response_at      = excluded.response_at,
+    sheet_row        = excluded.sheet_row,
+    location         = excluded.location,
+    updated_at       = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 `
 
 type UpsertInviteParams struct {
-	InviteCode      string `json:"invite_code"`
-	Name            string `json:"name"`
-	MaxAdults       int64  `json:"max_adults"`
-	MaxKids         int64  `json:"max_kids"`
-	ConfirmedAdults int64  `json:"confirmed_adults"`
-	SheetRow        *int64 `json:"sheet_row"`
-	Location        string `json:"location"`
+	InviteCode      string     `json:"invite_code"`
+	Name            string     `json:"name"`
+	MaxAdults       int64      `json:"max_adults"`
+	MaxKids         int64      `json:"max_kids"`
+	ConfirmedAdults int64      `json:"confirmed_adults"`
+	ConfirmedKids   int64      `json:"confirmed_kids"`
+	DietaryInfo     string     `json:"dietary_info"`
+	MessageForUs    string     `json:"message_for_us"`
+	SongRequest     string     `json:"song_request"`
+	ResponseAt      *time.Time `json:"response_at"`
+	SheetRow        *int64     `json:"sheet_row"`
+	Location        string     `json:"location"`
 }
 
 // Syncs Master Data from Google Sheets -> DB.
-// Skips updates if invite has unsynced local changes (synced_at IS NULL).
+// Skips updates if invite has unsynced local RSVP changes.
 //
 //	INSERT INTO invites (
-//	    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
+//	    invite_code, name, max_adults, max_kids,
+//	    confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
+//	    sheet_row, location, updated_at
 //	) VALUES (
-//	    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+//	    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 //	)
 //	ON CONFLICT(invite_code) DO UPDATE SET
-//	    name       = excluded.name,
-//	    max_adults = excluded.max_adults,
-//	    max_kids   = excluded.max_kids,
-//	    sheet_row  = excluded.sheet_row,
+//	    name             = excluded.name,
+//	    max_adults       = excluded.max_adults,
+//	    max_kids         = excluded.max_kids,
 //	    confirmed_adults = excluded.confirmed_adults,
-//	    location   = excluded.location,
-//	    updated_at = excluded.updated_at
+//	    confirmed_kids   = excluded.confirmed_kids,
+//	    dietary_info     = excluded.dietary_info,
+//	    message_for_us   = excluded.message_for_us,
+//	    song_request     = excluded.song_request,
+//	    response_at      = excluded.response_at,
+//	    sheet_row        = excluded.sheet_row,
+//	    location         = excluded.location,
+//	    updated_at       = excluded.updated_at
 //	WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) error {
 	_, err := q.exec(ctx, q.upsertInviteStmt, UpsertInvite,
@@ -416,6 +436,11 @@ func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) err
 		arg.MaxAdults,
 		arg.MaxKids,
 		arg.ConfirmedAdults,
+		arg.ConfirmedKids,
+		arg.DietaryInfo,
+		arg.MessageForUs,
+		arg.SongRequest,
+		arg.ResponseAt,
 		arg.SheetRow,
 		arg.Location,
 	)

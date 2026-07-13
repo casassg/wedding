@@ -3,9 +3,11 @@ package sheets
 import (
 	"context"
 	"log"
+	"sync"
 	"time"
 
 	"github.com/casassg/wedding/backend/internal/store"
+	"github.com/getsentry/sentry-go"
 	"github.com/pkg/errors"
 )
 
@@ -17,6 +19,7 @@ type Syncer struct {
 	store        *store.Store
 	sheetsClient *Client
 	listener     chan struct{}
+	mu           sync.Mutex
 }
 
 // NewSyncer creates a new syncer
@@ -46,11 +49,13 @@ func (s *Syncer) Start(ctx context.Context, interval time.Duration) {
 		case <-ticker.C:
 			if err := s.SyncOnce(ctx); err != nil {
 				log.Printf("Error during sync: %v", err)
+				sentry.CaptureException(err)
 			}
 		case <-s.listener:
 			log.Println("Received manual sync request")
 			if err := s.SyncOnce(ctx); err != nil {
 				log.Printf("Error during manual sync: %v", err)
+				sentry.CaptureException(err)
 			}
 		case <-ctx.Done():
 			log.Println("Stopping Google Sheets sync")
@@ -69,6 +74,9 @@ func (s *Syncer) TriggerSync() {
 
 // SyncOnce performs a single sync cycle (used for manual sync command)
 func (s *Syncer) SyncOnce(ctx context.Context) error {
+	s.mu.Lock()
+	defer s.mu.Unlock()
+
 	if !s.sheetsClient.IsConfigured() {
 		return errors.New("Google Sheets credentials not configured")
 	}
@@ -105,7 +113,7 @@ func (s *Syncer) SyncFromSheet(ctx context.Context) error {
 	}
 
 	// Start transaction
-	tx, err := s.store.DB.Begin()
+	tx, err := s.store.Begin()
 	if err != nil {
 		return errors.Wrap(err, "failed to begin transaction")
 	}
@@ -145,7 +153,7 @@ func (s *Syncer) SyncToSheet(ctx context.Context) error {
 
 	log.Printf("Syncing %d RSVP responses to sheet", len(invites))
 
-	tx, err := s.store.DB.Begin()
+	tx, err := s.store.Begin()
 	if err != nil {
 		return errors.Wrap(err, "failed to begin transaction")
 	}
@@ -201,7 +209,7 @@ func (s *Syncer) SyncScheduleFromSheet(ctx context.Context) error {
 	}
 
 	// Start transaction
-	tx, err := s.store.DB.Begin()
+	tx, err := s.store.Begin()
 	if err != nil {
 		return errors.Wrap(err, "failed to begin transaction")
 	}

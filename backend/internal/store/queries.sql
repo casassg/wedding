@@ -19,22 +19,29 @@ WHERE
 
 -- name: UpsertInvite :exec
 -- Syncs Master Data from Google Sheets -> DB.
--- Skips updates if invite has unsynced local changes (synced_at IS NULL).
+-- Skips updates if invite has unsynced local RSVP changes.
 INSERT INTO invites (
-    invite_code, name, max_adults, max_kids, confirmed_adults, sheet_row, location, updated_at
+    invite_code, name, max_adults, max_kids,
+    confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
+    sheet_row, location, updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
-    name       = excluded.name,
-    max_adults = excluded.max_adults,
-    max_kids   = excluded.max_kids,
-    sheet_row  = excluded.sheet_row,
+    name             = excluded.name,
+    max_adults       = excluded.max_adults,
+    max_kids         = excluded.max_kids,
     confirmed_adults = excluded.confirmed_adults,
-    location   = excluded.location,
-    updated_at = excluded.updated_at
+    confirmed_kids   = excluded.confirmed_kids,
+    dietary_info     = excluded.dietary_info,
+    message_for_us   = excluded.message_for_us,
+    song_request     = excluded.song_request,
+    response_at      = excluded.response_at,
+    sheet_row        = excluded.sheet_row,
+    location         = excluded.location,
+    updated_at       = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at;
-    -- Note: The WHERE clause prevents updates when synced_at IS NULL,
+    -- Note: The WHERE clause prevents updates when local RSVP changes are pending,
     -- protecting local RSVP changes that haven't been pushed to the sheet yet.
 
 
