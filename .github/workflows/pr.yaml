@@ -56,6 +56,14 @@ jobs:
       - name: Init Hermit
         uses: cashapp/activate-hermit@v1
 
+      - name: Build review frontend
+        if: github.event.action != 'closed'
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Tegucigalpa
+        run: ./bin/hugo --gc --minify --baseURL "/"
+
       - name: Deploy or destroy PR app on Fly.io
         id: deploy
         uses: superfly/fly-pr-review-apps@1.6.0
