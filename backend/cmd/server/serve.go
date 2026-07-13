@@ -14,6 +14,8 @@ import (
 	"github.com/casassg/wedding/backend/internal/api"
 	"github.com/casassg/wedding/backend/internal/sheets"
 	"github.com/casassg/wedding/backend/internal/store"
+	"github.com/getsentry/sentry-go"
+	"github.com/getsentry/sentry-go/http"
 )
 
 const shutdownTimeout = 5 * time.Second
@@ -49,6 +51,10 @@ func (cmd *ServeCmd) Run() error {
 	log.Printf("Port: %s", cmd.Port)
 	log.Printf("Allowed origins: %v", allowedOrigins)
 	log.Printf("Sync interval: %s", interval)
+	if err := sentry.Init(sentry.ClientOptions{}); err != nil {
+		log.Printf("sentry init failed: %v", err)
+	}
+	defer sentry.Flush(2 * time.Second)
 
 	// Initialize database
 	database, err := store.Open(cmd.DBPath)
@@ -69,6 +75,7 @@ func (cmd *ServeCmd) Run() error {
 	log.Printf("Running initial sync...")
 	if err := syncer.SyncOnce(ctx); err != nil {
 		log.Printf("initial sync failed: %s", err)
+		sentry.CaptureException(err)
 	}
 
 	// Start sync in background goroutine
@@ -76,6 +83,7 @@ func (cmd *ServeCmd) Run() error {
 
 	// Create HTTP router
 	router := api.NewRouter(database, syncer, allowedOrigins)
+	router = sentryhttp.New(sentryhttp.Options{Repanic: true}).Handle(router)
 
 	// Create HTTP server
 	server := &http.Server{
