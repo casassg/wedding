@@ -6,6 +6,17 @@
 (function() {
     'use strict';
 
+    function apiBaseUrl() {
+        const host = window.location.hostname;
+        if (host === 'localhost' || host === '127.0.0.1') {
+            return 'http://localhost:8080/api/v1';
+        }
+        if (host === 'lauraygerard.wedding' || host === 'www.lauraygerard.wedding') {
+            return 'https://api.lauraygerard.wedding/api/v1';
+        }
+        return `${window.location.origin}/api/v1`;
+    }
+
     // ===================
     // Language Detection (runs immediately, before DOMContentLoaded)
     // ===================
@@ -554,10 +565,7 @@
             },
             
             get apiBase() {
-                if (this.isLocalhost) {
-                    return 'http://localhost:8080/api/v1';
-                }
-                return "https://api.lauraygerard.wedding/api/v1";
+                return apiBaseUrl();
             },
             
             get showSection() {
@@ -821,10 +829,7 @@
             },
             
             get apiBase() {
-                if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-                    return 'http://localhost:8080/api/v1';
-                }
-                return "https://api.lauraygerard.wedding/api/v1";
+                return apiBaseUrl();
             },
             
             // Get locale string for date formatting

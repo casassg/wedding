@@ -1,0 +1,70 @@
+name: Deploy Review App
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, closed]
+
+env:
+  FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_SECRET }}
+  FLY_REGION: iad
+  FLY_ORG: personal
+
+jobs:
+  review_app:
+    runs-on: ubuntu-latest
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
+      name: ${{ steps.deploy.outputs.name }}
+    concurrency:
+      group: pr-${{ github.event.number }}
+    environment:
+      name: review
+      url: ${{ steps.deploy.outputs.url }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
+
+      - name: Build Hugo frontend
+        env:
+          HUGO_CACHEDIR: ${{ runner.temp }}/hugo_cache
+          HUGO_ENVIRONMENT: production
+          TZ: America/Tegucigalpa
+        run: hugo --gc --minify --baseURL "/"
+
+      - name: Deploy or destroy PR app on Fly.io
+        id: deploy
+        uses: superfly/fly-pr-review-apps@1.6.0
+        with:
+          config: fly.review.toml
+
+      - name: Set Fly secrets
+        if: github.event.action != 'closed'
+        env:
+          APP_NAME: ${{ steps.deploy.outputs.name }}
+          GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
+          GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
+        run: |
+          for attempt in 1 2 3; do
+            printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
+              "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
+              | flyctl secrets import --app "$APP_NAME" && break
+            if [ "$attempt" = 3 ]; then
+              echo "::error::Failed to set secrets after 3 attempts"
+              exit 1
+            fi
+            echo "Retrying in 15s..."
+            sleep 15
+          done
+
+      - name: Clean up GitHub environment
+        uses: strumwolf/delete-deployment-environment@v2
+        if: ${{ github.event.action == 'closed' }}
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          environment: pr-${{ github.event.number }}
