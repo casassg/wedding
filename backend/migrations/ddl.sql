@@ -15,6 +15,15 @@ CREATE TABLE IF NOT EXISTS invites (
     response_at DATETIME,
     sheet_row INTEGER,
 
+    location TEXT NOT NULL DEFAULT '',
+    travel_bus_to TEXT NOT NULL DEFAULT '',
+    travel_pickup TEXT NOT NULL DEFAULT '',
+    travel_arrival_flight TEXT NOT NULL DEFAULT '',
+    travel_bus_return TEXT NOT NULL DEFAULT '',
+    travel_hotel TEXT NOT NULL DEFAULT '',
+    travel_notes TEXT NOT NULL DEFAULT '',
+    travel_updated_at DATETIME,
+
     created_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc')),
     updated_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc'))
 );

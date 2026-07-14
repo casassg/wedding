@@ -1,0 +1,340 @@
+arrivals:
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-16T12:30Z"
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-16T13:00Z"
+
+  - flight: "9N2200"
+    airline: "Tropic Air"
+    from: "Belize City (BZE)"
+    arrives_at: "2026-12-16T14:00Z"
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives_at: "2026-12-16T14:10Z"
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-16T14:30Z"
+
+  - flight: "S085"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-16T14:45Z"
+
+  - flight: "H53013"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-16T14:50Z"
+
+  - flight: "AA339"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-16T17:55Z"
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives_at: "2026-12-16T18:05Z"
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-16T18:35Z"
+
+  - flight: "CM286"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives_at: "2026-12-16T18:42Z"
+
+  - flight: "M6734"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives_at: "2026-12-16T19:50Z"
+
+  - flight: "B62089"
+    airline: "B6"
+    from: "Fort Lauderdale (FLL)"
+    arrives_at: "2026-12-16T20:20Z"
+
+  - flight: "W85457"
+    airline: "W8"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-16T21:00Z"
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-16T21:15Z"
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-16T21:45Z"
+
+  - flight: "H5322"
+    airline: "CM Airlines"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-16T23:00Z"
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-16T23:15Z"
+
+  - flight: "H53029"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-17T00:15Z"
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-17T00:50Z"
+
+  - flight: "UA432"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-17T04:57Z"
+
+  - flight: "UX15"
+    airline: "Air Europa"
+    from: "Madrid (MAD)"
+    arrives_at: "2026-12-17T10:00Z"
+
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-17T12:30Z"
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-17T13:00Z"
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives_at: "2026-12-17T14:10Z"
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-17T14:30Z"
+
+  - flight: "S085"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-17T14:45Z"
+
+  - flight: "H53013"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-17T14:50Z"
+
+  - flight: "AM674"
+    airline: "Aeromexico"
+    from: "Mexico City (MEX)"
+    arrives_at: "2026-12-17T17:25Z"
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives_at: "2026-12-17T18:05Z"
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-17T18:35Z"
+
+  - flight: "CM286"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives_at: "2026-12-17T18:42Z"
+
+  - flight: "M6744"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives_at: "2026-12-17T19:50Z"
+
+  - flight: "AA319"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-17T20:50Z"
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-17T21:15Z"
+
+  - flight: "W85240"
+    airline: "W8"
+    from: "SJO (SJO)"
+    arrives_at: "2026-12-17T21:25Z"
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-17T21:45Z"
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-17T23:15Z"
+
+  - flight: "H53029"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T00:15Z"
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-18T00:50Z"
+
+  - flight: "AA3055"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-18T01:52Z"
+
+  - flight: "UA1474"
+    airline: "United Airlines"
+    from: "EWR (EWR)"
+    arrives_at: "2026-12-18T04:45Z"
+
+  - flight: "UA432"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-18T04:57Z"
+
+  - flight: "AV574"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-18T05:25Z"
+
+  - flight: "CM457"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives_at: "2026-12-18T05:32Z"
+
+  - flight: "UX15"
+    airline: "Air Europa"
+    from: "Madrid (MAD)"
+    arrives_at: "2026-12-18T12:00Z"
+
+  - flight: "5U320"
+    airline: "TAG Airlines"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-18T12:30Z"
+
+  - flight: "H53005"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-18T13:00Z"
+
+  - flight: "9N2200"
+    airline: "Tropic Air"
+    from: "Belize City (BZE)"
+    arrives_at: "2026-12-18T14:00Z"
+
+  - flight: "S060"
+    airline: "Aerolíneas Sosa"
+    from: "La Ceiba (LCE)"
+    arrives_at: "2026-12-18T14:10Z"
+
+  - flight: "AV536"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-18T14:30Z"
+
+  - flight: "S085"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T14:45Z"
+
+  - flight: "H53013"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T14:50Z"
+
+  - flight: "H53039"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T15:15Z"
+
+  - flight: "DL1782"
+    airline: "Delta Air Lines"
+    from: "Atlanta (ATL)"
+    arrives_at: "2026-12-18T18:05Z"
+
+  - flight: "UA1487"
+    airline: "United Airlines"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-18T18:35Z"
+
+  - flight: "CM286"
+    airline: "Copa Airlines"
+    from: "Panama City (PTY)"
+    arrives_at: "2026-12-18T18:42Z"
+
+  - flight: "M6754"
+    airline: "M6"
+    from: "KIN (KIN)"
+    arrives_at: "2026-12-18T19:50Z"
+
+  - flight: "B62089"
+    airline: "B6"
+    from: "Fort Lauderdale (FLL)"
+    arrives_at: "2026-12-18T20:05Z"
+
+  - flight: "AA319"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-18T20:50Z"
+
+  - flight: "W85457"
+    airline: "W8"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-18T21:00Z"
+
+  - flight: "H53027"
+    airline: "CM Airlines"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T21:15Z"
+
+  - flight: "S089"
+    airline: "Aerolíneas Sosa"
+    from: "Roatán (RTB)"
+    arrives_at: "2026-12-18T21:45Z"
+
+  - flight: "H5322"
+    airline: "CM Airlines"
+    from: "Guatemala City (GUA)"
+    arrives_at: "2026-12-18T23:00Z"
+
+  - flight: "H53007"
+    airline: "CM Airlines"
+    from: "Tegucigalpa (TGU)"
+    arrives_at: "2026-12-18T23:15Z"
+
+  - flight: "AV534"
+    airline: "Avianca"
+    from: "San Salvador (SAL)"
+    arrives_at: "2026-12-19T00:50Z"
+
+  - flight: "AA3055"
+    airline: "American Airlines"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-19T01:52Z"
+
+  - flight: "UA1474"
+    airline: "United Airlines"
+    from: "EWR (EWR)"
+    arrives_at: "2026-12-19T04:45Z"

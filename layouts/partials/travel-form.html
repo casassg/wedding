@@ -1,0 +1,237 @@
+{{- /* Travel logistics form — embedded inside the RSVP attending card, below rsvp_thanks_note */ -}}
+{{- /* Embed flight data as JSON for Alpine autocomplete */ -}}
+<script id="sap-flights-data" type="application/json">{{ .Site.Data.sap_flights | jsonify | safeJS }}</script>
+{{- /* Embed hotel list as JSON */ -}}
+<script id="accommodations-data" type="application/json">{{ index .Site.Data (default "en" .Site.Language.Lang) "accommodations" | jsonify | safeJS }}</script>
+
+<div x-data="travelForm"
+     x-init="setInvite(invite); $watch('invite', value => setInvite(value))"
+     data-wedding-date="{{ .Site.Params.weddingDate }}"
+     data-lang="{{ .Site.Language.Lang }}">
+
+    <!-- Divider -->
+    <hr class="my-6 border-mint/20">
+
+    <p x-show="!inHonduras" x-cloak class="mb-4 text-sm leading-relaxed text-gray-600 font-sans">
+        {{ i18n "travel_form_intro" }}
+    </p>
+    <p x-show="inHonduras" x-cloak class="mb-6 text-sm leading-relaxed text-gray-600 font-sans">
+        {{ i18n "travel_form_intro_honduras" }}
+    </p>
+
+    <!-- Bus schedule (hidden for Honduras guests, collapsed by default) -->
+    <details x-show="!inHonduras" x-cloak class="mb-6">
+        <summary class="cursor-pointer text-xs font-semibold text-gray-500 font-sans select-none">
+            {{ i18n "travel_form_bus_schedule_title" }}
+        </summary>
+        <div class="tf-schedule-card rounded-2xl p-4 mt-3 overflow-x-auto">
+            <div class="tf-schedule-table text-xs text-gray-500 font-sans">
+                {{ i18n "travel_form_bus_schedule_body" | markdownify }}
+            </div>
+        </div>
+    </details>
+
+    <div class="space-y-6">
+
+        <!-- Q1: Bus to Copán (hidden for Honduras) -->
+        <div x-show="!inHonduras" x-cloak>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_bus_to_label" }}</p>
+            <div class="grid sm:grid-cols-3 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.busto === 'thursday' }">
+                    <input type="radio" x-model="travel.busto" value="thursday" class="sr-only"
+                           @change="onBusToChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_bus_to_thursday" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.busto === 'friday' }">
+                    <input type="radio" x-model="travel.busto" value="friday" class="sr-only"
+                           @change="onBusToChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_bus_to_friday" }}</span>
+                </label>
+                <div>
+                    <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.busto === 'none' }">
+                        <input type="radio" x-model="travel.busto" value="none" class="sr-only"
+                               @change="onBusToChange()">
+                        <span class="font-semibold text-sm">{{ i18n "travel_form_bus_to_none" }}</span>
+                    </label>
+                    <p class="mt-1.5 text-xs text-gray-400 font-sans leading-snug px-1">
+                        {{ i18n "travel_form_bus_to_none_transport_pre" }}
+                        <a href="{{ "traveling/" | relLangURL }}#transport-provider"
+                           class="underline hover:text-gray-600 transition-colors">{{ i18n "travel_form_bus_to_none_transport_link" }}</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q2: Pickup location (only if taking bus) -->
+        <div x-show="!inHonduras && (travel.busto === 'thursday' || travel.busto === 'friday')"
+             x-cloak>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_pickup_label" }}</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.pickup === 'sap' }">
+                    <input type="radio" x-model="travel.pickup" value="sap" class="sr-only"
+                           @change="onPickupChange()">
+                    <i class="fa-solid fa-plane-arrival text-mint text-sm mb-1"></i>
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_pickup_sap" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_sap_sub" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.pickup === 'welchez' }">
+                    <input type="radio" x-model="travel.pickup" value="welchez" class="sr-only"
+                           @change="onPickupChange()">
+                    <i class="fa-solid fa-mug-hot text-mint text-sm mb-1"></i>
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_pickup_welchez" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_welchez_sub" }}</span>
+                </label>
+            </div>
+            <a href="https://maps.app.goo.gl/fwmKSsnBRfbLtgDJA"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="mt-3 inline-flex items-center text-xs font-semibold text-mint hover:text-mint/70 transition-colors">
+                <i class="fa-solid fa-location-dot mr-1.5"></i>
+                {{ i18n "travel_form_pickup_welchez_map" }}
+            </a>
+        </div>
+
+        <!-- Q3: Flight autocomplete (only if pickup = sap) -->
+        <div x-show="!inHonduras && travel.pickup === 'sap'"
+             x-cloak
+             class="relative"
+             @click.outside="flightOpen = false">
+            <label class="block text-sm font-semibold text-gray-700 font-sans mb-1">{{ i18n "travel_form_flight_label" }}</label>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_flight_hint" }}</p>
+            <div class="relative">
+                <input type="text"
+                       x-model="travel.flightInput"
+                       @input="onFlightInput()"
+                       @focus="flightOpen = visibleFlights.length > 0"
+                       @keydown.escape="flightOpen = false"
+                       maxlength="500"
+                       class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans text-sm focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
+                       placeholder="{{ i18n "travel_form_flight_placeholder" }}">
+                <!-- Suggestions dropdown -->
+                <ul x-show="flightOpen && visibleFlights.length > 0"
+                    x-cloak
+                    class="tf-autocomplete absolute z-20 w-full mt-1 bg-white border border-gray-200 rounded-2xl shadow-lg overflow-y-auto">
+                    <template x-for="f in visibleFlights" :key="f.flight + '-' + f.from + '-' + f.arrives_at">
+                        <li>
+                            <button type="button"
+                                    @click="selectFlight(f)"
+                                    class="w-full text-left px-4 py-3 transition flex items-start gap-3 hover:bg-mint/10 cursor-pointer">
+                                <div class="flex-1 min-w-0">
+                                    <span class="font-semibold text-sm text-gray-800" x-text="f.flight"></span>
+                                    <span class="text-xs text-gray-500 ml-1" x-text="f.airline"></span>
+                                    <div class="text-xs text-gray-400 mt-0.5" x-text="f.from"></div>
+                                </div>
+                                <div class="text-right shrink-0">
+                                    <span class="text-xs text-gray-500">{{ i18n "travel_form_flight_arrives" }}</span>
+                                    <span class="text-xs font-semibold text-gray-700 ml-1" x-text="f.localTime"></span>
+                                    <div class="text-xs text-gray-400 mt-0.5" x-text="f.localDateDisplay"></div>
+                                </div>
+                            </button>
+                        </li>
+                    </template>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Q4: Bus return - step 1: date -->
+        <div x-show="!inHonduras" x-cloak>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_bus_return_label" }}</p>
+            <div class="grid sm:grid-cols-3 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'sunday' }">
+                    <input type="radio" x-model="returnDate" value="sunday" class="sr-only"
+                           @change="onReturnDateChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_return_date_sunday" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_date_sunday_sub" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'monday' }">
+                    <input type="radio" x-model="returnDate" value="monday" class="sr-only"
+                           @change="onReturnDateChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_return_date_monday" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_date_monday_sub" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'none' }">
+                    <input type="radio" x-model="returnDate" value="none" class="sr-only"
+                           @change="onReturnDateChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_bus_return_none" }}</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Q4 step 2: destination (only if a date is selected) -->
+        <div x-show="!inHonduras && (returnDate === 'sunday' || returnDate === 'monday')" x-cloak>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_return_dest_label" }}</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDest === 'san_pedro' }">
+                    <input type="radio" x-model="returnDest" value="san_pedro" class="sr-only"
+                           @change="onReturnDestChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_return_dest_sp" }}</span>
+                    <span x-show="returnDate === 'sunday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sp_sub_sunday" }}</span>
+                    <span x-show="returnDate === 'monday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sp_sub_monday" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDest === 'sap' }">
+                    <input type="radio" x-model="returnDest" value="sap" class="sr-only"
+                           @change="onReturnDestChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_return_dest_sap" }}</span>
+                    <span x-show="returnDate === 'sunday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sap_sub_sunday" }}</span>
+                    <span x-show="returnDate === 'monday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sap_sub_monday" }}</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Q5: Hotel (everyone) -->
+        <div>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_hotel_label" }}</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+                <template x-for="h in hotels" :key="h.id">
+                    <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.hotel === h.id }">
+                        <input type="radio" :value="h.id" x-model="travel.hotel" class="sr-only"
+                               @change="onHotelChange()">
+                        <span class="font-semibold text-sm" x-text="h.name"></span>
+                    </label>
+                </template>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.hotel === '__other__' }">
+                    <input type="radio" value="__other__" x-model="travel.hotel" class="sr-only"
+                           @change="onHotelChange()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_hotel_other" }}</span>
+                </label>
+            </div>
+            <div x-show="travel.hotel === '__other__'" x-cloak class="mt-2">
+                <input type="text"
+                       x-model="travel.hotelOther"
+                       @input="scheduleSave()"
+                       maxlength="500"
+                       class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans text-sm focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
+                       placeholder="{{ i18n "travel_form_hotel_other_placeholder" }}">
+            </div>
+        </div>
+
+        <!-- Q6: Notes (everyone) -->
+        <div>
+            <label class="block text-sm font-semibold text-gray-700 font-sans mb-1">{{ i18n "travel_form_notes_label" }}</label>
+            <textarea x-model="travel.notes"
+                       @input="scheduleSave()"
+                       maxlength="500"
+                      rows="3"
+                      class="w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans text-sm focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
+                       placeholder="{{ i18n "travel_form_notes_placeholder" }}"></textarea>
+        </div>
+
+        <!-- Manual Save button -->
+        <div class="flex items-center gap-3 pt-1">
+             <button type="button"
+                     @click="manualSave()"
+                     :disabled="saveInFlight"
+                     class="rounded-full bg-mint px-6 py-2.5 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90 disabled:opacity-60">
+                <span x-show="!saveStatus">{{ i18n "travel_form_save" }}</span>
+                <span x-show="saveStatus === 'saving'" x-cloak>
+                    <i class="fa-solid fa-spinner fa-spin mr-1 text-xs"></i>{{ i18n "travel_form_saving_btn" }}
+                </span>
+                <span x-show="saveStatus === 'saved'" x-cloak>{{ i18n "travel_form_saved_btn" }}</span>
+                <span x-show="saveStatus === 'retry'" x-cloak>{{ i18n "travel_form_retry_btn" }}</span>
+            </button>
+            <span x-show="saveStatus === 'retry'" x-cloak
+                  class="text-xs text-rose font-sans">{{ i18n "travel_form_retry" }}</span>
+        </div>
+
+    </div>
+</div>

@@ -9,19 +9,27 @@ import (
 )
 
 type Invite struct {
-	InviteCode      string     `json:"invite_code"`
-	Name            string     `json:"name"`
-	MaxAdults       int64      `json:"max_adults"`
-	MaxKids         int64      `json:"max_kids"`
-	ConfirmedAdults int64      `json:"confirmed_adults"`
-	ConfirmedKids   int64      `json:"confirmed_kids"`
-	DietaryInfo     string     `json:"dietary_info"`
-	MessageForUs    string     `json:"message_for_us"`
-	SongRequest     string     `json:"song_request"`
-	ResponseAt      *time.Time `json:"response_at"`
-	SheetRow        *int64     `json:"sheet_row"`
-	CreatedAt       time.Time  `json:"created_at"`
-	UpdatedAt       time.Time  `json:"updated_at"`
+	InviteCode          string     `json:"invite_code"`
+	Name                string     `json:"name"`
+	MaxAdults           int64      `json:"max_adults"`
+	MaxKids             int64      `json:"max_kids"`
+	ConfirmedAdults     int64      `json:"confirmed_adults"`
+	ConfirmedKids       int64      `json:"confirmed_kids"`
+	DietaryInfo         string     `json:"dietary_info"`
+	MessageForUs        string     `json:"message_for_us"`
+	SongRequest         string     `json:"song_request"`
+	ResponseAt          *time.Time `json:"response_at"`
+	SheetRow            *int64     `json:"sheet_row"`
+	Location            string     `json:"location"`
+	TravelBusTo         string     `json:"travel_bus_to"`
+	TravelPickup        string     `json:"travel_pickup"`
+	TravelArrivalFlight string     `json:"travel_arrival_flight"`
+	TravelBusReturn     string     `json:"travel_bus_return"`
+	TravelHotel         string     `json:"travel_hotel"`
+	TravelNotes         string     `json:"travel_notes"`
+	TravelUpdatedAt     *time.Time `json:"travel_updated_at"`
+	CreatedAt           time.Time  `json:"created_at"`
+	UpdatedAt           time.Time  `json:"updated_at"`
 }
 
 type ScheduleEvent struct {

@@ -6,6 +6,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"strings"
+	"unicode/utf8"
 
 	"github.com/casassg/wedding/backend/internal/sheets"
 	"github.com/casassg/wedding/backend/internal/store"
@@ -90,7 +92,6 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 		respondError(w, "Invite not found", http.StatusNotFound)
 		return
 	}
-
 	// Validate request
 	if err := validateRSVP(req, invite); err != nil {
 		respondError(w, err.Error(), http.StatusBadRequest)
@@ -116,6 +117,92 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	h.syncer.TriggerSync()
 
 	// Return success
+	respondJSON(w, RSVPResponse{Success: true}, http.StatusOK)
+}
+
+// PostTravel handles POST /api/v1/invite/{invite_code}/travel
+func (h *Handler) PostTravel(w http.ResponseWriter, r *http.Request) {
+	inviteCode := r.PathValue("invite_code")
+	if inviteCode == "" {
+		respondError(w, "Invalid invite code", http.StatusBadRequest)
+		return
+	}
+
+	var req TravelRequest
+	if err := json.NewDecoder(r.Body).Decode(&req); err != nil {
+		respondError(w, "Invalid request body", http.StatusBadRequest)
+		return
+	}
+
+	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
+	if errors.Is(err, sql.ErrNoRows) {
+		respondError(w, "Invite not found", http.StatusNotFound)
+		return
+	}
+	if err != nil {
+		respondError(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+	if invite == nil {
+		respondError(w, "Invite not found", http.StatusNotFound)
+		return
+	}
+	if invite.ConfirmedAdults == 0 {
+		respondError(w, "Travel info is only available after confirming attendance", http.StatusBadRequest)
+		return
+	}
+
+	if err := validateTravel(req); err != nil {
+		respondError(w, err.Error(), http.StatusBadRequest)
+		return
+	}
+
+	// Normalize dependent fields for guests from Honduras (no bus/flight questions).
+	inHonduras := strings.EqualFold(invite.Location, "HONDURAS")
+
+	busTo := req.BusTo
+	pickup := req.Pickup
+	arrivalFlight := req.ArrivalFlight
+	busReturn := req.BusReturn
+	hotel := req.Hotel
+	notes := req.Notes
+
+	if inHonduras {
+		busTo = ""
+		pickup = ""
+		arrivalFlight = ""
+		busReturn = ""
+	}
+
+	// Normalize dependent fields: pickup and flight only relevant when taking bus.
+	if busTo == "" || busTo == "none" {
+		pickup = ""
+		arrivalFlight = ""
+	}
+	// Arrival flight only relevant when pickup is sap.
+	if pickup != "sap" {
+		arrivalFlight = ""
+	}
+	// Bus return sub-options: no cleanup needed (san_pedro vs sap are both valid).
+
+	dbReq := store.UpdateTravelInfoParams{
+		InputBusTo:         busTo,
+		InputPickup:        pickup,
+		InputArrivalFlight: arrivalFlight,
+		InputBusReturn:     busReturn,
+		InputHotel:         hotel,
+		InputNotes:         notes,
+		InputInviteCode:    inviteCode,
+	}
+
+	if err := h.db.UpdateTravelInfo(r.Context(), &dbReq); err != nil {
+		log.Printf("Error updating travel info for %s: %v", inviteCode, err)
+		respondError(w, "Failed to save travel info", http.StatusInternalServerError)
+		return
+	}
+
+	h.syncer.TriggerSync()
+
 	respondJSON(w, RSVPResponse{Success: true}, http.StatusOK)
 }
 
@@ -161,6 +248,40 @@ func validateRSVP(req RSVPRequest, invite *store.Invite) error {
 		return fmt.Errorf("kid_count not valid, must be between 0 and %d", invite.MaxKids)
 	}
 
+	return nil
+}
+
+const maxTextLen = 500
+
+// validateTravel validates travel request enums and text field lengths.
+func validateTravel(req TravelRequest) error {
+	validBusTo := map[string]bool{"": true, "thursday": true, "friday": true, "none": true}
+	if !validBusTo[req.BusTo] {
+		return fmt.Errorf("invalid bus_to value %q", req.BusTo)
+	}
+
+	validPickup := map[string]bool{"": true, "sap": true, "welchez": true}
+	if !validPickup[req.Pickup] {
+		return fmt.Errorf("invalid pickup value %q", req.Pickup)
+	}
+
+	validBusReturn := map[string]bool{
+		"": true, "sunday_san_pedro": true, "sunday_sap": true,
+		"monday_san_pedro": true, "monday_sap": true, "none": true,
+	}
+	if !validBusReturn[req.BusReturn] {
+		return fmt.Errorf("invalid bus_return value %q", req.BusReturn)
+	}
+
+	if utf8.RuneCountInString(req.ArrivalFlight) > maxTextLen {
+		return fmt.Errorf("arrival_flight exceeds %d characters", maxTextLen)
+	}
+	if utf8.RuneCountInString(req.Hotel) > maxTextLen {
+		return fmt.Errorf("hotel exceeds %d characters", maxTextLen)
+	}
+	if utf8.RuneCountInString(req.Notes) > maxTextLen {
+		return fmt.Errorf("notes exceeds %d characters", maxTextLen)
+	}
 	return nil
 }
 

@@ -41,38 +41,11 @@ func TestBeginRecoversDanglingTransaction(t *testing.T) {
 }
 
 func TestUpsertInviteImportsRSVP(t *testing.T) {
-	s, err := Open(filepath.Join(t.TempDir(), "wedding.db"))
-	if err != nil {
-		t.Fatal(err)
-	}
-	t.Cleanup(func() {
-		if err := s.DB.Close(); err != nil {
-			t.Error(err)
-		}
-	})
-	if _, err := s.DB.Exec(`
-		CREATE TABLE invites (
-			invite_code TEXT PRIMARY KEY,
-			name TEXT NOT NULL,
-			max_adults INTEGER NOT NULL,
-			max_kids INTEGER NOT NULL,
-			confirmed_adults INTEGER NOT NULL,
-			confirmed_kids INTEGER NOT NULL,
-			dietary_info TEXT NOT NULL,
-			message_for_us TEXT NOT NULL,
-			song_request TEXT NOT NULL,
-			response_at DATETIME,
-			sheet_row INTEGER,
-			created_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc')),
-			updated_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc'))
-		)
-	`); err != nil {
-		t.Fatal(err)
-	}
+	s := openTestDB(t)
 
 	responseAt := time.Date(2026, time.April, 8, 21, 8, 46, 0, time.UTC)
 	sheetRow := int64(2)
-	err = s.UpsertInvite(context.Background(), &UpsertInviteParams{
+	err := s.UpsertInvite(context.Background(), &UpsertInviteParams{
 		InviteCode:      "active-moon-6338",
 		Name:            "Arnau",
 		MaxAdults:       1,

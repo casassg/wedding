@@ -127,6 +127,11 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 			sheetRow.MaxKids = toInt(row[2])
 		}
 
+		// Column D: Location (index 3, e.g. 'HONDURAS')
+		if len(row) > 3 {
+			sheetRow.Location = strings.TrimSpace(toString(row[3]))
+		}
+
 		// Column H: Invite Code (index 7)
 		if len(row) > 7 {
 			sheetRow.InviteCode = toString(row[7])
@@ -214,6 +219,106 @@ func (c *Client) WriteRSVP(ctx context.Context, data *store.Invite) error {
 		return fmt.Errorf("failed to write to sheet: %w", err)
 	}
 
+	return nil
+}
+
+// WriteTravel writes travel info columns O:T for a guest row.
+// Column mapping:
+// O: Bus to Copan  P: Arrival Flight  Q: Bus to San Pedro/SAP
+// R: Hotel in Copan  S: Travel notes  T: Last synced
+func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
+	if !c.IsConfigured() {
+		return nil
+	}
+	if data.SheetRow == nil {
+		return fmt.Errorf("no sheet row number for invite %s", data.InviteCode)
+	}
+	if data.TravelUpdatedAt == nil {
+		return nil // nothing to write
+	}
+
+	rowNum := *data.SheetRow
+
+	// Column O: Bus to Copan — human-readable
+	busToLabel := ""
+	switch data.TravelBusTo {
+	case "thursday":
+		switch data.TravelPickup {
+		case "sap":
+			busToLabel = "Thursday from SAP airport"
+		case "welchez":
+			busToLabel = "Thursday from Welchez Café"
+		default:
+			busToLabel = "Thursday"
+		}
+	case "friday":
+		switch data.TravelPickup {
+		case "sap":
+			busToLabel = "Friday from SAP airport"
+		case "welchez":
+			busToLabel = "Friday from Welchez Café"
+		default:
+			busToLabel = "Friday"
+		}
+	case "none":
+		busToLabel = "No bus"
+	}
+
+	// Column P: Arrival Flight — only when pickup is SAP
+	arrivalFlight := ""
+	if data.TravelPickup == "sap" {
+		arrivalFlight = data.TravelArrivalFlight
+	}
+
+	// Column Q: Bus return — human-readable
+	busReturnLabel := ""
+	switch data.TravelBusReturn {
+	case "sunday_san_pedro":
+		busReturnLabel = "Sunday → San Pedro"
+	case "sunday_sap":
+		busReturnLabel = "Sunday → SAP"
+	case "monday_san_pedro":
+		busReturnLabel = "Monday → San Pedro"
+	case "monday_sap":
+		busReturnLabel = "Monday → SAP"
+	case "none":
+		busReturnLabel = "No bus"
+	}
+
+	syncedAt := data.TravelUpdatedAt.UTC().Format(time.RFC3339)
+	hotel := data.TravelHotel
+	switch hotel {
+	case "marina_copan":
+		hotel = "Hotel Marina Copan"
+	case "plaza_copan":
+		hotel = "Hotel Plaza Copan"
+	case "plaza_magdalena":
+		hotel = "Hotel Plaza Magdalena"
+	case "yatbalam":
+		hotel = "Hotel Yat B'alam"
+	}
+
+	values := []interface{}{
+		busToLabel,       // O: Bus to Copan
+		arrivalFlight,    // P: Arrival Flight
+		busReturnLabel,   // Q: Bus to San Pedro/SAP
+		hotel,            // R: Hotel in Copan
+		data.TravelNotes, // S: Travel notes
+		syncedAt,         // T: Last synced
+	}
+
+	writeRange := fmt.Sprintf("'%s'!O%d:T%d", c.sheetName, rowNum, rowNum)
+	valueRange := &sheets.ValueRange{
+		Values: [][]interface{}{values},
+	}
+
+	_, err := c.service.Spreadsheets.Values.Update(c.sheetID, writeRange, valueRange).
+		ValueInputOption("RAW").
+		Context(ctx).
+		Do()
+	if err != nil {
+		return fmt.Errorf("failed to write travel to sheet: %w", err)
+	}
 	return nil
 }
 
