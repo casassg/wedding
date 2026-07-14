@@ -796,6 +796,10 @@
             lang: 'en',
             inHonduras: false,
 
+            // Two-step return bus UI state (not persisted directly; derived to/from travel.busreturn)
+            returnDate: '',  // 'sunday' | 'monday' | 'none' | ''
+            returnDest: '',  // 'san_pedro' | 'sap' | ''
+
             // Bus date ISO strings derived from the configured wedding date
             thursdayDate: '',
             fridayDate: '',
@@ -901,6 +905,48 @@
                     t.hotel = '__other__';
                     t.hotelOther = hotel;
                 }
+
+                // Derive two-step return UI state from saved busreturn value
+                const br = t.busreturn;
+                if (br === 'sunday_san_pedro') {
+                    this.returnDate = 'sunday';
+                    this.returnDest = 'san_pedro';
+                } else if (br === 'sunday_sap') {
+                    this.returnDate = 'sunday';
+                    this.returnDest = 'sap';
+                } else if (br === 'monday_san_pedro') {
+                    this.returnDate = 'monday';
+                    this.returnDest = 'san_pedro';
+                } else if (br === 'monday_sap') {
+                    this.returnDate = 'monday';
+                    this.returnDest = 'sap';
+                } else if (br === 'none') {
+                    this.returnDate = 'none';
+                    this.returnDest = '';
+                } else {
+                    this.returnDate = '';
+                    this.returnDest = '';
+                }
+            },
+
+            // Called when return date changes
+            onReturnDateChange() {
+                this.returnDest = '';
+                if (this.returnDate === 'none') {
+                    this.travel.busreturn = 'none';
+                } else {
+                    // Wait for destination selection before saving a canonical value
+                    this.travel.busreturn = '';
+                }
+                this.scheduleSave();
+            },
+
+            // Called when return destination changes
+            onReturnDestChange() {
+                if (this.returnDate && this.returnDate !== 'none' && this.returnDest) {
+                    this.travel.busreturn = this.returnDate + '_' + (this.returnDest === 'san_pedro' ? 'san_pedro' : 'sap');
+                }
+                this.scheduleSave();
             },
 
             // Called when bus day changes — clear stale dependent state

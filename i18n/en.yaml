@@ -137,10 +137,6 @@ travel_agent_contact: "Contact"
 travel_agent_whatsapp_text: "Hi! I'm reaching out about getting help for traveling for Boda Casas Paz."
 travel_agent_hint: "Need help planning a trip? [Contact our travel agent](#travel-agent) for assistance!"
 
-# Travel form - Chelsy callout
-travel_form_chelsy_title: "Need a private transfer?"
-travel_form_chelsy_body: "Select your included wedding bus seat in this form. For additional routes or times, contact **Daniel at Chelsy Tours** directly. You will book and pay for private transport directly with Chelsy Tours."
-
 # Getting Around Copán
 traveling_getting_around: "Getting Around Copán"
 traveling_getting_around_intro: "Copán Ruinas is a small, walkable town. Here's what you need to know about getting around."
@@ -210,7 +206,7 @@ schedule_completed: "Completed"
 
 # Travel Form
 travel_form_retry: "Couldn't save. Make another change to retry."
-travel_form_bus_schedule_title: "Bus schedule"
+travel_form_bus_schedule_title: "View full bus schedule"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |
   | --- | --- | --- |
@@ -218,16 +214,14 @@ travel_form_bus_schedule_body: |
   | Fri Dec 18 | Welchez Café 2:00 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
   | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "We're organizing shared buses from San Pedro Sula to Copán for guests traveling from abroad. Please share your travel details so we can coordinate your journey."
-travel_form_intro_honduras: "To help us organize everything, please share where you'll be staying and any other travel notes we should know."
-travel_form_bus_rules: |
-  **Thursday and Friday buses depart at 2:00 PM** from Welchez Café. Airport pickup is only available for flights landing at SAP by 1:00 PM. **Welchez Café** is an air-conditioned café in San Pedro Sula and the meeting point for guests we are not collecting at the airport.
-
-  If you land on Thursday after 1:00 PM, you're welcome to stay overnight in San Pedro and join the Friday bus from Welchez Café. If none of these options work, see the Chelsy Tours callout below to arrange private transport at your own expense.
+travel_form_intro: "Choose your shared bus options and share any travel details below."
+travel_form_intro_honduras: "Share where you'll be staying and any travel notes below."
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
 travel_form_bus_to_friday: "Friday, Dec 18"
 travel_form_bus_to_none: "No, I'll get there on my own"
+travel_form_bus_to_none_transport_pre: "Need private transport?"
+travel_form_bus_to_none_transport_link: "Contact Daniel at Chelsy Tours"
 travel_form_pickup_label: "Where will you board the bus?"
 travel_form_pickup_sap: "SAP airport, San Pedro Sula"
 travel_form_pickup_sap_sub: "Flight landing by 1:00 PM only"
@@ -244,16 +238,18 @@ travel_form_saving_btn: "Saving..."
 travel_form_saved_btn: "Saved ✓"
 travel_form_retry_btn: "Try again"
 travel_form_bus_return_label: "Do you want a seat on the bus back?"
-travel_form_bus_return_sunday_sp: "Sunday, Dec 20 → San Pedro"
-travel_form_bus_return_sunday_sp_sub: "Departs Copán 1:00 PM · arrives ~5:00 PM"
-travel_form_bus_return_sunday_sap: "Sunday, Dec 20 → SAP airport"
-travel_form_bus_return_sunday_sap_sub: "Departs Copán 1:00 PM · arrives ~6:00 PM"
-travel_form_bus_return_monday_sp: "Monday, Dec 21 → San Pedro"
-travel_form_bus_return_monday_sp_sub: "Departs Copán 10:00 AM · arrives ~2:00 PM"
-travel_form_bus_return_monday_sap: "Monday, Dec 21 → SAP airport"
-travel_form_bus_return_monday_sap_sub: "Departs Copán 10:00 AM · arrives ~3:00 PM"
+travel_form_return_date_sunday: "Sunday, Dec 20"
+travel_form_return_date_sunday_sub: "Departs Copán 1:00 PM"
+travel_form_return_date_monday: "Monday, Dec 21"
+travel_form_return_date_monday_sub: "Departs Copán 10:00 AM"
 travel_form_bus_return_none: "No bus needed"
-travel_form_hotel_help: "We share this with the bus company to coordinate drop-off points in Copán. Individual hotel stops cannot be guaranteed."
+travel_form_return_dest_label: "Where are you heading?"
+travel_form_return_dest_sp: "San Pedro Sula"
+travel_form_return_dest_sp_sub_sunday: "Arrives ~5:00 PM"
+travel_form_return_dest_sp_sub_monday: "Arrives ~2:00 PM"
+travel_form_return_dest_sap: "SAP airport"
+travel_form_return_dest_sap_sub_sunday: "Arrives ~6:00 PM"
+travel_form_return_dest_sap_sub_monday: "Arrives ~3:00 PM"
 travel_form_hotel_label: "Where are you staying in Copán?"
 travel_form_hotel_other: "Somewhere else"
 travel_form_hotel_other_placeholder: "Hotel name or address..."

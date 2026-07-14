@@ -137,10 +137,6 @@ travel_agent_contact: "Contacte"
 travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
 travel_agent_hint: "Necessites ajuda per planificar un viatge? [Contacta la nostra agent de viatges](#travel-agent) per a assistència!"
 
-# Formulari de viatge - avís Chelsy
-travel_form_chelsy_title: "Necessites un trasllat privat?"
-travel_form_chelsy_body: "Selecciona en aquest formulari la teva plaça als autobusos inclosos del casament. Per a altres rutes o horaris, contacta directament el **Daniel de Chelsy Tours**. Reservaràs i pagaràs el transport privat directament amb Chelsy Tours."
-
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
 traveling_getting_around_intro: "Copán Ruinas és un poble petit i fàcil de recórrer a peu. Això és el que necessites saber per moure-t'hi."
@@ -210,7 +206,7 @@ schedule_completed: "Completat"
 
 # Travel Form
 travel_form_retry: "No s'ha pogut guardar. Fes un altre canvi per tornar-ho a provar."
-travel_form_bus_schedule_title: "Horaris de l'autobús"
+travel_form_bus_schedule_title: "Veure l'horari complet dels autobusos"
 travel_form_bus_schedule_body: |
   | Dia | Sortida | Arribada |
   | --- | --- | --- |
@@ -218,16 +214,14 @@ travel_form_bus_schedule_body: |
   | Dv. 18 de des. | Welchez Café 2:00 PM (recollida SAP fins a 1:00 PM) | Copán ~5:00 PM, segons el trànsit |
   | Dg. 20 de des. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Dl. 21 de des. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Estem organitzant autobusos compartits des de San Pedro Sula fins a Copán per als convidats que venen de l'estranger. Comparteix els teus detalls de viatge perquè puguem coordinar l'arribada."
-travel_form_intro_honduras: "Per ajudar-nos a organitzar-ho tot, explica'ns on t'allotjaràs i qualsevol altre detall del viatge que hàgim de saber."
-travel_form_bus_rules: |
-  **Els autobusos del dijous i el divendres surten a les 2:00 PM** des del Welchez Café. La recollida a l'aeroport només està disponible per a vols que aterrin a SAP com a màxim a la 1:00 PM. **El Welchez Café** és un cafè amb aire condicionat a San Pedro Sula i el punt de trobada per als convidats que no recollim a l'aeroport.
-
-  Si arribes el dijous després de la 1:00 PM, pots quedar-te a dormir a San Pedro i agafar l'autobús del divendres des del Welchez Café. Si cap d'aquestes opcions et va bé, consulta l'avís de Chelsy Tours més avall per organitzar transport privat a càrrec teu.
+travel_form_intro: "Tria les opcions d'autobús compartit i comparteix qualsevol detall del viatge a continuació."
+travel_form_intro_honduras: "Explica'ns on t'allotjaràs i qualsevol altre detall del viatge a continuació."
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "Dijous, 17 de des."
 travel_form_bus_to_friday: "Divendres, 18 de des."
 travel_form_bus_to_none: "No, hi arribaré pel meu compte"
+travel_form_bus_to_none_transport_pre: "Necessites transport privat?"
+travel_form_bus_to_none_transport_link: "Contacta el Daniel de Chelsy Tours"
 travel_form_pickup_label: "On puges a l'autobús?"
 travel_form_pickup_sap: "Aeroport SAP, San Pedro Sula"
 travel_form_pickup_sap_sub: "Només per a vols que aterrin com a màxim a la 1:00 PM"
@@ -244,16 +238,18 @@ travel_form_saving_btn: "Desant..."
 travel_form_saved_btn: "Desat ✓"
 travel_form_retry_btn: "Torna-ho a provar"
 travel_form_bus_return_label: "Vols un lloc a l'autobús de tornada?"
-travel_form_bus_return_sunday_sp: "Diumenge, 20 de des. → San Pedro"
-travel_form_bus_return_sunday_sp_sub: "Surt de Copán 1:00 PM · arriba ~5:00 PM"
-travel_form_bus_return_sunday_sap: "Diumenge, 20 de des. → Aeroport SAP"
-travel_form_bus_return_sunday_sap_sub: "Surt de Copán 1:00 PM · arriba ~6:00 PM"
-travel_form_bus_return_monday_sp: "Dilluns, 21 de des. → San Pedro"
-travel_form_bus_return_monday_sp_sub: "Surt de Copán 10:00 AM · arriba ~2:00 PM"
-travel_form_bus_return_monday_sap: "Dilluns, 21 de des. → Aeroport SAP"
-travel_form_bus_return_monday_sap_sub: "Surt de Copán 10:00 AM · arriba ~3:00 PM"
+travel_form_return_date_sunday: "Diumenge, 20 de des."
+travel_form_return_date_sunday_sub: "Surt de Copán 1:00 PM"
+travel_form_return_date_monday: "Dilluns, 21 de des."
+travel_form_return_date_monday_sub: "Surt de Copán 10:00 AM"
 travel_form_bus_return_none: "No necessito autobús"
-travel_form_hotel_help: "Compartim aquesta informació amb l'empresa d'autobusos per coordinar les parades a Copán. No es pot garantir parada individual a cada hotel."
+travel_form_return_dest_label: "On vas?"
+travel_form_return_dest_sp: "San Pedro Sula"
+travel_form_return_dest_sp_sub_sunday: "Arriba ~5:00 PM"
+travel_form_return_dest_sp_sub_monday: "Arriba ~2:00 PM"
+travel_form_return_dest_sap: "Aeroport SAP"
+travel_form_return_dest_sap_sub_sunday: "Arriba ~6:00 PM"
+travel_form_return_dest_sap_sub_monday: "Arriba ~3:00 PM"
 travel_form_hotel_label: "On t'allotges a Copán?"
 travel_form_hotel_other: "En un altre lloc"
 travel_form_hotel_other_placeholder: "Nom de l'hotel o adreça..."
