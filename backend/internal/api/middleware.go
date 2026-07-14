@@ -1,6 +1,7 @@
 package api
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"slices"
@@ -33,6 +34,12 @@ func Logging(next http.Handler) http.Handler {
 		next.ServeHTTP(wrapped, r)
 
 		duration := time.Since(start)
+		route := normalizeRoute(r.URL.Path)
+		status := fmt.Sprintf("%d", wrapped.statusCode)
+
+		httpRequestsTotal.WithLabelValues(r.Method, route, status).Inc()
+		httpRequestDuration.WithLabelValues(r.Method, route).Observe(duration.Seconds())
+
 		log.Printf("%s %s %d %s", r.Method, r.URL.Path, wrapped.statusCode, duration)
 	})
 }
@@ -118,6 +125,8 @@ func (rl *RateLimiter) Middleware(next http.Handler) http.Handler {
 		limiter := rl.getLimiter(ip)
 
 		if !limiter.Allow() {
+			rateLimitRejections.Inc()
+			log.Printf("Rate limit exceeded for IP %s on %s %s", ip, r.Method, r.URL.Path)
 			http.Error(w, `{"error":"Rate limit exceeded"}`, http.StatusTooManyRequests)
 			return
 		}

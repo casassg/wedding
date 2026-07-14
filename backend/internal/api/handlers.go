@@ -39,24 +39,31 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	if errors.Is(err, sql.ErrNoRows) || (invite == nil) {
 		log.Printf("Invite not found for code %s, triggering sync", inviteCode)
 		if err := h.syncer.SyncOnce(r.Context()); err != nil {
+			inviteLookups.WithLabelValues("not_found").Inc()
 			respondError(w, "Invite not found", http.StatusNotFound)
 			return
 		}
 		// Retry fetching invite after sync
 		invite, err = h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 		if invite == nil || errors.Is(err, sql.ErrNoRows) {
-			log.Printf("Invite still not found for code %s after sync", inviteCode)
+			ip := getIP(r)
+			log.Printf("Invite not found for code %s from IP=%s UA=%s", inviteCode, ip, r.UserAgent())
+			inviteLookups.WithLabelValues("not_found").Inc()
 			respondError(w, "Invite not found", http.StatusNotFound)
 			return
 		}
 	}
 	if err != nil {
 		log.Printf("Error fetching invite: %v", err)
+		inviteLookups.WithLabelValues("error").Inc()
 		respondError(w, "Invite not found", http.StatusNotFound)
 		return
 	}
 
-	log.Printf("Invite viewed: %s (%s)", invite.Name, invite.InviteCode)
+	ip := getIP(r)
+	log.Printf("Invite viewed: %s (%s) from IP=%s UA=%s", invite.Name, invite.InviteCode, ip, r.UserAgent())
+	inviteLookups.WithLabelValues("found").Inc()
+	inviteViews.WithLabelValues(invite.InviteCode).Inc()
 
 	// Return public response
 	respondJSON(w, ToInviteResponse(invite), http.StatusOK)
@@ -109,6 +116,7 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	}
 
 	if err := h.db.UpdateRSVP(r.Context(), &dbReq); err != nil {
+		rsvpSubmissions.WithLabelValues("error").Inc()
 		respondError(w, "Failed to save RSVP", http.StatusInternalServerError)
 		return
 	}
@@ -117,6 +125,7 @@ func (h *Handler) PostRSVP(w http.ResponseWriter, r *http.Request) {
 	h.syncer.TriggerSync()
 
 	// Return success
+	rsvpSubmissions.WithLabelValues("success").Inc()
 	respondJSON(w, RSVPResponse{Success: true}, http.StatusOK)
 }
 
@@ -197,12 +206,14 @@ func (h *Handler) PostTravel(w http.ResponseWriter, r *http.Request) {
 
 	if err := h.db.UpdateTravelInfo(r.Context(), &dbReq); err != nil {
 		log.Printf("Error updating travel info for %s: %v", inviteCode, err)
+		travelSubmissions.WithLabelValues("error").Inc()
 		respondError(w, "Failed to save travel info", http.StatusInternalServerError)
 		return
 	}
 
 	h.syncer.TriggerSync()
 
+	travelSubmissions.WithLabelValues("success").Inc()
 	respondJSON(w, RSVPResponse{Success: true}, http.StatusOK)
 }
 

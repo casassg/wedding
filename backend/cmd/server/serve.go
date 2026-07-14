@@ -16,6 +16,7 @@ import (
 	"github.com/casassg/wedding/backend/internal/store"
 	"github.com/getsentry/sentry-go"
 	"github.com/getsentry/sentry-go/http"
+	"github.com/prometheus/client_golang/prometheus/promhttp"
 )
 
 const shutdownTimeout = 5 * time.Second
@@ -84,6 +85,17 @@ func (cmd *ServeCmd) Run() error {
 	// Create HTTP router
 	router := api.NewRouter(database, syncer, allowedOrigins)
 	router = sentryhttp.New(sentryhttp.Options{Repanic: true}).Handle(router)
+
+	// Start Prometheus metrics server on a separate port for Fly.io scraping.
+	metricsMux := http.NewServeMux()
+	metricsMux.Handle("/metrics", promhttp.Handler())
+	metricsServer := &http.Server{Addr: ":9091", Handler: metricsMux}
+	go func() {
+		log.Printf("Metrics server listening on :9091")
+		if err := metricsServer.ListenAndServe(); err != nil && err != http.ErrServerClosed {
+			log.Printf("metrics server error: %v", err)
+		}
+	}()
 
 	// Create HTTP server
 	server := &http.Server{
