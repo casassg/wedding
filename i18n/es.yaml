@@ -69,7 +69,7 @@ rsvp_thanks_decline: "¡Te echaremos de menos! Gracias por avisarnos. ❤️ Si 
 logistics: "Logística"
 travel_info: "Viaje y Transporte"
 getting_there: "Cómo llegar"
-getting_there_desc: "Para los que vienen de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) porque es el más cercano a Copán (4 horas en autobús). <br><br>Lo ideal sería llegar alrededor del mediodía del viernes 18 de diciembre para tener tiempo suficiente de llegar a Copán durante el día. ¡Pero organícense como les vaya mejor!"
+getting_there_desc: "Para quienes vienen de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP), el aeropuerto principal más cercano a Copán (3-4 horas en auto). Siempre que sea posible, viajen durante el día. Los detalles del transporte compartido de la boda se incluyen con la invitación."
 transportation: "Transporte"
 transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
 transport_venue_city: "Compartiremos más información sobre el transporte compartido desde San Pedro a Copán con la invitación."
@@ -116,6 +116,16 @@ traveling_from_us_desc: "Varias aerolíneas vuelan a San Pedro Sula (SAP) desde 
 traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. Más detalles con la invitación."
 
+# Proveedor de transporte
+transport_provider_label: "Transporte privado"
+transport_provider_title: "Chelsy Tours"
+transport_provider_subtitle: "Proveedor local de confianza para transporte privado y traslados al aeropuerto en Honduras. Contacta a Daniel para organizar tu traslado de forma independiente."
+transport_provider_phone: "+504 9687-5749"
+transport_provider_whatsapp_text: "Hola Daniel, te escribo para consultar sobre transporte para la Boda Casas Paz."
+transport_provider_service_airport: "Traslados al aeropuerto con reserva previa"
+transport_provider_service_private: "Transporte privado en Honduras"
+transport_provider_hint: "Cuando contactes a Daniel, menciona **Boda Casas Paz**."
+
 # Travel Agent
 travel_agent_label: "¿Necesitas ayuda?"
 travel_agent_title: "Agente de Viajes"
@@ -127,6 +137,10 @@ travel_agent_service_trips: "Planificación de viajes por Copán"
 travel_agent_contact: "Contacto"
 travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
 travel_agent_hint: "¿Necesitas ayuda para planificar un viaje? ¡[Contacta a nuestra agente de viajes](#travel-agent) para asistencia!"
+
+# Formulario de viaje - aviso Chelsy
+travel_form_chelsy_title: "¿Necesitas un traslado privado?"
+travel_form_chelsy_body: "Selecciona en este formulario tu plaza en los autobuses incluidos de la boda. Para otras rutas u horarios, contacta directamente a **Daniel de Chelsy Tours**. Reservarás y pagarás el transporte privado directamente con Chelsy Tours."
 
 # Getting Around Copán
 traveling_getting_around: "Moverse por Copán"
@@ -210,7 +224,7 @@ travel_form_intro_honduras: "Para ayudarnos a organizarlo todo, cuéntanos dónd
 travel_form_bus_rules: |
   **Los autobuses del jueves y el viernes salen a las 2:00 PM** desde el Welchez Café. La recogida en el aeropuerto solo está disponible para vuelos que aterricen en SAP a más tardar a la 1:00 PM. **Welchez Café** es un café con aire acondicionado en San Pedro Sula y el punto de encuentro para los invitados que no recogemos en el aeropuerto.
 
-  Si llegas el jueves después de la 1:00 PM, puedes quedarte a dormir en San Pedro y unirte al autobús del viernes desde el Welchez Café. Si estos horarios no te van bien, escríbenos y te ayudaremos a coordinar un transporte privado, que correrá por tu cuenta.
+  Si llegas el jueves después de la 1:00 PM, puedes quedarte a dormir en San Pedro y unirte al autobús del viernes desde el Welchez Café. Si ninguna de estas opciones te funciona, consulta el aviso de Chelsy Tours más abajo para organizar transporte privado a tu cargo.
 travel_form_bus_to_label: "¿Quieres un lugar en nuestro autobús a Copán?"
 travel_form_bus_to_thursday: "Jueves, 17 de dic."
 travel_form_bus_to_friday: "Viernes, 18 de dic."

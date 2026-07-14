@@ -68,7 +68,7 @@ rsvp_thanks_decline: "T'enyorarem! Gràcies per avisar-nos. ❤️ Si canvien el
 logistics: "Logística"
 travel_info: "Viatge i transport"
 getting_there: "Com arribar-hi"
-getting_there_desc: "Per als que veniu de fora, recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP) perquè és el més proper a Copán (4 hores d'autobús). <br><br> L'ideal seria arribar cap al migdia del divendres 18 de desembre per tenir temps suficient per arribar a Copán de dia. Però organitzeu-vos com us vagi millor!"
+getting_there_desc: "Per als que veniu de fora, recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP), l'aeroport principal més proper a Copán (3-4 hores en cotxe). Sempre que sigui possible, viatgeu durant el dia. Els detalls del transport compartit del casament s'inclouen amb la invitació."
 transportation: "Transport"
 transport_church_venue: "Tindrem autobusos entre l'església i el lloc de la festa, i autobusos de nit de tornada al centre del poble."
 transport_venue_city: "Donarem més informació sobre el transport compartit des de San Pedro a Copán amb la invitació."
@@ -115,6 +115,16 @@ traveling_from_us_desc: "Diverses aerolínies volen a San Pedro Sula (SAP) des d
 traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Més detalls amb la invitació."
 
+# Proveïdor de transport
+transport_provider_label: "Transport privat"
+transport_provider_title: "Chelsy Tours"
+transport_provider_subtitle: "Proveïdor local de confiança per a transport privat i trasllats a l'aeroport a Hondures. Contacteu el Daniel per organitzar el vostre trasllat de forma independent."
+transport_provider_phone: "+504 9687-5749"
+transport_provider_whatsapp_text: "Hola Daniel, te escribo para consultar sobre transporte para la Boda Casas Paz."
+transport_provider_service_airport: "Trasllats a l'aeroport amb reserva prèvia"
+transport_provider_service_private: "Transport privat a Hondures"
+transport_provider_hint: "Quan contactis amb el Daniel, menciona **Boda Casas Paz**."
+
 # Travel Agent
 travel_agent_label: "Necessites ajuda?"
 travel_agent_title: "Agent de Viatges"
@@ -126,6 +136,10 @@ travel_agent_service_trips: "Planificació de viatges per Copán"
 travel_agent_contact: "Contacte"
 travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
 travel_agent_hint: "Necessites ajuda per planificar un viatge? [Contacta la nostra agent de viatges](#travel-agent) per a assistència!"
+
+# Formulari de viatge - avís Chelsy
+travel_form_chelsy_title: "Necessites un trasllat privat?"
+travel_form_chelsy_body: "Selecciona en aquest formulari la teva plaça als autobusos inclosos del casament. Per a altres rutes o horaris, contacta directament el **Daniel de Chelsy Tours**. Reservaràs i pagaràs el transport privat directament amb Chelsy Tours."
 
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
@@ -209,7 +223,7 @@ travel_form_intro_honduras: "Per ajudar-nos a organitzar-ho tot, explica'ns on t
 travel_form_bus_rules: |
   **Els autobusos del dijous i el divendres surten a les 2:00 PM** des del Welchez Café. La recollida a l'aeroport només està disponible per a vols que aterrin a SAP com a màxim a la 1:00 PM. **El Welchez Café** és un cafè amb aire condicionat a San Pedro Sula i el punt de trobada per als convidats que no recollim a l'aeroport.
 
-  Si arribes el dijous després de la 1:00 PM, pots quedar-te a dormir a San Pedro i agafar l'autobús del divendres des del Welchez Café. Si aquests horaris no et van bé, escriu-nos i t'ajudarem a coordinar un transport privat, que anirà a càrrec teu.
+  Si arribes el dijous després de la 1:00 PM, pots quedar-te a dormir a San Pedro i agafar l'autobús del divendres des del Welchez Café. Si cap d'aquestes opcions et va bé, consulta l'avís de Chelsy Tours més avall per organitzar transport privat a càrrec teu.
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "Dijous, 17 de des."
 travel_form_bus_to_friday: "Divendres, 18 de des."

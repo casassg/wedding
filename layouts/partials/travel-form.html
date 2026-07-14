@@ -34,6 +34,24 @@
         </div>
     </div>
 
+    <!-- Chelsy Tours callout (hidden for Honduras guests) -->
+    <div x-show="!inHonduras" x-cloak
+         class="mb-6 rounded-2xl border border-clay/20 bg-clay/5 p-4">
+        <p class="text-xs font-semibold text-clay font-sans mb-1 flex items-center gap-2">
+            <i class="fa-solid fa-van-shuttle"></i>
+            {{ i18n "travel_form_chelsy_title" }}
+        </p>
+        <p class="text-xs text-gray-600 font-sans leading-relaxed mb-3">
+            {{ i18n "travel_form_chelsy_body" | markdownify }}
+        </p>
+        <a href="https://api.whatsapp.com/send/?phone=50496875749&text={{ i18n "transport_provider_whatsapp_text" | urlquery }}&type=phone_number&app_absent=0"
+           target="_blank" rel="noopener"
+           class="inline-flex items-center gap-2 px-3 py-1.5 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-xs font-medium transition-colors">
+            <i class="fa-brands fa-whatsapp"></i>
+            WhatsApp Daniel · {{ i18n "transport_provider_phone" }}
+        </a>
+    </div>
+
     <div class="space-y-6">
 
         <!-- Q1: Bus to Copán (hidden for Honduras) -->
