@@ -5,8 +5,7 @@ primary_region = "iad"
   dockerfile = "Dockerfile"
 
 [deploy]
-  strategy = "rolling"
-  max_unavailable = 2
+  strategy = "bluegreen"
 
 [env]
   PRIMARY_REGION = "iad"

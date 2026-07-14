@@ -74,7 +74,7 @@ The local database lives at `backend/tmp/wedding.db`. Delete it if you need a fr
 ## Deployment
 
 - Frontend: pushes to `main` run `hugo --gc --minify --baseURL "$BASE_URL/"` in GitHub Actions and publish to GitHub Pages automatically.
-- Backend: deploy from `backend/` with `flyctl deploy --ha=false`; ensure the LiteFS volume and required secrets (`GOOGLE_SHEET_ID`, `GOOGLE_SHEETS_CREDENTIALS` or `GOOGLE_APPLICATION_CREDENTIALS`) are set first.
+- Backend: deploy from `backend/` with `flyctl deploy --ha=false`; ensure the required secrets (`GOOGLE_SHEET_ID`, `GOOGLE_SHEETS_CREDENTIALS` or `GOOGLE_APPLICATION_CREDENTIALS`) are set first. The SQLite DB is baked into the Docker image at build time (no persistent volume).
 
 ## Languages
 
