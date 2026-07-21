@@ -27,6 +27,9 @@
     - label: "Little French Key"
       url: "https://roatan.online/little-french-key"
       icon: "fa-solid fa-umbrella-beach"
+    - label: "Blue Reef Explorers"
+      url: "https://bluereefexplorers.com"
+      icon: "fa-solid fa-ship"
 
 - id: utila
   title: "Utila"
@@ -153,6 +156,9 @@
     - label: "Travel Guide"
       url: "https://littlebirdietravel.com/cayos-cochinos-honduras/"
       icon: "fa-solid fa-book"
+    - label: "Blue Reef Explorers"
+      url: "https://bluereefexplorers.com"
+      icon: "fa-solid fa-ship"
 
 - id: tela
   title: "Tela"
