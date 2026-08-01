@@ -818,6 +818,8 @@
                 hotel: '',       // hotel id | '__other__' | ''
                 hotelOther: '',  // free text when hotel === '__other__'
                 notes: '',       // textarea
+                cocktail: '',    // 'yes' | 'no' | ''
+                brunch: '',      // 'yes' | 'no' | ''
             },
 
             // Only flights that land on the bus day at or before 13:00 local time.
@@ -896,6 +898,8 @@
                 t.flightInput = invite.travel_arrival_flight || '';
                 t.busreturn = invite.travel_bus_return || '';
                 t.notes = invite.travel_notes || '';
+                t.cocktail = invite.travel_cocktail || '';
+                t.brunch = invite.travel_brunch || '';
 
                 const hotel = invite.travel_hotel || '';
                 if (!hotel || this.hotels.some(h => h.id === hotel)) {
@@ -926,6 +930,30 @@
                 } else {
                     this.returnDate = '';
                     this.returnDest = '';
+                }
+
+                // Default unanswered visible questions to 'no'/'none' and persist.
+                let changed = false;
+                if (!this.inHonduras && !t.busto) {
+                    t.busto = 'none';
+                    changed = true;
+                }
+                if (!this.inHonduras && !t.busreturn) {
+                    t.busreturn = 'none';
+                    this.returnDate = 'none';
+                    this.returnDest = '';
+                    changed = true;
+                }
+                if (!this.inHonduras && !t.cocktail) {
+                    t.cocktail = 'no';
+                    changed = true;
+                }
+                if (!t.brunch) {
+                    t.brunch = 'no';
+                    changed = true;
+                }
+                if (changed) {
+                    this.scheduleSave();
                 }
             },
 
@@ -1036,6 +1064,8 @@
                     bus_return: this.travel.busreturn,
                     hotel: hotelValue,
                     notes: this.travel.notes,
+                    cocktail: this.travel.cocktail,
+                    brunch: this.travel.brunch,
                 };
 
                 try {

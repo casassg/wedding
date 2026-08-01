@@ -37,12 +37,12 @@ func (q *Queries) DeleteInvite(ctx context.Context, inviteCode string) error {
 }
 
 const GetInviteByInviteCode = `-- name: GetInviteByInviteCode :one
-SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
+SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
 `
 
 // GetInviteByInviteCode
 //
-//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
+//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at, created_at, updated_at FROM invites WHERE invite_code = ?
 func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) (*Invite, error) {
 	row := q.queryRow(ctx, q.getInviteByInviteCodeStmt, GetInviteByInviteCode, inviteCode)
 	var i Invite
@@ -65,6 +65,8 @@ func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) 
 		&i.TravelBusReturn,
 		&i.TravelHotel,
 		&i.TravelNotes,
+		&i.TravelCocktail,
+		&i.TravelBrunch,
 		&i.TravelUpdatedAt,
 		&i.CreatedAt,
 		&i.UpdatedAt,
@@ -73,7 +75,7 @@ func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) 
 }
 
 const GetPendingSyncInvites = `-- name: GetPendingSyncInvites :many
-SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites
+SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at, created_at, updated_at FROM invites
 WHERE response_at IS NOT NULL
   AND response_at > updated_at
 ORDER BY response_at ASC
@@ -81,7 +83,7 @@ ORDER BY response_at ASC
 
 // Finds rows that have responded but haven't been synced OR have changed since sync.
 //
-//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_updated_at, created_at, updated_at FROM invites
+//	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at, created_at, updated_at FROM invites
 //	WHERE response_at IS NOT NULL
 //	  AND response_at > updated_at
 //	ORDER BY response_at ASC
@@ -113,6 +115,8 @@ func (q *Queries) GetPendingSyncInvites(ctx context.Context) ([]*Invite, error) 
 			&i.TravelBusReturn,
 			&i.TravelHotel,
 			&i.TravelNotes,
+			&i.TravelCocktail,
+			&i.TravelBrunch,
 			&i.TravelUpdatedAt,
 			&i.CreatedAt,
 			&i.UpdatedAt,
@@ -320,9 +324,11 @@ SET
     travel_bus_return    = ?4,
     travel_hotel         = ?5,
     travel_notes         = ?6,
+    travel_cocktail      = ?7,
+    travel_brunch        = ?8,
     travel_updated_at    = datetime('now', 'utc'),
     response_at          = datetime('now', 'utc')
-WHERE invite_code = ?7
+WHERE invite_code = ?9
 `
 
 type UpdateTravelInfoParams struct {
@@ -332,6 +338,8 @@ type UpdateTravelInfoParams struct {
 	InputBusReturn     string `json:"input_bus_return"`
 	InputHotel         string `json:"input_hotel"`
 	InputNotes         string `json:"input_notes"`
+	InputCocktail      string `json:"input_cocktail"`
+	InputBrunch        string `json:"input_brunch"`
 	InputInviteCode    string `json:"input_invite_code"`
 }
 
@@ -350,9 +358,11 @@ type UpdateTravelInfoParams struct {
 //	    travel_bus_return    = ?4,
 //	    travel_hotel         = ?5,
 //	    travel_notes         = ?6,
+//	    travel_cocktail      = ?7,
+//	    travel_brunch        = ?8,
 //	    travel_updated_at    = datetime('now', 'utc'),
 //	    response_at          = datetime('now', 'utc')
-//	WHERE invite_code = ?7
+//	WHERE invite_code = ?9
 func (q *Queries) UpdateTravelInfo(ctx context.Context, arg *UpdateTravelInfoParams) error {
 	_, err := q.exec(ctx, q.updateTravelInfoStmt, UpdateTravelInfo,
 		arg.InputBusTo,
@@ -361,6 +371,8 @@ func (q *Queries) UpdateTravelInfo(ctx context.Context, arg *UpdateTravelInfoPar
 		arg.InputBusReturn,
 		arg.InputHotel,
 		arg.InputNotes,
+		arg.InputCocktail,
+		arg.InputBrunch,
 		arg.InputInviteCode,
 	)
 	return err
