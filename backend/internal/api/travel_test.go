@@ -13,10 +13,10 @@ func TestValidateTravel_ValidInputs(t *testing.T) {
 	cases := []TravelRequest{
 		{BusTo: "", Pickup: "", BusReturn: ""},
 		{BusTo: "thursday", Pickup: "sap", ArrivalFlight: "AV 620", BusReturn: "sunday_sap"},
-		{BusTo: "friday", Pickup: "welchez", BusReturn: "monday_san_pedro"},
+		{BusTo: "friday", Pickup: "welchez", BusReturn: "sunday_san_pedro"},
 		{BusTo: "none", BusReturn: "none"},
 		{BusTo: "thursday", Pickup: "sap", BusReturn: "sunday_san_pedro", Hotel: "marina", Notes: "ok"},
-		{BusTo: "friday", Pickup: "sap", BusReturn: "monday_sap"},
+		{BusTo: "friday", Pickup: "sap", BusReturn: "sunday_sap"},
 	}
 	for _, req := range cases {
 		require.NoError(t, validateTravel(req))
@@ -31,6 +31,8 @@ func TestValidateTravel_InvalidEnums(t *testing.T) {
 		{"bad bus_to", TravelRequest{BusTo: "saturday"}},
 		{"bad pickup", TravelRequest{Pickup: "hotel"}},
 		{"bad bus_return", TravelRequest{BusReturn: "tuesday_sap"}},
+		{"removed monday_san_pedro bus_return", TravelRequest{BusReturn: "monday_san_pedro"}},
+		{"removed monday_sap bus_return", TravelRequest{BusReturn: "monday_sap"}},
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {

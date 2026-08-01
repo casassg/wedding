@@ -797,7 +797,7 @@
             inHonduras: false,
 
             // Two-step return bus UI state (not persisted directly; derived to/from travel.busreturn)
-            returnDate: '',  // 'sunday' | 'monday' | 'none' | ''
+            returnDate: '',  // 'sunday' | 'none' | ''
             returnDest: '',  // 'san_pedro' | 'sap' | ''
 
             // Bus date ISO strings derived from the configured wedding date
@@ -814,13 +814,13 @@
                 busto: '',       // 'thursday' | 'friday' | 'none' | ''
                 pickup: '',      // 'sap' | 'welchez' | ''
                 flightInput: '', // free text / autocomplete input
-                busreturn: '',   // 'sunday_san_pedro' | 'sunday_sap' | 'monday_san_pedro' | 'monday_sap' | 'none' | ''
+                busreturn: '',   // 'sunday_san_pedro' | 'sunday_sap' | 'none' | ''
                 hotel: '',       // hotel id | '__other__' | ''
                 hotelOther: '',  // free text when hotel === '__other__'
                 notes: '',       // textarea
             },
 
-            // Only flights that land on the bus day at or before 13:00 local time.
+            // Only flights that land on the bus day at or before 13:30 local time.
             // Previous-day and late-arriving flights are excluded entirely.
             get visibleFlights() {
                 const day = this.travel.busto;
@@ -831,7 +831,7 @@
                 return this.allFlights.filter(f => {
                     if (f.localDate !== busDate) return false;
                     const [h, m] = f.localTime.split(':').map(Number);
-                    if (h > 13 || (h === 13 && m > 0)) return false;
+                    if (h > 13 || (h === 13 && m > 30)) return false;
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
                 });
@@ -913,12 +913,6 @@
                     this.returnDest = 'san_pedro';
                 } else if (br === 'sunday_sap') {
                     this.returnDate = 'sunday';
-                    this.returnDest = 'sap';
-                } else if (br === 'monday_san_pedro') {
-                    this.returnDate = 'monday';
-                    this.returnDest = 'san_pedro';
-                } else if (br === 'monday_sap') {
-                    this.returnDate = 'monday';
                     this.returnDest = 'sap';
                 } else if (br === 'none') {
                     this.returnDate = 'none';

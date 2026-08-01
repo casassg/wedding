@@ -89,7 +89,7 @@ func TestUpsertInviteDoesNotTouchTravelColumns(t *testing.T) {
 	err := s.UpdateTravelInfo(ctx, &UpdateTravelInfoParams{
 		InputBusTo:      "friday",
 		InputPickup:     "welchez",
-		InputBusReturn:  "monday_san_pedro",
+		InputBusReturn:  "sunday_san_pedro",
 		InputHotel:      "some_hotel",
 		InputNotes:      "notes",
 		InputInviteCode: "TRVL1",
