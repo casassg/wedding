@@ -23,23 +23,37 @@ WHERE
 INSERT INTO invites (
     invite_code, name, max_adults, max_kids,
     confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
-    sheet_row, location, updated_at
+    sheet_row, location,
+    travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return,
+    travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at,
+    updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
-    name             = excluded.name,
-    max_adults       = excluded.max_adults,
-    max_kids         = excluded.max_kids,
-    confirmed_adults = excluded.confirmed_adults,
-    confirmed_kids   = excluded.confirmed_kids,
-    dietary_info     = excluded.dietary_info,
-    message_for_us   = excluded.message_for_us,
-    song_request     = excluded.song_request,
-    response_at      = excluded.response_at,
-    sheet_row        = excluded.sheet_row,
-    location         = excluded.location,
-    updated_at       = excluded.updated_at
+    name                  = excluded.name,
+    max_adults            = excluded.max_adults,
+    max_kids              = excluded.max_kids,
+    confirmed_adults      = excluded.confirmed_adults,
+    confirmed_kids        = excluded.confirmed_kids,
+    dietary_info          = excluded.dietary_info,
+    message_for_us        = excluded.message_for_us,
+    song_request          = excluded.song_request,
+    response_at           = excluded.response_at,
+    sheet_row             = excluded.sheet_row,
+    location              = excluded.location,
+    travel_bus_to         = excluded.travel_bus_to,
+    travel_pickup         = excluded.travel_pickup,
+    travel_arrival_flight = excluded.travel_arrival_flight,
+    travel_bus_return     = excluded.travel_bus_return,
+    travel_hotel          = excluded.travel_hotel,
+    travel_notes          = excluded.travel_notes,
+    travel_cocktail       = excluded.travel_cocktail,
+    travel_brunch         = excluded.travel_brunch,
+    travel_updated_at     = excluded.travel_updated_at,
+    updated_at            = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at;
     -- Note: The WHERE clause prevents updates when local RSVP changes are pending,
     -- protecting local RSVP changes that haven't been pushed to the sheet yet.

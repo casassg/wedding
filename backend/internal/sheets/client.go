@@ -90,11 +90,13 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 		return nil, nil // Return empty when not configured
 	}
 
-	// Read data from 'Guests' sheet (rows 2+, columns A-N)
+	// Read data from 'Guests' sheet (rows 2+, columns A-V)
 	// Column mapping:
 	// A: Name, B: Parella, C: Fills, D: Location, E: State, F: Total, G: No Hijos
 	// H: Invite Code, I: Adults confirmed, J: Kids confirmed, K: Dietary, L: Message for us, M: Song request, N: Updated At
-	readRange := fmt.Sprintf("'%s'!A2:N", c.sheetName)
+	// O: Bus to Copan, P: Arrival Flight, Q: Bus to San Pedro/SAP, R: Hotel in Copan,
+	// S: Travel notes, T: Travel last synced, U: Welcome cocktail, V: Brunch
+	readRange := fmt.Sprintf("'%s'!A2:V", c.sheetName)
 	resp, err := c.service.Spreadsheets.Values.Get(c.sheetID, readRange).Context(ctx).Do()
 	if err != nil {
 		return nil, fmt.Errorf("failed to read sheet: %w", err)
@@ -163,6 +165,40 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 			}
 			if !responseAt.IsZero() {
 				sheetRow.ResponseAt = &responseAt
+			}
+		}
+
+		// Columns O-V: travel answers, restored from WriteTravel's labels.
+		// Skip entirely if column T (travel last synced) is empty: this guest
+		// never had WriteTravel run, so there's nothing to restore.
+		if len(row) > 19 && toString(row[19]) != "" {
+			travelUpdatedAt, err := time.Parse(time.RFC3339, toString(row[19]))
+			if err != nil {
+				log.Printf("Invalid travel timestamp for invite %s: %v", sheetRow.InviteCode, err)
+			} else {
+				sheetRow.TravelUpdatedAt = &travelUpdatedAt
+
+				if len(row) > 14 {
+					sheetRow.TravelBusTo, sheetRow.TravelPickup = parseBusTo(toString(row[14]))
+				}
+				if len(row) > 15 {
+					sheetRow.TravelArrivalFlight = toString(row[15])
+				}
+				if len(row) > 16 {
+					sheetRow.TravelBusReturn = parseBusReturn(toString(row[16]))
+				}
+				if len(row) > 17 {
+					sheetRow.TravelHotel = parseHotel(toString(row[17]))
+				}
+				if len(row) > 18 {
+					sheetRow.TravelNotes = toString(row[18])
+				}
+				if len(row) > 20 {
+					sheetRow.TravelCocktail = parseYesNo(toString(row[20]))
+				}
+				if len(row) > 21 {
+					sheetRow.TravelBrunch = parseYesNo(toString(row[21]))
+				}
 			}
 		}
 
@@ -336,6 +372,79 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 		return fmt.Errorf("failed to write travel to sheet: %w", err)
 	}
 	return nil
+}
+
+// parseBusTo reverses the column O label produced by WriteTravel back into
+// (travel_bus_to, travel_pickup). Unrecognized text maps to ("", "").
+func parseBusTo(label string) (busTo, pickup string) {
+	switch label {
+	case "Thursday from SAP airport":
+		return "thursday", "sap"
+	case "Thursday from Welchez Café":
+		return "thursday", "welchez"
+	case "Thursday":
+		return "thursday", ""
+	case "Friday from SAP airport":
+		return "friday", "sap"
+	case "Friday from Welchez Café":
+		return "friday", "welchez"
+	case "Friday":
+		return "friday", ""
+	case "No bus":
+		return "none", ""
+	default:
+		return "", ""
+	}
+}
+
+// parseBusReturn reverses the column Q label produced by WriteTravel back
+// into travel_bus_return. Unrecognized text maps to "".
+func parseBusReturn(label string) string {
+	switch label {
+	case "Sunday → San Pedro":
+		return "sunday_san_pedro"
+	case "Sunday → SAP":
+		return "sunday_sap"
+	case "Monday → San Pedro":
+		return "monday_san_pedro"
+	case "Monday → SAP":
+		return "monday_sap"
+	case "No bus":
+		return "none"
+	default:
+		return ""
+	}
+}
+
+// parseHotel reverses the column R label produced by WriteTravel back into
+// travel_hotel. Unrecognized text (including hand-typed hotels) passes
+// through unchanged so it isn't destroyed.
+func parseHotel(label string) string {
+	switch label {
+	case "Hotel Marina Copan":
+		return "marina_copan"
+	case "Hotel Plaza Copan":
+		return "plaza_copan"
+	case "Hotel Plaza Magdalena":
+		return "plaza_magdalena"
+	case "Hotel Yat B'alam":
+		return "yatbalam"
+	default:
+		return label
+	}
+}
+
+// parseYesNo reverses the "Yes"/"No" labels produced by WriteTravel for the
+// cocktail/brunch columns back into "yes"/"no". Unrecognized text maps to "".
+func parseYesNo(label string) string {
+	switch label {
+	case "Yes":
+		return "yes"
+	case "No":
+		return "no"
+	default:
+		return ""
+	}
 }
 
 // Helper functions for type conversion
