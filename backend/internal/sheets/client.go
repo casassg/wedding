@@ -298,6 +298,20 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 		hotel = "Hotel Yat B'alam"
 	}
 
+	cocktailLabel := ""
+	if data.TravelCocktail == "yes" {
+		cocktailLabel = "Yes"
+	} else if data.TravelCocktail == "no" {
+		cocktailLabel = "No"
+	}
+
+	brunchLabel := ""
+	if data.TravelBrunch == "yes" {
+		brunchLabel = "Yes"
+	} else if data.TravelBrunch == "no" {
+		brunchLabel = "No"
+	}
+
 	values := []interface{}{
 		busToLabel,       // O: Bus to Copan
 		arrivalFlight,    // P: Arrival Flight
@@ -305,9 +319,11 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 		hotel,            // R: Hotel in Copan
 		data.TravelNotes, // S: Travel notes
 		syncedAt,         // T: Last synced
+		cocktailLabel,    // U: Welcome cocktail
+		brunchLabel,      // V: Brunch
 	}
 
-	writeRange := fmt.Sprintf("'%s'!O%d:T%d", c.sheetName, rowNum, rowNum)
+	writeRange := fmt.Sprintf("'%s'!O%d:V%d", c.sheetName, rowNum, rowNum)
 	valueRange := &sheets.ValueRange{
 		Values: [][]interface{}{values},
 	}

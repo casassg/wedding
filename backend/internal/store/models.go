@@ -27,6 +27,8 @@ type Invite struct {
 	TravelBusReturn     string     `json:"travel_bus_return"`
 	TravelHotel         string     `json:"travel_hotel"`
 	TravelNotes         string     `json:"travel_notes"`
+	TravelCocktail      string     `json:"travel_cocktail"`
+	TravelBrunch        string     `json:"travel_brunch"`
 	TravelUpdatedAt     *time.Time `json:"travel_updated_at"`
 	CreatedAt           time.Time  `json:"created_at"`
 	UpdatedAt           time.Time  `json:"updated_at"`

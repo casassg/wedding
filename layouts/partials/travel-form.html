@@ -205,7 +205,43 @@
             </div>
         </div>
 
-        <!-- Q6: Notes (everyone) -->
+        <!-- Q6: Welcome cocktail (abroad only) -->
+        <div x-show="!inHonduras" x-cloak>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_cocktail_label" }}</p>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_cocktail_hint" }}</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.cocktail === 'yes' }">
+                    <input type="radio" x-model="travel.cocktail" value="yes" class="sr-only"
+                           @change="scheduleSave()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_yes" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.cocktail === 'no' }">
+                    <input type="radio" x-model="travel.cocktail" value="no" class="sr-only"
+                           @change="scheduleSave()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_no" }}</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Q7: Brunch (everyone) -->
+        <div>
+            <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_brunch_label" }}</p>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_brunch_hint" }}</p>
+            <div class="grid sm:grid-cols-2 gap-2">
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.brunch === 'yes' }">
+                    <input type="radio" x-model="travel.brunch" value="yes" class="sr-only"
+                           @change="scheduleSave()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_yes" }}</span>
+                </label>
+                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.brunch === 'no' }">
+                    <input type="radio" x-model="travel.brunch" value="no" class="sr-only"
+                           @change="scheduleSave()">
+                    <span class="font-semibold text-sm">{{ i18n "travel_form_no" }}</span>
+                </label>
+            </div>
+        </div>
+
+        <!-- Q8: Notes (everyone) -->
         <div>
             <label class="block text-sm font-semibold text-gray-700 font-sans mb-1">{{ i18n "travel_form_notes_label" }}</label>
             <textarea x-model="travel.notes"
