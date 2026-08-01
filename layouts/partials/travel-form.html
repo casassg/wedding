@@ -13,10 +13,10 @@
     <hr class="my-6 border-mint/20">
 
     <p x-show="!inHonduras" x-cloak class="mb-4 text-sm leading-relaxed text-gray-600 font-sans">
-        {{ i18n "travel_form_intro" }}
+        {{ i18n "travel_form_intro" | markdownify }}
     </p>
     <p x-show="inHonduras" x-cloak class="mb-6 text-sm leading-relaxed text-gray-600 font-sans">
-        {{ i18n "travel_form_intro_honduras" }}
+        {{ i18n "travel_form_intro_honduras" | markdownify }}
     </p>
 
     <!-- Bus schedule (hidden for Honduras guests, collapsed by default) -->

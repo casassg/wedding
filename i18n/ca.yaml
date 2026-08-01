@@ -214,8 +214,8 @@ travel_form_bus_schedule_body: |
   | Dv. 18 de des. | Welchez Café 1:30 PM (recollida SAP fins a 1:00 PM) | Copán ~5:00 PM, segons el trànsit |
   | Dg. 20 de des. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Dl. 21 de des. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Tria les opcions d'autobús compartit i comparteix qualsevol detall del viatge a continuació. Si encara no ho saps del tot, no et preocupis: pots modificar aquest formulari fins l'1 de novembre. Simplement obre l'enllaç de la invitació que t'hem enviat i canvia les respostes."
-travel_form_intro_honduras: "Explica'ns on t'allotjaràs i qualsevol altre detall del viatge a continuació. Si encara no ho saps del tot, no et preocupis: pots modificar aquest formulari fins l'1 de novembre. Simplement obre l'enllaç de la invitació que t'hem enviat i canvia les respostes."
+travel_form_intro: "Tria les opcions d'autobús compartit i comparteix qualsevol detall del viatge a continuació. Si encara no ho saps del tot, no et preocupis: **pots modificar aquest formulari fins l'1 de novembre 📅**. Simplement obre l'enllaç de la invitació que t'hem enviat i canvia les respostes."
+travel_form_intro_honduras: "Explica'ns on t'allotjaràs i qualsevol altre detall del viatge a continuació. Si encara no ho saps del tot, no et preocupis: **pots modificar aquest formulari fins l'1 de novembre 📅**. Simplement obre l'enllaç de la invitació que t'hem enviat i canvia les respostes."
 travel_form_bus_to_label: "Vols un lloc al nostre autobús cap a Copán?"
 travel_form_bus_to_thursday: "🚌 Dijous, 17 de des."
 travel_form_bus_to_friday: "🚌 Divendres, 18 de des."
