@@ -56,6 +56,8 @@ SET
     travel_bus_return    = :input_bus_return,
     travel_hotel         = :input_hotel,
     travel_notes         = :input_notes,
+    travel_cocktail      = :input_cocktail,
+    travel_brunch        = :input_brunch,
     travel_updated_at    = datetime('now', 'utc'),
     response_at          = datetime('now', 'utc')
 WHERE invite_code = :input_invite_code;

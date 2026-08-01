@@ -175,12 +175,15 @@ func (h *Handler) PostTravel(w http.ResponseWriter, r *http.Request) {
 	busReturn := req.BusReturn
 	hotel := req.Hotel
 	notes := req.Notes
+	cocktail := req.Cocktail
+	brunch := req.Brunch
 
 	if inHonduras {
 		busTo = ""
 		pickup = ""
 		arrivalFlight = ""
 		busReturn = ""
+		cocktail = ""
 	}
 
 	// Normalize dependent fields: pickup and flight only relevant when taking bus.
@@ -201,6 +204,8 @@ func (h *Handler) PostTravel(w http.ResponseWriter, r *http.Request) {
 		InputBusReturn:     busReturn,
 		InputHotel:         hotel,
 		InputNotes:         notes,
+		InputCocktail:      cocktail,
+		InputBrunch:        brunch,
 		InputInviteCode:    inviteCode,
 	}
 
@@ -291,6 +296,13 @@ func validateTravel(req TravelRequest) error {
 	}
 	if utf8.RuneCountInString(req.Notes) > maxTextLen {
 		return fmt.Errorf("notes exceeds %d characters", maxTextLen)
+	}
+	validYesNo := map[string]bool{"": true, "yes": true, "no": true}
+	if !validYesNo[req.Cocktail] {
+		return fmt.Errorf("invalid cocktail value %q", req.Cocktail)
+	}
+	if !validYesNo[req.Brunch] {
+		return fmt.Errorf("invalid brunch value %q", req.Brunch)
 	}
 	return nil
 }
