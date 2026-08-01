@@ -134,18 +134,12 @@
         <!-- Q4: Bus return - step 1: date -->
         <div x-show="!inHonduras" x-cloak>
             <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_bus_return_label" }}</p>
-            <div class="grid sm:grid-cols-3 gap-2">
+            <div class="grid sm:grid-cols-2 gap-2">
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'sunday' }">
                     <input type="radio" x-model="returnDate" value="sunday" class="sr-only"
                            @change="onReturnDateChange()">
                     <span class="font-semibold text-sm">{{ i18n "travel_form_return_date_sunday" }}</span>
                     <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_date_sunday_sub" }}</span>
-                </label>
-                <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'monday' }">
-                    <input type="radio" x-model="returnDate" value="monday" class="sr-only"
-                           @change="onReturnDateChange()">
-                    <span class="font-semibold text-sm">{{ i18n "travel_form_return_date_monday" }}</span>
-                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_date_monday_sub" }}</span>
                 </label>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'none' }">
                     <input type="radio" x-model="returnDate" value="none" class="sr-only"
@@ -153,28 +147,23 @@
                     <span class="font-semibold text-sm">{{ i18n "travel_form_bus_return_none" }}</span>
                 </label>
             </div>
-            <p x-show="returnDate === 'monday'" x-cloak class="mt-2 text-sm text-gray-500 font-sans font-medium leading-snug px-1">
-                {{ i18n "travel_form_bus_return_note" }}
-            </p>
         </div>
 
         <!-- Q4 step 2: destination (only if a date is selected) -->
-        <div x-show="!inHonduras && (returnDate === 'sunday' || returnDate === 'monday')" x-cloak>
+        <div x-show="!inHonduras && returnDate === 'sunday'" x-cloak>
             <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_return_dest_label" }}</p>
             <div class="grid sm:grid-cols-2 gap-2">
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDest === 'san_pedro' }">
                     <input type="radio" x-model="returnDest" value="san_pedro" class="sr-only"
                            @change="onReturnDestChange()">
                     <span class="font-semibold text-sm">{{ i18n "travel_form_return_dest_sp" }}</span>
-                    <span x-show="returnDate === 'sunday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sp_sub_sunday" }}</span>
-                    <span x-show="returnDate === 'monday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sp_sub_monday" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sp_sub_sunday" }}</span>
                 </label>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDest === 'sap' }">
                     <input type="radio" x-model="returnDest" value="sap" class="sr-only"
                            @change="onReturnDestChange()">
                     <span class="font-semibold text-sm">{{ i18n "travel_form_return_dest_sap" }}</span>
-                    <span x-show="returnDate === 'sunday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sap_sub_sunday" }}</span>
-                    <span x-show="returnDate === 'monday'" class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sap_sub_monday" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_return_dest_sap_sub_sunday" }}</span>
                 </label>
             </div>
         </div>

@@ -210,10 +210,11 @@ travel_form_bus_schedule_title: "View full bus schedule"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |
   | --- | --- | --- |
-  | Thu Dec 17 | Welchez Café 1:30 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
-  | Fri Dec 18 | Welchez Café 1:30 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
-  | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
-  | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
+  | Thu Dec 17 | Welchez Café 3:00 PM (SAP pickup by 2:00 PM) | Copán ~7:00 PM, traffic permitting |
+  | Fri Dec 18 | Welchez Café 3:00 PM (SAP pickup by 2:00 PM) | Copán ~7:00 PM, traffic permitting |
+  | Sun Dec 20 | Copán 2:00 PM | San Pedro 6:00 PM; SAP 7:00 PM |
+
+  Depending on signups we may run more than one bus, or a bus may leave earlier than listed — please arrive with time to spare.
 travel_form_intro: "Choose your shared bus options and share any travel details below. If you're not sure yet, don't worry, **you can update this form until November 1 📅**. Just open the link from the invitation we sent and change your answers."
 travel_form_intro_honduras: "Share where you'll be staying and any travel notes below. If you're not sure yet, don't worry, **you can update this form until November 1 📅**. Just open the link from the invitation we sent and change your answers."
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
@@ -224,9 +225,9 @@ travel_form_bus_to_none_transport_pre: "Need private transport?"
 travel_form_bus_to_none_transport_link: "Contact Daniel at Chelsy Tours"
 travel_form_pickup_label: "Where will you board the bus?"
 travel_form_pickup_sap: "SAP airport, San Pedro Sula"
-travel_form_pickup_sap_sub: "Flight landing by 1:00 PM only"
+travel_form_pickup_sap_sub: "Flight landing by 1:30 PM only"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub: "Air-conditioned meeting point · departs 1:30 PM"
+travel_form_pickup_welchez_sub: "Air-conditioned meeting point · be there by 2:30 PM, departs 3:00 PM"
 travel_form_pickup_welchez_map: "View Welchez Café on Google Maps"
 travel_form_flight_label: "Which flight do you arrive on?"
 travel_form_flight_placeholder: "Search by flight number or city..."
@@ -239,18 +240,13 @@ travel_form_saved_btn: "Saved ✓"
 travel_form_retry_btn: "Try again"
 travel_form_bus_return_label: "Do you want a seat on the bus back?"
 travel_form_return_date_sunday: "🚌 Sunday, Dec 20"
-travel_form_return_date_sunday_sub: "Departs Copán 1:00 PM"
-travel_form_return_date_monday: "🚌 Monday, Dec 21"
-travel_form_return_date_monday_sub: "Departs Copán 10:00 AM"
+travel_form_return_date_sunday_sub: "Departs Copán 2:00 PM"
 travel_form_bus_return_none: "🚗 No bus needed"
-travel_form_bus_return_note: "Heads up: we, the newlyweds, will be leaving Copán for San Pedro on Sunday, but you can still take the Monday bus if you want to stay a little longer."
 travel_form_return_dest_label: "Where are you heading?"
 travel_form_return_dest_sp: "San Pedro Sula"
-travel_form_return_dest_sp_sub_sunday: "Arrives ~5:00 PM"
-travel_form_return_dest_sp_sub_monday: "Arrives ~2:00 PM"
+travel_form_return_dest_sp_sub_sunday: "Arrives ~6:00 PM"
 travel_form_return_dest_sap: "SAP airport"
-travel_form_return_dest_sap_sub_sunday: "Arrives ~6:00 PM"
-travel_form_return_dest_sap_sub_monday: "Arrives ~3:00 PM"
+travel_form_return_dest_sap_sub_sunday: "Arrives ~7:00 PM"
 travel_form_hotel_label: "🏨 Where are you staying in Copán?"
 travel_form_hotel_other: "Somewhere else"
 travel_form_hotel_other_placeholder: "Hotel name or address..."
