@@ -214,8 +214,8 @@ travel_form_bus_schedule_body: |
   | Fri Dec 18 | Welchez Café 1:30 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
   | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Choose your shared bus options and share any travel details below. You can update this form at any time, just open the link from your invite and change your answers."
-travel_form_intro_honduras: "Share where you'll be staying and any travel notes below. You can update this form at any time, just open the link from your invite and change your answers."
+travel_form_intro: "Choose your shared bus options and share any travel details below. If you're not sure yet, don't worry, you can update this form until November 1. Just open the link from the invitation we sent and change your answers."
+travel_form_intro_honduras: "Share where you'll be staying and any travel notes below. If you're not sure yet, don't worry, you can update this form until November 1. Just open the link from the invitation we sent and change your answers."
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
 travel_form_bus_to_friday: "Friday, Dec 18"
@@ -243,7 +243,7 @@ travel_form_return_date_sunday_sub: "Departs Copán 1:00 PM"
 travel_form_return_date_monday: "Monday, Dec 21"
 travel_form_return_date_monday_sub: "Departs Copán 10:00 AM"
 travel_form_bus_return_none: "No bus needed"
-travel_form_bus_return_note: "Heads up: we, the newlyweds, will be leaving Copán on Sunday."
+travel_form_bus_return_note: "Heads up: we, the newlyweds, will be leaving Copán for San Pedro on Sunday, but you can still take the Monday bus if you want to stay a little longer."
 travel_form_return_dest_label: "Where are you heading?"
 travel_form_return_dest_sp: "San Pedro Sula"
 travel_form_return_dest_sp_sub_sunday: "Arrives ~5:00 PM"
