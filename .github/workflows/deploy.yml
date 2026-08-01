@@ -79,6 +79,19 @@ jobs:
       - name: Init Hermit
         uses: cashapp/activate-hermit@v1
 
+      - name: Cache Go modules and build cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/go/pkg/mod
+            ~/.cache/go-build
+          key: go-${{ runner.os }}-${{ hashFiles('backend/go.sum') }}
+          restore-keys: |
+            go-${{ runner.os }}-
+
+      - name: Test Go backend
+        run: ./bin/go -C backend test ./...
+
       - name: Deploy to Fly.io
         env:
           FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
