@@ -214,9 +214,8 @@ travel_form_bus_schedule_body: |
   | Fri Dec 18 | Welchez Café 1:30 PM (SAP pickup by 1:00 PM) | Copán ~5:00 PM, traffic permitting |
   | Sun Dec 20 | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Mon Dec 21 | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
-travel_form_intro: "Choose your shared bus options and share any travel details below."
+travel_form_intro: "Choose your shared bus options and share any travel details below. You can update this form at any time, just open the link from your invite and change your answers."
 travel_form_intro_honduras: "Share where you'll be staying and any travel notes below."
-travel_form_edit_note: "You can update this form at any time, just open the link from your invite and change your answers."
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "Thursday, Dec 17"
 travel_form_bus_to_friday: "Friday, Dec 18"
