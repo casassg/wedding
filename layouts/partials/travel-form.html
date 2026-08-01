@@ -70,15 +70,13 @@
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.pickup === 'sap' }">
                     <input type="radio" x-model="travel.pickup" value="sap" class="sr-only"
                            @change="onPickupChange()">
-                    <i class="fa-solid fa-plane-arrival text-mint text-sm mb-1"></i>
-                    <span class="font-semibold text-sm">{{ i18n "travel_form_pickup_sap" }}</span>
+                    <span class="font-semibold text-sm">✈️ {{ i18n "travel_form_pickup_sap" }}</span>
                     <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_sap_sub" }}</span>
                 </label>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.pickup === 'welchez' }">
                     <input type="radio" x-model="travel.pickup" value="welchez" class="sr-only"
                            @change="onPickupChange()">
-                    <i class="fa-solid fa-mug-hot text-mint text-sm mb-1"></i>
-                    <span class="font-semibold text-sm">{{ i18n "travel_form_pickup_welchez" }}</span>
+                    <span class="font-semibold text-sm">☕ {{ i18n "travel_form_pickup_welchez" }}</span>
                     <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_welchez_sub" }}</span>
                 </label>
             </div>
