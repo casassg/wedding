@@ -19,6 +19,10 @@
         {{ i18n "travel_form_intro_honduras" }}
     </p>
 
+    <p class="mb-6 text-xs text-gray-400 font-sans leading-snug">
+        {{ i18n "travel_form_edit_note" }}
+    </p>
+
     <!-- Bus schedule (hidden for Honduras guests, collapsed by default) -->
     <details x-show="!inHonduras" x-cloak class="mb-6">
         <summary class="cursor-pointer text-xs font-semibold text-gray-500 font-sans select-none">
@@ -151,10 +155,13 @@
                 </label>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': returnDate === 'none' }">
                     <input type="radio" x-model="returnDate" value="none" class="sr-only"
-                           @change="onReturnDateChange()">
+                            @change="onReturnDateChange()">
                     <span class="font-semibold text-sm">{{ i18n "travel_form_bus_return_none" }}</span>
                 </label>
             </div>
+            <p x-show="returnDate === 'sunday' || returnDate === 'monday'" x-cloak class="mt-2 text-xs text-gray-400 font-sans leading-snug px-1">
+                {{ i18n "travel_form_bus_return_note" }}
+            </p>
         </div>
 
         <!-- Q4 step 2: destination (only if a date is selected) -->
