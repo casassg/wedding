@@ -211,7 +211,7 @@
         <!-- Q6: Welcome cocktail (abroad only) -->
         <div x-show="!inHonduras" x-cloak>
             <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_cocktail_label" }}</p>
-            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_cocktail_hint" }}</p>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_cocktail_hint" | markdownify }}</p>
             <div class="grid sm:grid-cols-2 gap-2">
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.cocktail === 'yes' }">
                     <input type="radio" x-model="travel.cocktail" value="yes" class="sr-only"
@@ -229,7 +229,7 @@
         <!-- Q7: Brunch (everyone) -->
         <div>
             <p class="text-sm font-semibold text-gray-700 font-sans mb-3">{{ i18n "travel_form_brunch_label" }}</p>
-            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_brunch_hint" }}</p>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_brunch_hint" | markdownify }}</p>
             <div class="grid sm:grid-cols-2 gap-2">
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.brunch === 'yes' }">
                     <input type="radio" x-model="travel.brunch" value="yes" class="sr-only"
