@@ -931,6 +931,30 @@
                     this.returnDate = '';
                     this.returnDest = '';
                 }
+
+                // Default unanswered visible questions to 'no'/'none' and persist.
+                let changed = false;
+                if (!this.inHonduras && !t.busto) {
+                    t.busto = 'none';
+                    changed = true;
+                }
+                if (!this.inHonduras && !t.busreturn) {
+                    t.busreturn = 'none';
+                    this.returnDate = 'none';
+                    this.returnDest = '';
+                    changed = true;
+                }
+                if (!this.inHonduras && !t.cocktail) {
+                    t.cocktail = 'no';
+                    changed = true;
+                }
+                if (!t.brunch) {
+                    t.brunch = 'no';
+                    changed = true;
+                }
+                if (changed) {
+                    this.scheduleSave();
+                }
             },
 
             // Called when return date changes
