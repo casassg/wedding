@@ -216,7 +216,7 @@ travel_form_bus_schedule_body: |
   | Dom. 20 de dic. | Copán 1:00 PM | San Pedro 5:00 PM; SAP 6:00 PM |
   | Lun. 21 de dic. | Copán 10:00 AM | San Pedro 2:00 PM; SAP 3:00 PM |
 travel_form_intro: "Elige tus opciones de autobús compartido y comparte cualquier detalle de viaje a continuación. Puedes modificar este formulario en cualquier momento: abre el enlace de tu invitación y cambia tus respuestas."
-travel_form_intro_honduras: "Cuéntanos dónde te alojarás y cualquier otro detalle de viaje a continuación."
+travel_form_intro_honduras: "Cuéntanos dónde te alojarás y cualquier otro detalle de viaje a continuación. Puedes modificar este formulario en cualquier momento: abre el enlace de tu invitación y cambia tus respuestas."
 travel_form_bus_to_label: "¿Quieres un lugar en nuestro autobús a Copán?"
 travel_form_bus_to_thursday: "Jueves, 17 de dic."
 travel_form_bus_to_friday: "Viernes, 18 de dic."
