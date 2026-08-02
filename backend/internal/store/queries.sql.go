@@ -382,39 +382,62 @@ const UpsertInvite = `-- name: UpsertInvite :exec
 INSERT INTO invites (
     invite_code, name, max_adults, max_kids,
     confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
-    sheet_row, location, updated_at
+    sheet_row, location,
+    travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return,
+    travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at,
+    updated_at
 ) VALUES (
-    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
-    name             = excluded.name,
-    max_adults       = excluded.max_adults,
-    max_kids         = excluded.max_kids,
-    confirmed_adults = excluded.confirmed_adults,
-    confirmed_kids   = excluded.confirmed_kids,
-    dietary_info     = excluded.dietary_info,
-    message_for_us   = excluded.message_for_us,
-    song_request     = excluded.song_request,
-    response_at      = excluded.response_at,
-    sheet_row        = excluded.sheet_row,
-    location         = excluded.location,
-    updated_at       = excluded.updated_at
+    name                  = excluded.name,
+    max_adults            = excluded.max_adults,
+    max_kids              = excluded.max_kids,
+    confirmed_adults      = excluded.confirmed_adults,
+    confirmed_kids        = excluded.confirmed_kids,
+    dietary_info          = excluded.dietary_info,
+    message_for_us        = excluded.message_for_us,
+    song_request          = excluded.song_request,
+    response_at           = excluded.response_at,
+    sheet_row             = excluded.sheet_row,
+    location              = excluded.location,
+    travel_bus_to         = excluded.travel_bus_to,
+    travel_pickup         = excluded.travel_pickup,
+    travel_arrival_flight = excluded.travel_arrival_flight,
+    travel_bus_return     = excluded.travel_bus_return,
+    travel_hotel          = excluded.travel_hotel,
+    travel_notes          = excluded.travel_notes,
+    travel_cocktail       = excluded.travel_cocktail,
+    travel_brunch         = excluded.travel_brunch,
+    travel_updated_at     = excluded.travel_updated_at,
+    updated_at            = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 `
 
 type UpsertInviteParams struct {
-	InviteCode      string     `json:"invite_code"`
-	Name            string     `json:"name"`
-	MaxAdults       int64      `json:"max_adults"`
-	MaxKids         int64      `json:"max_kids"`
-	ConfirmedAdults int64      `json:"confirmed_adults"`
-	ConfirmedKids   int64      `json:"confirmed_kids"`
-	DietaryInfo     string     `json:"dietary_info"`
-	MessageForUs    string     `json:"message_for_us"`
-	SongRequest     string     `json:"song_request"`
-	ResponseAt      *time.Time `json:"response_at"`
-	SheetRow        *int64     `json:"sheet_row"`
-	Location        string     `json:"location"`
+	InviteCode          string     `json:"invite_code"`
+	Name                string     `json:"name"`
+	MaxAdults           int64      `json:"max_adults"`
+	MaxKids             int64      `json:"max_kids"`
+	ConfirmedAdults     int64      `json:"confirmed_adults"`
+	ConfirmedKids       int64      `json:"confirmed_kids"`
+	DietaryInfo         string     `json:"dietary_info"`
+	MessageForUs        string     `json:"message_for_us"`
+	SongRequest         string     `json:"song_request"`
+	ResponseAt          *time.Time `json:"response_at"`
+	SheetRow            *int64     `json:"sheet_row"`
+	Location            string     `json:"location"`
+	TravelBusTo         string     `json:"travel_bus_to"`
+	TravelPickup        string     `json:"travel_pickup"`
+	TravelArrivalFlight string     `json:"travel_arrival_flight"`
+	TravelBusReturn     string     `json:"travel_bus_return"`
+	TravelHotel         string     `json:"travel_hotel"`
+	TravelNotes         string     `json:"travel_notes"`
+	TravelCocktail      string     `json:"travel_cocktail"`
+	TravelBrunch        string     `json:"travel_brunch"`
+	TravelUpdatedAt     *time.Time `json:"travel_updated_at"`
 }
 
 // Syncs Master Data from Google Sheets -> DB.
@@ -423,23 +446,37 @@ type UpsertInviteParams struct {
 //	INSERT INTO invites (
 //	    invite_code, name, max_adults, max_kids,
 //	    confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
-//	    sheet_row, location, updated_at
+//	    sheet_row, location,
+//	    travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return,
+//	    travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at,
+//	    updated_at
 //	) VALUES (
-//	    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, datetime('now', 'utc')
+//	    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
+//	    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+//	    datetime('now', 'utc')
 //	)
 //	ON CONFLICT(invite_code) DO UPDATE SET
-//	    name             = excluded.name,
-//	    max_adults       = excluded.max_adults,
-//	    max_kids         = excluded.max_kids,
-//	    confirmed_adults = excluded.confirmed_adults,
-//	    confirmed_kids   = excluded.confirmed_kids,
-//	    dietary_info     = excluded.dietary_info,
-//	    message_for_us   = excluded.message_for_us,
-//	    song_request     = excluded.song_request,
-//	    response_at      = excluded.response_at,
-//	    sheet_row        = excluded.sheet_row,
-//	    location         = excluded.location,
-//	    updated_at       = excluded.updated_at
+//	    name                  = excluded.name,
+//	    max_adults            = excluded.max_adults,
+//	    max_kids              = excluded.max_kids,
+//	    confirmed_adults      = excluded.confirmed_adults,
+//	    confirmed_kids        = excluded.confirmed_kids,
+//	    dietary_info          = excluded.dietary_info,
+//	    message_for_us        = excluded.message_for_us,
+//	    song_request          = excluded.song_request,
+//	    response_at           = excluded.response_at,
+//	    sheet_row             = excluded.sheet_row,
+//	    location              = excluded.location,
+//	    travel_bus_to         = excluded.travel_bus_to,
+//	    travel_pickup         = excluded.travel_pickup,
+//	    travel_arrival_flight = excluded.travel_arrival_flight,
+//	    travel_bus_return     = excluded.travel_bus_return,
+//	    travel_hotel          = excluded.travel_hotel,
+//	    travel_notes          = excluded.travel_notes,
+//	    travel_cocktail       = excluded.travel_cocktail,
+//	    travel_brunch         = excluded.travel_brunch,
+//	    travel_updated_at     = excluded.travel_updated_at,
+//	    updated_at            = excluded.updated_at
 //	WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
 func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) error {
 	_, err := q.exec(ctx, q.upsertInviteStmt, UpsertInvite,
@@ -455,6 +492,15 @@ func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) err
 		arg.ResponseAt,
 		arg.SheetRow,
 		arg.Location,
+		arg.TravelBusTo,
+		arg.TravelPickup,
+		arg.TravelArrivalFlight,
+		arg.TravelBusReturn,
+		arg.TravelHotel,
+		arg.TravelNotes,
+		arg.TravelCocktail,
+		arg.TravelBrunch,
+		arg.TravelUpdatedAt,
 	)
 	return err
 }

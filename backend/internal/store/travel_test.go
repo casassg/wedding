@@ -5,6 +5,7 @@ import (
 	"os"
 	"path/filepath"
 	"testing"
+	"time"
 
 	"github.com/stretchr/testify/require"
 )
@@ -85,6 +86,12 @@ func TestUpsertInviteDoesNotTouchTravelColumns(t *testing.T) {
 	ctx := context.Background()
 	seedInvite(t, s, "TRVL1", "")
 
+	// SQLite's datetime('now') has second precision. Sleep past the second
+	// boundary so response_at (set below) is strictly after updated_at (set
+	// by seedInvite above) — otherwise the pending-changes guard below can't
+	// tell the two events apart and the re-upsert would wrongly proceed.
+	time.Sleep(1100 * time.Millisecond)
+
 	// Write travel data first
 	err := s.UpdateTravelInfo(ctx, &UpdateTravelInfoParams{
 		InputBusTo:      "friday",
@@ -112,4 +119,48 @@ func TestUpsertInviteDoesNotTouchTravelColumns(t *testing.T) {
 	invite, err := s.GetInviteByInviteCode(ctx, "TRVL1")
 	require.NoError(t, err)
 	require.Equal(t, "friday", invite.TravelBusTo)
+}
+
+func TestUpsertInviteRestoresTravelOnFreshBoot(t *testing.T) {
+	s := openTestDB(t)
+	ctx := context.Background()
+
+	// Simulates a fresh deployment's empty DB being repopulated from a sheet
+	// that already has travel answers for this guest (response_at is NULL,
+	// so the pending-changes guard doesn't block the update).
+	row := int64(1)
+	responseAt := time.Now().UTC().Add(-24 * time.Hour)
+	travelUpdatedAt := time.Now().UTC().Add(-12 * time.Hour)
+	err := s.UpsertInvite(ctx, &UpsertInviteParams{
+		InviteCode:          "TRVL2",
+		Name:                "Test Guest",
+		MaxAdults:           2,
+		MaxKids:             0,
+		ConfirmedAdults:     2,
+		ResponseAt:          &responseAt,
+		SheetRow:            &row,
+		Location:            "HONDURAS",
+		TravelBusTo:         "thursday",
+		TravelPickup:        "sap",
+		TravelArrivalFlight: "AV 620",
+		TravelBusReturn:     "sunday_sap",
+		TravelHotel:         "marina_copan",
+		TravelNotes:         "window seat please",
+		TravelCocktail:      "yes",
+		TravelBrunch:        "no",
+		TravelUpdatedAt:     &travelUpdatedAt,
+	})
+	require.NoError(t, err)
+
+	invite, err := s.GetInviteByInviteCode(ctx, "TRVL2")
+	require.NoError(t, err)
+	require.Equal(t, "thursday", invite.TravelBusTo)
+	require.Equal(t, "sap", invite.TravelPickup)
+	require.Equal(t, "AV 620", invite.TravelArrivalFlight)
+	require.Equal(t, "sunday_sap", invite.TravelBusReturn)
+	require.Equal(t, "marina_copan", invite.TravelHotel)
+	require.Equal(t, "window seat please", invite.TravelNotes)
+	require.Equal(t, "yes", invite.TravelCocktail)
+	require.Equal(t, "no", invite.TravelBrunch)
+	require.NotNil(t, invite.TravelUpdatedAt)
 }
