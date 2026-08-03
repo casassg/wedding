@@ -55,6 +55,7 @@ func TestUpdateTravelInfoRoundTrip(t *testing.T) {
 		InputBusReturn:     "sunday_sap",
 		InputHotel:         "marina_copan",
 		InputNotes:         "window seat please",
+		InputReturnDetail:  "UA1422 · Sun, Dec 20 12:30",
 		InputInviteCode:    "TESTCODE",
 	})
 	require.NoError(t, err)
@@ -67,6 +68,7 @@ func TestUpdateTravelInfoRoundTrip(t *testing.T) {
 	require.Equal(t, "sunday_sap", invite.TravelBusReturn)
 	require.Equal(t, "marina_copan", invite.TravelHotel)
 	require.Equal(t, "window seat please", invite.TravelNotes)
+	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", invite.TravelReturnDetail)
 	require.NotNil(t, invite.TravelUpdatedAt)
 	require.NotNil(t, invite.ResponseAt)
 }
@@ -148,6 +150,7 @@ func TestUpsertInviteRestoresTravelOnFreshBoot(t *testing.T) {
 		TravelNotes:         "window seat please",
 		TravelCocktail:      "yes",
 		TravelBrunch:        "no",
+		TravelReturnDetail:  "UA1422 · Sun, Dec 20 12:30",
 		TravelUpdatedAt:     &travelUpdatedAt,
 	})
 	require.NoError(t, err)
@@ -162,5 +165,6 @@ func TestUpsertInviteRestoresTravelOnFreshBoot(t *testing.T) {
 	require.Equal(t, "window seat please", invite.TravelNotes)
 	require.Equal(t, "yes", invite.TravelCocktail)
 	require.Equal(t, "no", invite.TravelBrunch)
+	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", invite.TravelReturnDetail)
 	require.NotNil(t, invite.TravelUpdatedAt)
 }

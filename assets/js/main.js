@@ -784,6 +784,7 @@
         Alpine.data('travelForm', () => ({
             // Flight data from embedded JSON (normalized on load)
             allFlights: [],
+            allDepartures: [],
             hotels: [],
 
             // UI state
@@ -793,6 +794,7 @@
             saveQueued: false,
             saveVersion: 0,
             flightOpen: false,
+            returnFlightOpen: false,
             lang: 'en',
             inHonduras: false,
 
@@ -803,6 +805,7 @@
             // Bus date ISO strings derived from the configured wedding date
             thursdayDate: '',
             fridayDate: '',
+            sundayDate: '',
 
             // The invite code — pulled from URL
             get code() {
@@ -820,6 +823,7 @@
                 notes: '',       // textarea
                 cocktail: '',    // 'yes' | 'no' | ''
                 brunch: '',      // 'yes' | 'no' | ''
+                returnDetail: '', // departure flight label (returnDest=sap) or drop-off text (returnDest=san_pedro)
             },
 
             // Only flights that land on the bus day at or before 13:30 local time.
@@ -839,6 +843,20 @@
                 });
             },
 
+            // Only Sunday departures leaving at or after 14:00 local time (the bus
+            // departure time) — earlier flights can't be accommodated on the shared bus.
+            get visibleDepartures() {
+                if (!this.sundayDate) return [];
+                const q = (this.travel.returnDetail || '').toLowerCase().trim();
+                return this.allDepartures.filter(f => {
+                    if (f.localDate !== this.sundayDate) return false;
+                    const [h, m] = f.localTime.split(':').map(Number);
+                    if (h < 14) return false;
+                    if (!q) return true;
+                    return (f.flight + ' ' + f.airline + ' ' + f.to + ' ' + f.label).toLowerCase().includes(q);
+                });
+            },
+
             init() {
                 const el = this.$el;
                 this.lang = el.dataset.lang || 'en';
@@ -850,16 +868,18 @@
                     this.thursdayDate = date.toISOString().slice(0, 10);
                     date.setUTCDate(date.getUTCDate() + 1);
                     this.fridayDate = date.toISOString().slice(0, 10);
+                    date.setUTCDate(date.getUTCDate() + 2);
+                    this.sundayDate = date.toISOString().slice(0, 10);
                 }
 
-                // Load and normalize flight data
+                // Load and normalize flight data (arrivals + Sunday departures)
                 try {
                     const flightEl = document.getElementById('sap-flights-data');
                     if (flightEl) {
                         const data = JSON.parse(flightEl.textContent);
                         const SAP_TZ = 'America/Tegucigalpa';
-                        this.allFlights = (data.arrivals || []).map(f => {
-                            const dt = new Date(f.arrives_at);
+                        const normalize = (f, timestampField) => {
+                            const dt = new Date(f[timestampField]);
                             const dateParts = new Intl.DateTimeFormat('en', {
                                 timeZone: SAP_TZ, year: 'numeric', month: '2-digit', day: '2-digit'
                             }).formatToParts(dt).reduce((parts, part) => {
@@ -873,9 +893,12 @@
                             const localDateDisplay = dt.toLocaleDateString(this.lang, {
                                 timeZone: SAP_TZ, weekday: 'short', month: 'short', day: 'numeric'
                             });
-                            return { ...f, localDate, localTime, localDateDisplay };
-                        });
-                        // allFlights already sorted by arrives_at from YAML
+                            const label = `${f.flight} · ${localDateDisplay} ${localTime}`;
+                            return { ...f, localDate, localTime, localDateDisplay, label };
+                        };
+                        this.allFlights = (data.arrivals || []).map(f => normalize(f, 'arrives_at'));
+                        this.allDepartures = (data.departures || []).map(f => normalize(f, 'departs_at'));
+                        // Both lists already sorted by timestamp from YAML
                     }
                 } catch(e) { /* non-fatal */ }
 
@@ -900,6 +923,7 @@
                 t.notes = invite.travel_notes || '';
                 t.cocktail = invite.travel_cocktail || '';
                 t.brunch = invite.travel_brunch || '';
+                t.returnDetail = invite.travel_return_detail || '';
 
                 const hotel = invite.travel_hotel || '';
                 if (!hotel || this.hotels.some(h => h.id === hotel)) {
@@ -954,6 +978,7 @@
             // Called when return date changes
             onReturnDateChange() {
                 this.returnDest = '';
+                this.travel.returnDetail = '';
                 if (this.returnDate === 'none') {
                     this.travel.busreturn = 'none';
                 } else {
@@ -965,9 +990,21 @@
 
             // Called when return destination changes
             onReturnDestChange() {
+                this.travel.returnDetail = '';
                 if (this.returnDate && this.returnDate !== 'none' && this.returnDest) {
                     this.travel.busreturn = this.returnDate + '_' + (this.returnDest === 'san_pedro' ? 'san_pedro' : 'sap');
                 }
+                this.scheduleSave();
+            },
+
+            onReturnDetailInput() {
+                this.returnFlightOpen = true;
+                this.scheduleSave();
+            },
+
+            selectReturnFlight(f) {
+                this.travel.returnDetail = f.label;
+                this.returnFlightOpen = false;
                 this.scheduleSave();
             },
 
@@ -979,7 +1016,7 @@
                 }
                 // If the saved flight is no longer in the visible list, clear it
                 if (this.travel.flightInput) {
-                    const still = this.visibleFlights.find(f => f.flight === this.travel.flightInput);
+                    const still = this.visibleFlights.find(f => f.label === this.travel.flightInput);
                     if (!still) this.travel.flightInput = '';
                 }
                 this.scheduleSave();
@@ -999,7 +1036,7 @@
             },
 
             selectFlight(f) {
-                this.travel.flightInput = f.flight;
+                this.travel.flightInput = f.label;
                 this.flightOpen = false;
                 this.scheduleSave();
             },
@@ -1060,6 +1097,7 @@
                     notes: this.travel.notes,
                     cocktail: this.travel.cocktail,
                     brunch: this.travel.brunch,
+                    return_detail: this.travel.returnDetail,
                 };
 
                 try {

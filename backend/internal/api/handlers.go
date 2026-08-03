@@ -168,44 +168,18 @@ func (h *Handler) PostTravel(w http.ResponseWriter, r *http.Request) {
 
 	// Normalize dependent fields for guests from Honduras (no bus/flight questions).
 	inHonduras := strings.EqualFold(invite.Location, "HONDURAS")
-
-	busTo := req.BusTo
-	pickup := req.Pickup
-	arrivalFlight := req.ArrivalFlight
-	busReturn := req.BusReturn
-	hotel := req.Hotel
-	notes := req.Notes
-	cocktail := req.Cocktail
-	brunch := req.Brunch
-
-	if inHonduras {
-		busTo = ""
-		pickup = ""
-		arrivalFlight = ""
-		busReturn = ""
-		cocktail = ""
-	}
-
-	// Normalize dependent fields: pickup and flight only relevant when taking bus.
-	if busTo == "" || busTo == "none" {
-		pickup = ""
-		arrivalFlight = ""
-	}
-	// Arrival flight only relevant when pickup is sap.
-	if pickup != "sap" {
-		arrivalFlight = ""
-	}
-	// Bus return sub-options: no cleanup needed (san_pedro vs sap are both valid).
+	req = normalizeTravel(req, inHonduras)
 
 	dbReq := store.UpdateTravelInfoParams{
-		InputBusTo:         busTo,
-		InputPickup:        pickup,
-		InputArrivalFlight: arrivalFlight,
-		InputBusReturn:     busReturn,
-		InputHotel:         hotel,
-		InputNotes:         notes,
-		InputCocktail:      cocktail,
-		InputBrunch:        brunch,
+		InputBusTo:         req.BusTo,
+		InputPickup:        req.Pickup,
+		InputArrivalFlight: req.ArrivalFlight,
+		InputBusReturn:     req.BusReturn,
+		InputHotel:         req.Hotel,
+		InputNotes:         req.Notes,
+		InputCocktail:      req.Cocktail,
+		InputBrunch:        req.Brunch,
+		InputReturnDetail:  req.ReturnDetail,
 		InputInviteCode:    inviteCode,
 	}
 
@@ -267,6 +241,35 @@ func validateRSVP(req RSVPRequest, invite *store.Invite) error {
 	return nil
 }
 
+// normalizeTravel clears dependent fields that no longer apply given the
+// guest's location and their other answers: Honduras guests skip bus/flight
+// questions entirely, pickup/flight only make sense when taking a bus, the
+// arrival flight only when boarding at the airport, and the return detail
+// (flight or drop-off) only when actually taking the return bus.
+func normalizeTravel(req TravelRequest, inHonduras bool) TravelRequest {
+	if inHonduras {
+		req.BusTo = ""
+		req.Pickup = ""
+		req.ArrivalFlight = ""
+		req.BusReturn = ""
+		req.Cocktail = ""
+		req.ReturnDetail = ""
+	}
+
+	if req.BusTo == "" || req.BusTo == "none" {
+		req.Pickup = ""
+		req.ArrivalFlight = ""
+	}
+	if req.Pickup != "sap" {
+		req.ArrivalFlight = ""
+	}
+	if req.BusReturn == "" || req.BusReturn == "none" {
+		req.ReturnDetail = ""
+	}
+
+	return req
+}
+
 const maxTextLen = 500
 
 // validateTravel validates travel request enums and text field lengths.
@@ -296,6 +299,9 @@ func validateTravel(req TravelRequest) error {
 	}
 	if utf8.RuneCountInString(req.Notes) > maxTextLen {
 		return fmt.Errorf("notes exceeds %d characters", maxTextLen)
+	}
+	if utf8.RuneCountInString(req.ReturnDetail) > maxTextLen {
+		return fmt.Errorf("return_detail exceeds %d characters", maxTextLen)
 	}
 	validYesNo := map[string]bool{"": true, "yes": true, "no": true}
 	if !validYesNo[req.Cocktail] {

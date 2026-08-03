@@ -24,6 +24,7 @@ CREATE TABLE IF NOT EXISTS invites (
     travel_notes TEXT NOT NULL DEFAULT '',
     travel_cocktail TEXT NOT NULL DEFAULT '',
     travel_brunch   TEXT NOT NULL DEFAULT '',
+    travel_return_detail TEXT NOT NULL DEFAULT '',
     travel_updated_at DATETIME,
 
     created_at DATETIME NOT NULL DEFAULT (datetime('now', 'utc')),

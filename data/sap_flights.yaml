@@ -338,3 +338,24 @@ arrivals:
     airline: "United Airlines"
     from: "EWR (EWR)"
     arrives_at: "2026-12-19T04:45Z"
+
+departures:
+  - flight: "CM576"
+    airline: "Copa Airlines"
+    to: "Panama City (PTY)"
+    departs_at: "2026-12-20T15:30Z"
+
+  - flight: "AV621"
+    airline: "Avianca"
+    to: "San Salvador (SAL)"
+    departs_at: "2026-12-20T19:00Z"
+
+  - flight: "AA3056"
+    airline: "American Airlines"
+    to: "Miami (MIA)"
+    departs_at: "2026-12-20T20:15Z"
+
+  - flight: "UA1421"
+    airline: "United Airlines"
+    to: "Houston (IAH)"
+    departs_at: "2026-12-21T01:05Z"

@@ -42,7 +42,7 @@ AIRLINES = {
     "UA": "United Airlines",
     "UX": "Air Europa",
 }
-ORIGIN_CITIES = {
+CITIES = {
     "ATL": "Atlanta",
     "BZE": "Belize City",
     "DFW": "Dallas/Fort Worth",
@@ -106,9 +106,10 @@ def arrival_window():
 
     wednesday = wedding - timedelta(days=3)
     friday = wedding - timedelta(days=1)
-    if wednesday.weekday() != 2 or friday.weekday() != 4:
+    sunday = wedding + timedelta(days=1)
+    if wednesday.weekday() != 2 or friday.weekday() != 4 or sunday.weekday() != 6:
         raise ValueError("params.weddingDate must be a Saturday")
-    return wednesday, friday
+    return wednesday, friday, sunday
 
 
 def flight_label(flight):
@@ -134,6 +135,15 @@ def scheduled_arrival_utc(flight):
     return dt.strftime("%Y-%m-%dT%H:%MZ")
 
 
+def scheduled_departure_utc(flight):
+    """Return the scheduled departure as a compact RFC3339 UTC string, or None."""
+    value = flight.get("scheduled_out") or flight.get("scheduled_off")
+    if not value:
+        return None
+    dt = datetime.fromisoformat(value.replace("Z", "+00:00")).astimezone(timezone.utc)
+    return dt.strftime("%Y-%m-%dT%H:%MZ")
+
+
 def fetch_schedules(api_key, wednesday, friday):
     """Fetch SAP arrivals from Wednesday through Friday (inclusive)."""
     params = {
@@ -144,6 +154,21 @@ def fetch_schedules(api_key, wednesday, friday):
     }
     end = friday + timedelta(days=1)
     payload = api_get(api_key, f"schedules/{wednesday.isoformat()}/{end.isoformat()}", params)
+    if (payload.get("links") or {}).get("next"):
+        raise RuntimeError("AeroAPI returned more than 10 pages; output unchanged")
+    return payload.get("scheduled", [])
+
+
+def fetch_departure_schedules(api_key, sunday):
+    """Fetch SAP departures for Sunday."""
+    params = {
+        "origin": "SAP",
+        "include_codeshares": "false",
+        "include_regional": "true",
+        "max_pages": 10,
+    }
+    end = sunday + timedelta(days=1)
+    payload = api_get(api_key, f"schedules/{sunday.isoformat()}/{end.isoformat()}", params)
     if (payload.get("links") or {}).get("next"):
         raise RuntimeError("AeroAPI returned more than 10 pages; output unchanged")
     return payload.get("scheduled", [])
@@ -181,7 +206,7 @@ def build_arrivals(flights, wednesday, friday):
         match = re.match(r"^([A-Z0-9]{2})", label.replace(" ", ""))
         airline_code = flight.get("operator_iata") or (match.group(1) if match else "")
         airline = AIRLINES.get(airline_code, airline_code)
-        city = ORIGIN_CITIES.get(origin_code, origin_code)
+        city = CITIES.get(origin_code, origin_code)
 
         # Deduplicate by (flight, origin, timestamp) — preserves same-day
         # duplicate codeshares while keeping distinct days for recurring flights.
@@ -199,11 +224,60 @@ def build_arrivals(flights, wednesday, friday):
     return sorted(arrivals.values(), key=lambda item: item["arrives_at"])
 
 
+def build_departures(flights, sunday):
+    """Build one YAML entry per distinct (flight, destination, departs_at) occurrence.
+
+    Only departures whose local SAP departure date is Sunday are kept. No
+    time-of-day cutoff is applied here — the 2 PM bus-departure rule lives in
+    the frontend so it can change without re-fetching this data.
+    """
+    departures = {}
+
+    for flight in flights:
+        departs_at = scheduled_departure_utc(flight)
+        if not departs_at:
+            continue
+
+        dt_utc = datetime.fromisoformat(departs_at.replace("Z", "+00:00"))
+        local_date = dt_utc.astimezone(SAP_TIMEZONE).date()
+        if local_date != sunday:
+            continue
+
+        label = flight_label(flight)
+        destination_code = (
+            flight.get("destination_iata")
+            or flight.get("destination_icao")
+            or flight.get("destination")
+            or ""
+        )
+        if not label or not destination_code:
+            continue
+
+        match = re.match(r"^([A-Z0-9]{2})", label.replace(" ", ""))
+        airline_code = flight.get("operator_iata") or (match.group(1) if match else "")
+        airline = AIRLINES.get(airline_code, airline_code)
+        city = CITIES.get(destination_code, destination_code)
+
+        # Deduplicate by (flight, destination, timestamp).
+        key = (label, destination_code, departs_at)
+        if key in departures:
+            continue
+
+        departures[key] = {
+            "flight": label,
+            "airline": airline,
+            "to": f"{city} ({destination_code})",
+            "departs_at": departs_at,
+        }
+
+    return sorted(departures.values(), key=lambda item: item["departs_at"])
+
+
 def yaml_quote(value):
     return json.dumps(value, ensure_ascii=False)
 
 
-def write_yaml(path, arrivals):
+def write_yaml(path, arrivals, departures):
     lines = ["arrivals:"]
     for flight in arrivals:
         lines.extend(
@@ -212,6 +286,18 @@ def write_yaml(path, arrivals):
                 f"    airline: {yaml_quote(flight['airline'])}",
                 f"    from: {yaml_quote(flight['from'])}",
                 f"    arrives_at: {yaml_quote(flight['arrives_at'])}",
+                "",
+            ]
+        )
+
+    lines.append("departures:")
+    for flight in departures:
+        lines.extend(
+            [
+                f"  - flight: {yaml_quote(flight['flight'])}",
+                f"    airline: {yaml_quote(flight['airline'])}",
+                f"    to: {yaml_quote(flight['to'])}",
+                f"    departs_at: {yaml_quote(flight['departs_at'])}",
                 "",
             ]
         )
@@ -225,7 +311,7 @@ def write_yaml(path, arrivals):
 
 def main():
     args = parse_args()
-    wednesday, friday = arrival_window()
+    wednesday, friday, sunday = arrival_window()
     if friday > date.today() + timedelta(days=365):
         raise ValueError("AeroAPI schedules are only available up to one year ahead")
 
@@ -238,8 +324,13 @@ def main():
     if not arrivals:
         raise RuntimeError("AeroAPI returned no SAP arrivals for the bus window; output unchanged")
 
-    write_yaml(args.output, arrivals)
-    print(f"Wrote {len(arrivals)} arrivals to {args.output}")
+    departure_flights = fetch_departure_schedules(api_key, sunday)
+    departures = build_departures(departure_flights, sunday)
+    if not departures:
+        print("warning: AeroAPI returned no SAP departures for Sunday", file=sys.stderr)
+
+    write_yaml(args.output, arrivals, departures)
+    print(f"Wrote {len(arrivals)} arrivals and {len(departures)} departures to {args.output}")
 
 
 if __name__ == "__main__":
