@@ -169,7 +169,7 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 			}
 		}
 
-		// Columns O-V: travel answers, restored from WriteTravel's labels.
+		// Columns O-W: travel answers, restored from WriteTravel's labels.
 		// Skip entirely if column T (travel last synced) is empty: this guest
 		// never had WriteTravel run, so there's nothing to restore.
 		if len(row) > 19 && toString(row[19]) != "" {

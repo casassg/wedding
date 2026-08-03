@@ -839,7 +839,7 @@
                     const [h, m] = f.localTime.split(':').map(Number);
                     if (h > 13 || (h === 13 && m > 30)) return false;
                     if (!q) return true;
-                    return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
+                    return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
                 });
             },
 

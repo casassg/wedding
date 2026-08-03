@@ -312,7 +312,7 @@ def write_yaml(path, arrivals, departures):
 def main():
     args = parse_args()
     wednesday, friday, sunday = arrival_window()
-    if friday > date.today() + timedelta(days=365):
+    if sunday > date.today() + timedelta(days=365):
         raise ValueError("AeroAPI schedules are only available up to one year ahead")
 
     api_key = os.environ.get("AEROAPI_KEY")
