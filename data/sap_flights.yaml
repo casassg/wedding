@@ -54,15 +54,15 @@ arrivals:
     from: "Panama City (PTY)"
     arrives_at: "2026-12-16T18:42Z"
 
-  - flight: "M6734"
-    airline: "M6"
-    from: "KIN (KIN)"
-    arrives_at: "2026-12-16T19:50Z"
-
   - flight: "B62089"
     airline: "B6"
     from: "Fort Lauderdale (FLL)"
-    arrives_at: "2026-12-16T20:20Z"
+    arrives_at: "2026-12-16T19:41Z"
+
+  - flight: "M6734"
+    airline: "M6"
+    from: "Jamaica (KIN)"
+    arrives_at: "2026-12-16T19:50Z"
 
   - flight: "W85457"
     airline: "W8"
@@ -119,6 +119,11 @@ arrivals:
     from: "Tegucigalpa (TGU)"
     arrives_at: "2026-12-17T13:00Z"
 
+  - flight: "F9363"
+    airline: "F9"
+    from: "Orlando (MCO)"
+    arrives_at: "2026-12-17T13:51Z"
+
   - flight: "S060"
     airline: "Aerolíneas Sosa"
     from: "La Ceiba (LCE)"
@@ -159,9 +164,14 @@ arrivals:
     from: "Panama City (PTY)"
     arrives_at: "2026-12-17T18:42Z"
 
+  - flight: "B62089"
+    airline: "B6"
+    from: "Fort Lauderdale (FLL)"
+    arrives_at: "2026-12-17T19:35Z"
+
   - flight: "M6744"
     airline: "M6"
-    from: "KIN (KIN)"
+    from: "Jamaica (KIN)"
     arrives_at: "2026-12-17T19:50Z"
 
   - flight: "AA319"
@@ -183,6 +193,11 @@ arrivals:
     airline: "Aerolíneas Sosa"
     from: "Roatán (RTB)"
     arrives_at: "2026-12-17T21:45Z"
+
+  - flight: "F9355"
+    airline: "F9"
+    from: "Miami (MIA)"
+    arrives_at: "2026-12-17T21:58Z"
 
   - flight: "H53007"
     airline: "CM Airlines"
@@ -206,7 +221,7 @@ arrivals:
 
   - flight: "UA1474"
     airline: "United Airlines"
-    from: "EWR (EWR)"
+    from: "Newark (EWR)"
     arrives_at: "2026-12-18T04:45Z"
 
   - flight: "UA432"
@@ -269,6 +284,11 @@ arrivals:
     from: "Roatán (RTB)"
     arrives_at: "2026-12-18T15:15Z"
 
+  - flight: "F9350"
+    airline: "F9"
+    from: "Houston (IAH)"
+    arrives_at: "2026-12-18T17:50Z"
+
   - flight: "DL1782"
     airline: "Delta Air Lines"
     from: "Atlanta (ATL)"
@@ -284,15 +304,15 @@ arrivals:
     from: "Panama City (PTY)"
     arrives_at: "2026-12-18T18:42Z"
 
-  - flight: "M6754"
-    airline: "M6"
-    from: "KIN (KIN)"
-    arrives_at: "2026-12-18T19:50Z"
-
   - flight: "B62089"
     airline: "B6"
     from: "Fort Lauderdale (FLL)"
-    arrives_at: "2026-12-18T20:05Z"
+    arrives_at: "2026-12-18T19:35Z"
+
+  - flight: "M6754"
+    airline: "M6"
+    from: "Jamaica (KIN)"
+    arrives_at: "2026-12-18T19:50Z"
 
   - flight: "AA319"
     airline: "American Airlines"
@@ -336,26 +356,116 @@ arrivals:
 
   - flight: "UA1474"
     airline: "United Airlines"
-    from: "EWR (EWR)"
+    from: "Newark (EWR)"
     arrives_at: "2026-12-19T04:45Z"
 
 departures:
-  - flight: "CM576"
-    airline: "Copa Airlines"
-    to: "Panama City (PTY)"
-    departs_at: "2026-12-20T15:30Z"
+  - flight: "UA2450"
+    airline: "United Airlines"
+    to: "Newark (EWR)"
+    departs_at: "2026-12-20T06:15Z"
 
-  - flight: "AV621"
+  - flight: "AV575"
     airline: "Avianca"
     to: "San Salvador (SAL)"
-    departs_at: "2026-12-20T19:00Z"
+    departs_at: "2026-12-20T10:30Z"
 
-  - flight: "AA3056"
+  - flight: "AA1312"
     airline: "American Airlines"
     to: "Miami (MIA)"
-    departs_at: "2026-12-20T20:15Z"
+    departs_at: "2026-12-20T13:11Z"
 
-  - flight: "UA1421"
+  - flight: "UA2484"
     airline: "United Airlines"
     to: "Houston (IAH)"
-    departs_at: "2026-12-21T01:05Z"
+    departs_at: "2026-12-20T13:15Z"
+
+  - flight: "M6774"
+    airline: "M6"
+    to: "Miami (MIA)"
+    departs_at: "2026-12-20T13:20Z"
+
+  - flight: "F9362"
+    airline: "F9"
+    to: "Orlando (MCO)"
+    departs_at: "2026-12-20T15:06Z"
+
+  - flight: "H53026"
+    airline: "CM Airlines"
+    to: "Roatán (RTB)"
+    departs_at: "2026-12-20T15:30Z"
+
+  - flight: "S088"
+    airline: "Aerolíneas Sosa"
+    to: "Roatán (RTB)"
+    departs_at: "2026-12-20T15:30Z"
+
+  - flight: "AM675"
+    airline: "Aeromexico"
+    to: "Mexico City (MEX)"
+    departs_at: "2026-12-20T18:25Z"
+
+  - flight: "M6776"
+    airline: "M6"
+    to: "Miami (MIA)"
+    departs_at: "2026-12-20T19:00Z"
+
+  - flight: "DL1805"
+    airline: "Delta Air Lines"
+    to: "Atlanta (ATL)"
+    departs_at: "2026-12-20T19:30Z"
+
+  - flight: "UA1242"
+    airline: "United Airlines"
+    to: "Houston (IAH)"
+    departs_at: "2026-12-20T19:41Z"
+
+  - flight: "CM287"
+    airline: "Copa Airlines"
+    to: "Panama City (PTY)"
+    departs_at: "2026-12-20T19:42Z"
+
+  - flight: "H5319"
+    airline: "CM Airlines"
+    to: "Guatemala City (GUA)"
+    departs_at: "2026-12-20T20:25Z"
+
+  - flight: "B62090"
+    airline: "B6"
+    to: "Fort Lauderdale (FLL)"
+    departs_at: "2026-12-20T20:40Z"
+
+  - flight: "H53014"
+    airline: "CM Airlines"
+    to: "Tegucigalpa (TGU)"
+    departs_at: "2026-12-20T20:50Z"
+
+  - flight: "H53010"
+    airline: "CM Airlines"
+    to: "Roatán (RTB)"
+    departs_at: "2026-12-20T21:00Z"
+
+  - flight: "H53036"
+    airline: "CM Airlines"
+    to: "Tegucigalpa (TGU)"
+    departs_at: "2026-12-20T21:15Z"
+
+  - flight: "AA338"
+    airline: "American Airlines"
+    to: "Miami (MIA)"
+    departs_at: "2026-12-20T21:53Z"
+
+  - flight: "S086"
+    airline: "Aerolíneas Sosa"
+    to: "Roatán (RTB)"
+    departs_at: "2026-12-20T22:00Z"
+
+  - flight: "S065"
+    airline: "Aerolíneas Sosa"
+    to: "La Ceiba (LCE)"
+    departs_at: "2026-12-20T22:00Z"
+
+  - flight: "F9354"
+    airline: "F9"
+    to: "Miami (MIA)"
+    departs_at: "2026-12-20T23:13Z"

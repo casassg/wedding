@@ -57,6 +57,9 @@ CITIES = {
     "RTB": "Roatán",
     "SAL": "San Salvador",
     "TGU": "Tegucigalpa",
+    "MCO": "Orlando",
+    "EWR": "Newark",
+    "KIN": "Jamaica",
 }
 
 
