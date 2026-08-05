@@ -897,7 +897,12 @@
                             const localDateDisplay = dt.toLocaleDateString(this.lang, {
                                 timeZone: SAP_TZ, weekday: 'short', month: 'short', day: 'numeric'
                             });
-                            const label = `${f.flight} · ${localDateDisplay} ${localTime}`;
+                            // Language-independent format for the value stored/submitted
+                            // (shown in the input box and synced to the Google Sheet), e.g. "S085 - 17/12/2026T8:45"
+                            const labelTime = dt.toLocaleTimeString('en-GB', {
+                                timeZone: SAP_TZ, hour: 'numeric', minute: '2-digit', hourCycle: 'h23'
+                            });
+                            const label = `${f.flight} - ${dateParts.day}/${dateParts.month}/${dateParts.year}T${labelTime}`;
                             return { ...f, localDate, localTime, localDateDisplay, label };
                         };
                         this.allFlights = (data.arrivals || []).map(f => normalize(f, 'arrives_at'));
