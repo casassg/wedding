@@ -4,7 +4,7 @@ primary_region = "iad"
   dockerfile = "Dockerfile.review"
 
 [deploy]
-  strategy = "immediate"
+  strategy = "bluegreen"
 
 [env]
   PRIMARY_REGION = "iad"
