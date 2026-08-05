@@ -799,8 +799,8 @@
             inHonduras: false,
 
             // Two-step return bus UI state (not persisted directly; derived to/from travel.busreturn)
-            returnDate: '',  // 'sunday' | 'none' | ''
-            returnDest: '',  // 'san_pedro' | 'sap' | ''
+            returnTime: '', // 'morning' | 'afternoon' | 'none' | ''
+            returnDest: '', // 'san_pedro' | 'sap' | ''
 
             // Bus date ISO strings derived from the configured wedding date
             thursdayDate: '',
@@ -817,7 +817,7 @@
                 busto: '',       // 'thursday' | 'friday' | 'none' | ''
                 pickup: '',      // 'sap' | 'welchez' | ''
                 flightInput: '', // free text / autocomplete input
-                busreturn: '',   // 'sunday_san_pedro' | 'sunday_sap' | 'none' | ''
+                busreturn: '',   // 'sunday_morning_sap' | 'sunday_morning_san_pedro' | 'sunday_afternoon_san_pedro' | 'none' | ''
                 hotel: '',       // hotel id | '__other__' | ''
                 hotelOther: '',  // free text when hotel === '__other__'
                 notes: '',       // textarea
@@ -940,17 +940,20 @@
 
                 // Derive two-step return UI state from saved busreturn value
                 const br = t.busreturn;
-                if (br === 'sunday_san_pedro') {
-                    this.returnDate = 'sunday';
-                    this.returnDest = 'san_pedro';
-                } else if (br === 'sunday_sap') {
-                    this.returnDate = 'sunday';
+                if (br === 'sunday_morning_sap') {
+                    this.returnTime = 'morning';
                     this.returnDest = 'sap';
+                } else if (br === 'sunday_morning_san_pedro') {
+                    this.returnTime = 'morning';
+                    this.returnDest = 'san_pedro';
+                } else if (br === 'sunday_afternoon_san_pedro') {
+                    this.returnTime = 'afternoon';
+                    this.returnDest = 'san_pedro';
                 } else if (br === 'none') {
-                    this.returnDate = 'none';
+                    this.returnTime = 'none';
                     this.returnDest = '';
                 } else {
-                    this.returnDate = '';
+                    this.returnTime = '';
                     this.returnDest = '';
                 }
 
@@ -962,7 +965,7 @@
                 }
                 if (!this.inHonduras && !t.busreturn) {
                     t.busreturn = 'none';
-                    this.returnDate = 'none';
+                    this.returnTime = 'none';
                     this.returnDest = '';
                     changed = true;
                 }
@@ -979,24 +982,29 @@
                 }
             },
 
-            // Called when return date changes
-            onReturnDateChange() {
+            // Called when the return bus time changes. The afternoon bus only
+            // drops off at San Pedro Sula (no airport stop), so its destination
+            // is fixed and doesn't need a separate question.
+            onReturnTimeChange() {
                 this.returnDest = '';
                 this.travel.returnDetail = '';
-                if (this.returnDate === 'none') {
+                if (this.returnTime === 'none') {
                     this.travel.busreturn = 'none';
+                } else if (this.returnTime === 'afternoon') {
+                    this.returnDest = 'san_pedro';
+                    this.travel.busreturn = 'sunday_afternoon_san_pedro';
                 } else {
-                    // Wait for destination selection before saving a canonical value
+                    // Morning: wait for destination selection before saving a canonical value
                     this.travel.busreturn = '';
                 }
                 this.scheduleSave();
             },
 
-            // Called when return destination changes
+            // Called when return destination changes (morning bus only)
             onReturnDestChange() {
                 this.travel.returnDetail = '';
-                if (this.returnDate && this.returnDate !== 'none' && this.returnDest) {
-                    this.travel.busreturn = this.returnDate + '_' + (this.returnDest === 'san_pedro' ? 'san_pedro' : 'sap');
+                if (this.returnTime === 'morning' && this.returnDest) {
+                    this.travel.busreturn = 'sunday_morning_' + this.returnDest;
                 }
                 this.scheduleSave();
             },

@@ -285,7 +285,8 @@ func validateTravel(req TravelRequest) error {
 	}
 
 	validBusReturn := map[string]bool{
-		"": true, "sunday_san_pedro": true, "sunday_sap": true, "none": true,
+		"": true, "sunday_morning_sap": true, "sunday_morning_san_pedro": true,
+		"sunday_afternoon_san_pedro": true, "none": true,
 	}
 	if !validBusReturn[req.BusReturn] {
 		return fmt.Errorf("invalid bus_return value %q", req.BusReturn)

@@ -314,6 +314,12 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 	// Column Q: Bus return — human-readable
 	busReturnLabel := ""
 	switch data.TravelBusReturn {
+	case "sunday_morning_sap":
+		busReturnLabel = "Sunday 8AM → SAP"
+	case "sunday_morning_san_pedro":
+		busReturnLabel = "Sunday 8AM → San Pedro"
+	case "sunday_afternoon_san_pedro":
+		busReturnLabel = "Sunday 1PM → San Pedro"
 	case "sunday_san_pedro":
 		busReturnLabel = "Sunday → San Pedro"
 	case "sunday_sap":
@@ -407,6 +413,12 @@ func parseBusTo(label string) (busTo, pickup string) {
 // into travel_bus_return. Unrecognized text maps to "".
 func parseBusReturn(label string) string {
 	switch label {
+	case "Sunday 8AM → SAP":
+		return "sunday_morning_sap"
+	case "Sunday 8AM → San Pedro":
+		return "sunday_morning_san_pedro"
+	case "Sunday 1PM → San Pedro":
+		return "sunday_afternoon_san_pedro"
 	case "Sunday → San Pedro":
 		return "sunday_san_pedro"
 	case "Sunday → SAP":

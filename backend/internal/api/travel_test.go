@@ -12,11 +12,11 @@ import (
 func TestValidateTravel_ValidInputs(t *testing.T) {
 	cases := []TravelRequest{
 		{BusTo: "", Pickup: "", BusReturn: ""},
-		{BusTo: "thursday", Pickup: "sap", ArrivalFlight: "AV 620", BusReturn: "sunday_sap"},
-		{BusTo: "friday", Pickup: "welchez", BusReturn: "sunday_san_pedro"},
+		{BusTo: "thursday", Pickup: "sap", ArrivalFlight: "AV 620", BusReturn: "sunday_morning_sap"},
+		{BusTo: "friday", Pickup: "welchez", BusReturn: "sunday_afternoon_san_pedro"},
 		{BusTo: "none", BusReturn: "none"},
-		{BusTo: "thursday", Pickup: "sap", BusReturn: "sunday_san_pedro", Hotel: "marina", Notes: "ok"},
-		{BusTo: "friday", Pickup: "sap", BusReturn: "sunday_sap"},
+		{BusTo: "thursday", Pickup: "sap", BusReturn: "sunday_afternoon_san_pedro", Hotel: "marina", Notes: "ok"},
+		{BusTo: "friday", Pickup: "sap", BusReturn: "sunday_morning_sap"},
 	}
 	for _, req := range cases {
 		require.NoError(t, validateTravel(req))
@@ -73,18 +73,18 @@ func TestNormalizeTravel_ClearsReturnDetailWhenNoReturnBus(t *testing.T) {
 }
 
 func TestNormalizeTravel_KeepsReturnDetailForSundaySapOrSanPedro(t *testing.T) {
-	req := TravelRequest{BusReturn: "sunday_sap", ReturnDetail: "UA1422 · Sun, Dec 20 12:30"}
+	req := TravelRequest{BusReturn: "sunday_morning_sap", ReturnDetail: "UA1422 · Sun, Dec 20 12:30"}
 	got := normalizeTravel(req, false)
 	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", got.ReturnDetail)
 
-	req2 := TravelRequest{BusReturn: "sunday_san_pedro", ReturnDetail: "Hotel Marina Copan"}
+	req2 := TravelRequest{BusReturn: "sunday_afternoon_san_pedro", ReturnDetail: "Hotel Marina Copan"}
 	got2 := normalizeTravel(req2, false)
 	require.Equal(t, "Hotel Marina Copan", got2.ReturnDetail)
 }
 
 func TestNormalizeTravel_ClearsEverythingForHonduras(t *testing.T) {
 	req := TravelRequest{
-		BusTo: "thursday", Pickup: "sap", ArrivalFlight: "UA1422", BusReturn: "sunday_sap",
+		BusTo: "thursday", Pickup: "sap", ArrivalFlight: "UA1422", BusReturn: "sunday_morning_sap",
 		Cocktail: "yes", ReturnDetail: "UA1422 · Sun, Dec 20 12:30",
 	}
 	got := normalizeTravel(req, true)
