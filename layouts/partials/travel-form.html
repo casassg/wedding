@@ -54,10 +54,13 @@
                         <span class="font-semibold text-sm">{{ i18n "travel_form_bus_to_none" }}</span>
                     </label>
                 </div>
-                <p class="col-span-full mt-2 text-sm text-gray-500 font-sans font-medium leading-snug px-1">
+                <p x-show="travel.busto === 'none'" x-cloak
+                   class="col-span-full mt-2 text-sm text-gray-500 font-sans font-medium leading-snug px-1">
                     {{ i18n "travel_form_bus_to_none_transport_pre" }}
                     <a href="{{ "traveling/" | relLangURL }}#transport-provider"
                        class="underline hover:text-gray-600 transition-colors">{{ i18n "travel_form_bus_to_none_transport_link" }}</a>.
+                    <a href="{{ "/" | relLangURL }}#faq"
+                       class="underline hover:text-gray-600 transition-colors">{{ i18n "travel_form_bus_to_none_faq_link" }}</a>.
                 </p>
             </div>
         </div>
@@ -80,7 +83,8 @@
                     <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_welchez_sub" }}</span>
                 </label>
             </div>
-            <a href="https://maps.app.goo.gl/fwmKSsnBRfbLtgDJA"
+            <a x-show="travel.pickup === 'welchez'" x-cloak
+               href="https://maps.app.goo.gl/fwmKSsnBRfbLtgDJA"
                target="_blank"
                rel="noopener noreferrer"
                class="mt-3 inline-flex items-center text-xs font-semibold text-mint hover:text-mint/70 transition-colors">
@@ -174,6 +178,7 @@
              class="relative"
              @click.outside="returnFlightOpen = false">
             <label class="block text-sm font-semibold text-gray-700 font-sans mb-1">{{ i18n "travel_form_return_flight_label" }}</label>
+            <p class="text-xs text-gray-400 font-sans mb-2">{{ i18n "travel_form_return_flight_note" }}</p>
             <p class="text-xs text-gray-400 font-sans mb-2">
                 {{ i18n "travel_form_return_flight_hint" }}
                 <a href="{{ "traveling/" | relLangURL }}#transport-provider"
@@ -233,13 +238,13 @@
                     <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.hotel === h.id }">
                         <input type="radio" :value="h.id" x-model="travel.hotel" class="sr-only"
                                @change="onHotelChange()">
-                        <span class="font-semibold text-sm" x-text="h.name"></span>
+                        <span class="font-semibold text-sm">🏨 <span x-text="h.name"></span></span>
                     </label>
                 </template>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.hotel === '__other__' }">
                     <input type="radio" value="__other__" x-model="travel.hotel" class="sr-only"
                            @change="onHotelChange()">
-                    <span class="font-semibold text-sm">{{ i18n "travel_form_hotel_other" }}</span>
+                    <span class="font-semibold text-sm">🏨 {{ i18n "travel_form_hotel_other" }}</span>
                 </label>
             </div>
             <div x-show="travel.hotel === '__other__'" x-cloak class="mt-2">

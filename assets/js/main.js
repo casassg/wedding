@@ -843,15 +843,16 @@
                 });
             },
 
-            // Only Sunday departures leaving at or after 14:00 local time (the bus
-            // departure time) — earlier flights can't be accommodated on the shared bus.
+            // Only Sunday departures leaving at or after 13:00 local time — the
+            // earliest bus leaves Copán at 8 AM and the drive takes 4-4:15 hours,
+            // so earlier flights can't be accommodated on the shared bus.
             get visibleDepartures() {
                 if (!this.sundayDate) return [];
                 const q = (this.travel.returnDetail || '').toLowerCase().trim();
                 return this.allDepartures.filter(f => {
                     if (f.localDate !== this.sundayDate) return false;
                     const [h, m] = f.localTime.split(':').map(Number);
-                    if (h < 14) return false;
+                    if (h < 13) return false;
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.to + ' ' + f.label).toLowerCase().includes(q);
                 });
