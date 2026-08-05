@@ -74,13 +74,19 @@
                     <input type="radio" x-model="travel.pickup" value="sap" class="sr-only"
                            @change="onPickupChange()">
                     <span class="font-semibold text-sm">✈️ {{ i18n "travel_form_pickup_sap" }}</span>
-                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_sap_sub" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">
+                        <span x-show="travel.busto === 'thursday'">{{ i18n "travel_form_pickup_sap_sub_thursday" }}</span>
+                        <span x-show="travel.busto === 'friday'">{{ i18n "travel_form_pickup_sap_sub_friday" }}</span>
+                    </span>
                 </label>
                 <label class="tf-radio-card" :class="{ 'tf-radio-card--selected': travel.pickup === 'welchez' }">
                     <input type="radio" x-model="travel.pickup" value="welchez" class="sr-only"
                            @change="onPickupChange()">
                     <span class="font-semibold text-sm">☕ {{ i18n "travel_form_pickup_welchez" }}</span>
-                    <span class="text-xs text-gray-400 mt-0.5">{{ i18n "travel_form_pickup_welchez_sub" }}</span>
+                    <span class="text-xs text-gray-400 mt-0.5">
+                        <span x-show="travel.busto === 'thursday'">{{ i18n "travel_form_pickup_welchez_sub_thursday" }}</span>
+                        <span x-show="travel.busto === 'friday'">{{ i18n "travel_form_pickup_welchez_sub_friday" }}</span>
+                    </span>
                 </label>
             </div>
             <a x-show="travel.pickup === 'welchez'" x-cloak

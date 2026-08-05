@@ -826,18 +826,21 @@
                 returnDetail: '', // departure flight label (returnDest=sap) or drop-off text (returnDest=san_pedro)
             },
 
-            // Only flights that land on the bus day at or before 13:30 local time.
-            // Previous-day and late-arriving flights are excluded entirely.
+            // Only flights that land on the bus day at or before that day's landing
+            // cutoff. Thursday's bus leaves Welchez Café at 3 PM (cutoff 1:30 PM);
+            // Friday's leaves an hour earlier, at 2 PM (cutoff 12:30 PM). Previous-day
+            // and late-arriving flights are excluded entirely.
             get visibleFlights() {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return [];
                 const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
                 if (!busDate) return [];
+                const cutoffMinutes = day === 'friday' ? 12 * 60 + 30 : 13 * 60 + 30;
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
                 return this.allFlights.filter(f => {
                     if (f.localDate !== busDate) return false;
                     const [h, m] = f.localTime.split(':').map(Number);
-                    if (h > 13 || (h === 13 && m > 30)) return false;
+                    if (h * 60 + m > cutoffMinutes) return false;
                     if (!q) return true;
                     return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
                 });

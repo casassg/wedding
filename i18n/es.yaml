@@ -212,7 +212,7 @@ travel_form_bus_schedule_body: |
   | Día | Salida | Llegada |
   | --- | --- | --- |
   | Jue. 17 de dic. | Welchez Café 3:00 PM (recogida SAP hasta 2:00 PM) | Copán ~7:00 PM, según el tráfico |
-  | Vie. 18 de dic. | Welchez Café 3:00 PM (recogida SAP hasta 2:00 PM) | Copán ~7:00 PM, según el tráfico |
+  | Vie. 18 de dic. | Welchez Café 2:00 PM (recogida SAP hasta 1:00 PM) | Copán ~6:00 PM, según el tráfico |
   | Dom. 20 de dic. | Copán 8:00 AM o 2:00 PM | San Pedro ~12:00 PM/6:00 PM; SAP ~1:00 PM/7:00 PM |
 
   Según las inscripciones, puede que haya más de un autobús o que salga antes de lo indicado — por favor llegad con tiempo.
@@ -227,9 +227,11 @@ travel_form_bus_to_none_transport_link: "Contacta a Daniel de Chelsy Tours"
 travel_form_bus_to_none_faq_link: "Consulta nuestras preguntas frecuentes para más opciones de transporte a Copán"
 travel_form_pickup_label: "¿Dónde subes al autobús?"
 travel_form_pickup_sap: "Aeropuerto SAP, San Pedro Sula"
-travel_form_pickup_sap_sub: "Solo para vuelos que aterricen a más tardar a la 1:30 PM"
+travel_form_pickup_sap_sub_thursday: "Solo para vuelos que aterricen a más tardar a la 1:30 PM"
+travel_form_pickup_sap_sub_friday: "Solo para vuelos que aterricen a más tardar a la 12:30 PM"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub: "Punto de encuentro con aire acondicionado · llega a las 2:30 PM, salida 3:00 PM"
+travel_form_pickup_welchez_sub_thursday: "Punto de encuentro con aire acondicionado · llega a las 2:30 PM, salida 3:00 PM"
+travel_form_pickup_welchez_sub_friday: "Punto de encuentro con aire acondicionado · llega a la 1:30 PM, salida 2:00 PM"
 travel_form_pickup_welchez_map: "Ver Welchez Café en Google Maps"
 travel_form_flight_label: "¿En qué vuelo llegas?"
 travel_form_flight_placeholder: "Busca por número de vuelo o ciudad..."
