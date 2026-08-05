@@ -90,13 +90,14 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 		return nil, nil // Return empty when not configured
 	}
 
-	// Read data from 'Guests' sheet (rows 2+, columns A-V)
+	// Read data from 'Guests' sheet (rows 2+, columns A-W)
 	// Column mapping:
 	// A: Name, B: Parella, C: Fills, D: Location, E: State, F: Total, G: No Hijos
 	// H: Invite Code, I: Adults confirmed, J: Kids confirmed, K: Dietary, L: Message for us, M: Song request, N: Updated At
 	// O: Bus to Copan, P: Arrival Flight, Q: Bus to San Pedro/SAP, R: Hotel in Copan,
-	// S: Travel notes, T: Travel last synced, U: Welcome cocktail, V: Brunch
-	readRange := fmt.Sprintf("'%s'!A2:V", c.sheetName)
+	// S: Travel notes, T: Travel last synced, U: Welcome cocktail, V: Brunch,
+	// W: Return flight / Drop-off
+	readRange := fmt.Sprintf("'%s'!A2:W", c.sheetName)
 	resp, err := c.service.Spreadsheets.Values.Get(c.sheetID, readRange).Context(ctx).Do()
 	if err != nil {
 		return nil, fmt.Errorf("failed to read sheet: %w", err)
@@ -168,7 +169,7 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 			}
 		}
 
-		// Columns O-V: travel answers, restored from WriteTravel's labels.
+		// Columns O-W: travel answers, restored from WriteTravel's labels.
 		// Skip entirely if column T (travel last synced) is empty: this guest
 		// never had WriteTravel run, so there's nothing to restore.
 		if len(row) > 19 && toString(row[19]) != "" {
@@ -198,6 +199,9 @@ func (c *Client) ReadSheet(ctx context.Context) ([]*store.UpsertInviteParams, er
 				}
 				if len(row) > 21 {
 					sheetRow.TravelBrunch = parseYesNo(toString(row[21]))
+				}
+				if len(row) > 22 {
+					sheetRow.TravelReturnDetail = toString(row[22])
 				}
 			}
 		}
@@ -258,10 +262,11 @@ func (c *Client) WriteRSVP(ctx context.Context, data *store.Invite) error {
 	return nil
 }
 
-// WriteTravel writes travel info columns O:T for a guest row.
+// WriteTravel writes travel info columns O:W for a guest row.
 // Column mapping:
 // O: Bus to Copan  P: Arrival Flight  Q: Bus to San Pedro/SAP
-// R: Hotel in Copan  S: Travel notes  T: Last synced
+// R: Hotel in Copan  S: Travel notes  T: Last synced  U: Welcome cocktail
+// V: Brunch  W: Return flight / Drop-off
 func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 	if !c.IsConfigured() {
 		return nil
@@ -309,6 +314,12 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 	// Column Q: Bus return — human-readable
 	busReturnLabel := ""
 	switch data.TravelBusReturn {
+	case "sunday_morning_sap":
+		busReturnLabel = "Sunday 8AM → SAP"
+	case "sunday_morning_san_pedro":
+		busReturnLabel = "Sunday 8AM → San Pedro"
+	case "sunday_afternoon_san_pedro":
+		busReturnLabel = "Sunday 1PM → San Pedro"
 	case "sunday_san_pedro":
 		busReturnLabel = "Sunday → San Pedro"
 	case "sunday_sap":
@@ -349,17 +360,18 @@ func (c *Client) WriteTravel(ctx context.Context, data *store.Invite) error {
 	}
 
 	values := []interface{}{
-		busToLabel,       // O: Bus to Copan
-		arrivalFlight,    // P: Arrival Flight
-		busReturnLabel,   // Q: Bus to San Pedro/SAP
-		hotel,            // R: Hotel in Copan
-		data.TravelNotes, // S: Travel notes
-		syncedAt,         // T: Last synced
-		cocktailLabel,    // U: Welcome cocktail
-		brunchLabel,      // V: Brunch
+		busToLabel,              // O: Bus to Copan
+		arrivalFlight,           // P: Arrival Flight
+		busReturnLabel,          // Q: Bus to San Pedro/SAP
+		hotel,                   // R: Hotel in Copan
+		data.TravelNotes,        // S: Travel notes
+		syncedAt,                // T: Last synced
+		cocktailLabel,           // U: Welcome cocktail
+		brunchLabel,             // V: Brunch
+		data.TravelReturnDetail, // W: Return flight / Drop-off
 	}
 
-	writeRange := fmt.Sprintf("'%s'!O%d:V%d", c.sheetName, rowNum, rowNum)
+	writeRange := fmt.Sprintf("'%s'!O%d:W%d", c.sheetName, rowNum, rowNum)
 	valueRange := &sheets.ValueRange{
 		Values: [][]interface{}{values},
 	}
@@ -401,6 +413,12 @@ func parseBusTo(label string) (busTo, pickup string) {
 // into travel_bus_return. Unrecognized text maps to "".
 func parseBusReturn(label string) string {
 	switch label {
+	case "Sunday 8AM → SAP":
+		return "sunday_morning_sap"
+	case "Sunday 8AM → San Pedro":
+		return "sunday_morning_san_pedro"
+	case "Sunday 1PM → San Pedro":
+		return "sunday_afternoon_san_pedro"
 	case "Sunday → San Pedro":
 		return "sunday_san_pedro"
 	case "Sunday → SAP":

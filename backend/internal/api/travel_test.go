@@ -12,11 +12,11 @@ import (
 func TestValidateTravel_ValidInputs(t *testing.T) {
 	cases := []TravelRequest{
 		{BusTo: "", Pickup: "", BusReturn: ""},
-		{BusTo: "thursday", Pickup: "sap", ArrivalFlight: "AV 620", BusReturn: "sunday_sap"},
-		{BusTo: "friday", Pickup: "welchez", BusReturn: "sunday_san_pedro"},
+		{BusTo: "thursday", Pickup: "sap", ArrivalFlight: "AV 620", BusReturn: "sunday_morning_sap"},
+		{BusTo: "friday", Pickup: "welchez", BusReturn: "sunday_afternoon_san_pedro"},
 		{BusTo: "none", BusReturn: "none"},
-		{BusTo: "thursday", Pickup: "sap", BusReturn: "sunday_san_pedro", Hotel: "marina", Notes: "ok"},
-		{BusTo: "friday", Pickup: "sap", BusReturn: "sunday_sap"},
+		{BusTo: "thursday", Pickup: "sap", BusReturn: "sunday_afternoon_san_pedro", Hotel: "marina", Notes: "ok"},
+		{BusTo: "friday", Pickup: "sap", BusReturn: "sunday_morning_sap"},
 	}
 	for _, req := range cases {
 		require.NoError(t, validateTravel(req))
@@ -50,6 +50,7 @@ func TestValidateTravel_TextLengthLimits(t *testing.T) {
 		{"flight too long", TravelRequest{ArrivalFlight: long}},
 		{"hotel too long", TravelRequest{Hotel: long}},
 		{"notes too long", TravelRequest{Notes: long}},
+		{"return_detail too long", TravelRequest{ReturnDetail: long}},
 	}
 	for _, c := range cases {
 		t.Run(c.name, func(t *testing.T) {
@@ -59,6 +60,35 @@ func TestValidateTravel_TextLengthLimits(t *testing.T) {
 
 	require.NoError(t, validateTravel(TravelRequest{Notes: strings.Repeat("é", 500)}))
 	require.Error(t, validateTravel(TravelRequest{Notes: strings.Repeat("é", 501)}))
+}
+
+func TestNormalizeTravel_ClearsReturnDetailWhenNoReturnBus(t *testing.T) {
+	req := TravelRequest{BusReturn: "none", ReturnDetail: "UA1422 · Sun, Dec 20 12:30"}
+	got := normalizeTravel(req, false)
+	require.Equal(t, "", got.ReturnDetail)
+
+	req2 := TravelRequest{BusReturn: "", ReturnDetail: "some hotel"}
+	got2 := normalizeTravel(req2, false)
+	require.Equal(t, "", got2.ReturnDetail)
+}
+
+func TestNormalizeTravel_KeepsReturnDetailForSundaySapOrSanPedro(t *testing.T) {
+	req := TravelRequest{BusReturn: "sunday_morning_sap", ReturnDetail: "UA1422 · Sun, Dec 20 12:30"}
+	got := normalizeTravel(req, false)
+	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", got.ReturnDetail)
+
+	req2 := TravelRequest{BusReturn: "sunday_afternoon_san_pedro", ReturnDetail: "Hotel Marina Copan"}
+	got2 := normalizeTravel(req2, false)
+	require.Equal(t, "Hotel Marina Copan", got2.ReturnDetail)
+}
+
+func TestNormalizeTravel_ClearsEverythingForHonduras(t *testing.T) {
+	req := TravelRequest{
+		BusTo: "thursday", Pickup: "sap", ArrivalFlight: "UA1422", BusReturn: "sunday_morning_sap",
+		Cocktail: "yes", ReturnDetail: "UA1422 · Sun, Dec 20 12:30",
+	}
+	got := normalizeTravel(req, true)
+	require.Equal(t, TravelRequest{Cocktail: ""}, got)
 }
 
 func TestToInviteResponse_InHonduras(t *testing.T) {

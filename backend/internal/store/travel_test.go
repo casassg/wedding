@@ -52,9 +52,10 @@ func TestUpdateTravelInfoRoundTrip(t *testing.T) {
 		InputBusTo:         "thursday",
 		InputPickup:        "sap",
 		InputArrivalFlight: "AV 620",
-		InputBusReturn:     "sunday_sap",
+		InputBusReturn:     "sunday_morning_sap",
 		InputHotel:         "marina_copan",
 		InputNotes:         "window seat please",
+		InputReturnDetail:  "UA1422 · Sun, Dec 20 12:30",
 		InputInviteCode:    "TESTCODE",
 	})
 	require.NoError(t, err)
@@ -64,9 +65,10 @@ func TestUpdateTravelInfoRoundTrip(t *testing.T) {
 	require.Equal(t, "thursday", invite.TravelBusTo)
 	require.Equal(t, "sap", invite.TravelPickup)
 	require.Equal(t, "AV 620", invite.TravelArrivalFlight)
-	require.Equal(t, "sunday_sap", invite.TravelBusReturn)
+	require.Equal(t, "sunday_morning_sap", invite.TravelBusReturn)
 	require.Equal(t, "marina_copan", invite.TravelHotel)
 	require.Equal(t, "window seat please", invite.TravelNotes)
+	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", invite.TravelReturnDetail)
 	require.NotNil(t, invite.TravelUpdatedAt)
 	require.NotNil(t, invite.ResponseAt)
 }
@@ -96,7 +98,7 @@ func TestUpsertInviteDoesNotTouchTravelColumns(t *testing.T) {
 	err := s.UpdateTravelInfo(ctx, &UpdateTravelInfoParams{
 		InputBusTo:      "friday",
 		InputPickup:     "welchez",
-		InputBusReturn:  "sunday_san_pedro",
+		InputBusReturn:  "sunday_afternoon_san_pedro",
 		InputHotel:      "some_hotel",
 		InputNotes:      "notes",
 		InputInviteCode: "TRVL1",
@@ -143,11 +145,12 @@ func TestUpsertInviteRestoresTravelOnFreshBoot(t *testing.T) {
 		TravelBusTo:         "thursday",
 		TravelPickup:        "sap",
 		TravelArrivalFlight: "AV 620",
-		TravelBusReturn:     "sunday_sap",
+		TravelBusReturn:     "sunday_morning_sap",
 		TravelHotel:         "marina_copan",
 		TravelNotes:         "window seat please",
 		TravelCocktail:      "yes",
 		TravelBrunch:        "no",
+		TravelReturnDetail:  "UA1422 · Sun, Dec 20 12:30",
 		TravelUpdatedAt:     &travelUpdatedAt,
 	})
 	require.NoError(t, err)
@@ -157,10 +160,11 @@ func TestUpsertInviteRestoresTravelOnFreshBoot(t *testing.T) {
 	require.Equal(t, "thursday", invite.TravelBusTo)
 	require.Equal(t, "sap", invite.TravelPickup)
 	require.Equal(t, "AV 620", invite.TravelArrivalFlight)
-	require.Equal(t, "sunday_sap", invite.TravelBusReturn)
+	require.Equal(t, "sunday_morning_sap", invite.TravelBusReturn)
 	require.Equal(t, "marina_copan", invite.TravelHotel)
 	require.Equal(t, "window seat please", invite.TravelNotes)
 	require.Equal(t, "yes", invite.TravelCocktail)
 	require.Equal(t, "no", invite.TravelBrunch)
+	require.Equal(t, "UA1422 · Sun, Dec 20 12:30", invite.TravelReturnDetail)
 	require.NotNil(t, invite.TravelUpdatedAt)
 }

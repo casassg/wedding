@@ -25,11 +25,11 @@ INSERT INTO invites (
     confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at,
     sheet_row, location,
     travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return,
-    travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_updated_at,
+    travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_return_detail, travel_updated_at,
     updated_at
 ) VALUES (
     ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-    ?, ?, ?, ?, ?, ?, ?, ?, ?,
+    ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
     datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
@@ -50,8 +50,9 @@ ON CONFLICT(invite_code) DO UPDATE SET
     travel_bus_return     = excluded.travel_bus_return,
     travel_hotel          = excluded.travel_hotel,
     travel_notes          = excluded.travel_notes,
-    travel_cocktail       = excluded.travel_cocktail,
-    travel_brunch         = excluded.travel_brunch,
+    travel_cocktail        = excluded.travel_cocktail,
+    travel_brunch          = excluded.travel_brunch,
+    travel_return_detail  = excluded.travel_return_detail,
     travel_updated_at     = excluded.travel_updated_at,
     updated_at            = excluded.updated_at
 WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at;
@@ -72,6 +73,7 @@ SET
     travel_notes         = :input_notes,
     travel_cocktail      = :input_cocktail,
     travel_brunch        = :input_brunch,
+    travel_return_detail = :input_return_detail,
     travel_updated_at    = datetime('now', 'utc'),
     response_at          = datetime('now', 'utc')
 WHERE invite_code = :input_invite_code;

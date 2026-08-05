@@ -79,6 +79,9 @@ jobs:
         uses: superfly/fly-pr-review-apps@1.6.0
         with:
           config: fly.review.toml
+          # Action hardcodes `--strategy immediate`; deploy_options is appended after it on
+          # the flyctl command line, and flyctl takes the last --strategy flag, overriding it.
+          deploy_options: --strategy bluegreen
 
       - name: Set Fly secrets
         if: github.event.action != 'closed'

@@ -673,6 +673,14 @@ body.place-modal-open {
     -webkit-overflow-scrolling: touch;
 }
 
+/* Keep the flight autocomplete above the next colored section: .card-shadow's
+   hover transform creates a new stacking context for #rsvp, which otherwise
+   traps the dropdown's z-index below .section-colored siblings like #details. */
+#rsvp-section {
+    position: relative;
+    z-index: 20;
+}
+
 .tf-autocomplete li + li {
     border-top: 1px solid #f3f4f6;
 }

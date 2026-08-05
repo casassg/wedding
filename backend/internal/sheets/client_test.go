@@ -21,13 +21,16 @@ func TestTravelRoundTrip(t *testing.T) {
 		cocktail  string
 		brunch    string
 	}{
-		{name: "thursday sap", busTo: "thursday", pickup: "sap", busReturn: "sunday_san_pedro", hotel: "marina_copan", cocktail: "yes", brunch: "no"},
-		{name: "thursday welchez", busTo: "thursday", pickup: "welchez", busReturn: "sunday_sap", hotel: "plaza_copan", cocktail: "no", brunch: "yes"},
-		{name: "thursday no pickup", busTo: "thursday", pickup: "", busReturn: "monday_san_pedro", hotel: "plaza_magdalena"},
+		{name: "thursday sap", busTo: "thursday", pickup: "sap", busReturn: "sunday_morning_san_pedro", hotel: "marina_copan", cocktail: "yes", brunch: "no"},
+		{name: "thursday welchez", busTo: "thursday", pickup: "welchez", busReturn: "sunday_morning_sap", hotel: "plaza_copan", cocktail: "no", brunch: "yes"},
+		{name: "thursday no pickup", busTo: "thursday", pickup: "", busReturn: "sunday_afternoon_san_pedro", hotel: "plaza_magdalena"},
 		{name: "friday sap", busTo: "friday", pickup: "sap", busReturn: "monday_sap", hotel: "yatbalam", cocktail: "yes", brunch: "yes"},
 		{name: "friday welchez", busTo: "friday", pickup: "welchez", busReturn: "none"},
 		{name: "friday no pickup", busTo: "friday", pickup: ""},
 		{name: "no bus", busTo: "none", pickup: ""},
+		{name: "legacy sunday sap", busTo: "thursday", pickup: "sap", busReturn: "sunday_sap"},
+		{name: "legacy sunday san pedro", busTo: "friday", pickup: "welchez", busReturn: "sunday_san_pedro"},
+		{name: "legacy monday san pedro", busTo: "thursday", pickup: "", busReturn: "monday_san_pedro"},
 	}
 
 	for _, tc := range cases {
@@ -59,6 +62,12 @@ func TestTravelRoundTrip(t *testing.T) {
 
 			busReturnLabel := ""
 			switch tc.busReturn {
+			case "sunday_morning_sap":
+				busReturnLabel = "Sunday 8AM → SAP"
+			case "sunday_morning_san_pedro":
+				busReturnLabel = "Sunday 8AM → San Pedro"
+			case "sunday_afternoon_san_pedro":
+				busReturnLabel = "Sunday 1PM → San Pedro"
 			case "sunday_san_pedro":
 				busReturnLabel = "Sunday → San Pedro"
 			case "sunday_sap":

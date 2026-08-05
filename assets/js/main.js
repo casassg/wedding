@@ -784,6 +784,7 @@
         Alpine.data('travelForm', () => ({
             // Flight data from embedded JSON (normalized on load)
             allFlights: [],
+            allDepartures: [],
             hotels: [],
 
             // UI state
@@ -793,16 +794,18 @@
             saveQueued: false,
             saveVersion: 0,
             flightOpen: false,
+            returnFlightOpen: false,
             lang: 'en',
             inHonduras: false,
 
             // Two-step return bus UI state (not persisted directly; derived to/from travel.busreturn)
-            returnDate: '',  // 'sunday' | 'none' | ''
-            returnDest: '',  // 'san_pedro' | 'sap' | ''
+            returnTime: '', // 'morning' | 'afternoon' | 'none' | ''
+            returnDest: '', // 'san_pedro' | 'sap' | ''
 
             // Bus date ISO strings derived from the configured wedding date
             thursdayDate: '',
             fridayDate: '',
+            sundayDate: '',
 
             // The invite code — pulled from URL
             get code() {
@@ -814,28 +817,47 @@
                 busto: '',       // 'thursday' | 'friday' | 'none' | ''
                 pickup: '',      // 'sap' | 'welchez' | ''
                 flightInput: '', // free text / autocomplete input
-                busreturn: '',   // 'sunday_san_pedro' | 'sunday_sap' | 'none' | ''
+                busreturn: '',   // 'sunday_morning_sap' | 'sunday_morning_san_pedro' | 'sunday_afternoon_san_pedro' | 'none' | ''
                 hotel: '',       // hotel id | '__other__' | ''
                 hotelOther: '',  // free text when hotel === '__other__'
                 notes: '',       // textarea
                 cocktail: '',    // 'yes' | 'no' | ''
                 brunch: '',      // 'yes' | 'no' | ''
+                returnDetail: '', // departure flight label (returnDest=sap) or drop-off text (returnDest=san_pedro)
             },
 
-            // Only flights that land on the bus day at or before 13:30 local time.
-            // Previous-day and late-arriving flights are excluded entirely.
+            // Only flights that land on the bus day at or before that day's landing
+            // cutoff. Thursday's bus leaves Welchez Café at 3 PM (cutoff 1:30 PM);
+            // Friday's leaves an hour earlier, at 2 PM (cutoff 12:30 PM). Previous-day
+            // and late-arriving flights are excluded entirely.
             get visibleFlights() {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return [];
                 const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
                 if (!busDate) return [];
+                const cutoffMinutes = day === 'friday' ? 12 * 60 + 30 : 13 * 60 + 30;
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
                 return this.allFlights.filter(f => {
                     if (f.localDate !== busDate) return false;
                     const [h, m] = f.localTime.split(':').map(Number);
-                    if (h > 13 || (h === 13 && m > 30)) return false;
+                    if (h * 60 + m > cutoffMinutes) return false;
                     if (!q) return true;
-                    return (f.flight + ' ' + f.airline + ' ' + f.from).toLowerCase().includes(q);
+                    return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
+                });
+            },
+
+            // Only Sunday departures leaving at or after 13:00 local time — the
+            // earliest bus leaves Copán at 8 AM and the drive takes 4-4:15 hours,
+            // so earlier flights can't be accommodated on the shared bus.
+            get visibleDepartures() {
+                if (!this.sundayDate) return [];
+                const q = (this.travel.returnDetail || '').toLowerCase().trim();
+                return this.allDepartures.filter(f => {
+                    if (f.localDate !== this.sundayDate) return false;
+                    const [h, m] = f.localTime.split(':').map(Number);
+                    if (h < 13) return false;
+                    if (!q) return true;
+                    return (f.flight + ' ' + f.airline + ' ' + f.to + ' ' + f.label).toLowerCase().includes(q);
                 });
             },
 
@@ -850,16 +872,18 @@
                     this.thursdayDate = date.toISOString().slice(0, 10);
                     date.setUTCDate(date.getUTCDate() + 1);
                     this.fridayDate = date.toISOString().slice(0, 10);
+                    date.setUTCDate(date.getUTCDate() + 2);
+                    this.sundayDate = date.toISOString().slice(0, 10);
                 }
 
-                // Load and normalize flight data
+                // Load and normalize flight data (arrivals + Sunday departures)
                 try {
                     const flightEl = document.getElementById('sap-flights-data');
                     if (flightEl) {
                         const data = JSON.parse(flightEl.textContent);
                         const SAP_TZ = 'America/Tegucigalpa';
-                        this.allFlights = (data.arrivals || []).map(f => {
-                            const dt = new Date(f.arrives_at);
+                        const normalize = (f, timestampField) => {
+                            const dt = new Date(f[timestampField]);
                             const dateParts = new Intl.DateTimeFormat('en', {
                                 timeZone: SAP_TZ, year: 'numeric', month: '2-digit', day: '2-digit'
                             }).formatToParts(dt).reduce((parts, part) => {
@@ -873,9 +897,17 @@
                             const localDateDisplay = dt.toLocaleDateString(this.lang, {
                                 timeZone: SAP_TZ, weekday: 'short', month: 'short', day: 'numeric'
                             });
-                            return { ...f, localDate, localTime, localDateDisplay };
-                        });
-                        // allFlights already sorted by arrives_at from YAML
+                            // Language-independent format for the value stored/submitted
+                            // (shown in the input box and synced to the Google Sheet), e.g. "S085 - 17/12/2026 8:45"
+                            const labelTime = dt.toLocaleTimeString('en-GB', {
+                                timeZone: SAP_TZ, hour: 'numeric', minute: '2-digit', hourCycle: 'h23'
+                            });
+                            const label = `${f.flight} - ${dateParts.day}/${dateParts.month}/${dateParts.year} ${labelTime}`;
+                            return { ...f, localDate, localTime, localDateDisplay, label };
+                        };
+                        this.allFlights = (data.arrivals || []).map(f => normalize(f, 'arrives_at'));
+                        this.allDepartures = (data.departures || []).map(f => normalize(f, 'departs_at'));
+                        // Both lists already sorted by timestamp from YAML
                     }
                 } catch(e) { /* non-fatal */ }
 
@@ -900,6 +932,7 @@
                 t.notes = invite.travel_notes || '';
                 t.cocktail = invite.travel_cocktail || '';
                 t.brunch = invite.travel_brunch || '';
+                t.returnDetail = invite.travel_return_detail || '';
 
                 const hotel = invite.travel_hotel || '';
                 if (!hotel || this.hotels.some(h => h.id === hotel)) {
@@ -912,17 +945,20 @@
 
                 // Derive two-step return UI state from saved busreturn value
                 const br = t.busreturn;
-                if (br === 'sunday_san_pedro') {
-                    this.returnDate = 'sunday';
-                    this.returnDest = 'san_pedro';
-                } else if (br === 'sunday_sap') {
-                    this.returnDate = 'sunday';
+                if (br === 'sunday_morning_sap') {
+                    this.returnTime = 'morning';
                     this.returnDest = 'sap';
+                } else if (br === 'sunday_morning_san_pedro') {
+                    this.returnTime = 'morning';
+                    this.returnDest = 'san_pedro';
+                } else if (br === 'sunday_afternoon_san_pedro') {
+                    this.returnTime = 'afternoon';
+                    this.returnDest = 'san_pedro';
                 } else if (br === 'none') {
-                    this.returnDate = 'none';
+                    this.returnTime = 'none';
                     this.returnDest = '';
                 } else {
-                    this.returnDate = '';
+                    this.returnTime = '';
                     this.returnDest = '';
                 }
 
@@ -934,7 +970,7 @@
                 }
                 if (!this.inHonduras && !t.busreturn) {
                     t.busreturn = 'none';
-                    this.returnDate = 'none';
+                    this.returnTime = 'none';
                     this.returnDest = '';
                     changed = true;
                 }
@@ -951,23 +987,41 @@
                 }
             },
 
-            // Called when return date changes
-            onReturnDateChange() {
+            // Called when the return bus time changes. The afternoon bus only
+            // drops off at San Pedro Sula (no airport stop), so its destination
+            // is fixed and doesn't need a separate question.
+            onReturnTimeChange() {
                 this.returnDest = '';
-                if (this.returnDate === 'none') {
+                this.travel.returnDetail = '';
+                if (this.returnTime === 'none') {
                     this.travel.busreturn = 'none';
+                } else if (this.returnTime === 'afternoon') {
+                    this.returnDest = 'san_pedro';
+                    this.travel.busreturn = 'sunday_afternoon_san_pedro';
                 } else {
-                    // Wait for destination selection before saving a canonical value
+                    // Morning: wait for destination selection before saving a canonical value
                     this.travel.busreturn = '';
                 }
                 this.scheduleSave();
             },
 
-            // Called when return destination changes
+            // Called when return destination changes (morning bus only)
             onReturnDestChange() {
-                if (this.returnDate && this.returnDate !== 'none' && this.returnDest) {
-                    this.travel.busreturn = this.returnDate + '_' + (this.returnDest === 'san_pedro' ? 'san_pedro' : 'sap');
+                this.travel.returnDetail = '';
+                if (this.returnTime === 'morning' && this.returnDest) {
+                    this.travel.busreturn = 'sunday_morning_' + this.returnDest;
                 }
+                this.scheduleSave();
+            },
+
+            onReturnDetailInput() {
+                this.returnFlightOpen = true;
+                this.scheduleSave();
+            },
+
+            selectReturnFlight(f) {
+                this.travel.returnDetail = f.label;
+                this.returnFlightOpen = false;
                 this.scheduleSave();
             },
 
@@ -979,7 +1033,7 @@
                 }
                 // If the saved flight is no longer in the visible list, clear it
                 if (this.travel.flightInput) {
-                    const still = this.visibleFlights.find(f => f.flight === this.travel.flightInput);
+                    const still = this.visibleFlights.find(f => f.label === this.travel.flightInput);
                     if (!still) this.travel.flightInput = '';
                 }
                 this.scheduleSave();
@@ -999,7 +1053,7 @@
             },
 
             selectFlight(f) {
-                this.travel.flightInput = f.flight;
+                this.travel.flightInput = f.label;
                 this.flightOpen = false;
                 this.scheduleSave();
             },
@@ -1060,6 +1114,7 @@
                     notes: this.travel.notes,
                     cocktail: this.travel.cocktail,
                     brunch: this.travel.brunch,
+                    return_detail: this.travel.returnDetail,
                 };
 
                 try {

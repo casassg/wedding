@@ -25,6 +25,7 @@ type InviteResponse struct {
 	TravelNotes         string `json:"travel_notes"`
 	TravelCocktail      string `json:"travel_cocktail"`
 	TravelBrunch        string `json:"travel_brunch"`
+	TravelReturnDetail  string `json:"travel_return_detail"`
 }
 
 // TravelRequest is the request payload for POST /invite/{code}/travel
@@ -37,6 +38,7 @@ type TravelRequest struct {
 	Notes         string `json:"notes"`
 	Cocktail      string `json:"cocktail"`
 	Brunch        string `json:"brunch"`
+	ReturnDetail  string `json:"return_detail"`
 }
 
 // RSVPRequest is the request payload for POST /invite/{uuid}/rsvp
@@ -129,5 +131,6 @@ func ToInviteResponse(invite *store.Invite) InviteResponse {
 		TravelNotes:         invite.TravelNotes,
 		TravelCocktail:      invite.TravelCocktail,
 		TravelBrunch:        invite.TravelBrunch,
+		TravelReturnDetail:  invite.TravelReturnDetail,
 	}
 }
