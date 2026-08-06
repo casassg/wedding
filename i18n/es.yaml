@@ -39,7 +39,7 @@ rsvp_fill_info: "¡Esperamos que puedas acompañarnos! Por favor completa la sig
 rsvp_fill_info_plural: "¡Esperamos que puedan acompañarnos! Por favor completen la siguiente información para confirmar su asistencia."
 rsvp_invite_size_one: "💌 Invitación válida para {n} persona."
 rsvp_invite_size_other: "💌 Invitación válida para {n} personas."
-rsvp_deadline: "Agradeceríamos que confirmaras tu asistencia antes de **finales de septiembre**. Por favor, organiza tu viaje antes del **1 de noviembre**."
+rsvp_deadline: "Agradeceríamos que confirmaras tu asistencia antes de **finales de septiembre**."
 rsvp_plus_one_label: "Vengo con mi pareja"
 rsvp_kids_label: "¿Hijos?"
 rsvp_kids_help: "Máximo permitido:"
