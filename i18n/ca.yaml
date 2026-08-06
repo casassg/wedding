@@ -38,7 +38,7 @@ rsvp_fill_info: "Esperem que ens puguis acompanyar! Si us plau, omple la següen
 rsvp_fill_info_plural: "Esperem que ens pugueu acompanyar! Si us plau, ompliu la següent informació per confirmar la vostra assistència."
 rsvp_invite_size_one: "💌 Invitació vàlida per a {n} persona."
 rsvp_invite_size_other: "💌 Invitació vàlida per a {n} persones."
-rsvp_deadline: "Agrairíem que poguessis confirmar abans de **l'1 de setembre**."
+rsvp_deadline: "Agrairíem que confirmessis la teva assistència abans de **final de setembre**."
 rsvp_plus_one_label: "Vinc amb la meva parella"
 rsvp_kids_label: "Fills?"
 rsvp_kids_help: "Màxim permès:"
