@@ -40,6 +40,12 @@ Never commit `.env`, credentials, tokens, or generated secrets.
 - Keep JavaScript in the existing IIFE and guard optional DOM elements.
 - Keep CSS grouped by component in `assets/css/custom.css`.
 
+## Guest-Facing Data
+
+- Descriptions, tips, and link labels in `data/` are guest-facing: write full, readable sentences.
+- Use markdown links instead of raw URLs, and keep link labels short.
+- Group a place's links into titled sub-sections once it exceeds about four links.
+
 ## Backend
 
 Copy `backend/.env.example` to `backend/.env` for local configuration.

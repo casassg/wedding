@@ -27,9 +27,12 @@
     - label: "Little French Key"
       url: "https://roatan.online/little-french-key"
       icon: "fa-solid fa-umbrella-beach"
-    - label: "Blue Reef Explorers"
-      url: "https://bluereefexplorers.com"
-      icon: "fa-solid fa-ship"
+    - title: "Actividades"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Blue Reef Explorers"
+          url: "https://bluereefexplorers.com"
+          icon: "fa-solid fa-ship"
 
 - id: utila
   title: "Utila"
@@ -113,9 +116,12 @@
     - label: "Lagolandia"
       url: "https://www.youtube.com/watch?v=yMjWZ6NfYM4"
       icon: "fa-brands fa-youtube"
-    - label: "Domos de Agualpa"
-      url: "https://www.youtube.com/watch?v=aAbQGucMf8E"
-      icon: "fa-brands fa-youtube"
+    - title: "Explorar"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Domos de Agualpa"
+          url: "https://www.youtube.com/watch?v=aAbQGucMf8E"
+          icon: "fa-brands fa-youtube"
 
 - id: valle
   title: "Valle de Ángeles"
@@ -155,9 +161,12 @@
     - label: "Guía de Viaje"
       url: "https://littlebirdietravel.com/cayos-cochinos-honduras/"
       icon: "fa-solid fa-book"
-    - label: "Blue Reef Explorers"
-      url: "https://bluereefexplorers.com"
-      icon: "fa-solid fa-ship"
+    - title: "Actividades"
+      icon: "fa-solid fa-umbrella-beach"
+      links:
+        - label: "Blue Reef Explorers"
+          url: "https://bluereefexplorers.com"
+          icon: "fa-solid fa-ship"
 
 - id: tela
   title: "Tela"
@@ -204,9 +213,12 @@
     - label: "Hotel Telamar"
       url: "https://www.youtube.com/watch?v=ohbtW2w1Gxo"
       icon: "fa-brands fa-youtube"
-    - label: "Villas Telamar"
-      url: "https://www.youtube.com/watch?v=F9FM1XrOD8s"
-      icon: "fa-brands fa-youtube"
+    - title: "Alojamiento"
+      icon: "fa-solid fa-hotel"
+      links:
+        - label: "Villas Telamar"
+          url: "https://www.youtube.com/watch?v=F9FM1XrOD8s"
+          icon: "fa-brands fa-youtube"
 
 - id: gracias
   title: "Gracias y Aguas Termales"
@@ -258,9 +270,12 @@
     - label: "Campo Hortensias"
       url: "https://www.youtube.com/watch?v=baxQ8WXMYGE"
       icon: "fa-brands fa-youtube"
-    - label: "La Coca Cola"
-      url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
-      icon: "fa-brands fa-youtube"
+    - title: "Actividades"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "La Coca Cola"
+          url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
+          icon: "fa-brands fa-youtube"
 
 - id: puerto_cortes
   title: "Puerto Cortés y Omoa"
@@ -292,9 +307,12 @@
     - label: "Villas Amelia"
       url: "https://www.instagram.com/villas.amelia/"
       icon: "fa-brands fa-instagram"
-    - label: "Video Tour"
-      url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
-      icon: "fa-brands fa-youtube"
+    - title: "Explorar"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Video Tour"
+          url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
+          icon: "fa-brands fa-youtube"
 
 - id: nature_stops
   title: "Cuevas de Taulabé y Cataratas de Pulhapanzak"
@@ -320,8 +338,10 @@
     - label: "Pulhapanzak Experiencia Completa"
       url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
       icon: "fa-brands fa-youtube"
-    - label: "Taulabé Experiencia Completa"
-      url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
-      icon: "fa-brands fa-youtube"
-
+    - title: "Vídeos"
+      icon: "fa-solid fa-video"
+      links:
+        - label: "Taulabé Experiencia Completa"
+          url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
+          icon: "fa-brands fa-youtube"
 
