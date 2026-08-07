@@ -1,0 +1,7 @@
+{{- $link := .link -}}
+{{- $color := .color -}}
+<a href="{{ $link.url }}" target="_blank" rel="noopener"
+   class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
+    <i class="{{ $link.icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
+    {{ $link.label }}
+</a>
