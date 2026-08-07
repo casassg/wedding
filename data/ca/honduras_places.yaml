@@ -65,9 +65,9 @@
   description: "La més petita de les illes de la Badia, amb un ambient relaxat i bohemi. Ofereix busseig de primera a l'[Escull Mesoamericà](https://ca.wikipedia.org/wiki/Barrera_de_corall_mesoamericana) i és un dels millors llocs del món per veure taurons balena (el desembre és temporada alta!). És l'hàbitat de la iguana Swamper, una espècie endèmica que no es troba enlloc més del planeta."
   icon: "fa-solid fa-fish"
   long_description: |
-    Paradís de motxillers i bussejadors, Utila ofereix algunes de les certificacions PADI més econòmiques del Carib. No hi circulen cotxes: mou-te en tuk-tuk, quad o carret de golf.
+    Paradís de motxillers i bussejadors, Utila ofereix algunes de les certificacions [PADI](https://www.padi.com/) més econòmiques del Carib. No hi circulen cotxes: mou-te en tuk-tuk, quad o carret de golf.
 
-    Destaquen: Airport Caves per fer snorkel increïble des de la vora amb coves i esquerdes (nivell mitjà); Neptune's a Coral Beach Village (accés en vaixell) per passar el dia a la platja i fer snorkel; Water Caye per una excursió a una illa deshabitada verge; Pumpkin Hill per una caminada curta al punt més alt de l'illa; i Utila Chocolate Company per tastar xocolata artesanal.
+    Destaquen: [Airport Caves](https://www.google.com/maps/place/Airport+Caves/@16.1048,-86.9268,17z/) per fer snorkel increïble des de la vora amb coves i esquerdes (nivell mitjà); Neptune's a [Coral Beach Village](https://www.coralbeachutila.com/) (accés en vaixell) per passar el dia a la platja i fer snorkel; [Water Caye](https://www.google.com/maps/place/Water+Cay/@16.1294,-86.8794,15z/) per una excursió a una illa deshabitada verge; [Pumpkin Hill](https://www.google.com/maps/place/Pumpkin+Hill/@16.1165,-86.9488,16z/) per una caminada curta al punt més alt de l'illa; i [Utila Chocolate Company](https://www.instagram.com/utilachocolate/) per tastar xocolata artesanal.
   tips:
     - "🦈 El desembre és temporada alta de taurons balena: ideal per al viatge!"
     - "💰 Un dels llocs més econòmics del món per treure's el títol PADI."
@@ -110,7 +110,7 @@
   description: "El llac més gran d'Hondures, envoltat de bosc ennuvolat i llar de més de 400 espècies d'aus. Tours de xocolata artesanal, parcs ecològics i observació d'aus, a més de les Coves de Taulabé i les Cascades de Pulhapanzak."
   icon: "fa-solid fa-dove"
   long_description: |
-    Situat a 80 km de San Pedro Sula, aquest llac impressionant ofereix moltes activitats: xocolata artesanal a Yojoa Chocolate i Luna del Puente (tours del gra a la rajola); Bioparque Paradise (parc ecològic de 78 hectàrees amb senders, cascades i ruïnes lenca); PANACAM Lodge al Parc Nacional Cerro Azul Meámbar (lodge de muntanya amb rutes, torres de guaita i vistes panoràmiques); D&D Brewery (la primera cerveseria artesanal d'Hondures, amb tours d'ocells); senders del Parc Los Naranjos; Hotel Finca Las Glorias per menjar local; passejos en barca a Honduyate; parc aquàtic Lagolandia; i Los Domos de Agualpa, amb vistes espectaculars al llac.
+    Situat a 80 km de San Pedro Sula, aquest llac impressionant ofereix moltes activitats: xocolata artesanal a [Yojoa Chocolate](https://yojoachocolate.com/) i [Luna del Puente](https://www.instagram.com/lunadelpuente/) (tours del gra a la rajola); [Bioparque Paradise](https://www.hondurastips.hn/2013/07/29/bioparque-paradise-los-naranajos/) (parc ecològic de 78 hectàrees amb senders, cascades i ruïnes lenca); [PANACAM Lodge](https://www.panacamlodge.com/) al [Parc Nacional Cerro Azul Meámbar](https://en.wikipedia.org/wiki/Cerro_Azul_Me%C3%A1mbar_National_Park) (lodge de muntanya amb rutes, torres de guaita i vistes panoràmiques); [D&D Brewery](https://ddbrewery.com/) (la primera cerveseria artesanal d'Hondures, amb tours d'ocells); senders del Parc Los Naranjos; Hotel Finca Las Glorias per menjar local; passejos en barca a Honduyate; parc aquàtic [Lagolandia](https://www.instagram.com/lagolandiahn/); i Los Domos de Agualpa, amb vistes espectaculars al llac.
 
     La zona també ofereix dues parades naturals espectaculars a la carretera principal: les **Coves de Taulabé**, que s'estenen quilòmetres sota terra amb estalactites i estalagmites espectaculars visibles des de passarel·les il·luminades, un escapament perfecte de la calor; i **Pulhapanzak**, una de les cascades més boniques de Centreamèrica, amb 43 metres d'aigua caient en una piscina natural envoltada de bosc tropical, on pots fer ràpel darrere la cascada, nedar a les piscines naturals i explorar senders on es veuen guacamais.
   tips:
@@ -138,7 +138,7 @@
         - label: "Google Maps"
           url: "https://maps.app.goo.gl/YUYqtojZ8L3Lg4c26"
           icon: "fa-solid fa-map-location-dot"
-        - label: "WhatsApp"
+        - label: "WhatsApp (Luna del Puente)"
           url: "https://wa.me/50433593265"
           icon: "fa-brands fa-whatsapp"
     - title: "Natura i Activitats"
@@ -204,9 +204,9 @@
   description: "La capital d'Hondures en una vall muntanyosa a 1.000 m d'altitud, amb arquitectura colonial, mercats animats i boscos ennuvolats propers. A només 30 minuts, el pintoresc poble de Valle de Ángeles ofereix mercats artesanals i aire fresc de muntanya."
   icon: "fa-solid fa-city"
   long_description: |
-    Fundada el 1578 als vessants del cerro El Picacho, Tegucigalpa és la capital política d'Hondures i una ciutat de contrastos. El centre històric alberga la Catedral de San Miguel (s. XVIII), la Galeria Nacional d'Art a l'antic Paraninfo i l'animat Mercat San Isidro. La Basílica de Suyapa, dedicada a la petita imatge patrona d'Hondures, rep pelegrins tot l'any (especialment el 3 de febrer). El Parc La Leona ofereix vistes panoràmiques de la ciutat, i el proper bosc ennuvolat del Parc Nacional La Tigra és una de les àrees protegides més antigues del país.
+    Fundada el 1578 als vessants del cerro El Picacho, Tegucigalpa és la capital política d'Hondures i una ciutat de contrastos. El centre històric alberga la [Catedral de San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa) (s. XVIII), la Galeria Nacional d'Art a l'antic Paraninfo i l'animat Mercat San Isidro. La [Basílica de Suyapa](https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Suyapa), dedicada a la petita imatge patrona d'Hondures, rep pelegrins tot l'any (especialment el 3 de febrer). El Parc La Leona ofereix vistes panoràmiques de la ciutat, i el proper bosc ennuvolat del [Parc Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park) és una de les àrees protegides més antigues del país.
 
-    A només 30 minuts, **Valle de Ángeles** és un preciós poble colonial de muntanya famós per la seva artesania, carrers empedrats i mercats de cap de setmana, ideal per a una escapada de mig dia des de la capital.
+    A només 30 minuts, **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** és un preciós poble colonial de muntanya famós per la seva artesania, carrers empedrats i mercats de cap de setmana, ideal per a una escapada de mig dia des de la capital.
   tips:
     - "🏛️ Visita la Catedral de San Miguel i la Galeria Nacional d'Art al centre històric."
     - "⛪ La Basílica de Suyapa alberga la diminuta imatge patrona d'Hondures, important lloc de pelegrinatge."
@@ -231,9 +231,9 @@
   description: "Ciutat de platja caribenya amb atraccions imperdibles: el [Parc Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas), amb platges verges; el [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (el més gran de Llatinoamèrica, a 5 min), i resorts i clubs de platja."
   icon: "fa-solid fa-umbrella-beach"
   long_description: |
-    Tela ofereix platges caribenyes precioses i experiències diverses. Punta Sal (Parc Nacional Jeannette Kawas) té platges verges i fauna salvatge. Playa Miami té aigües tranquil·les, ideals per a famílies.
+    Tela ofereix platges caribenyes precioses i experiències diverses. Punta Sal ([Parc Nacional Jeannette Kawas](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park)) té platges verges i fauna salvatge. [Playa Miami](https://www.google.com/maps/place/Playa+Miami/@15.7694,-87.4427,16z/) té aigües tranquil·les, ideals per a famílies.
 
-    El Jardí Botànic Lancetilla, fundat el 1926, abasta 1.600 hectàrees amb més de 1.500 espècies de plantes, a només 5 minuts del poble. Indura Resort ofereix luxe i golf, mentre que La Ensenada Beach Club i l'Hotel Telamar brinden relaxació a primera línia de mar.
+    El [Jardí Botànic Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden), fundat el 1926, abasta 1.600 hectàrees amb més de 1.500 espècies de plantes, a només 5 minuts del poble. [Indura Resort](https://www.induraresort.com/) ofereix luxe i golf, mentre que [La Ensenada Beach Club](https://www.google.com/maps/place/La+Ensenada+Beach+Resort/@15.7903,-87.4825,15z/) i l'[Hotel Telamar](https://www.google.com/maps/place/Villas+Telamar/@15.7756,-87.4593,16z/) brinden relaxació a primera línia de mar.
   tips:
     - "🏖️ Punta Sal té platges verges i fauna salvatge; reserva un tour en vaixell."
     - "🌿 El Jardí Botànic Lancetilla és el més gran de Llatinoamèrica (a només 5 min)."
@@ -318,9 +318,9 @@
   description: "La capital industrial d'Hondures i porta d'entrada a excursions increïbles d'un dia. Explora el Parc Nacional El Cusuco, camina pels senders d'Angeli Gardens, compra al mercat artesanal Guamilito o visita els camps d'hortènsies d'El Merendón."
   icon: "fa-solid fa-city"
   long_description: |
-    La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El Parc Nacional El Cusuco és una reserva de bosc ennuvolat amb una gran biodiversitat.
+    La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El [Parc Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) és una reserva de bosc ennuvolat amb una gran biodiversitat.
 
-    Angeli Gardens ofereix senders i tirolines. El mercat Guamilito és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola.
   tips:
     - "🌺 Visita els camps d'hortènsies d'El Merendón quan floreixen."
     - "🛍️ Mercat Guamilito per a artesania hondurenya autèntica."

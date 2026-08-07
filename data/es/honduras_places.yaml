@@ -65,9 +65,9 @@
   description: "La más pequeña de las islas, con un ambiente relajado y bohemio. Ofrece buceo increíble en el [Arrecife Mesoamericano](https://es.wikipedia.org/wiki/Sistema_Arrecifal_Mesoamericano) y es uno de los mejores lugares del mundo para ver tiburones ballena (¡diciembre es temporada alta!). Es el único hogar de la iguana Swamper."
   icon: "fa-solid fa-fish"
   long_description: |
-    Paraíso de mochileros y buceadores, Utila es conocida por tener cursos de certificación PADI muy económicos. Apenas hay autos; la gente se mueve en tuk-tuk, cuatrimoto o carritos de golf.
+    Paraíso de mochileros y buceadores, Utila es conocida por tener cursos de certificación [PADI](https://www.padi.com/) muy económicos. Apenas hay autos; la gente se mueve en tuk-tuk, cuatrimoto o carritos de golf.
 
-    Puntos destacados: Airport Caves (cuevas y cañones submarinos increíbles accesibles desde la orilla, nivel intermedio); Neptune's en Coral Beach Village (acceso en bote para playa y snorkel); Water Caye (cayo deshabitado de postal); Pumpkin Hill (caminata al punto más alto) y la Utila Chocolate Company.
+    Puntos destacados: [Airport Caves](https://www.google.com/maps/place/Airport+Caves/@16.1048,-86.9268,17z/) (cuevas y cañones submarinos increíbles accesibles desde la orilla, nivel intermedio); Neptune's en [Coral Beach Village](https://www.coralbeachutila.com/) (acceso en bote para playa y snorkel); [Water Caye](https://www.google.com/maps/place/Water+Cay/@16.1294,-86.8794,15z/) (cayo deshabitado de postal); [Pumpkin Hill](https://www.google.com/maps/place/Pumpkin+Hill/@16.1165,-86.9488,16z/) (caminata al punto más alto) y la [Utila Chocolate Company](https://www.instagram.com/utilachocolate/).
   tips:
     - "🦈 Diciembre es temporada alta de tiburones ballena, ¡ideal para verlos!"
     - "💰 Uno de los lugares más económicos del mundo para certificarse en buceo (PADI/SSI)."
@@ -109,7 +109,7 @@
   description: "El lago más grande de Honduras, rodeado de bosques nubosos y hogar de más de 400 especies de aves. Tours de chocolate artesanal, parques ecológicos y observación de aves, además de las Cuevas de Taulabé y las Cataratas de Pulhapanzak."
   icon: "fa-solid fa-dove"
   long_description: |
-    A 80 km de San Pedro Sula, este impresionante lago ofrece múltiples actividades: tours de cacao y chocolate en Yojoa Chocolate y Luna del Puente; el Bioparque Paradise (senderos, cascadas y ruinas lencas); PANACAM Lodge en el Parque Nacional Cerro Azul Meámbar (naturaleza y vistas panorámicas); D&D Brewery (cervecería artesanal y observación de aves); senderos en el Parque Los Naranjos y restaurantes locales como Finca Las Glorias. También puedes visitar Los Domos de Agualpa.
+    A 80 km de San Pedro Sula, este impresionante lago ofrece múltiples actividades: tours de cacao y chocolate en [Yojoa Chocolate](https://yojoachocolate.com/) y [Luna del Puente](https://www.instagram.com/lunadelpuente/); el [Bioparque Paradise](https://www.hondurastips.hn/2013/07/29/bioparque-paradise-los-naranajos/) (senderos, cascadas y ruinas lencas); [PANACAM Lodge](https://www.panacamlodge.com/) en el [Parque Nacional Cerro Azul Meámbar](https://en.wikipedia.org/wiki/Cerro_Azul_Me%C3%A1mbar_National_Park) (naturaleza y vistas panorámicas); [D&D Brewery](https://ddbrewery.com/) (cervecería artesanal y observación de aves); senderos en el Parque Los Naranjos y restaurantes locales como Finca Las Glorias. También puedes visitar Los Domos de Agualpa y [Lagolandia](https://www.instagram.com/lagolandiahn/).
 
     La zona también ofrece dos paradas naturales espectaculares en la carretera principal: las **Cuevas de Taulabé**, que se extienden por kilómetros bajo tierra con estalactitas y estalagmitas espectaculares visibles desde pasarelas iluminadas, un escape perfecto del calor; y **Pulhapanzak**, una de las cascadas más bonitas de Centroamérica, con 43 metros de agua cayendo en una piscina natural rodeada de bosque tropical, donde puedes hacer rappel detrás de la cascada, nadar en las piscinas naturales y ver guacamayas en los senderos.
   tips:
@@ -137,7 +137,7 @@
         - label: "Google Maps"
           url: "https://maps.app.goo.gl/YUYqtojZ8L3Lg4c26"
           icon: "fa-solid fa-map-location-dot"
-        - label: "WhatsApp"
+        - label: "WhatsApp (Luna del Puente)"
           url: "https://wa.me/50433593265"
           icon: "fa-brands fa-whatsapp"
     - title: "Naturaleza y Actividades"
@@ -203,9 +203,9 @@
   description: "La capital de Honduras en un valle montañoso a 1.000 m de altitud, con arquitectura colonial, mercados animados y bosques nubosos cercanos. A solo 30 minutos, el encantador pueblo de Valle de Ángeles ofrece mercados artesanales y aire fresco de montaña."
   icon: "fa-solid fa-city"
   long_description: |
-    Fundada en 1578 en las laderas del cerro El Picacho, Tegucigalpa es la capital política de Honduras y una ciudad de contrastes. El centro histórico alberga la Catedral de San Miguel (siglo XVIII), la Galería Nacional de Arte en el antiguo Paraninfo y el animado Mercado San Isidro. La Basílica de Suyapa, dedicada a la pequeña imagen patrona de Honduras, recibe peregrinos todo el año (especialmente el 3 de febrero). El Parque La Leona ofrece vistas panorámicas de la ciudad, y el cercano bosque nuboso del Parque Nacional La Tigra es una de las áreas protegidas más antiguas del país.
+    Fundada en 1578 en las laderas del cerro El Picacho, Tegucigalpa es la capital política de Honduras y una ciudad de contrastes. El centro histórico alberga la [Catedral de San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa) (siglo XVIII), la Galería Nacional de Arte en el antiguo Paraninfo y el animado Mercado San Isidro. La [Basílica de Suyapa](https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Suyapa), dedicada a la pequeña imagen patrona de Honduras, recibe peregrinos todo el año (especialmente el 3 de febrero). El Parque La Leona ofrece vistas panorámicas de la ciudad, y el cercano bosque nuboso del [Parque Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park) es una de las áreas protegidas más antiguas del país.
 
-    A solo 30 minutos, **Valle de Ángeles** es un pueblo colonial de montaña precioso, famoso por sus artesanías, calles empedradas y mercados de fin de semana, ideal para una escapada de medio día desde la capital.
+    A solo 30 minutos, **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** es un pueblo colonial de montaña precioso, famoso por sus artesanías, calles empedradas y mercados de fin de semana, ideal para una escapada de medio día desde la capital.
   tips:
     - "🏛️ Visita la Catedral de San Miguel y la Galería Nacional de Arte en el centro histórico."
     - "⛪ La Basílica de Suyapa alberga la diminuta imagen patrona de Honduras, importante sitio de peregrinación."
@@ -230,9 +230,9 @@
   description: "Ciudad costera caribeña con grandes atractivos: el [Parque Nacional Punta Sal](https://es.wikipedia.org/wiki/Parque_nacional_Jeannette_Kawas), el [Jardín Botánico Lancetilla](https://es.wikipedia.org/wiki/Jard%C3%ADn_Bot%C3%A1nico_Lancetilla) (el más grande de Latinoamérica) y hermosas playas."
   icon: "fa-solid fa-umbrella-beach"
   long_description: |
-    Tela combina playas caribeñas con naturaleza. Punta Sal (Parque Nacional Jeannette Kawas) ofrece playas vírgenes y selva. Playa Miami es ideal para familias por sus aguas tranquilas.
+    Tela combina playas caribeñas con naturaleza. Punta Sal ([Parque Nacional Jeannette Kawas](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park)) ofrece playas vírgenes y selva. [Playa Miami](https://www.google.com/maps/place/Playa+Miami/@15.7694,-87.4427,16z/) es ideal para familias por sus aguas tranquilas.
 
-    El Jardín Botánico Lancetilla (fundado en 1926) alberga más de 1,500 especies de plantas. Indura Resort ofrece golf y lujo, mientras que La Ensenada y el Hotel Telamar son opciones clásicas frente al mar.
+    El [Jardín Botánico Lancetilla](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (fundado en 1926) alberga más de 1,500 especies de plantas. [Indura Resort](https://www.induraresort.com/) ofrece golf y lujo, mientras que [La Ensenada](https://www.google.com/maps/place/La+Ensenada+Beach+Resort/@15.7903,-87.4825,15z/) y el [Hotel Telamar](https://www.google.com/maps/place/Villas+Telamar/@15.7756,-87.4593,16z/) son opciones clásicas frente al mar.
   tips:
     - "🏖️ Reserva un tour en lancha a Punta Sal para ver playas vírgenes y fauna."
     - "🌿 Visita el Jardín Botánico Lancetilla, un tesoro natural a solo 5 min."
@@ -317,9 +317,9 @@
   description: "La capital industrial de Honduras. Desde aquí puedes explorar el Parque Nacional El Cusuco, los senderos de Angeli Gardens, el mercado artesanal Guamilito o los campos de hortensias de El Merendón."
   icon: "fa-solid fa-city"
   long_description: |
-    La segunda ciudad más grande del país ofrece excelentes excursiones a menos de 100 km. El Parque Nacional El Cusuco es una reserva de bosque nuboso con gran biodiversidad.
+    La segunda ciudad más grande del país ofrece excelentes excursiones a menos de 100 km. El [Parque Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) es una reserva de bosque nuboso con gran biodiversidad.
 
-    Angeli Gardens ofrece senderos y canopy. El Mercado Guamilito es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofrece senderos y canopy. El [Mercado Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas.
   tips:
     - "🌺 Sube a El Merendón para ver la ciudad y comprar flores."
     - "🛍️ Visita el Mercado Guamilito para artesanías y comida típica."
