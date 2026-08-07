@@ -2,7 +2,10 @@
   title: "Copán Ruins"
   description: "Explore the ancient Maya city with its famous Hieroglyphic Stairway, Great Plaza, and intricate stelae. Don't miss the sculpture museum!"
   icon: "fa-solid fa-monument"
-  long_description: "Capital of a powerful multi-ethnic Maya kingdom from 426 to 822 CE, Copán has been a UNESCO World Heritage Site since 1980. Renowned for its exceptional stone sculpture, the site features the famous Hieroglyphic Stairway—the longest known Maya text—along with intricate stelae, altars, and 3D carvings. Nearly 4km of archaeological tunnels beneath the acropolis have revealed earlier temples, tombs, and stucco facades."
+  long_description: |
+    Capital of a powerful multi-ethnic Maya kingdom from 426 to 822 CE, Copán has been a UNESCO World Heritage Site since 1980. Renowned for its exceptional stone sculpture, the site features the famous Hieroglyphic Stairway—the longest known Maya text—along with intricate stelae, altars, and 3D carvings.
+
+    Nearly 4km of archaeological tunnels beneath the acropolis have revealed earlier temples, tombs, and stucco facades.
   tips:
     - "🎟️ Hire a guide at the entrance (~$50 split among group) - they share stories not in guidebooks."
     - "⏰ Arrive at 8am opening to beat the heat and crowds."
@@ -47,7 +50,8 @@
   title: "Macaw Mountain"
   description: "A bird park and nature reserve home to rescued scarlet macaws, toucans, and other tropical birds in a beautiful forest setting."
   icon: "fa-solid fa-feather"
-  long_description: "A bird sanctuary and nature reserve dedicated to rescuing and rehabilitating Honduras's native birds. Walk through the lush forest and meet scarlet macaws, toucans, motmots, and other tropical species up close."
+  long_description: |
+    A bird sanctuary and nature reserve dedicated to rescuing and rehabilitating Honduras's native birds. Walk through the lush forest and meet scarlet macaws, toucans, motmots, and other tropical species up close.
   tips:
     - "🎫 Entry $10 (L250), 8am-4pm. You can ask your hotel receptionist for tickets."
     - "🚗 Located just 10 minutes drive from the Central Square of Copán Ruinas."
@@ -79,7 +83,8 @@
   title: "Luna Jaguar Hot Springs"
   description: "Natural hot springs 22km from town with multiple thermal pools, guided tours, and Maya-themed spa. Reservation required!"
   icon: "fa-solid fa-hot-tub-person"
-  long_description: "Luna Jaguar offers a full spa experience with multiple thermal pools at different temperatures, surrounded by lush tropical vegetation. The Maya-themed setting adds to the magical atmosphere. Entry includes access to all facilities plus a guided tour."
+  long_description: |
+    Luna Jaguar offers a full spa experience with multiple thermal pools at different temperatures, surrounded by lush tropical vegetation. The Maya-themed setting adds to the magical atmosphere. Entry includes access to all facilities plus a guided tour.
   tips:
     - "📅 Reservation required! Limited capacity. Book via WhatsApp or their website."
     - "⏰ Open daily 1pm-9pm (last entry 7pm). Adults $15, kids 5-11 $5, under 5 free."
@@ -112,7 +117,10 @@
   title: "Tea & Chocolate Place"
   description: "Interactive cacao museum run by an archaeologist's family. Learn Maya chocolate traditions, taste authentic beverages, and enjoy sunset views from the terrace."
   icon: "fa-solid fa-mug-hot"
-  long_description: "Run by archaeologist David Sedat and his daughter Carolina, this unique space is part museum, part tasting experience. Learn how the Maya revered cacao as 'food of the gods' - and that Honduras was where Europeans first encountered chocolate (Columbus' 4th voyage at Guanaja). Enjoy a briefing on cacao history, sample traditional beverages, and relax on the wrap-around terrace at sunset."
+  long_description: |
+    Run by archaeologist David Sedat and his daughter Carolina, this unique space is part museum, part tasting experience. Learn how the Maya revered cacao as 'food of the gods' - and that Honduras was where Europeans first encountered chocolate (Columbus' 4th voyage at Guanaja).
+
+    Enjoy a briefing on cacao history, sample traditional beverages, and relax on the wrap-around terrace at sunset.
   tips:
     - "⏰ Open Mon-Sat 12pm-6pm. Closed Sundays."
     - "🍫 Try Maya-style chocolate (water + chile) or traditional (milk + sugar)."
@@ -154,7 +162,10 @@
   title: "Café San Rafael"
   description: "A 100% Honduran family business in the heart of Copán Ruinas, offering specialty coffee, European-inspired artisan cheeses, and wines."
   icon: "fa-solid fa-seedling"
-  long_description: "San Rafael Family Estates combines coffee farming since 1985 at Finca Managuá and Finca San Rafael with artisan dairy production at Finca Santa Clara. Their main store in central Copán Ruinas offers specialty coffee drinks, a unique selection of natural artisan cheeses (inspired by European traditions), wines, and local products. All cheeses are made naturally without additives or preservatives."
+  long_description: |
+    San Rafael Family Estates combines coffee farming since 1985 at Finca Managuá and Finca San Rafael with artisan dairy production at Finca Santa Clara. Their main store in central Copán Ruinas offers specialty coffee drinks, a unique selection of natural artisan cheeses (inspired by European traditions), wines, and local products.
+
+    All cheeses are made naturally without additives or preservatives.
   tips:
     - "☕ Famous for gourmet coffee and hand-made artisan cheeses found nowhere else in Honduras."
     - "🧀 Try their European-inspired cheeses made from free-range Pardo Suizo cows."
@@ -190,7 +201,8 @@
   title: "Mariposario"
   description: "A butterfly sanctuary where you can walk among hundreds of colorful butterflies in an enclosed garden."
   icon: "fa-solid fa-dove"
-  long_description: "Located at Hotel Mayan Hills Resort (5 min from the ruins), this enchanting butterfly house features species from the legendary blue morpho to the majestic monarch butterfly. Watch metamorphosis in action, interact with these delicate creatures, and capture unforgettable photos as butterflies land on you."
+  long_description: |
+    Located at Hotel Mayan Hills Resort (5 min from the ruins), this enchanting butterfly house features species from the legendary blue morpho to the majestic monarch butterfly. Watch metamorphosis in action, interact with these delicate creatures, and capture unforgettable photos as butterflies land on you.
   tips:
     - "🦋 Best photos in morning when butterflies are most active."
     - "📍 At Hotel Mayan Hills Resort - combine with lunch at their restaurant."
@@ -214,7 +226,8 @@
   title: "Sunflower Fields"
   description: "Beautiful sunflower fields that bloom year-round! Enjoy the scenery, hammocks, a restaurant, local coffee, and ice cream."
   icon: "fa-solid fa-sun-plant-wilt"
-  long_description: "El Paseo de los Girasoles offers more than just photos - relax in hammocks, enjoy brunch or lunch at the restaurant, sip coffee from local Copán roasters, and treat yourself to ice cream surrounded by endless sunflowers."
+  long_description: |
+    El Paseo de los Girasoles offers more than just photos - relax in hammocks, enjoy brunch or lunch at the restaurant, sip coffee from local Copán roasters, and treat yourself to ice cream surrounded by endless sunflowers.
   tips:
     - "🌻 Sunflowers bloom year-round, but check their Facebook page for the latest field status."
     - "☕ Enjoy hammocks, restaurant, local coffee, and ice cream on site."
@@ -231,7 +244,10 @@
   title: "Local Artesanías"
   description: "Browse handcrafted Maya-inspired pottery, jade jewelry, textiles, and souvenirs in the town's shops and markets."
   icon: "fa-solid fa-bag-shopping"
-  long_description: "The town center and market offer authentic Maya-inspired crafts, jade jewelry, hand-painted pottery, and local products. Don't miss the famous Copán coffee, artisan chocolate, and cacao-based products - perfect gifts for home. A highlight is their amazing handmade candles in all shapes and scents - coffee-shaped candles that smell like coffee, lemon-shaped ones with lemon scent, and many more creative designs!"
+  long_description: |
+    The town center and market offer authentic Maya-inspired crafts, jade jewelry, hand-painted pottery, and local products. Don't miss the famous Copán coffee, artisan chocolate, and cacao-based products - perfect gifts for home.
+
+    A highlight is their amazing handmade candles in all shapes and scents - coffee-shaped candles that smell like coffee, lemon-shaped ones with lemon scent, and many more creative designs!
   tips:
     - "🎨 Look for Maya-inspired jade jewelry and hand-painted pottery."
     - "🕯️ Check out the unique artisan candles - shaped and scented like coffee, lemons, and more!"

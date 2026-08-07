@@ -518,13 +518,13 @@
 
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
-            <p class="text-gray-600 font-sans leading-relaxed">
+            <div class="text-gray-600 font-sans leading-relaxed space-y-3 [&_p]:mb-0">
                 {{- with $place.long_description -}}
                     {{ . | markdownify }}
                 {{- else -}}
                     {{ $place.description | markdownify }}
                 {{- end -}}
-            </p>
+            </div>
 
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">
@@ -604,13 +604,13 @@
 
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
-            <p class="text-gray-600 font-sans leading-relaxed">
+            <div class="text-gray-600 font-sans leading-relaxed space-y-3 [&_p]:mb-0">
                 {{- with $place.long_description -}}
                     {{ . | markdownify }}
                 {{- else -}}
                     {{ $place.description | markdownify }}
                 {{- end -}}
-            </p>
+            </div>
 
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">

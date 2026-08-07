@@ -2,7 +2,10 @@
   title: "Ruinas de Copán"
   description: "Explora la antigua ciudad maya, famosa por su Escalinata de los Jeroglíficos, la Gran Plaza y sus intrincadas estelas. ¡No dejes de visitar el Museo de Escultura!"
   icon: "fa-solid fa-monument"
-  long_description: "Capital de un importante reino maya entre los años 426 y 822 d.C., Copán es Patrimonio de la Humanidad de la UNESCO. Destaca por su excepcional arte en piedra, incluyendo la Escalinata de los Jeroglíficos (el texto maya más extenso conocido), así como por sus impresionantes estelas y altares en alto relieve. Además, su red de túneles bajo la acrópolis revela templos antiguos y fachadas ocultas."
+  long_description: |
+    Capital de un importante reino maya entre los años 426 y 822 d.C., Copán es Patrimonio de la Humanidad de la UNESCO. Destaca por su excepcional arte en piedra, incluyendo la Escalinata de los Jeroglíficos (el texto maya más extenso conocido), así como por sus impresionantes estelas y altares en alto relieve.
+
+    Además, su red de túneles bajo la acrópolis revela templos antiguos y fachadas ocultas.
   tips:
     - "🎟️ Contrata un guía en la entrada (~$50 por grupo); comparten historias y secretos que no están en los libros."
     - "⏰ Llega a las 8:00 am (hora de apertura) para evitar el calor y las multitudes."
@@ -47,7 +50,8 @@
   title: "Macaw Mountain"
   description: "Un parque de aves y reserva natural, hogar de guacamayas rojas rescatadas, tucanes y otras aves tropicales en un hermoso entorno selvático."
   icon: "fa-solid fa-feather"
-  long_description: "Santuario y reserva natural dedicada al rescate y rehabilitación de aves nativas de Honduras. Recorre el exuberante bosque e interactúa de cerca con guacamayas rojas, tucanes, momotos y otras especies tropicales."
+  long_description: |
+    Santuario y reserva natural dedicada al rescate y rehabilitación de aves nativas de Honduras. Recorre el exuberante bosque e interactúa de cerca con guacamayas rojas, tucanes, momotos y otras especies tropicales.
   tips:
     - "🎫 Entrada $10 (L250), 8am-4pm. Pide más información en la recepción de tu hotel."
     - "🚗 Se encuentra a solo 10 minutos en auto de la plaza central de Copán Ruinas."
@@ -79,7 +83,8 @@
   title: "Aguas Termales Luna Jaguar"
   description: "Aguas termales naturales a 22km del pueblo, con múltiples piscinas, tours guiados y spa temático maya. ¡Reservación obligatoria!"
   icon: "fa-solid fa-hot-tub-person"
-  long_description: "Luna Jaguar ofrece una experiencia de spa completa con múltiples piscinas termales a diferentes temperaturas, rodeadas de exuberante vegetación tropical. Su temática maya aporta una atmósfera mágica. La entrada incluye acceso a todas las instalaciones y un tour guiado."
+  long_description: |
+    Luna Jaguar ofrece una experiencia de spa completa con múltiples piscinas termales a diferentes temperaturas, rodeadas de exuberante vegetación tropical. Su temática maya aporta una atmósfera mágica. La entrada incluye acceso a todas las instalaciones y un tour guiado.
   tips:
     - "📅 ¡Reservación obligatoria! Cupo limitado. Reserva vía WhatsApp o en su página web."
     - "⏰ Abierto todos los días 1pm-9pm (último ingreso 7pm). Adultos $15, niños 5-11 $5, menores de 5 gratis."
@@ -112,7 +117,10 @@
   title: "Tea & Chocolate Place"
   description: "Museo interactivo del cacao dirigido por la familia de un arqueólogo. Aprende sobre las tradiciones mayas del chocolate, prueba bebidas auténticas y disfruta del atardecer desde la terraza."
   icon: "fa-solid fa-mug-hot"
-  long_description: "Dirigido por el arqueólogo David Sedat y su hija Carolina, este espacio único es en parte museo y en parte experiencia de degustación. Descubre cómo los mayas veneraban el cacao como 'alimento de los dioses', y aprende que fue en Honduras donde los europeos conocieron el chocolate (durante el 4º viaje de Colón en Guanaja). Disfruta de una charla sobre la historia del cacao, prueba bebidas tradicionales y relájate en la terraza panorámica al atardecer."
+  long_description: |
+    Dirigido por el arqueólogo David Sedat y su hija Carolina, este espacio único es en parte museo y en parte experiencia de degustación. Descubre cómo los mayas veneraban el cacao como 'alimento de los dioses', y aprende que fue en Honduras donde los europeos conocieron el chocolate (durante el 4º viaje de Colón en Guanaja).
+
+    Disfruta de una charla sobre la historia del cacao, prueba bebidas tradicionales y relájate en la terraza panorámica al atardecer.
   tips:
     - "⏰ Abierto de lunes a sábado, 12pm-6pm. Cerrado los domingos."
     - "🍫 Prueba el chocolate estilo maya (agua + chile) o el tradicional (leche + azúcar)."
@@ -154,7 +162,10 @@
   title: "Café San Rafael"
   description: "Empresa familiar 100% hondureña en el corazón de Copán Ruinas, que ofrece café de especialidad, vinos y quesos artesanales de inspiración europea."
   icon: "fa-solid fa-seedling"
-  long_description: "San Rafael Family Estates combina el cultivo de café (desde 1985 en Finca Managuá y Finca San Rafael) con la producción láctea artesanal en Finca Santa Clara. Su tienda principal en el centro de Copán Ruinas ofrece café de especialidad, una selección única de quesos artesanales (inspirados en tradiciones europeas), vinos y productos locales. Todos los quesos se elaboran de forma natural, sin aditivos ni conservantes."
+  long_description: |
+    San Rafael Family Estates combina el cultivo de café (desde 1985 en Finca Managuá y Finca San Rafael) con la producción láctea artesanal en Finca Santa Clara. Su tienda principal en el centro de Copán Ruinas ofrece café de especialidad, una selección única de quesos artesanales (inspirados en tradiciones europeas), vinos y productos locales.
+
+    Todos los quesos se elaboran de forma natural, sin aditivos ni conservantes.
   tips:
     - "☕ Famoso por su café gourmet y sus quesos artesanales, únicos en Honduras."
     - "🧀 Prueba sus quesos de estilo europeo, hechos con leche de vacas Pardo Suizo de pastoreo."
@@ -190,7 +201,8 @@
   title: "Mariposario"
   description: "Un santuario donde puedes caminar entre cientos de mariposas coloridas dentro de un jardín tropical cerrado."
   icon: "fa-solid fa-dove"
-  long_description: "Ubicado en el Hotel Mayan Hills Resort (a 5 min de las ruinas), este encantador mariposario alberga especies que van desde la legendaria morpho azul hasta la majestuosa mariposa monarca. Observa la metamorfosis en acción, interactúa con estas delicadas criaturas y toma fotos inolvidables cuando se posen sobre ti."
+  long_description: |
+    Ubicado en el Hotel Mayan Hills Resort (a 5 min de las ruinas), este encantador mariposario alberga especies que van desde la legendaria morpho azul hasta la majestuosa mariposa monarca. Observa la metamorfosis en acción, interactúa con estas delicadas criaturas y toma fotos inolvidables cuando se posen sobre ti.
   tips:
     - "🦋 Las mejores fotos se consiguen por la mañana, cuando las mariposas están más activas."
     - "📍 Situado en el Hotel Mayan Hills Resort; puedes combinar la visita con un almuerzo en su restaurante."
@@ -214,7 +226,8 @@
   title: "Campos de Girasoles"
   description: "¡Hermosos campos de girasoles que florecen todo el año! Disfruta del paisaje, las hamacas, el restaurante y el café local."
   icon: "fa-solid fa-sun-plant-wilt"
-  long_description: "El Paseo de los Girasoles ofrece mucho más que fotos: relájate en sus hamacas, disfruta de un brunch o almuerzo en el restaurante, saborea el café de productores locales de Copán y date un gusto con un helado rodeado de girasoles."
+  long_description: |
+    El Paseo de los Girasoles ofrece mucho más que fotos: relájate en sus hamacas, disfruta de un brunch o almuerzo en el restaurante, saborea el café de productores locales de Copán y date un gusto con un helado rodeado de girasoles.
   tips:
     - "🌻 Los girasoles florecen todo el año, pero consulta su página de Facebook para ver el estado actual."
     - "☕ Disfruta de las hamacas, el restaurante, el café local y los helados en el mismo lugar."
@@ -231,7 +244,10 @@
   title: "Artesanías Locales"
   description: "Explora la cerámica de inspiración maya, joyería de jade, textiles y recuerdos artesanales en las tiendas y mercados del pueblo."
   icon: "fa-solid fa-bag-shopping"
-  long_description: "El centro del pueblo y el mercado ofrecen auténticas artesanías de inspiración maya, joyería de jade, cerámica pintada a mano y productos locales. No te pierdas el famoso café de Copán, el chocolate artesanal y los productos derivados del cacao, ideales para llevar a casa. Destacan especialmente sus velas artesanales en formas creativas (como granos de café o limones) que conservan sus respectivos aromas."
+  long_description: |
+    El centro del pueblo y el mercado ofrecen auténticas artesanías de inspiración maya, joyería de jade, cerámica pintada a mano y productos locales. No te pierdas el famoso café de Copán, el chocolate artesanal y los productos derivados del cacao, ideales para llevar a casa.
+
+    Destacan especialmente sus velas artesanales en formas creativas (como granos de café o limones) que conservan sus respectivos aromas.
   tips:
     - "🎨 Busca joyería de jade de inspiración maya y cerámica pintada a mano."
     - "🕯️ Descubre las velas artesanales únicas, ¡con forma y aroma de café, limón y más!"

@@ -2,7 +2,12 @@
   title: "Roatán"
   description: "The largest Bay Island with world-class diving, pristine Caribbean beaches, and incredible wildlife. Just 40 minutes by boat, the protected Cayos Cochinos islands offer untouched coral reefs, endemic pink boas, and authentic Garífuna fishing villages."
   icon: "fa-solid fa-water"
-  long_description: "West Bay Beach consistently ranks among the Caribbean's best beaches, with pristine sand and reef just offshore. West End is the main tourist hub with dive shops, restaurants, and nightlife. The reef is protected by the [Roatan Marine Park](https://www.roatanmarinepark.org/), a nonprofit running coral restoration programs - you can visit their Coral Restoration Center or join a lionfish hunting workshop. Don't miss the wildlife sanctuaries: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) for up-close animal encounters, and [Gumbalimba Park](https://roatan.online/gumbalimba-park) for ziplines and wildlife. The [Roatan Chocolate Factory](https://roatan.online/roatan-chocolate-factory) offers free tours showcasing bean-to-bar production. For adventure, explore mangrove tunnels on the quieter east end, or relax at Camp Bay's secluded beaches. Just 40 minutes by boat, **Cayos Cochinos** is a pristine marine sanctuary managed by the [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), protecting some of the most intact coral reefs in the Caribbean. Visitors can hike to spot the endemic pink boa constrictor on Cayo Mayor, snorkel over virgin reef, and experience authentic Garífuna culture at the fishing village of Chachahuate. The Fundación runs active coral restoration and sea turtle conservation programs, making it one of the most meaningful eco-destinations in Honduras."
+  long_description: |
+    West Bay Beach consistently ranks among the Caribbean's best beaches, with pristine sand and reef just offshore. West End is the main tourist hub with dive shops, restaurants, and nightlife. The reef is protected by the [Roatan Marine Park](https://www.roatanmarinepark.org/), a nonprofit running coral restoration programs - you can visit their Coral Restoration Center or join a lionfish hunting workshop.
+
+    Don't miss the wildlife sanctuaries: [Daniel Johnson's Monkey & Sloth Hangout](https://monkeyandslothhangout.com/) for up-close animal encounters, and [Gumbalimba Park](https://roatan.online/gumbalimba-park) for ziplines and wildlife. The [Roatan Chocolate Factory](https://roatan.online/roatan-chocolate-factory) offers free tours showcasing bean-to-bar production. For adventure, explore mangrove tunnels on the quieter east end, or relax at Camp Bay's secluded beaches.
+
+    Just 40 minutes by boat, **Cayos Cochinos** is a pristine marine sanctuary managed by the [Fundación Cayos Cochinos](https://www.cayoscochinos.org/), protecting some of the most intact coral reefs in the Caribbean. Visitors can hike to spot the endemic pink boa constrictor on Cayo Mayor, snorkel over virgin reef, and experience authentic Garífuna culture at the fishing village of Chachahuate. The Fundación runs active coral restoration and sea turtle conservation programs, making it one of the most meaningful eco-destinations in Honduras.
   tips:
     - "🏊 Best snorkeling at West Bay Beach - reef is a short swim from shore."
     - "🐠 Use reef-safe sunscreen to help protect the coral reef."
@@ -15,15 +20,15 @@
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Roat%C3%A1n"
       icon: "fa-solid fa-landmark"
-    - label: "Roatan Tourism"
-      url: "https://roatan.online/"
-      icon: "fa-solid fa-globe"
-    - label: "Marine Park"
-      url: "https://www.roatanmarinepark.org/"
-      icon: "fa-solid fa-fish"
     - title: "Things to do"
       icon: "fa-solid fa-compass"
       links:
+        - label: "Roatan Tourism"
+          url: "https://roatan.online/"
+          icon: "fa-solid fa-globe"
+        - label: "Marine Park"
+          url: "https://www.roatanmarinepark.org/"
+          icon: "fa-solid fa-fish"
         - label: "Monkey & Sloth Hangout"
           url: "https://monkeyandslothhangout.com/"
           icon: "fa-solid fa-paw"
@@ -59,7 +64,10 @@
   title: "Utila"
   description: "The smallest Bay Island with a laid-back 'boho' vibe, world-class diving on the [Mesoamerican Barrier Reef](https://en.wikipedia.org/wiki/Mesoamerican_Barrier_Reef_System), and one of the best places in the world to spot whale sharks - December is peak season! Home to the endemic Swamper iguana found nowhere else on Earth."
   icon: "fa-solid fa-fish"
-  long_description: "A backpacker paradise and diver's haven, Utila offers some of the cheapest PADI certifications in the Caribbean. No cars are allowed - get around by tuk-tuk, ATV, or golf cart. Highlights include: Airport Caves for incredible shore snorkeling with caves and canyons (intermediate swimmers); Neptune's at Coral Beach Village (boat access) for beach days and great snorkeling; Water Caye for a pristine uninhabited island day trip; Pumpkin Hill for a short hike to the island's highest point; and the Utila Chocolate Company for artisan bean-to-bar tastings."
+  long_description: |
+    A backpacker paradise and diver's haven, Utila offers some of the cheapest PADI certifications in the Caribbean. No cars are allowed - get around by tuk-tuk, ATV, or golf cart.
+
+    Highlights include: Airport Caves for incredible shore snorkeling with caves and canyons (intermediate swimmers); Neptune's at Coral Beach Village (boat access) for beach days and great snorkeling; Water Caye for a pristine uninhabited island day trip; Pumpkin Hill for a short hike to the island's highest point; and the Utila Chocolate Company for artisan bean-to-bar tastings.
   tips:
     - "🦈 December is prime whale shark season - perfect timing for the wedding trip!"
     - "💰 One of the cheapest places in the world for PADI dive certification."
@@ -80,7 +88,12 @@
   title: "La Ceiba"
   description: "Honduras's 'Entertainment Capital' and gateway to the Bay Islands, set dramatically at the foot of [Pico Bonito](https://en.wikipedia.org/wiki/Pico_Bonito_National_Park) (2,435m). Home to the country's biggest festival - the [Gran Carnaval Internacional](https://en.wikipedia.org/wiki/La_Ceiba_Carnival) every May - plus world-class rafting, a vibrant [Garífuna](https://en.wikipedia.org/wiki/Garifuna) community, and legendary nightlife."
   icon: "fa-solid fa-masks-theater"
-  long_description: "Named after a giant ceiba tree that once grew near the old docks, La Ceiba developed as a banana port in the late 1800s under the Vaccaro Brothers (now Dole). Today it's the eco-tourism hub of Honduras. Key attractions include: [Pico Bonito National Park](https://en.wikipedia.org/wiki/Pico_Bonito_National_Park) with rainforest trails, waterfalls, and incredible biodiversity; the [Cangrejal River](https://en.wikipedia.org/wiki/Cangrejal_River) for Class III-IV whitewater rafting just east of town; and [Cuero y Salado Wildlife Refuge](https://en.wikipedia.org/wiki/Cuero_y_Salado_Wildlife_Refuge) to the west, where you can spot wild manatees. The ferry port connects to Roatán and Utila daily. The Zona Viva on Calle 1 is the nightlife district. Barrio La Isla, across the river estuary, is home to a thriving Garífuna community."
+  long_description: |
+    Named after a giant ceiba tree that once grew near the old docks, La Ceiba developed as a banana port in the late 1800s under the Vaccaro Brothers (now Dole). Today it's the eco-tourism hub of Honduras.
+
+    Key attractions include: [Pico Bonito National Park](https://en.wikipedia.org/wiki/Pico_Bonito_National_Park) with rainforest trails, waterfalls, and incredible biodiversity; the [Cangrejal River](https://en.wikipedia.org/wiki/Cangrejal_River) for Class III-IV whitewater rafting just east of town; and [Cuero y Salado Wildlife Refuge](https://en.wikipedia.org/wiki/Cuero_y_Salado_Wildlife_Refuge) to the west, where you can spot wild manatees.
+
+    The ferry port connects to Roatán and Utila daily. The Zona Viva on Calle 1 is the nightlife district. Barrio La Isla, across the river estuary, is home to a thriving Garífuna community.
   tips:
     - "⛴️ Gateway to Bay Islands - ferries leave twice daily to Roatán and Utila."
     - "🎭 Carnaval (3rd Saturday of May) draws 500,000+ people - not during our December trip, but Honduras's biggest party!"
@@ -93,33 +106,74 @@
       url: "https://en.wikipedia.org/wiki/La_Ceiba"
 
 - id: yojoa
-  title: "Lago de Yojoa"
-  description: "Honduras's largest lake, surrounded by cloud forests and home to over 400 bird species. Experience artisan chocolate tours, eco-archaeological parks, mountain lodges, and world-class birdwatching."
+  title: "Lake Yojoa"
+  description: "Honduras's largest lake, surrounded by cloud forests and home to over 400 bird species. Artisan chocolate tours, eco-parks, and world-class birdwatching, plus the stunning Taulabé Caves and Pulhapanzak Waterfall nearby."
   icon: "fa-solid fa-dove"
-  long_description: "Located 80km from San Pedro Sula, this stunning lake offers diverse attractions: artisan chocolate experiences at Yojoa Chocolate and Luna del Puente (bean-to-bar tours); Bioparque Paradise (78-hectare eco-park with trails, waterfalls, and Lenca archaeological ruins); PANACAM Lodge in Cerro Azul Meámbar National Park (mountain lodge with nature trails, birdwatching towers, and panoramic views); D&D Brewery (Honduras's first microbrewery with guided birding tours); Parque Los Naranjos eco-trails; Hotel Finca Las Glorias for local cuisine; Honduyate boat tours; Lagolandia water park; and Los Domos de Agualpa glamping domes with spectacular lake views."
+  long_description: |
+    Located 80km from San Pedro Sula, this stunning lake offers diverse attractions: artisan chocolate experiences at Yojoa Chocolate and Luna del Puente (bean-to-bar tours); Bioparque Paradise (78-hectare eco-park with trails, waterfalls, and Lenca archaeological ruins); PANACAM Lodge in Cerro Azul Meámbar National Park (mountain lodge with nature trails, birdwatching towers, and panoramic views); D&D Brewery (Honduras's first microbrewery with guided birding tours); Parque Los Naranjos eco-trails; Hotel Finca Las Glorias for local cuisine; Honduyate boat tours; Lagolandia water park; and Los Domos de Agualpa glamping domes with spectacular lake views.
+
+    The region also offers two epic nature stops along the main highway: the **Taulabé Caves**, limestone caves extending for kilometers underground with spectacular stalactites and stalagmites on illuminated walkways, a perfect cool escape from the heat; and **Pulhapanzak**, one of Central America's most beautiful waterfalls, 43 meters of water plunging into a natural pool surrounded by lush tropical forest, where you can rappel behind the falls, swim in the natural pools, and spot macaws on nearby trails.
   tips:
     - "🍺 Visit D&D Brewery - Honduras's first microbrewery."
     - "🍫 Take a chocolate tour - learn bean-to-bar production from local cacao farms."
     - "🐟 Try fried tilapia 'Lake Yojoa Style' at roadside restaurants."
     - "🐦 Over 400 bird species - bring binoculars!"
+    - "🌡️ Both are great hot-day escapes: Taulabé stays cool underground, Pulhapanzak has a misty pool."
+    - "🧗 At Pulhapanzak you can rappel behind the 43m waterfall (guided tours, extra fee)."
+    - "👟 Wear good walking shoes for both; the caves have walkways, the falls have trails."
+    - "📍 Both are on the main road: Taulabé ~1h from Copán, Pulhapanzak ~1.5h."
+    - "🦜 Pulhapanzak is a great spot for macaw sightings."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Lake_Yojoa"
-    - label: "Yojoa Chocolate"
-      url: "https://yojoachocolate.com/"
+    - title: "Chocolate & Food"
       icon: "fa-solid fa-cookie-bite"
-    - label: "PANACAM Lodge"
-      url: "https://www.panacamlodge.com/"
-      icon: "fa-solid fa-mountain"
-    - title: "Explore"
-      icon: "fa-solid fa-compass"
       links:
+        - label: "Yojoa Chocolate"
+          url: "https://yojoachocolate.com/"
+          icon: "fa-solid fa-cookie-bite"
+        - label: "Luna del Puente"
+          url: "https://www.instagram.com/lunadelpuente/"
+          icon: "fa-brands fa-instagram"
+        - label: "Google Maps"
+          url: "https://maps.app.goo.gl/YUYqtojZ8L3Lg4c26"
+          icon: "fa-solid fa-map-location-dot"
+        - label: "WhatsApp"
+          url: "https://wa.me/50433593265"
+          icon: "fa-brands fa-whatsapp"
+    - title: "Nature & Activities"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "PANACAM Lodge"
+          url: "https://www.panacamlodge.com/"
+          icon: "fa-solid fa-mountain"
         - label: "Bioparque Paradise"
           url: "https://www.hondurastips.hn/2013/07/29/bioparque-paradise-los-naranajos/"
           icon: "fa-solid fa-tree"
         - label: "D&D Birding"
           url: "https://ddbrewery.com/index.php/birding-onaround-lake-yojoa/"
           icon: "fa-solid fa-binoculars"
+    - title: "Caves & Waterfall"
+      icon: "fa-solid fa-mountain-sun"
+      links:
+        - label: "Cave Tour"
+          url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
+          icon: "fa-brands fa-youtube"
+        - label: "Waterfall Tour"
+          url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
+          icon: "fa-brands fa-youtube"
+        - label: "Adventure Video"
+          url: "https://www.youtube.com/watch?v=9iH50CtlyPs"
+          icon: "fa-brands fa-youtube"
+        - label: "Pulhapanzak Full Experience"
+          url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
+          icon: "fa-brands fa-youtube"
+        - label: "Taulabé Full Experience"
+          url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
+          icon: "fa-brands fa-youtube"
+    - title: "Videos"
+      icon: "fa-brands fa-youtube"
+      links:
         - label: "Lake Overview"
           url: "https://www.youtube.com/watch?v=ptp64fKzdea"
           icon: "fa-brands fa-youtube"
@@ -149,7 +203,10 @@
   title: "Tegucigalpa & Valle de Ángeles"
   description: "Honduras's mountain capital at 1,000m elevation, with colonial architecture, lively markets, and nearby cloud forests. Just 30 minutes away, the charming town of Valle de Ángeles offers artisan markets and pine-scented mountain air."
   icon: "fa-solid fa-city"
-  long_description: "Founded in 1578 on the slopes of Mount Picacho, Tegucigalpa is Honduras's political capital and a city of contrasts. The historic center features the 18th-century Cathedral of San Miguel, the National Art Gallery in the former Paraninfo building, and the bustling Mercado San Isidro. The Basílica de Suyapa, dedicated to Honduras's tiny patron saint statue, draws pilgrims year-round (especially during the February 3 festival). Parque La Leona offers panoramic city views, and the nearby cloud forest of La Tigra National Park is one of Honduras's oldest protected areas. Just 30 minutes away, **Valle de Ángeles** is a beautifully preserved colonial mountain town famous for its handicrafts, cobblestone streets, and weekend artisan markets, perfect as a half-day escape from the capital."
+  long_description: |
+    Founded in 1578 on the slopes of Mount Picacho, Tegucigalpa is Honduras's political capital and a city of contrasts. The historic center features the 18th-century Cathedral of San Miguel, the National Art Gallery in the former Paraninfo building, and the bustling Mercado San Isidro. The Basílica de Suyapa, dedicated to Honduras's tiny patron saint statue, draws pilgrims year-round (especially during the February 3 festival). Parque La Leona offers panoramic city views, and the nearby cloud forest of La Tigra National Park is one of Honduras's oldest protected areas.
+
+    Just 30 minutes away, **Valle de Ángeles** is a beautifully preserved colonial mountain town famous for its handicrafts, cobblestone streets, and weekend artisan markets, perfect as a half-day escape from the capital.
   tips:
     - "🏛️ Visit the Cathedral of San Miguel and the National Art Gallery in the historic center."
     - "⛪ The Basílica de Suyapa houses Honduras's tiny patron saint statue, a major pilgrimage site."
@@ -173,7 +230,10 @@
   title: "Tela"
   description: "A Caribbean beach town with must-see attractions: [Punta Sal National Park](https://en.wikipedia.org/wiki/Jeannette_Kawas_National_Park) with pristine beaches, [Lancetilla Botanical Garden](https://en.wikipedia.org/wiki/Lancetilla_Botanical_Garden) (Latin America's largest, just 5 min away), plus resorts and beach clubs."
   icon: "fa-solid fa-umbrella-beach"
-  long_description: "Tela offers beautiful Caribbean beaches and diverse experiences. Punta Sal (Jeannette Kawas National Park) features pristine beaches and wildlife. Playa Miami has calm waters perfect for families. Lancetilla Botanical Garden, founded in 1926, spans 1,600 hectares with over 1,500 plant species - just 5 minutes from town. Indura Resort offers luxury and golf, while La Ensenada Beach Club and Hotel Telamar provide beachfront relaxation."
+  long_description: |
+    Tela offers beautiful Caribbean beaches and diverse experiences. Punta Sal (Jeannette Kawas National Park) features pristine beaches and wildlife. Playa Miami has calm waters perfect for families.
+
+    Lancetilla Botanical Garden, founded in 1926, spans 1,600 hectares with over 1,500 plant species - just 5 minutes from town. Indura Resort offers luxury and golf, while La Ensenada Beach Club and Hotel Telamar provide beachfront relaxation.
   tips:
     - "🏖️ Punta Sal has pristine beaches and wildlife - book a boat tour."
     - "🌿 Lancetilla Botanical Garden is Latin America's largest - just 5 min away."
@@ -181,27 +241,33 @@
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Tela"
-    - label: "Punta Sal"
-      url: "https://www.youtube.com/watch?v=NUwqo1vCPXE"
-      icon: "fa-brands fa-youtube"
-    - label: "Park Tour"
-      url: "https://www.youtube.com/watch?v=VzH2pwVDwrU"
-      icon: "fa-brands fa-youtube"
-    - label: "Jeannette Kawas"
-      url: "https://www.youtube.com/watch?v=jXptBkVOAMM"
-      icon: "fa-brands fa-youtube"
-    - title: "More to explore"
-      icon: "fa-solid fa-compass"
+    - title: "Punta Sal"
+      icon: "fa-solid fa-umbrella-beach"
       links:
-        - label: "Playa Miami"
-          url: "https://www.youtube.com/watch?v=fBFMgsOVW9E"
+        - label: "Punta Sal"
+          url: "https://www.youtube.com/watch?v=NUwqo1vCPXE"
           icon: "fa-brands fa-youtube"
+        - label: "Park Tour"
+          url: "https://www.youtube.com/watch?v=VzH2pwVDwrU"
+          icon: "fa-brands fa-youtube"
+        - label: "Jeannette Kawas"
+          url: "https://www.youtube.com/watch?v=jXptBkVOAMM"
+          icon: "fa-brands fa-youtube"
+    - title: "Lancetilla"
+      icon: "fa-solid fa-leaf"
+      links:
         - label: "Lancetilla Garden"
           url: "https://www.youtube.com/watch?v=srWlXwcsCh4"
           icon: "fa-brands fa-youtube"
         - label: "Lancetilla Botanical Garden"
           url: "https://unacifor.edu.hn/jardinbotanicolancetilla/"
           icon: "fa-solid fa-leaf"
+    - title: "Beach & Resorts"
+      icon: "fa-solid fa-hotel"
+      links:
+        - label: "Playa Miami"
+          url: "https://www.youtube.com/watch?v=fBFMgsOVW9E"
+          icon: "fa-brands fa-youtube"
         - label: "Indura Resort"
           url: "https://www.youtube.com/watch?v=nAjLFXYx0Yw"
           icon: "fa-brands fa-youtube"
@@ -251,7 +317,10 @@
   title: "San Pedro Sula"
   description: "Honduras's industrial capital and gateway to amazing day trips. Explore El Cusuco National Park, hike Angeli Gardens trails, shop at Guamilito artisan market, or visit the stunning hydrangea fields of El Merendón."
   icon: "fa-solid fa-city"
-  long_description: "The second largest city offers excellent day trip options within 100km. El Cusuco National Park is a cloud forest biological reserve with incredible biodiversity. Angeli Gardens offers hiking trails and canopy ziplines. Guamilito Market is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail."
+  long_description: |
+    The second largest city offers excellent day trip options within 100km. El Cusuco National Park is a cloud forest biological reserve with incredible biodiversity.
+
+    Angeli Gardens offers hiking trails and canopy ziplines. Guamilito Market is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail.
   tips:
     - "🌺 Visit the hydrangea fields of El Merendón in bloom season."
     - "🛍️ Guamilito Market for authentic Honduran handicrafts."
@@ -282,7 +351,12 @@
   title: "Puerto Cortés & Omoa"
   description: "Honduras's main Caribbean port city with a beautiful historic center, and the nearby beach town of Omoa with its stunning 18th-century fortress and incredible seafood, just 20-40 minutes from the airport."
   icon: "fa-solid fa-anchor"
-  long_description: "Puerto Cortés is Honduras's principal Caribbean port and a city with deep history. Founded in the 16th century, it became one of Spain's most important colonial ports, shipping silver, indigo, and other goods back to Europe. Today, the [historic center](https://www.youtube.com/watch?v=QBRrNOe4tVY) preserves colorful colonial-era wooden houses and a lively malecón. Just 20 minutes south is **Omoa**, a laid-back beach town where the main attraction is the [San Fernando de Omoa Fortress](https://en.wikipedia.org/wiki/Fortaleza_de_San_Fernando), an imposing 18th-century Spanish colonial fortress built to protect the coast from pirates, now housing a small museum. The beaches in Omoa have calm waters perfect for swimming, and the *comidas típicas* (fried fish, shrimp, coconut bread) are some of the best in Honduras. [Villas Amelia](https://www.instagram.com/villas.amelia/) is owned by a friend of ours, perfect to stay or to visit."
+  long_description: |
+    Puerto Cortés is Honduras's principal Caribbean port and a city with deep history. Founded in the 16th century, it became one of Spain's most important colonial ports, shipping silver, indigo, and other goods back to Europe. Today, the [historic center](https://www.youtube.com/watch?v=QBRrNOe4tVY) preserves colorful colonial-era wooden houses and a lively malecón.
+
+    Just 20 minutes south is **Omoa**, a laid-back beach town where the main attraction is the [San Fernando de Omoa Fortress](https://en.wikipedia.org/wiki/Fortaleza_de_San_Fernando), an imposing 18th-century Spanish colonial fortress built to protect the coast from pirates, now housing a small museum. The beaches in Omoa have calm waters perfect for swimming, and the *comidas típicas* (fried fish, shrimp, coconut bread) are some of the best in Honduras.
+
+    [Villas Amelia](https://www.instagram.com/villas.amelia/) is owned by a friend of ours, perfect to stay or to visit.
   tips:
     - "🏰 Don't miss the San Fernando Fortress in Omoa, one of Honduras's most important colonial sites."
     - "🐟 Try the fried fish and shrimp on Omoa beach, some of the best seafood in the country."
@@ -314,35 +388,3 @@
         - label: "Video Tour"
           url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
           icon: "fa-brands fa-youtube"
-
-- id: nature_stops
-  title: "Taulabé Caves & Pulhapanzak Waterfall"
-  description: "Two epic nature stops on the road: [Cuevas de Taulabé](https://www.youtube.com/watch?v=-h5r1lh4Bww), limestone caves with stunning formations, and [Pulhapanzak](https://www.youtube.com/watch?v=TMQ5KqDlcsI), a 43m waterfall that inspired Disney's Jungle Book scenes."
-  icon: "fa-solid fa-mountain-sun"
-  long_description: "Taulabé Caves and Pulhapanzak Waterfall are two incredible side trips along the main highway between San Pedro Sula and Copán (or Tegucigalpa). The limestone caves of **Taulabé** extend for kilometers underground with spectacular stalactites and stalagmites visible on illuminated walkways, a perfect cool escape from the heat. **Pulhapanzak** is one of Central America's most beautiful waterfalls: 43 meters of water plunging into a natural pool surrounded by lush tropical forest. Adventure options include rappelling behind the falls, swimming in the natural pools, and exploring nearby trails where you can spot macaws. Both stops are about 1.5-2 hours from Copán."
-  tips:
-    - "🌡️ Both are great hot-day escapes: Taulabé stays cool underground, Pulhapanzak has a misty pool."
-    - "🧗 At Pulhapanzak you can rappel behind the 43m waterfall (guided tours, extra fee)."
-    - "👟 Wear good walking shoes for both; the caves have walkways, the falls have trails."
-    - "📍 Both are on the main road: Taulabé ~1h from Copán, Pulhapanzak ~1.5h."
-    - "🦜 Pulhapanzak is a great spot for macaw sightings."
-  links:
-    - label: "Cave Tour"
-      url: "https://www.youtube.com/watch?v=-h5r1lh4Bww"
-      icon: "fa-brands fa-youtube"
-    - label: "Waterfall Tour"
-      url: "https://www.youtube.com/watch?v=TMQ5KqDlcsI"
-      icon: "fa-brands fa-youtube"
-    - title: "Videos"
-      icon: "fa-solid fa-video"
-      links:
-        - label: "Adventure Video"
-          url: "https://www.youtube.com/watch?v=9iH50CtlyPs"
-          icon: "fa-brands fa-youtube"
-        - label: "Pulhapanzak Full Experience"
-          url: "https://www.youtube.com/watch?v=AI6KxxA7J6c"
-          icon: "fa-brands fa-youtube"
-        - label: "Taulabé Full Experience"
-          url: "https://www.youtube.com/watch?v=UGVdUZSQZng"
-          icon: "fa-brands fa-youtube"
-
