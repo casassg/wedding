@@ -1,0 +1,25 @@
+{{- with .links -}}
+{{- $color := $.color -}}
+<div class="space-y-3">
+    <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+        <i class="fa-solid fa-link text-{{ $color }}"></i>
+        {{ i18n "place_links" }}
+    </h4>
+    {{- $flat := where . "url" "!=" nil -}}
+    {{- if $flat -}}
+    <div class="flex flex-wrap gap-3">
+        {{- range $flat }}{{ partial "place-link-pill.html" (dict "link" . "color" $color) }}{{ end -}}
+    </div>
+    {{- end -}}
+    {{- range where . "title" "!=" nil -}}
+    <div class="space-y-2">
+        <p class="text-sm font-medium text-gray-500 uppercase tracking-wide">
+            {{- with .icon }}<i class="{{ . }} text-{{ $color }} mr-1"></i>{{ end }}{{ .title -}}
+        </p>
+        <div class="flex flex-wrap gap-3">
+            {{- range .links }}{{ partial "place-link-pill.html" (dict "link" . "color" $color) }}{{ end -}}
+        </div>
+    </div>
+    {{- end -}}
+</div>
+{{- end -}}

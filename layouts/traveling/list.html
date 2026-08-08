@@ -130,13 +130,13 @@
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_things_to_do_intro" }}</p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex flex-wrap justify-center gap-6">
             {{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
             {{- $copan := index .Site.Data .Site.Language.Lang "copan_places" -}}
             {{- range $index, $place := $copan -}}
             {{- $color := index $colors (mod $index (len $colors)) -}}
             {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
-            <div class="card-shadow bg-white p-6 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
+            <div class="card-shadow bg-white w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(25%-1.125rem)] p-6 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
                 <div class="w-12 h-12 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center mb-4 group-hover:{{ $rotate }} transition-transform">
                     <i class="{{ $place.icon }} text-xl"></i>
                 </div>
@@ -155,9 +155,9 @@
         <div class="mt-16">
             <h3 class="font-hand text-4xl text-center mb-4 text-gray-800">{{ i18n "traveling_getting_around" }}</h3>
             <p class="text-center text-gray-600 font-sans max-w-2xl mx-auto mb-8">{{ i18n "traveling_getting_around_intro" }}</p>
-            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div class="flex flex-wrap justify-center gap-8 max-w-4xl mx-auto">
                 <!-- Walking -->
-                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
+                <div class="card-shadow bg-white w-full md:w-[calc(50%-1rem)] p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mr-4 group-hover:rotate-12 transition-transform">
                             <i class="fa-solid fa-person-walking text-xl"></i>
@@ -168,7 +168,7 @@
                 </div>
 
                 <!-- Tuk-tuks -->
-                <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
+                <div class="card-shadow bg-white w-full md:w-[calc(50%-1rem)] p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300">
                     <div class="flex items-center mb-6">
                         <div class="w-12 h-12 bg-rose/20 text-rose rounded-2xl flex items-center justify-center mr-4 group-hover:-rotate-12 transition-transform">
                             <i class="fa-solid fa-taxi text-xl"></i>
@@ -199,13 +199,13 @@
             <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_explore_intro" }}</p>
         </div>
 
-        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             {{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
             {{- $honduras := index .Site.Data .Site.Language.Lang "honduras_places" -}}
             {{- range $index, $place := $honduras -}}
             {{- $color := index $colors (mod $index (len $colors)) -}}
             {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
-            <div class="card-glass p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
+            <div class="card-glass w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
                 <div class="w-14 h-14 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center mb-6 group-hover:{{ $rotate }} transition-transform">
                     <i class="{{ $place.icon }} text-2xl"></i>
                 </div>
@@ -246,13 +246,13 @@
             <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "traveling_tips_subtitle" }}</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="flex flex-wrap justify-center gap-8">
             {{- $colors := slice "ocean" "mint" "marigold" "clay" "rose" "lavender" -}}
             {{- $tips := index .Site.Data .Site.Language.Lang "travel_tips" -}}
             {{- range $index, $tip := $tips -}}
             {{- $color := index $colors (mod $index (len $colors)) -}}
             {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
-            <div class="card-shadow bg-white p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
+            <div class="card-shadow bg-white w-full md:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)] p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
                 <div class="w-14 h-14 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center mb-6 group-hover:{{ $rotate }} transition-transform">
                     <i class="{{ $tip.icon }} text-2xl"></i>
                 </div>
@@ -374,13 +374,13 @@
 
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
-            <p class="text-gray-600 font-sans leading-relaxed">
+            <div class="text-gray-600 font-sans leading-relaxed space-y-3 [&_p]:mb-0">
                 {{- with $place.long_description -}}
                     {{ . | markdownify }}
                 {{- else -}}
                     {{ $place.description | markdownify }}
                 {{- end -}}
-            </p>
+            </div>
 
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">
@@ -399,23 +399,7 @@
             </div>
             {{- end -}}
 
-            {{- with $place.links -}}
-            <div class="space-y-3">
-                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-{{ $color }}"></i>
-                    {{ i18n "place_links" }}
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                    {{- range . -}}
-                    <a href="{{ .url }}" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
-                        {{ .label }}
-                    </a>
-                    {{- end -}}
-                </div>
-            </div>
-            {{- end -}}
+            {{ partial "place-links.html" (dict "links" $place.links "color" $color) }}
         </div>
 
         <!-- Navigation Footer -->
@@ -476,13 +460,13 @@
 
         <!-- Content (scrollable) -->
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
-            <p class="text-gray-600 font-sans leading-relaxed">
+            <div class="text-gray-600 font-sans leading-relaxed space-y-3 [&_p]:mb-0">
                 {{- with $place.long_description -}}
                     {{ . | markdownify }}
                 {{- else -}}
                     {{ $place.description | markdownify }}
                 {{- end -}}
-            </p>
+            </div>
 
             {{- with $place.tips -}}
             <div class="bg-{{ $color }}/10 p-4 rounded-xl">
@@ -501,23 +485,7 @@
             </div>
             {{- end -}}
 
-            {{- with $place.links -}}
-            <div class="space-y-3">
-                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-{{ $color }}"></i>
-                    {{ i18n "place_links" }}
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                    {{- range . -}}
-                    <a href="{{ .url }}" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
-                        {{ .label }}
-                    </a>
-                    {{- end -}}
-                </div>
-            </div>
-            {{- end -}}
+            {{ partial "place-links.html" (dict "links" $place.links "color" $color) }}
         </div>
 
         <!-- Navigation Footer -->
@@ -665,23 +633,7 @@
             {{- end }}
 
             <!-- Action Links -->
-            {{- with $hotel.links }}
-            <div class="space-y-3">
-                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-link text-{{ $color }}"></i>
-                    {{ i18n "place_links" }}
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                    {{- range . }}
-                    <a href="{{ .url }}" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-{{ $color }}/10 text-{{ $color }} hover:bg-{{ $color }}/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="{{ .icon | default "fa-solid fa-arrow-up-right-from-square" }}"></i>
-                        {{ .label }}
-                    </a>
-                    {{- end }}
-                </div>
-            </div>
-            {{- end }}
+            {{ partial "place-links.html" (dict "links" $hotel.links "color" $color) }}
         </div>
 
         <!-- Navigation Footer -->
