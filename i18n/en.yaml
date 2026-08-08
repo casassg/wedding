@@ -13,7 +13,10 @@ save_the_date_btn: "Save the Date"
 welcome: "Welcome"
 were_getting_married: "We're getting married!"
 welcome_message: "We can't wait to celebrate our special day with all of you in the beautiful town of Copan Ruinas, Honduras. Join us for a weekend of love, laughter, and unforgettable memories."
-welcome_why_copan: "Copán was one of the first places we visited together as a couple, when Gerard came to Honduras for the first time. We both fell in love with this place and it means so much to us. Besides, it's a beautiful town with lots of [activities and places to visit](/traveling/#things-to-do)."
+welcome_why_copan: |-
+  Copán was one of the first places we visited together as a couple, when Gerard came to Honduras for the first time. We both fell in love with this place and it means so much to us. Besides, it's a beautiful town with lots of [activities and places to visit](/traveling/#things-to-do).
+
+  Copán Ruinas is a charming colonial town in western Honduras, famous for its ancient Maya ruins, pleasant weather, and laid-back atmosphere.
 
 # Details
 the_details: "Details"
@@ -151,13 +154,6 @@ traveling_tuktuk_desc: "Three-wheeled tuk-tuks are everywhere and super affordab
 
 # Why Copán
 traveling_why_copan: "Why Copán?"
-traveling_why_copan_intro: "Copán Ruinas is a charming colonial town nestled in the mountains of western Honduras, famous for its ancient Maya ruins and laid-back atmosphere."
-traveling_unesco: "UNESCO World Heritage"
-traveling_unesco_desc: "The Copán Archaeological Site is one of the most important Maya cities ever discovered, known for its remarkable sculptural art and hieroglyphic texts."
-traveling_colonial: "Colonial Charm"
-traveling_colonial_desc: "The town itself is a beautiful colonial village with cobblestone streets, colorful buildings, excellent restaurants, and a relaxed vibe."
-traveling_weather: "Perfect Weather"
-traveling_weather_desc: "At 700m elevation, Copán enjoys a pleasant subtropical climate. December temperatures average 20-28°C (68-82°F) - perfect for a celebration!"
 
 # Things to Do in Copán (places moved to data/en/copan_places.yaml)
 traveling_things_to_do: "Things to Do in Copán"

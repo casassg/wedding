@@ -14,7 +14,10 @@ save_the_date_btn: "Guardar Fecha"
 welcome: "Bienvenidos"
 were_getting_married: "¡Nos casamos!"
 welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
-welcome_why_copan: "Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do)."
+welcome_why_copan: |-
+  Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do).
+
+  Copán Ruinas es un encantador pueblo colonial en el oeste de Honduras, famoso por sus antiguas ruinas mayas, su clima agradable y su ambiente relajado.
 
 # Details
 the_details: "Detalles"
@@ -152,13 +155,6 @@ traveling_tuktuk_desc: "Los tuktuks de tres ruedas están por todas partes y son
 
 # Why Copán
 traveling_why_copan: "¿Por qué Copán?"
-traveling_why_copan_intro: "Copán Ruinas es un encantador pueblo colonial ubicado en las montañas del oeste de Honduras, famoso por sus antiguas ruinas mayas y su ambiente relajado."
-traveling_unesco: "Patrimonio de la Humanidad"
-traveling_unesco_desc: "El Sitio Arqueológico de Copán es una de las ciudades mayas más importantes jamás descubiertas, conocida por su notable arte escultórico y textos jeroglíficos."
-traveling_colonial: "Encanto Colonial"
-traveling_colonial_desc: "El pueblo en sí es una villa colonial hermosa con calles empedradas, edificios coloridos, excelentes restaurantes y un ambiente tranquilo."
-traveling_weather: "Clima Perfecto"
-traveling_weather_desc: "A 700 m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C. ¡Perfecto para una celebración!"
 
 # Things to Do in Copán (lugares movidos a data/es/copan_places.yaml)
 traveling_things_to_do: "Qué hacer en Copán"

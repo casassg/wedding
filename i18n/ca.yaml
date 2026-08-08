@@ -13,7 +13,10 @@ save_the_date_btn: "Reserva la Data"
 welcome: "Benvinguts"
 were_getting_married: "Ens casem!"
 welcome_message: "Tenim moltes ganes de celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copán Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
-welcome_why_copan: "Copán va ser un dels primers llocs que vam visitar junts com a parella, quan en Gerard va venir a Hondures per primer cop. Tots dos ens vam enamorar d'aquest lloc i significa moltíssim per a nosaltres. A més, és un poble preciós, amb un munt d'[activitats i llocs per visitar](/ca/traveling/#things-to-do)."
+welcome_why_copan: |-
+  Copán va ser un dels primers llocs que vam visitar junts com a parella, quan en Gerard va venir a Hondures per primer cop. Tots dos ens vam enamorar d'aquest lloc i significa moltíssim per a nosaltres. A més, és un poble preciós, amb un munt d'[activitats i llocs per visitar](/ca/traveling/#things-to-do).
+
+  Copán Ruinas és un poble colonial encantador a l'oest d'Hondures, famós per les seves antigues ruïnes maies, el clima agradable i l'ambient relaxat.
 
 # Details
 the_details: "Detalls"
@@ -151,13 +154,6 @@ traveling_tuktuk_desc: "Els mototaxis (tuk-tuks) són per tot arreu i són molt 
 
 # Why Copán
 traveling_why_copan: "Per què Copán?"
-traveling_why_copan_intro: "Copán Ruinas és un poble colonial encantador situat a les muntanyes de l'oest d'Hondures, famós per les antigues ruïnes maies i l'ambient relaxat."
-traveling_unesco: "Patrimoni de la Humanitat"
-traveling_unesco_desc: "El jaciment arqueològic de Copán és una de les ciutats maies més importants que s'han descobert, coneguda pel seu art escultòric notable i els textos jeroglífics."
-traveling_colonial: "Encant colonial"
-traveling_colonial_desc: "El poble en si és una vila colonial preciosa amb carrers empedrats, edificis colorits, restaurants excel·lents i un ambient relaxat."
-traveling_weather: "Clima perfecte"
-traveling_weather_desc: "A 700 m d'altitud, Copán gaudeix d'un clima subtropical agradable. Al desembre, la temperatura mitjana és de 20-28 °C. Perfecte per a una celebració!"
 
 # Things to Do in Copán (llocs moguts a data/ca/copan_places.yaml)
 traveling_things_to_do: "Què fer a Copán"
