@@ -14,6 +14,7 @@ save_the_date_btn: "Guardar Fecha"
 welcome: "Bienvenidos"
 were_getting_married: "¡Nos casamos!"
 welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
+welcome_why_copan: "Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do)."
 
 # Details
 the_details: "Detalles"
@@ -117,6 +118,9 @@ traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. Más detalles con la invitación."
 
 # Proveedor de transporte
+plan_trip_label: "Contactos de Confianza"
+plan_trip_title: "Planifica tu Viaje"
+plan_trip_subtitle: "Dos contactos locales de confianza que pueden ayudarte con transporte, tours y reservas en Honduras."
 transport_provider_label: "Transporte privado"
 transport_provider_title: "Chelsy Tours"
 transport_provider_subtitle: "Proveedor local de confianza para transporte privado y traslados al aeropuerto en Honduras. Contacta a Daniel para organizar tu traslado de forma independiente."

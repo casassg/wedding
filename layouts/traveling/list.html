@@ -72,197 +72,49 @@
     </div>
 </section>
 
-<!-- Transport Provider Section -->
-<section id="transport-provider" class="py-16 md:py-24 px-6 bg-clay section-colored">
-    <div class="max-w-4xl mx-auto">
+<!-- Where to Stay Section -->
+<section id="where-to-stay" class="py-16 md:py-24 px-6 bg-mint section-colored" x-data>
+    <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
-            <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}"
-                     class="flower-decoration flower-left"
-                     alt="" aria-hidden="true">
-                <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "transport_provider_label" }}</span>
-                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}"
-                     class="flower-decoration flower-right"
-                     alt="" aria-hidden="true">
-            </div>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "transport_provider_title" }}</h2>
-            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "transport_provider_subtitle" }}</p>
-        </div>
-
-        <div class="card-shadow bg-white p-8 md:p-10 rounded-3xl">
-            <div class="grid sm:grid-cols-2 gap-4 mb-8">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-clay/20 text-clay rounded-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-plane-arrival"></i>
-                    </div>
-                    <span class="text-gray-700 font-sans">{{ i18n "transport_provider_service_airport" }}</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-clay/20 text-clay rounded-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-van-shuttle"></i>
-                    </div>
-                    <span class="text-gray-700 font-sans">{{ i18n "transport_provider_service_private" }}</span>
-                </div>
-            </div>
-
-            <div class="bg-clay/10 border border-clay/20 rounded-2xl p-4 mb-8">
-                <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 bg-clay/20 text-clay rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                        <i class="fa-solid fa-message"></i>
-                    </div>
-                    <p class="text-gray-700 font-sans text-sm">{{ i18n "transport_provider_hint" | markdownify }}</p>
-                </div>
-            </div>
-
-            <div class="space-y-3">
-                <h4 class="font-semibold text-gray-800 flex items-center gap-2 font-sans">
-                    <i class="fa-solid fa-address-book text-clay"></i>
-                    {{ i18n "travel_agent_contact" }} · {{ i18n "transport_provider_phone" }}
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                    <a href="https://api.whatsapp.com/send/?phone=50496875749&text={{ i18n "transport_provider_whatsapp_text" | urlquery }}&type=phone_number&app_absent=0" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
-                    <a href="https://www.facebook.com/ChelsyTours/" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-brands fa-facebook"></i>
-                        Facebook
-                    </a>
-                    <a href="https://www.instagram.com/chelsytourscopan" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-brands fa-instagram"></i>
-                        Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Travel Agent Section -->
-<section id="travel-agent" class="py-16 md:py-24 px-6 bg-white">
-    <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-            <div class="relative inline-flex justify-center items-center">
-                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}"
-                     class="flower-decoration flower-left"
-                     alt="" aria-hidden="true">
-                <span class="text-ocean font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "travel_agent_label" }}</span>
-                <img src="{{ "images/flowers/cluster-d.svg" | relURL }}"
-                     class="flower-decoration flower-right"
-                     alt="" aria-hidden="true">
-            </div>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-gray-800">{{ i18n "travel_agent_title" }}</h2>
-            <p class="mt-4 text-gray-600 font-sans max-w-2xl mx-auto">{{ i18n "travel_agent_subtitle" }}</p>
-        </div>
-
-        <div class="card-shadow bg-white p-8 md:p-10 rounded-3xl">
-            <!-- Services Grid -->
-            <div class="grid sm:grid-cols-2 gap-4 mb-8">
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-earth-americas"></i>
-                    </div>
-                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_packages" }}</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-hotel"></i>
-                    </div>
-                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_hotels" }}</span>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0">
-                        <i class="fa-solid fa-map-location-dot"></i>
-                    </div>
-                    <span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_trips" }}</span>
-                </div>
-            </div>
-
-            <!-- Discount Callout -->
-            <div class="bg-ocean/10 border border-ocean/20 rounded-2xl p-4 mb-8">
-                <div class="flex items-start gap-3">
-                    <div class="w-8 h-8 bg-ocean/20 text-ocean rounded-lg flex items-center justify-center shrink-0 mt-0.5">
-                        <i class="fa-solid fa-tag"></i>
-                    </div>
-                    <p class="text-gray-700 font-sans text-sm">{{ i18n "travel_agent_discount" | markdownify }}</p>
-                </div>
-            </div>
-
-            <!-- Contact Buttons -->
-            <div class="space-y-3">
-                <h4 class="font-semibold text-gray-800 flex items-center gap-2 font-sans">
-                    <i class="fa-solid fa-address-book text-ocean"></i>
-                    {{ i18n "travel_agent_contact" }}
-                </h4>
-                <div class="flex flex-wrap gap-3">
-                    <a href="https://api.whatsapp.com/send/?phone=50432664174&text={{ i18n "travel_agent_whatsapp_text" | urlquery }}&type=phone_number&app_absent=0" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-brands fa-whatsapp"></i>
-                        WhatsApp
-                    </a>
-                    <a href="mailto:M.alfaro18@hotmail.com" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-solid fa-envelope"></i>
-                        Email
-                    </a>
-                    <a href="https://www.instagram.com/dmundotravel/" target="_blank" rel="noopener"
-                       class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors">
-                        <i class="fa-brands fa-instagram"></i>
-                        Instagram
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Why Copán Section -->
-<section class="py-16 md:py-24 px-6 bg-lavender section-colored">
-    <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
                 <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
             </div>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_why_copan" }}</h2>
-            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_why_copan_intro" }}</p>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_where_to_stay" }}</h2>
+            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- UNESCO Card -->
-            <div class="card-glass p-8 rounded-3xl group hover:border-lavender/30 transition-all duration-300 text-center">
-                <div class="w-16 h-16 bg-lavender/20 text-lavender rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-landmark text-2xl"></i>
+        {{- $accommodations := index .Site.Data .Site.Language.Lang "accommodations" -}}
+        {{- $colors := slice "rose" "ocean" "marigold" "clay" "mint" "lavender" -}}
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            {{- range $index, $hotel := $accommodations }}
+            {{- $color := index $colors (mod $index (len $colors)) -}}
+            {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
+            <div class="card-glass p-6 md:p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
+                <div class="flex items-start gap-4 mb-4">
+                    <div class="w-12 h-12 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0 group-hover:{{ $rotate }} transition-transform">
+                        <i class="fa-solid fa-hotel text-xl"></i>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        {{- with $hotel.room_block }}
+                        <span class="inline-block px-2 py-0.5 bg-{{ $color }}/20 text-{{ $color }} rounded-full text-xs font-semibold uppercase tracking-wide mb-1">{{ i18n "accommodation_room_block" }}</span>
+                        {{- end }}
+                        <h3 class="font-hand text-2xl md:text-3xl text-gray-800">{{ $hotel.name }}</h3>
+                    </div>
                 </div>
-                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_unesco" }}</h3>
-                <p class="text-gray-600 font-sans">{{ i18n "traveling_unesco_desc" }}</p>
+                <p class="text-gray-600 text-sm font-sans flex-grow">{{ $hotel.description }}</p>
+                <button type="button"
+                        @click="$store.placeModals.open('place-modal-accommodations-{{ $index }}', 'accommodations', {{ $index }}, {{ len $accommodations }})"
+                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
+                    <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
+                </button>
             </div>
-
-            <!-- Colonial Charm Card -->
-            <div class="card-glass p-8 rounded-3xl group hover:border-rose/30 transition-all duration-300 text-center">
-                <div class="w-16 h-16 bg-rose/20 text-rose rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-city text-2xl"></i>
-                </div>
-                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_colonial" }}</h3>
-                <p class="text-gray-600 font-sans">{{ i18n "traveling_colonial_desc" }}</p>
-            </div>
-
-            <!-- Weather Card -->
-            <div class="card-glass p-8 rounded-3xl group hover:border-marigold/30 transition-all duration-300 text-center">
-                <div class="w-16 h-16 bg-marigold/20 text-marigold rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform">
-                    <i class="fa-solid fa-sun text-2xl"></i>
-                </div>
-                <h3 class="font-hand text-3xl mb-4 text-gray-800">{{ i18n "traveling_weather" }}</h3>
-                <p class="text-gray-600 font-sans">{{ i18n "traveling_weather_desc" }}</p>
-            </div>
+            {{- end }}
         </div>
     </div>
 </section>
 
 <!-- Things to Do in Copán Section -->
-<section class="py-16 md:py-24 px-6 bg-white" x-data>
+<section id="things-to-do" class="py-16 md:py-24 px-6 bg-white" x-data>
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-16">
             <div class="relative inline-flex justify-center items-center">
@@ -412,51 +264,55 @@
     </div>
 </section>
 
-<!-- Where to Stay Section -->
-<section id="where-to-stay" class="py-16 md:py-24 px-6 bg-mint section-colored" x-data>
+<!-- Plan Your Trip Section -->
+<section id="plan-your-trip" class="py-16 md:py-24 px-6 bg-clay section-colored">
     <div class="max-w-6xl mx-auto">
         <div class="text-center mb-12">
             <div class="relative inline-flex justify-center items-center">
-                <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "the_details" }}</span>
+                <img src="{{ "images/flowers/cluster-b.svg" | relURL }}" class="flower-decoration flower-left" alt="" aria-hidden="true">
+                <span class="text-white/80 font-bold uppercase tracking-widest text-sm font-sans">{{ i18n "plan_trip_label" }}</span>
+                <img src="{{ "images/flowers/cluster-c.svg" | relURL }}" class="flower-decoration flower-right" alt="" aria-hidden="true">
             </div>
-            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "traveling_where_to_stay" }}</h2>
-            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "traveling_accommodation_intro" }}</p>
+            <h2 class="font-hand text-5xl md:text-6xl mt-4 text-white">{{ i18n "plan_trip_title" }}</h2>
+            <p class="mt-4 text-white/80 font-sans max-w-2xl mx-auto">{{ i18n "plan_trip_subtitle" }}</p>
         </div>
 
-        {{- $accommodations := index .Site.Data .Site.Language.Lang "accommodations" -}}
-        {{- $colors := slice "rose" "ocean" "marigold" "clay" "mint" "lavender" -}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-            {{- range $index, $hotel := $accommodations }}
-            {{- $color := index $colors (mod $index (len $colors)) -}}
-            {{- $rotate := cond (eq (mod $index 2) 0) "rotate-12" "-rotate-12" -}}
-            <div class="card-glass p-6 md:p-8 rounded-3xl group hover:border-{{ $color }}/30 transition-all duration-300 flex flex-col">
-                <div class="flex items-start gap-4 mb-4">
-                    <div class="w-12 h-12 bg-{{ $color }}/20 text-{{ $color }} rounded-2xl flex items-center justify-center shrink-0 group-hover:{{ $rotate }} transition-transform">
-                        <i class="fa-solid fa-hotel text-xl"></i>
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        {{- with $hotel.room_block }}
-                        <span class="inline-block px-2 py-0.5 bg-{{ $color }}/20 text-{{ $color }} rounded-full text-xs font-semibold uppercase tracking-wide mb-1">{{ i18n "accommodation_room_block" }}</span>
-                        {{- end }}
-                        <h3 class="font-hand text-2xl md:text-3xl text-gray-800">{{ $hotel.name }}</h3>
-                    </div>
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+            <div id="transport-provider" class="card-shadow bg-white p-8 rounded-3xl scroll-mt-24">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-12 h-12 bg-clay/20 text-clay rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-van-shuttle text-xl"></i></div>
+                    <div><span class="text-clay font-bold uppercase tracking-widest text-xs font-sans">{{ i18n "transport_provider_label" }}</span><h3 class="font-hand text-3xl text-gray-800">{{ i18n "transport_provider_title" }}</h3></div>
                 </div>
-                <p class="text-gray-600 text-sm font-sans flex-grow">{{ $hotel.description }}</p>
-                <button type="button"
-                        @click="$store.placeModals.open('place-modal-accommodations-{{ $index }}', 'accommodations', {{ $index }}, {{ len $accommodations }})"
-                        class="place-card-trigger mt-4 inline-flex items-center text-xs font-semibold text-{{ $color }} hover:text-{{ $color }}/70 transition-colors cursor-pointer">
-                    <i class="fa-solid fa-circle-info mr-2"></i>{{ i18n "place_learn_more" }}
-                </button>
+                <p class="text-gray-600 font-sans mb-6">{{ i18n "transport_provider_subtitle" }}</p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-clay/20 text-clay rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-plane-arrival"></i></div><span class="text-gray-700 font-sans">{{ i18n "transport_provider_service_airport" }}</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-clay/20 text-clay rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-van-shuttle"></i></div><span class="text-gray-700 font-sans">{{ i18n "transport_provider_service_private" }}</span></div>
+                </div>
+                <div class="bg-clay/10 border border-clay/20 rounded-2xl p-4 mb-6"><div class="flex items-start gap-3"><div class="w-8 h-8 bg-clay/20 text-clay rounded-lg flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-message"></i></div><p class="text-gray-700 font-sans text-sm">{{ i18n "transport_provider_hint" | markdownify }}</p></div></div>
+                <div class="space-y-3"><h4 class="font-semibold text-gray-800 flex items-center gap-2 font-sans"><i class="fa-solid fa-address-book text-clay"></i>{{ i18n "travel_agent_contact" }} · {{ i18n "transport_provider_phone" }}</h4><div class="flex flex-wrap gap-3">
+                    <a href="https://api.whatsapp.com/send/?phone=50496875749&text={{ i18n "transport_provider_whatsapp_text" | urlquery }}&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="https://www.facebook.com/ChelsyTours/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="https://www.instagram.com/chelsytourscopan" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-clay/10 text-clay hover:bg-clay/20 rounded-full text-sm font-medium transition-colors"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div></div>
             </div>
-            {{- end }}
+            <div id="travel-agent" class="card-shadow bg-white p-8 rounded-3xl scroll-mt-24">
+                <div class="flex items-center gap-3 mb-4"><div class="w-12 h-12 bg-ocean/20 text-ocean rounded-2xl flex items-center justify-center shrink-0"><i class="fa-solid fa-earth-americas text-xl"></i></div><div><span class="text-ocean font-bold uppercase tracking-widest text-xs font-sans">{{ i18n "travel_agent_label" }}</span><h3 class="font-hand text-3xl text-gray-800">{{ i18n "travel_agent_title" }}</h3></div></div>
+                <p class="text-gray-600 font-sans mb-6">{{ i18n "travel_agent_subtitle" }}</p>
+                <div class="space-y-3 mb-6">
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-earth-americas"></i></div><span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_packages" }}</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-hotel"></i></div><span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_hotels" }}</span></div>
+                    <div class="flex items-center gap-3"><div class="w-10 h-10 bg-ocean/20 text-ocean rounded-xl flex items-center justify-center shrink-0"><i class="fa-solid fa-map-location-dot"></i></div><span class="text-gray-700 font-sans">{{ i18n "travel_agent_service_trips" }}</span></div>
+                </div>
+                <div class="bg-ocean/10 border border-ocean/20 rounded-2xl p-4 mb-6"><div class="flex items-start gap-3"><div class="w-8 h-8 bg-ocean/20 text-ocean rounded-lg flex items-center justify-center shrink-0 mt-0.5"><i class="fa-solid fa-tag"></i></div><p class="text-gray-700 font-sans text-sm">{{ i18n "travel_agent_discount" | markdownify }}</p></div></div>
+                <div class="space-y-3"><h4 class="font-semibold text-gray-800 flex items-center gap-2 font-sans"><i class="fa-solid fa-address-book text-ocean"></i>{{ i18n "travel_agent_contact" }}</h4><div class="flex flex-wrap gap-3">
+                    <a href="https://api.whatsapp.com/send/?phone=50432664174&text={{ i18n "travel_agent_whatsapp_text" | urlquery }}&type=phone_number&app_absent=0" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:M.alfaro18@hotmail.com" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors"><i class="fa-solid fa-envelope"></i> Email</a>
+                    <a href="https://www.instagram.com/dmundotravel/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-4 py-2 bg-ocean/10 text-ocean hover:bg-ocean/20 rounded-full text-sm font-medium transition-colors"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                </div></div>
+            </div>
         </div>
 
-        <div class="text-center mt-12">
-            <a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/90 hover:text-white transition font-sans">
-                <i class="fa-solid fa-arrow-left mr-2"></i>
-                {{ i18n "traveling_back_home" }}
-            </a>
-        </div>
+        <div class="text-center mt-12"><a href="{{ .Site.Home.RelPermalink }}" class="inline-flex items-center text-sm font-bold uppercase tracking-widest text-white/90 hover:text-white transition font-sans"><i class="fa-solid fa-arrow-left mr-2"></i>{{ i18n "traveling_back_home" }}</a></div>
     </div>
 </section>
 

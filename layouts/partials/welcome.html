@@ -15,6 +15,17 @@
         <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto font-sans text-lg">
             {{ i18n "welcome_message" }}
         </p>
+
+        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto mt-6 font-sans">
+            {{ i18n "welcome_why_copan" | markdownify }}
+        </p>
+
+        <h3 class="font-hand text-4xl mt-10 mb-4 text-gray-800">{{ i18n "traveling_why_copan" }}</h3>
+        <div class="max-w-2xl mx-auto space-y-2 text-gray-600 font-sans text-left">
+            <p><i class="fa-solid fa-landmark text-lavender mr-2"></i><strong>{{ i18n "traveling_unesco" }}</strong> — {{ i18n "traveling_unesco_desc" }}</p>
+            <p><i class="fa-solid fa-city text-rose mr-2"></i><strong>{{ i18n "traveling_colonial" }}</strong> — {{ i18n "traveling_colonial_desc" }}</p>
+            <p><i class="fa-solid fa-sun text-marigold mr-2"></i><strong>{{ i18n "traveling_weather" }}</strong> — {{ i18n "traveling_weather_desc" }}</p>
+        </div>
         
         <!-- Decorative Floral Divider -->
         <div class="flex items-center justify-center mt-12 space-x-3">

@@ -13,6 +13,7 @@ save_the_date_btn: "Reserva la Data"
 welcome: "Benvinguts"
 were_getting_married: "Ens casem!"
 welcome_message: "Tenim moltes ganes de celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copán Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
+welcome_why_copan: "Copán va ser un dels primers llocs que vam visitar junts com a parella, quan en Gerard va venir a Hondures per primer cop. Tots dos ens vam enamorar d'aquest lloc i significa moltíssim per a nosaltres. A més, és un poble preciós, amb un munt d'[activitats i llocs per visitar](/ca/traveling/#things-to-do)."
 
 # Details
 the_details: "Detalls"
@@ -116,6 +117,9 @@ traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Més detalls amb la invitació."
 
 # Proveïdor de transport
+plan_trip_label: "Contactes de Confiança"
+plan_trip_title: "Planifica el teu Viatge"
+plan_trip_subtitle: "Dos contactes locals de confiança que us poden ajudar amb transport, tours i reserves a Hondures."
 transport_provider_label: "Transport privat"
 transport_provider_title: "Chelsy Tours"
 transport_provider_subtitle: "Proveïdor local de confiança per a transport privat i trasllats a l'aeroport a Hondures. Contacteu el Daniel per organitzar el vostre trasllat de forma independent."
