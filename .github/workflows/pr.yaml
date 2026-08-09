@@ -74,11 +74,28 @@ jobs:
           TZ: America/Tegucigalpa
         run: ./bin/hugo --gc --minify --baseURL "/"
 
+      - name: Reset stale review app machines
+        if: github.event.action != 'closed'
+        env:
+          APP_NAME: pr-${{ github.event.number }}-casassg-wedding
+        run: |
+          if ! flyctl status --app "$APP_NAME" >/dev/null 2>&1; then
+            exit 0
+          fi
+
+          flyctl machines list --app "$APP_NAME" --json \
+            | jq -r '.[].id' \
+            | while read -r machine_id; do
+                [ -n "$machine_id" ] || continue
+                flyctl machine destroy "$machine_id" --app "$APP_NAME" --force
+              done
+
       - name: Deploy or destroy PR app on Fly.io
         id: deploy
         uses: superfly/fly-pr-review-apps@1.6.0
         with:
           config: fly.review.toml
+          deploy_options: --strategy bluegreen
 
       - name: Set Fly secrets
         if: github.event.action != 'closed'
