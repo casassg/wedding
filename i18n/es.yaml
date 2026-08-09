@@ -68,14 +68,6 @@ rsvp_thanks_decline: "¡Te echaremos de menos! Gracias por avisarnos. ❤️ Si 
 
 # Travel
 logistics: "Logística"
-travel_info: "Viaje y Transporte"
-getting_there: "Cómo llegar"
-getting_there_desc: "Para quienes vienen de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP), el aeropuerto principal más cercano a Copán (3-4 horas en auto). Siempre que sea posible, viajen durante el día. Los detalles del transporte compartido de la boda se incluyen con la invitación."
-transportation: "Transporte"
-transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
-transport_venue_city: "Compartiremos más información sobre el transporte compartido desde San Pedro a Copán con la invitación."
-transport_around_copan: "¿Moverse por Copán? ¡A pie o en _tuktuk_!"
-travel_guide_reference: "¡Echa un vistazo a [nuestra página de viajes](/traveling/) para más información sobre qué hacer en Copán y en Honduras!"
 
 # Spain
 also_save: "También Reserva la Fecha"
