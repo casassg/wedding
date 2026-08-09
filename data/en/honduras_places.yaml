@@ -204,16 +204,23 @@
   description: "Honduras's mountain capital at 1,000m elevation, with colonial architecture, lively markets, and nearby cloud forests. Just 30 minutes away, the charming town of Valle de Ángeles offers artisan markets and pine-scented mountain air."
   icon: "fa-solid fa-city"
   long_description: |
-    Founded in 1578 on the slopes of Mount Picacho, Tegucigalpa is Honduras's political capital and a city of contrasts. The historic center features the 18th-century [Cathedral of San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa), the National Art Gallery in the former Paraninfo building, and the bustling Mercado San Isidro. The [Basílica de Suyapa](https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Suyapa), dedicated to Honduras's tiny patron saint statue, draws pilgrims year-round (especially during the February 3 festival). Parque La Leona offers panoramic city views, and the nearby cloud forest of [La Tigra National Park](https://en.wikipedia.org/wiki/La_Tigra_National_Park) is one of Honduras's oldest protected areas.
+    Founded in 1578 on the slopes of Mount Picacho, Tegucigalpa is Honduras's political capital and a city of contrasts. The historic center features the 18th-century [Cathedral of San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa), the National Art Gallery in the former Paraninfo building, and the bustling Mercado San Isidro. The [Basílica de Suyapa](https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Suyapa), dedicated to Honduras's tiny patron saint statue, draws pilgrims year-round (especially during the February 3 festival). Parque La Leona offers panoramic city views, and the nearby cloud forest of [La Tigra National Park](https://en.wikipedia.org/wiki/La_Tigra_National_Park) is one of Honduras's oldest protected areas, with great hiking trails.
 
-    Just 30 minutes away, **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** is a beautifully preserved colonial mountain town famous for its handicrafts, cobblestone streets, and weekend artisan markets, perfect as a half-day escape from the capital.
+    Just 30 minutes away, **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** is a beautifully preserved colonial mountain town famous for its handicrafts, cobblestone streets, and weekend artisan markets, perfect as a half-day escape from the capital. Two more little towns share the same road: **San Juancito**, a former mining town, and **Santa Lucía**, with the best views over the valley.
+
+    Closer to the city, the **Cristo del Picacho** is Tegucigalpa's smaller take on Rio's Christ the Redeemer: a hilltop statue with panoramic views, restaurants and wine spots, about 15 minutes from downtown. About 40 minutes out, **Finca La Catadora** is a quirky "blackberry vineyard" with great food and views, well worth the drive.
+
+    Back in the city, **9 Patrias** serves a 7-course tasting menu born from a university gastronomy program: local ingredients inspired by ancient Honduran tribes, like fish cooked with cacao, with every dish explained, a Michelin-style experience at a friendlier level. For history, don't miss the [Museum of National Identity](https://share.google/adcS2XJ4qalKy4lGi).
   tips:
     - "🏛️ Visit the Cathedral of San Miguel and the National Art Gallery in the historic center."
     - "⛪ The Basílica de Suyapa houses Honduras's tiny patron saint statue, a major pilgrimage site."
-    - "🌿 La Tigra National Park is a cloud forest just 30 minutes from the city center."
+    - "🌿 La Tigra National Park is a cloud forest just 30 minutes from the city center, great for hiking."
     - "🛍️ Best handicrafts near Tegucigalpa - weekend markets are liveliest."
     - "☕ Perfect day trip from the capital - ~30-45 mins (traffic dependent)."
     - "🌲 Cooler mountain climate - bring a light jacket."
+    - "☕ Coffee picks in Tegucigalpa: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
+    - "☕ In Valle de Ángeles: Varietal. In Santa Lucía: La Casa del Té, Tres Puntos."
+    - "🍽️ 9 Patrias: 7-course tasting menu with local ingredients."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/Tegucigalpa"
@@ -225,6 +232,12 @@
     - label: "La Tigra National Park"
       url: "https://en.wikipedia.org/wiki/La_Tigra_National_Park"
       icon: "fa-solid fa-mountain"
+    - label: "9 Patrias"
+      url: "https://www.instagram.com/9patrias"
+      icon: "fa-brands fa-instagram"
+    - label: "National Identity Museum"
+      url: "https://share.google/adcS2XJ4qalKy4lGi"
+      icon: "fa-solid fa-landmark"
 
 - id: tela
   title: "Tela"
@@ -325,6 +338,7 @@
     - "🌺 Visit the hydrangea fields of El Merendón in bloom season."
     - "🛍️ Guamilito Market for authentic Honduran handicrafts."
     - "🌿 El Cusuco National Park has cloud forest with incredible biodiversity."
+    - "☕ Coffee picks in San Pedro Sula: Welchez, Backup, Mezcal, TGP, Cafeteo. In Peña Blanca: Dorao."
   links:
     - label: "Wikipedia"
       url: "https://en.wikipedia.org/wiki/San_Pedro_Sula"
