@@ -14,6 +14,7 @@ save_the_date_btn: "Guardar Fecha"
 welcome: "Bienvenidos"
 were_getting_married: "¡Nos casamos!"
 welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
+welcome_why_copan: Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do).
 
 # Details
 the_details: "Detalles"
@@ -67,14 +68,6 @@ rsvp_thanks_decline: "¡Te echaremos de menos! Gracias por avisarnos. ❤️ Si 
 
 # Travel
 logistics: "Logística"
-travel_info: "Viaje y Transporte"
-getting_there: "Cómo llegar"
-getting_there_desc: "Para quienes vienen de fuera, recomendamos volar al [aeropuerto SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP), el aeropuerto principal más cercano a Copán (3-4 horas en auto). Siempre que sea posible, viajen durante el día. Los detalles del transporte compartido de la boda se incluyen con la invitación."
-transportation: "Transporte"
-transport_church_venue: "Tendremos autobuses entre la iglesia y el lugar de la fiesta, y autobuses por la noche de regreso al centro del pueblo"
-transport_venue_city: "Compartiremos más información sobre el transporte compartido desde San Pedro a Copán con la invitación."
-transport_around_copan: "¿Moverse por Copán? ¡A pie o en _tuktuk_!"
-travel_guide_reference: "¡Echa un vistazo a [nuestra página de viajes](/traveling/) para más información sobre qué hacer en Copán y en Honduras!"
 
 # Spain
 also_save: "También Reserva la Fecha"
@@ -117,10 +110,12 @@ traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Desde el aeropuerto, son aproximadamente 3-4 horas en auto hasta Copán Ruinas. Más detalles con la invitación."
 
 # Proveedor de transporte
+plan_trip_label: "Contactos de Confianza"
+plan_trip_title: "Planifica tu Viaje"
+plan_trip_subtitle: "Dos contactos locales de confianza que pueden ayudarte con transporte, tours y reservas en Honduras."
 transport_provider_label: "Transporte privado"
 transport_provider_title: "Chelsy Tours"
 transport_provider_subtitle: "Proveedor local de confianza para transporte privado y traslados al aeropuerto en Honduras. Contacta a Daniel para organizar tu traslado de forma independiente."
-transport_provider_phone: "+504 9687-5749"
 transport_provider_whatsapp_text: "Hola Daniel, te escribo para consultar sobre transporte para la Boda Casas Paz."
 transport_provider_service_airport: "Traslados al aeropuerto con reserva previa"
 transport_provider_service_private: "Transporte privado en Honduras"
@@ -132,11 +127,10 @@ travel_agent_title: "Agente de Viajes"
 travel_agent_subtitle: "Nuestra agente de viajes de confianza, Maureen Alfaro de D'Mundo Travel, puede ayudarte con todo, desde transporte hasta alojamiento."
 travel_agent_discount: "Menciona el código **Casas Paz** al reservar para obtener **5% de descuento** en paquetes vacacionales en Honduras."
 travel_agent_service_packages: "Paquetes vacacionales en Honduras"
-travel_agent_service_hotels: "Reservas de hoteles en Copán"
-travel_agent_service_trips: "Planificación de viajes por Copán"
+travel_agent_service_trips: "Planificación de viajes por Honduras"
 travel_agent_contact: "Contacto"
 travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
-travel_agent_hint: "¿Necesitas ayuda para planificar un viaje? ¡[Contacta a nuestra agente de viajes](#travel-agent) para asistencia!"
+travel_agent_hint: "Consulta nuestros [Contactos de confianza](#plan-your-trip) para ayudarte a planificar tu viaje."
 
 # Getting Around Copán
 traveling_getting_around: "Moverse por Copán"
@@ -148,13 +142,6 @@ traveling_tuktuk_desc: "Los tuktuks de tres ruedas están por todas partes y son
 
 # Why Copán
 traveling_why_copan: "¿Por qué Copán?"
-traveling_why_copan_intro: "Copán Ruinas es un encantador pueblo colonial ubicado en las montañas del oeste de Honduras, famoso por sus antiguas ruinas mayas y su ambiente relajado."
-traveling_unesco: "Patrimonio de la Humanidad"
-traveling_unesco_desc: "El Sitio Arqueológico de Copán es una de las ciudades mayas más importantes jamás descubiertas, conocida por su notable arte escultórico y textos jeroglíficos."
-traveling_colonial: "Encanto Colonial"
-traveling_colonial_desc: "El pueblo en sí es una villa colonial hermosa con calles empedradas, edificios coloridos, excelentes restaurantes y un ambiente tranquilo."
-traveling_weather: "Clima Perfecto"
-traveling_weather_desc: "A 700 m de altitud, Copán disfruta de un agradable clima subtropical. Las temperaturas de diciembre promedian 20-28°C. ¡Perfecto para una celebración!"
 
 # Things to Do in Copán (lugares movidos a data/es/copan_places.yaml)
 traveling_things_to_do: "Qué hacer en Copán"
@@ -170,7 +157,7 @@ traveling_tips_subtitle: "Info esencial para que tu viaje sea cómodo y seguro."
 
 # Where to Stay
 traveling_where_to_stay: "Dónde Alojarse"
-traveling_accommodation_intro: "Copán Ruinas tiene una variedad de opciones de alojamiento para diferentes presupuestos y preferencias."
+traveling_accommodation_intro: "Hemos reservado bloques de habitaciones en los hoteles marcados abajo que pueden reservar directamente. También pueden alojarse en cualquier otro lugar de Copán, pero recomendamos quedarse cerca del centro del pueblo por razones logísticas."
 
 # Alojamientos
 accommodation_room_block: "Reserva de grupo"

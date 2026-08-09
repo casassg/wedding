@@ -13,6 +13,7 @@ save_the_date_btn: "Reserva la Data"
 welcome: "Benvinguts"
 were_getting_married: "Ens casem!"
 welcome_message: "Tenim moltes ganes de celebrar el nostre dia especial amb tots vosaltres al preciós poble de Copán Ruinas, Hondures. Acompanyeu-nos en un cap de setmana d'amor, riures i records inoblidables."
+welcome_why_copan: Copán va ser un dels primers llocs que vam visitar junts com a parella, quan en Gerard va venir a Hondures per primer cop. Tots dos ens vam enamorar d'aquest lloc i significa moltíssim per a nosaltres. A més, és un poble preciós, amb un munt d'[activitats i llocs per visitar](/ca/traveling/#things-to-do).
 
 # Details
 the_details: "Detalls"
@@ -66,14 +67,6 @@ rsvp_thanks_decline: "T'enyorarem! Gràcies per avisar-nos. ❤️ Si canvien el
 
 # Travel
 logistics: "Logística"
-travel_info: "Viatge i transport"
-getting_there: "Com arribar-hi"
-getting_there_desc: "Per als que veniu de fora, recomanem volar a [l'aeroport SAP (San Pedro Sula)](https://www.google.com/travel/flights?q=Flights%20to%20SAP), l'aeroport principal més proper a Copán (3-4 hores en cotxe). Sempre que sigui possible, viatgeu durant el dia. Els detalls del transport compartit del casament s'inclouen amb la invitació."
-transportation: "Transport"
-transport_church_venue: "Tindrem autobusos entre l'església i el lloc de la festa, i autobusos de nit de tornada al centre del poble."
-transport_venue_city: "Donarem més informació sobre el transport compartit des de San Pedro a Copán amb la invitació."
-transport_around_copan: "Moure's per Copán? A peu o en _tuktuk_!"
-travel_guide_reference: "Fes un cop d'ull a [la nostra pàgina de viatge](/ca/traveling/) per a més informació sobre què fer a Copán i a Hondures!"
 
 # Spain
 also_save: "Reserva també la data"
@@ -116,10 +109,12 @@ traveling_to_copan: "De San Pedro Sula a Copán"
 traveling_to_copan_desc: "Des de l'aeroport, són aproximadament 3-4 hores en cotxe fins a Copán Ruinas. Més detalls amb la invitació."
 
 # Proveïdor de transport
+plan_trip_label: "Contactes de Confiança"
+plan_trip_title: "Planifica el teu Viatge"
+plan_trip_subtitle: "Dos contactes locals de confiança que us poden ajudar amb transport, tours i reserves a Hondures."
 transport_provider_label: "Transport privat"
 transport_provider_title: "Chelsy Tours"
 transport_provider_subtitle: "Proveïdor local de confiança per a transport privat i trasllats a l'aeroport a Hondures. Contacteu el Daniel per organitzar el vostre trasllat de forma independent."
-transport_provider_phone: "+504 9687-5749"
 transport_provider_whatsapp_text: "Hola Daniel, te escribo para consultar sobre transporte para la Boda Casas Paz."
 transport_provider_service_airport: "Trasllats a l'aeroport amb reserva prèvia"
 transport_provider_service_private: "Transport privat a Hondures"
@@ -131,11 +126,10 @@ travel_agent_title: "Agent de Viatges"
 travel_agent_subtitle: "La nostra agent de viatges de confiança, Maureen Alfaro de D'Mundo Travel, et pot ajudar amb tot, des del transport fins a l'allotjament."
 travel_agent_discount: "Menciona el codi **Casas Paz** en reservar per obtenir un **5% de descompte** en paquets de vacances a Hondures."
 travel_agent_service_packages: "Paquets de vacances a Hondures"
-travel_agent_service_hotels: "Reserves d'hotels a Copán"
-travel_agent_service_trips: "Planificació de viatges per Copán"
+travel_agent_service_trips: "Planificació de viatges per Hondures"
 travel_agent_contact: "Contacte"
 travel_agent_whatsapp_text: "¡Hola! Me comunico para pedir ayuda para viajar para Boda Casas Paz."
-travel_agent_hint: "Necessites ajuda per planificar un viatge? [Contacta la nostra agent de viatges](#travel-agent) per a assistència!"
+travel_agent_hint: "Consulta els nostres [Contactes de confiança](#plan-your-trip) per ajudar-vos a planificar el viatge."
 
 # Getting Around Copán
 traveling_getting_around: "Moure's per Copán"
@@ -147,13 +141,6 @@ traveling_tuktuk_desc: "Els mototaxis (tuk-tuks) són per tot arreu i són molt 
 
 # Why Copán
 traveling_why_copan: "Per què Copán?"
-traveling_why_copan_intro: "Copán Ruinas és un poble colonial encantador situat a les muntanyes de l'oest d'Hondures, famós per les antigues ruïnes maies i l'ambient relaxat."
-traveling_unesco: "Patrimoni de la Humanitat"
-traveling_unesco_desc: "El jaciment arqueològic de Copán és una de les ciutats maies més importants que s'han descobert, coneguda pel seu art escultòric notable i els textos jeroglífics."
-traveling_colonial: "Encant colonial"
-traveling_colonial_desc: "El poble en si és una vila colonial preciosa amb carrers empedrats, edificis colorits, restaurants excel·lents i un ambient relaxat."
-traveling_weather: "Clima perfecte"
-traveling_weather_desc: "A 700 m d'altitud, Copán gaudeix d'un clima subtropical agradable. Al desembre, la temperatura mitjana és de 20-28 °C. Perfecte per a una celebració!"
 
 # Things to Do in Copán (llocs moguts a data/ca/copan_places.yaml)
 traveling_things_to_do: "Què fer a Copán"
@@ -169,7 +156,7 @@ traveling_tips_subtitle: "Informació essencial perquè el teu viatge sigui còm
 
 # Where to Stay
 traveling_where_to_stay: "On allotjar-se"
-traveling_accommodation_intro: "Copán Ruinas té una gran varietat d'opcions d'allotjament per a diferents pressupostos i gustos."
+traveling_accommodation_intro: "Hem reservat blocs d'habitacions als hotels marcats a continuació, que podeu reservar directament. També us podeu allotjar en qualsevol altre lloc de Copán, però us recomanem quedar-vos a prop del centre del poble per raons logístiques."
 
 # Allotjaments
 accommodation_room_block: "Bloc d'habitacions"

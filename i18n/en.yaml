@@ -13,6 +13,7 @@ save_the_date_btn: "Save the Date"
 welcome: "Welcome"
 were_getting_married: "We're getting married!"
 welcome_message: "We can't wait to celebrate our special day with all of you in the beautiful town of Copan Ruinas, Honduras. Join us for a weekend of love, laughter, and unforgettable memories."
+welcome_why_copan: Copán was one of the first places we visited together as a couple, when Gerard came to Honduras for the first time. We both fell in love with this place and it means so much to us. Besides, it's a beautiful town with lots of [activities and places to visit](/traveling/#things-to-do).
 
 # Details
 the_details: "Details"
@@ -66,14 +67,6 @@ rsvp_thanks_decline: "We'll miss you! Thanks for letting us know. ❤️ If your
 
 # Travel
 logistics: "Logistics"
-travel_info: "Travel & Transportation"
-getting_there: "Getting There"
-getting_there_desc: "For those coming from abroad, we recommend flying to [SAP (San Pedro Sula) airport](https://www.google.com/travel/flights?q=Flights%20to%20SAP), the closest major airport to Copán (a 3-4 hour drive). Plan to travel during daylight where possible. Shared wedding transport details are provided with the invitation."
-transportation: "Transportation"
-transport_church_venue: "We will have buses between the church and the venue, and buses later at night back to town center."
-transport_venue_city: "We'll share details about shared transportation from San Pedro to Copán with the invite."
-transport_around_copan: "Getting around Copan? Walk or take a _tuktuk_!"
-travel_guide_reference: "Check out [our traveling page](/traveling/) for more information on what to do in Copán and in Honduras!"
 
 # Spain
 also_save: "Also Save the Date"
@@ -116,10 +109,12 @@ traveling_to_copan: "San Pedro Sula to Copán"
 traveling_to_copan_desc: "From the airport, it's approximately a 3-4 hour drive to Copán Ruinas. More details with the invite."
 
 # Transport Provider
+plan_trip_label: "Trusted Contacts"
+plan_trip_title: "Plan Your Trip"
+plan_trip_subtitle: "Two trusted local contacts who can help with transport, tours, and bookings around Honduras."
 transport_provider_label: "Private Transport"
 transport_provider_title: "Chelsy Tours"
 transport_provider_subtitle: "Trusted local provider for pre-arranged airport and private transportation in Honduras. Contact Daniel to organize your transfer independently."
-transport_provider_phone: "+504 9687-5749"
 transport_provider_whatsapp_text: "Hi Daniel, I'm reaching out to ask about transportation for Boda Casas Paz."
 transport_provider_service_airport: "Pre-arranged airport transfers"
 transport_provider_service_private: "Private transportation in Honduras"
@@ -131,11 +126,10 @@ travel_agent_title: "Travel Agent"
 travel_agent_subtitle: "Our trusted travel agent, Maureen Alfaro from D'Mundo Travel, can help you with everything from transportation to accommodation."
 travel_agent_discount: "Mention code **Casas Paz** when booking to receive **5% off** vacation packages in Honduras."
 travel_agent_service_packages: "Honduras vacation packages"
-travel_agent_service_hotels: "Hotel bookings in Copan"
-travel_agent_service_trips: "Trip planning around Copan"
+travel_agent_service_trips: "Trip planning around Honduras"
 travel_agent_contact: "Contact"
 travel_agent_whatsapp_text: "Hi! I'm reaching out about getting help for traveling for Boda Casas Paz."
-travel_agent_hint: "Need help planning a trip? [Contact our travel agent](#travel-agent) for assistance!"
+travel_agent_hint: "Check our [Trusted Contacts](#plan-your-trip) for help planning a trip."
 
 # Getting Around Copán
 traveling_getting_around: "Getting Around Copán"
@@ -147,13 +141,6 @@ traveling_tuktuk_desc: "Three-wheeled tuk-tuks are everywhere and super affordab
 
 # Why Copán
 traveling_why_copan: "Why Copán?"
-traveling_why_copan_intro: "Copán Ruinas is a charming colonial town nestled in the mountains of western Honduras, famous for its ancient Maya ruins and laid-back atmosphere."
-traveling_unesco: "UNESCO World Heritage"
-traveling_unesco_desc: "The Copán Archaeological Site is one of the most important Maya cities ever discovered, known for its remarkable sculptural art and hieroglyphic texts."
-traveling_colonial: "Colonial Charm"
-traveling_colonial_desc: "The town itself is a beautiful colonial village with cobblestone streets, colorful buildings, excellent restaurants, and a relaxed vibe."
-traveling_weather: "Perfect Weather"
-traveling_weather_desc: "At 700m elevation, Copán enjoys a pleasant subtropical climate. December temperatures average 20-28°C (68-82°F) - perfect for a celebration!"
 
 # Things to Do in Copán (places moved to data/en/copan_places.yaml)
 traveling_things_to_do: "Things to Do in Copán"
@@ -169,7 +156,7 @@ traveling_tips_subtitle: "Essential info to make your trip smooth and safe."
 
 # Where to Stay
 traveling_where_to_stay: "Where to Stay"
-traveling_accommodation_intro: "Copán Ruinas has a variety of accommodation options to suit different budgets and preferences."
+traveling_accommodation_intro: "We have reserved room blocks at the hotels marked below that you can book directly. You are also welcome to stay anywhere else in Copán, but we recommend staying near the town center for logistical reasons."
 
 # Accommodations
 accommodation_room_block: "Room Block"
