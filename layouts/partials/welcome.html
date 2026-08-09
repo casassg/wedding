@@ -16,11 +16,6 @@
             {{ i18n "welcome_message" }}
         </p>
 
-        <h3 class="font-hand text-5xl md:text-6xl mt-4 mb-8 text-gray-800 transform -rotate-1">{{ i18n "traveling_why_copan" }}</h3>
-        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto font-sans text-lg">
-            {{ i18n "welcome_why_copan" | markdownify }}
-        </p>
-
         <!-- Decorative Floral Divider -->
         <div class="flex items-center justify-center mt-12 space-x-3">
             <img src="{{ "images/flowers/wildflower.svg" | relURL }}" class="flower-divider" alt="" aria-hidden="true">
@@ -29,5 +24,11 @@
             <div class="h-1 w-12 bg-rose/30 rounded-full"></div>
             <img src="{{ "images/flowers/cosmos.svg" | relURL }}" class="flower-divider" alt="" aria-hidden="true">
         </div>
+
+        <h3 class="font-hand text-5xl md:text-6xl mt-4 mb-8 text-gray-800 transform -rotate-1">{{ i18n "traveling_why_copan" }}</h3>
+        <p class="text-gray-600 leading-relaxed max-w-2xl mx-auto font-sans text-lg">
+            {{ i18n "welcome_why_copan" | markdownify }}
+        </p>
+
     </div>
 </section>
