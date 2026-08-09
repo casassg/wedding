@@ -199,27 +199,25 @@
           icon: "fa-brands fa-youtube"
 
 - id: tegucigalpa
-  title: "Tegucigalpa y Valle de Ángeles"
-  description: "La capital de Honduras en un valle montañoso a 1.000 m de altitud, con arquitectura colonial, mercados animados y bosques nubosos cercanos. A solo 30 minutos, el encantador pueblo de Valle de Ángeles ofrece mercados artesanales y aire fresco de montaña."
+  title: "Tegucigalpa y alrededores"
+  description: "La capital de Honduras en un valle montañoso a 1.000 m de altitud, con arquitectura colonial, mercados animados y bosques nubosos cercanos. A las afueras: pueblos coloniales de montaña, un mirador estilo Cristo Redentor y buena comida."
   icon: "fa-solid fa-city"
   long_description: |
-    Fundada en 1578 en las laderas del cerro El Picacho, Tegucigalpa es la capital política de Honduras y una ciudad de contrastes. El centro histórico alberga la [Catedral de San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa) (siglo XVIII), la Galería Nacional de Arte en el antiguo Paraninfo y el animado Mercado San Isidro. La [Basílica de Suyapa](https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Suyapa), dedicada a la pequeña imagen patrona de Honduras, recibe peregrinos todo el año (especialmente el 3 de febrero). El Parque La Leona ofrece vistas panorámicas de la ciudad, y el cercano bosque nuboso del [Parque Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park) es una de las áreas protegidas más antiguas del país, ideal para hacer senderismo.
+    Fundada en 1578 en las laderas del cerro El Picacho, Tegucigalpa es la capital política de Honduras y una ciudad de contrastes. El centro histórico alberga la [Catedral de San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa) (siglo XVIII), la Galería Nacional de Arte en el antiguo Paraninfo y el animado Mercado San Isidro. La [Basílica de Suyapa](https://es.wikipedia.org/wiki/Bas%C3%ADlica_de_Nuestra_Se%C3%B1ora_de_Suyapa), dedicada a la pequeña imagen patrona de Honduras, recibe peregrinos todo el año, especialmente el 3 de febrero.
 
-    A solo 30 minutos, **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** es un pueblo colonial de montaña precioso, famoso por sus artesanías, calles empedradas y mercados de fin de semana, ideal para una escapada de medio día desde la capital. Dos pueblecitos más comparten la misma carretera: **San Juancito**, antiguo pueblo minero, y **Santa Lucía**, con las mejores vistas del valle.
+    Tres pueblecitos comparten la misma carretera a solo 30 minutos de la ciudad. **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** es un pueblo colonial de montaña precioso, famoso por sus artesanías, calles empedradas y mercados de fin de semana. **San Juancito** es un antiguo pueblo minero, y **Santa Lucía** ofrece las mejores vistas del valle.
 
-    Más cerca de la ciudad, el **Cristo del Picacho** es la versión más pequeña del Cristo Redentor de Río: una estatua en la cima con vistas panorámicas, restaurantes y sitios de vino, a unos 15 minutos del centro. A unos 40 minutos, **Finca La Catadora** es un peculiar "viñedo" de moras con buena comida y vistas, que bien merece el viaje.
+    Más cerca de la ciudad, el **Cristo del Picacho** es la versión más pequeña del Cristo Redentor de Río: una estatua en la cima con vistas panorámicas, restaurantes y sitios de vino, a unos 15 minutos del centro. A unos 40 minutos, **Finca La Catadora** es un peculiar viñedo de moras con buena comida y vistas. Para los amantes del aire libre, el **[Parque Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park)** es un bosque nuboso con excelentes senderos, una de las áreas protegidas más antiguas del país.
 
     De vuelta en la ciudad, **9 Patrias** ofrece un menú degustación de 7 platos nacido de un programa universitario de gastronomía: ingredientes locales inspirados en tribus antiguas de Honduras, como pescado cocinado con cacao, con cada plato explicado, una experiencia estilo Michelin a un nivel más accesible. Para la historia, no te pierdas el [Museo para la Identidad Nacional](https://share.google/adcS2XJ4qalKy4lGi).
   tips:
     - "🏛️ Visita la Catedral de San Miguel y la Galería Nacional de Arte en el centro histórico."
     - "⛪ La Basílica de Suyapa alberga la diminuta imagen patrona de Honduras, importante sitio de peregrinación."
     - "🌿 El Parque Nacional La Tigra es un bosque nuboso a solo 30 minutos del centro, ideal para hacer senderismo."
-    - "🛍️ El mejor lugar para comprar artesanías cerca de Tegucigalpa."
-    - "☕ Excursión ideal desde la capital (~30-45 mins dependiendo del tráfico)."
-    - "🌲 Clima fresco de montaña; se recomienda llevar una chaqueta ligera."
-    - "☕ Cafeterías recomendadas en Tegucigalpa: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
-    - "☕ En Valle de Ángeles: Varietal. En Santa Lucía: La Casa del Té, Tres Puntos."
-    - "🍽️ 9 Patrias: menú degustación de 7 platos con ingredientes locales."
+    - "☕ Cafeterías recomendadas en la ciudad: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
+    - "☕ En los pueblos: Varietal en Valle de Ángeles; La Casa del Té y Tres Puntos en Santa Lucía."
+    - "🍽️ 9 Patrias ofrece un menú degustación de 7 platos con ingredientes locales."
+    - "🌲 Los pueblos de montaña son más frescos que la ciudad; lleva una chaqueta ligera."
   links:
     - label: "Wikipedia"
       url: "https://es.wikipedia.org/wiki/Tegucigalpa"
