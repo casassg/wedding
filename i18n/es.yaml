@@ -14,10 +14,7 @@ save_the_date_btn: "Guardar Fecha"
 welcome: "Bienvenidos"
 were_getting_married: "¡Nos casamos!"
 welcome_message: "Estamos muy emocionados por celebrar nuestro día especial con todos ustedes en el precioso pueblo de Copán Ruinas, Honduras. Acompáñennos en un fin de semana lleno de amor, risas y recuerdos inolvidables."
-welcome_why_copan: |-
-  Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do).
-
-  Copán Ruinas es un encantador pueblo colonial en el oeste de Honduras, famoso por sus antiguas ruinas mayas, su clima agradable y su ambiente relajado.
+welcome_why_copan: Copán fue uno de los primeros lugares que visitamos juntos como pareja, cuando Gerard vino a Honduras por primera vez. Los dos nos enamoramos de este lugar y significa muchísimo para nosotros. Además, es un pueblo precioso con un montón de [actividades y lugares para visitar](/es/traveling/#things-to-do).
 
 # Details
 the_details: "Detalles"
