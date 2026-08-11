@@ -86,18 +86,6 @@ jobs:
           echo "name=$APP_NAME" >> "$GITHUB_OUTPUT"
           echo "url=https://$APP_NAME.fly.dev" >> "$GITHUB_OUTPUT"
 
-      - name: Reset stale machines
-        if: github.event.action != 'closed'
-        env:
-          APP_NAME: pr-${{ github.event.number }}-casassg-wedding
-        run: |
-          flyctl machines list --app "$APP_NAME" --json \
-            | jq -r '.[].id' \
-            | while read -r machine_id; do
-                [ -n "$machine_id" ] || continue
-                flyctl machine destroy "$machine_id" --app "$APP_NAME" --force
-              done
-
       - name: Set Fly secrets
         if: github.event.action != 'closed'
         env:
