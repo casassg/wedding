@@ -30,3 +30,28 @@ jobs:
             flyctl machine start $MACHINE_ID || true
             flyctl ssh console --machine $MACHINE_ID -C "/app/server sync"
           done
+
+  cleanup_review_apps:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+      - name: Init Hermit
+        uses: cashapp/activate-hermit@v1
+      - name: Destroy orphaned review apps
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_SECRET }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          # List all Fly apps matching the review app naming convention.
+          APPS=$(flyctl apps list --json | jq -r '.[].Name' | grep '^pr-[0-9]*-casassg-wedding$' || true)
+          for APP in $APPS; do
+            PR_NUM=$(echo "$APP" | sed 's/^pr-\([0-9]*\)-casassg-wedding$/\1/')
+            STATE=$(gh pr view "$PR_NUM" --json state --jq '.state' 2>/dev/null || echo "UNKNOWN")
+            if [ "$STATE" != "OPEN" ]; then
+              echo "Destroying orphaned review app $APP (PR #$PR_NUM is $STATE)"
+              flyctl apps destroy "$APP" --yes || true
+            fi
+          done
