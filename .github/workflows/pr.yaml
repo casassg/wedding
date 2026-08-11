@@ -101,7 +101,7 @@ jobs:
         if: github.event.action != 'closed'
         env:
           APP_NAME: pr-${{ github.event.number }}-casassg-wedding
-        run: flyctl deploy --app "$APP_NAME" --config fly.review.toml --strategy bluegreen --ha=false
+        run: flyctl deploy --app "$APP_NAME" --config fly.review.toml --ha=false
 
       - name: Destroy review app
         if: github.event.action == 'closed'
