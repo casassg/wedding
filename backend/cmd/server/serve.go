@@ -77,13 +77,16 @@ func (cmd *ServeCmd) Run() error {
 	if err := syncer.SyncOnce(ctx); err != nil {
 		log.Printf("initial sync failed: %s", err)
 		sentry.CaptureException(err)
-		// If the DB is empty (fresh deploy) and sync failed, refuse to start
-		// so bluegreen keeps the old machines serving.
-		n, countErr := database.CountInvites(ctx)
-		if countErr != nil || n == 0 {
-			return fmt.Errorf("refusing to start with empty database after sync failure: %w", err)
+		// Only block startup when credentials are configured (production) but
+		// sync still failed AND the DB is empty. Review apps and local dev
+		// may not have credentials, so let them start regardless.
+		if sheetsClient.IsConfigured() {
+			n, countErr := database.CountInvites(ctx)
+			if countErr != nil || n == 0 {
+				return fmt.Errorf("refusing to start with empty database after sync failure: %w", err)
+			}
+			log.Printf("database has %d invites from previous sync, continuing", n)
 		}
-		log.Printf("database has %d invites from previous sync, continuing", n)
 	}
 
 	// Start sync in background goroutine
