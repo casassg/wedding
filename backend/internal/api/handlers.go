@@ -1,12 +1,14 @@
 package api
 
 import (
+	"context"
 	"database/sql"
 	"encoding/json"
 	"fmt"
 	"log"
 	"net/http"
 	"strings"
+	"time"
 	"unicode/utf8"
 
 	"github.com/casassg/wedding/backend/internal/sheets"
@@ -38,12 +40,14 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 	if errors.Is(err, sql.ErrNoRows) || (invite == nil) {
 		log.Printf("Invite not found for code %s, triggering sync", inviteCode)
-		if err := h.syncer.SyncOnce(r.Context()); err != nil {
-			inviteLookups.WithLabelValues("not_found").Inc()
-			respondError(w, "Invite not found", http.StatusNotFound)
-			return
+		// Detach from client context so disconnects don't abort the sync.
+		syncCtx, cancel := context.WithTimeout(context.WithoutCancel(r.Context()), 45*time.Second)
+		defer cancel()
+		if syncErr := h.syncer.SyncOnce(syncCtx); syncErr != nil {
+			log.Printf("Sync-on-miss failed for %s: %v", inviteCode, syncErr)
 		}
-		// Retry fetching invite after sync
+		// Retry lookup regardless of sync outcome: waiting on the syncer mutex
+		// means a concurrent background sync may have inserted the row.
 		invite, err = h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 		if invite == nil || errors.Is(err, sql.ErrNoRows) {
 			ip := getIP(r)

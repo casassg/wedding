@@ -46,16 +46,13 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FLY_API_TOKEN: ${{ secrets.FLY_API_ORG_SECRET }}
-      FLY_REGION: iad
       FLY_ORG: personal
-    outputs:
-      url: ${{ steps.deploy.outputs.url }}
-      name: ${{ steps.deploy.outputs.name }}
+      APP_NAME: pr-${{ github.event.number }}-casassg-wedding
     concurrency:
       group: pr-${{ github.event.number }}
     environment:
       name: review
-      url: ${{ steps.deploy.outputs.url }}
+      url: https://pr-${{ github.event.number }}-casassg-wedding.fly.dev
     steps:
       - name: Get code
         uses: actions/checkout@v4
@@ -74,51 +71,34 @@ jobs:
           TZ: America/Tegucigalpa
         run: ./bin/hugo --gc --minify --baseURL "/"
 
-      - name: Reset stale review app machines
+      - name: Create Fly app
         if: github.event.action != 'closed'
-        env:
-          APP_NAME: pr-${{ github.event.number }}-casassg-wedding
         run: |
           if ! flyctl status --app "$APP_NAME" >/dev/null 2>&1; then
-            exit 0
+            flyctl apps create "$APP_NAME" --org "$FLY_ORG"
           fi
-
-          flyctl machines list --app "$APP_NAME" --json \
-            | jq -r '.[].id' \
-            | while read -r machine_id; do
-                [ -n "$machine_id" ] || continue
-                flyctl machine destroy "$machine_id" --app "$APP_NAME" --force
-              done
-
-      - name: Deploy or destroy PR app on Fly.io
-        id: deploy
-        uses: superfly/fly-pr-review-apps@1.6.0
-        with:
-          config: fly.review.toml
-          deploy_options: --strategy bluegreen
 
       - name: Set Fly secrets
         if: github.event.action != 'closed'
         env:
-          APP_NAME: ${{ steps.deploy.outputs.name }}
           GOOGLE_SHEET_ID: ${{ secrets.GOOGLE_SHEET_ID }}
           GOOGLE_SHEETS_CREDENTIALS: ${{ secrets.GOOGLE_SHEETS_CREDENTIALS }}
         run: |
-          for attempt in 1 2 3; do
-            printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
-              "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
-              | flyctl secrets import --app "$APP_NAME" && break
-            if [ "$attempt" = 3 ]; then
-              echo "::error::Failed to set secrets after 3 attempts"
-              exit 1
-            fi
-            echo "Retrying in 15s..."
-            sleep 15
-          done
+          printf 'GOOGLE_SHEET_ID=%s\nGOOGLE_SHEETS_CREDENTIALS=%s\n' \
+            "$GOOGLE_SHEET_ID" "$(printf '%s' "$GOOGLE_SHEETS_CREDENTIALS" | tr -d '\n')" \
+            | flyctl secrets import --app "$APP_NAME" --stage
+
+      - name: Deploy review app
+        if: github.event.action != 'closed'
+        run: flyctl deploy --app "$APP_NAME" --config fly.review.toml --ha=false
+
+      - name: Destroy review app
+        if: github.event.action == 'closed'
+        run: flyctl apps destroy "$APP_NAME" --yes || true
 
       - name: Clean up GitHub environment
+        if: github.event.action == 'closed'
         uses: strumwolf/delete-deployment-environment@v2
-        if: ${{ github.event.action == 'closed' }}
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           environment: pr-${{ github.event.number }}

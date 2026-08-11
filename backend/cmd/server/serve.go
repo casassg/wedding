@@ -77,6 +77,16 @@ func (cmd *ServeCmd) Run() error {
 	if err := syncer.SyncOnce(ctx); err != nil {
 		log.Printf("initial sync failed: %s", err)
 		sentry.CaptureException(err)
+		// Only block startup when credentials are configured (production) but
+		// sync still failed AND the DB is empty. Review apps and local dev
+		// may not have credentials, so let them start regardless.
+		if sheetsClient.IsConfigured() {
+			var n int64
+			if countErr := database.DB.QueryRowContext(ctx, "SELECT COUNT(*) FROM invites").Scan(&n); countErr != nil || n == 0 {
+				return fmt.Errorf("refusing to start with empty database after sync failure: %w", err)
+			}
+			log.Printf("database has %d invites from previous sync, continuing", n)
+		}
 	}
 
 	// Start sync in background goroutine
@@ -102,7 +112,7 @@ func (cmd *ServeCmd) Run() error {
 		Addr:         ":" + cmd.Port,
 		Handler:      router,
 		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 15 * time.Second,
+		WriteTimeout: 60 * time.Second,
 		IdleTimeout:  60 * time.Second,
 	}
 

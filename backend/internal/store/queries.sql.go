@@ -78,15 +78,16 @@ func (q *Queries) GetInviteByInviteCode(ctx context.Context, inviteCode string) 
 const GetPendingSyncInvites = `-- name: GetPendingSyncInvites :many
 SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_return_detail, travel_updated_at, created_at, updated_at FROM invites
 WHERE response_at IS NOT NULL
-  AND response_at > updated_at
+  AND datetime(response_at) > datetime(updated_at)
 ORDER BY response_at ASC
 `
 
 // Finds rows that have responded but haven't been synced OR have changed since sync.
+// datetime() normalizes both sides so RFC3339 and space-separated formats compare correctly.
 //
 //	SELECT invite_code, name, max_adults, max_kids, confirmed_adults, confirmed_kids, dietary_info, message_for_us, song_request, response_at, sheet_row, location, travel_bus_to, travel_pickup, travel_arrival_flight, travel_bus_return, travel_hotel, travel_notes, travel_cocktail, travel_brunch, travel_return_detail, travel_updated_at, created_at, updated_at FROM invites
 //	WHERE response_at IS NOT NULL
-//	  AND response_at > updated_at
+//	  AND datetime(response_at) > datetime(updated_at)
 //	ORDER BY response_at ASC
 func (q *Queries) GetPendingSyncInvites(ctx context.Context) ([]*Invite, error) {
 	rows, err := q.query(ctx, q.getPendingSyncInvitesStmt, GetPendingSyncInvites)
@@ -314,10 +315,6 @@ func (q *Queries) UpdateRSVP(ctx context.Context, arg *UpdateRSVPParams) error {
 }
 
 const UpdateTravelInfo = `-- name: UpdateTravelInfo :exec
-    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
-
-
-
 UPDATE invites
 SET
     travel_bus_to        = ?1,
@@ -347,12 +344,7 @@ type UpdateTravelInfoParams struct {
 	InputInviteCode    string `json:"input_invite_code"`
 }
 
-// Note: The WHERE clause prevents updates when local RSVP changes are pending,
 // Updates travel fields and bumps response_at so GetPendingSyncInvites picks it up.
-//
-//	    -- protecting local RSVP changes that haven't been pushed to the sheet yet.
-//
-//
 //
 //	UPDATE invites
 //	SET
@@ -398,29 +390,49 @@ INSERT INTO invites (
     datetime('now', 'utc')
 )
 ON CONFLICT(invite_code) DO UPDATE SET
+    -- Master data: always follow the sheet.
     name                  = excluded.name,
     max_adults            = excluded.max_adults,
     max_kids              = excluded.max_kids,
-    confirmed_adults      = excluded.confirmed_adults,
-    confirmed_kids        = excluded.confirmed_kids,
-    dietary_info          = excluded.dietary_info,
-    message_for_us        = excluded.message_for_us,
-    song_request          = excluded.song_request,
-    response_at           = excluded.response_at,
     sheet_row             = excluded.sheet_row,
     location              = excluded.location,
-    travel_bus_to         = excluded.travel_bus_to,
-    travel_pickup         = excluded.travel_pickup,
-    travel_arrival_flight = excluded.travel_arrival_flight,
-    travel_bus_return     = excluded.travel_bus_return,
-    travel_hotel          = excluded.travel_hotel,
-    travel_notes          = excluded.travel_notes,
-    travel_cocktail        = excluded.travel_cocktail,
-    travel_brunch          = excluded.travel_brunch,
-    travel_return_detail  = excluded.travel_return_detail,
-    travel_updated_at     = excluded.travel_updated_at,
-    updated_at            = excluded.updated_at
-WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
+    -- Guest-entered fields: only overwrite when no local changes are pending.
+    -- "pending" = response_at IS NOT NULL AND response_at > updated_at.
+    -- datetime() normalizes both sides so RFC3339 and space-separated formats compare correctly.
+    confirmed_adults      = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.confirmed_adults ELSE invites.confirmed_adults END,
+    confirmed_kids        = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.confirmed_kids ELSE invites.confirmed_kids END,
+    dietary_info          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.dietary_info ELSE invites.dietary_info END,
+    message_for_us        = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.message_for_us ELSE invites.message_for_us END,
+    song_request          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.song_request ELSE invites.song_request END,
+    response_at           = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.response_at ELSE invites.response_at END,
+    travel_bus_to         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_bus_to ELSE invites.travel_bus_to END,
+    travel_pickup         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_pickup ELSE invites.travel_pickup END,
+    travel_arrival_flight = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_arrival_flight ELSE invites.travel_arrival_flight END,
+    travel_bus_return     = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_bus_return ELSE invites.travel_bus_return END,
+    travel_hotel          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_hotel ELSE invites.travel_hotel END,
+    travel_notes          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_notes ELSE invites.travel_notes END,
+    travel_cocktail       = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_cocktail ELSE invites.travel_cocktail END,
+    travel_brunch         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_brunch ELSE invites.travel_brunch END,
+    travel_return_detail  = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_return_detail ELSE invites.travel_return_detail END,
+    travel_updated_at     = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN excluded.travel_updated_at ELSE invites.travel_updated_at END,
+    updated_at            = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+                                 THEN datetime('now', 'utc') ELSE invites.updated_at END
 `
 
 type UpsertInviteParams struct {
@@ -449,7 +461,10 @@ type UpsertInviteParams struct {
 }
 
 // Syncs Master Data from Google Sheets -> DB.
-// Skips updates if invite has unsynced local RSVP changes.
+// Master data (name, limits, location, sheet_row) always updates.
+// Guest-entered fields (RSVP, travel) are protected while pending sync.
+// datetime() around column refs normalizes RFC3339 vs space-separated timestamps
+// so the pending-changes guard compares correctly.
 //
 //	INSERT INTO invites (
 //	    invite_code, name, max_adults, max_kids,
@@ -464,29 +479,49 @@ type UpsertInviteParams struct {
 //	    datetime('now', 'utc')
 //	)
 //	ON CONFLICT(invite_code) DO UPDATE SET
+//	    -- Master data: always follow the sheet.
 //	    name                  = excluded.name,
 //	    max_adults            = excluded.max_adults,
 //	    max_kids              = excluded.max_kids,
-//	    confirmed_adults      = excluded.confirmed_adults,
-//	    confirmed_kids        = excluded.confirmed_kids,
-//	    dietary_info          = excluded.dietary_info,
-//	    message_for_us        = excluded.message_for_us,
-//	    song_request          = excluded.song_request,
-//	    response_at           = excluded.response_at,
 //	    sheet_row             = excluded.sheet_row,
 //	    location              = excluded.location,
-//	    travel_bus_to         = excluded.travel_bus_to,
-//	    travel_pickup         = excluded.travel_pickup,
-//	    travel_arrival_flight = excluded.travel_arrival_flight,
-//	    travel_bus_return     = excluded.travel_bus_return,
-//	    travel_hotel          = excluded.travel_hotel,
-//	    travel_notes          = excluded.travel_notes,
-//	    travel_cocktail        = excluded.travel_cocktail,
-//	    travel_brunch          = excluded.travel_brunch,
-//	    travel_return_detail  = excluded.travel_return_detail,
-//	    travel_updated_at     = excluded.travel_updated_at,
-//	    updated_at            = excluded.updated_at
-//	WHERE invites.response_at IS NULL OR invites.response_at <= invites.updated_at
+//	    -- Guest-entered fields: only overwrite when no local changes are pending.
+//	    -- "pending" = response_at IS NOT NULL AND response_at > updated_at.
+//	    -- datetime() normalizes both sides so RFC3339 and space-separated formats compare correctly.
+//	    confirmed_adults      = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.confirmed_adults ELSE invites.confirmed_adults END,
+//	    confirmed_kids        = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.confirmed_kids ELSE invites.confirmed_kids END,
+//	    dietary_info          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.dietary_info ELSE invites.dietary_info END,
+//	    message_for_us        = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.message_for_us ELSE invites.message_for_us END,
+//	    song_request          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.song_request ELSE invites.song_request END,
+//	    response_at           = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.response_at ELSE invites.response_at END,
+//	    travel_bus_to         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_bus_to ELSE invites.travel_bus_to END,
+//	    travel_pickup         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_pickup ELSE invites.travel_pickup END,
+//	    travel_arrival_flight = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_arrival_flight ELSE invites.travel_arrival_flight END,
+//	    travel_bus_return     = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_bus_return ELSE invites.travel_bus_return END,
+//	    travel_hotel          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_hotel ELSE invites.travel_hotel END,
+//	    travel_notes          = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_notes ELSE invites.travel_notes END,
+//	    travel_cocktail       = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_cocktail ELSE invites.travel_cocktail END,
+//	    travel_brunch         = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_brunch ELSE invites.travel_brunch END,
+//	    travel_return_detail  = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_return_detail ELSE invites.travel_return_detail END,
+//	    travel_updated_at     = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN excluded.travel_updated_at ELSE invites.travel_updated_at END,
+//	    updated_at            = CASE WHEN invites.response_at IS NULL OR datetime(invites.response_at) <= datetime(invites.updated_at)
+//	                                 THEN datetime('now', 'utc') ELSE invites.updated_at END
 func (q *Queries) UpsertInvite(ctx context.Context, arg *UpsertInviteParams) error {
 	_, err := q.exec(ctx, q.upsertInviteStmt, UpsertInvite,
 		arg.InviteCode,
