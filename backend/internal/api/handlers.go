@@ -40,9 +40,11 @@ func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
 	invite, err := h.db.GetInviteByInviteCode(r.Context(), inviteCode)
 	if errors.Is(err, sql.ErrNoRows) || (invite == nil) {
 		log.Printf("Invite not found for code %s, triggering sync", inviteCode)
-		// Use a detached context so a client disconnect doesn't abort the sync,
-		// and give the full sheet round-trip plenty of time.
-		syncCtx, cancel := context.WithTimeout(context.WithoutCancel(r.Context()), 30*time.Second)
+		// Use a detached context so a client disconnect doesn't abort the sync.
+		// 45s leaves ~15s within the server's 60s WriteTimeout for the retry
+		// lookup and JSON response. A bare context.Background() would let a
+		// Sheets outage hold handler goroutines open indefinitely.
+		syncCtx, cancel := context.WithTimeout(context.WithoutCancel(r.Context()), 45*time.Second)
 		defer cancel()
 		if syncErr := h.syncer.SyncOnce(syncCtx); syncErr != nil {
 			log.Printf("Sync-on-miss failed for %s: %v", inviteCode, syncErr)
