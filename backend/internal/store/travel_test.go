@@ -289,19 +289,3 @@ func TestUpsertGuardProtectsLocalChanges(t *testing.T) {
 	require.Equal(t, int64(1), invite.ConfirmedAdults, "after sync, upsert should apply sheet values")
 	require.Equal(t, "none", invite.DietaryInfo, "after sync, upsert should apply sheet values")
 }
-
-func TestCountInvites(t *testing.T) {
-	s := openTestDB(t)
-	ctx := context.Background()
-
-	n, err := s.CountInvites(ctx)
-	require.NoError(t, err)
-	require.Equal(t, int64(0), n)
-
-	seedInvite(t, s, "count-1", "")
-	seedInvite(t, s, "count-2", "")
-
-	n, err = s.CountInvites(ctx)
-	require.NoError(t, err)
-	require.Equal(t, int64(2), n)
-}

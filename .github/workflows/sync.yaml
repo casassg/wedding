@@ -46,7 +46,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           # List all Fly apps matching the review app naming convention.
-          APPS=$(flyctl apps list --json | jq -r '.[].Name' | grep '^pr-[0-9]*-casassg-wedding$' || true)
+          APPS=$(flyctl apps list --org personal --json | jq -r '.[].Name' | grep '^pr-[0-9]*-casassg-wedding$' || true)
           for APP in $APPS; do
             PR_NUM=$(echo "$APP" | sed 's/^pr-\([0-9]*\)-casassg-wedding$/\1/')
             STATE=$(gh pr view "$PR_NUM" --json state --jq '.state' 2>/dev/null || echo "UNKNOWN")

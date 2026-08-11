@@ -10,20 +10,6 @@ import (
 	"time"
 )
 
-const CountInvites = `-- name: CountInvites :one
-SELECT COUNT(*) FROM invites
-`
-
-// CountInvites
-//
-//	SELECT COUNT(*) FROM invites
-func (q *Queries) CountInvites(ctx context.Context) (int64, error) {
-	row := q.queryRow(ctx, q.countInvitesStmt, CountInvites)
-	var count int64
-	err := row.Scan(&count)
-	return count, err
-}
-
 const DeleteAllScheduleEvents = `-- name: DeleteAllScheduleEvents :exec
 DELETE FROM schedule_events
 `

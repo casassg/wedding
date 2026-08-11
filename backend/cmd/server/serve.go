@@ -81,8 +81,8 @@ func (cmd *ServeCmd) Run() error {
 		// sync still failed AND the DB is empty. Review apps and local dev
 		// may not have credentials, so let them start regardless.
 		if sheetsClient.IsConfigured() {
-			n, countErr := database.CountInvites(ctx)
-			if countErr != nil || n == 0 {
+			var n int64
+			if countErr := database.DB.QueryRowContext(ctx, "SELECT COUNT(*) FROM invites").Scan(&n); countErr != nil || n == 0 {
 				return fmt.Errorf("refusing to start with empty database after sync failure: %w", err)
 			}
 			log.Printf("database has %d invites from previous sync, continuing", n)

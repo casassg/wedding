@@ -132,9 +132,6 @@ ORDER BY start_time ASC;
 -- Clears all schedule events before a full re-sync from sheet.
 DELETE FROM schedule_events;
 
--- name: CountInvites :one
-SELECT COUNT(*) FROM invites;
-
 -- name: InsertScheduleEvent :exec
 -- Inserts a single schedule event during sync.
 INSERT INTO schedule_events (
