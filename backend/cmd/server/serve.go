@@ -77,6 +77,13 @@ func (cmd *ServeCmd) Run() error {
 	if err := syncer.SyncOnce(ctx); err != nil {
 		log.Printf("initial sync failed: %s", err)
 		sentry.CaptureException(err)
+		// If the DB is empty (fresh deploy) and sync failed, refuse to start
+		// so bluegreen keeps the old machines serving.
+		n, countErr := database.CountInvites(ctx)
+		if countErr != nil || n == 0 {
+			return fmt.Errorf("refusing to start with empty database after sync failure: %w", err)
+		}
+		log.Printf("database has %d invites from previous sync, continuing", n)
 	}
 
 	// Start sync in background goroutine
@@ -102,7 +109,7 @@ func (cmd *ServeCmd) Run() error {
 		Addr:         ":" + cmd.Port,
 		Handler:      router,
 		ReadTimeout:  15 * time.Second,
-		WriteTimeout: 15 * time.Second,
+		WriteTimeout: 60 * time.Second,
 		IdleTimeout:  60 * time.Second,
 	}
 

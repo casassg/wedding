@@ -24,6 +24,9 @@ func New(db DBTX) *Queries {
 func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 	q := Queries{db: db}
 	var err error
+	if q.countInvitesStmt, err = db.PrepareContext(ctx, CountInvites); err != nil {
+		return nil, fmt.Errorf("error preparing query CountInvites: %w", err)
+	}
 	if q.deleteAllScheduleEventsStmt, err = db.PrepareContext(ctx, DeleteAllScheduleEvents); err != nil {
 		return nil, fmt.Errorf("error preparing query DeleteAllScheduleEvents: %w", err)
 	}
@@ -59,6 +62,11 @@ func Prepare(ctx context.Context, db DBTX) (*Queries, error) {
 
 func (q *Queries) Close() error {
 	var err error
+	if q.countInvitesStmt != nil {
+		if cerr := q.countInvitesStmt.Close(); cerr != nil {
+			err = fmt.Errorf("error closing countInvitesStmt: %w", cerr)
+		}
+	}
 	if q.deleteAllScheduleEventsStmt != nil {
 		if cerr := q.deleteAllScheduleEventsStmt.Close(); cerr != nil {
 			err = fmt.Errorf("error closing deleteAllScheduleEventsStmt: %w", cerr)
@@ -148,6 +156,7 @@ func (q *Queries) queryRow(ctx context.Context, stmt *sql.Stmt, query string, ar
 type Queries struct {
 	db                          DBTX
 	tx                          *sql.Tx
+	countInvitesStmt            *sql.Stmt
 	deleteAllScheduleEventsStmt *sql.Stmt
 	deleteInviteStmt            *sql.Stmt
 	getInviteByInviteCodeStmt   *sql.Stmt
@@ -164,6 +173,7 @@ func (q *Queries) WithTx(tx *sql.Tx) *Queries {
 	return &Queries{
 		db:                          tx,
 		tx:                          tx,
+		countInvitesStmt:            q.countInvitesStmt,
 		deleteAllScheduleEventsStmt: q.deleteAllScheduleEventsStmt,
 		deleteInviteStmt:            q.deleteInviteStmt,
 		getInviteByInviteCodeStmt:   q.getInviteByInviteCodeStmt,
