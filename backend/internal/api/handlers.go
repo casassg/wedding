@@ -29,8 +29,9 @@ func NewHandler(database *store.Store, syncer *sheets.Syncer) *Handler {
 
 // GetInvite handles GET /api/v1/invite/{invite_code}
 func (h *Handler) GetInvite(w http.ResponseWriter, r *http.Request) {
-	// Extract UUID from path
-	inviteCode := r.PathValue("invite_code")
+	// Extract invite code from path, trimming any trailing slash that
+	// browsers or link-sharing platforms may append to the URL.
+	inviteCode := strings.TrimRight(r.PathValue("invite_code"), "/")
 	if inviteCode == "" {
 		respondError(w, "Invalid invite code", http.StatusBadRequest)
 		return
