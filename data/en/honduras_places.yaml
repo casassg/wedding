@@ -233,6 +233,12 @@
     - label: "National Identity Museum"
       url: "https://share.google/adcS2XJ4qalKy4lGi"
       icon: "fa-solid fa-landmark"
+    - label: "Café Nativo"
+      url: "https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/"
+      icon: "fa-solid fa-mug-hot"
+    - label: "Cafetano Roasters"
+      url: "https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/"
+      icon: "fa-solid fa-mug-hot"
 
 - id: tela
   title: "Tela"
@@ -343,6 +349,9 @@
     - label: "Angeli Gardens"
       url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
       icon: "fa-brands fa-youtube"
+    - label: "The Golden Pig"
+      url: "https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/"
+      icon: "fa-solid fa-mug-hot"
     - title: "Things to do"
       icon: "fa-solid fa-compass"
       links:
