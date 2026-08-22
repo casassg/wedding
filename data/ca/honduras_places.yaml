@@ -328,7 +328,7 @@
   long_description: |
     La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El [Parc Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) és una reserva de bosc ennuvolat amb una gran biodiversitat.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola. Si arribes tard o vols un vol d'hora l'endemà, l'Holiday Inn Express i el Diana Princess són bones opcions per passar una nit prop de l'aeroport.
   tips:
     - "🌺 Visita els camps d'hortènsies d'El Merendón quan floreixen."
     - "🛍️ Mercat Guamilito per a artesania hondurenya autèntica."
@@ -355,6 +355,12 @@
         - label: "La Coca Cola"
           url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
           icon: "fa-brands fa-youtube"
+    - label: "Holiday Inn Express"
+      url: "https://www.booking.com/hotel/hn/holiday-inn-express-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+      icon: "fa-solid fa-hotel"
+    - label: "Diana Princess"
+      url: "https://www.booking.com/hotel/hn/diana-princess-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+      icon: "fa-solid fa-hotel"
 
 - id: puerto_cortes
   title: "Puerto Cortés i Omoa"

@@ -327,7 +327,7 @@
   long_description: |
     La segunda ciudad más grande del país ofrece excelentes excursiones a menos de 100 km. El [Parque Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) es una reserva de bosque nuboso con gran biodiversidad.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofrece senderos y canopy. El [Mercado Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofrece senderos y canopy. El [Mercado Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas. Si llegas tarde o tienes un vuelo temprano a la mañana siguiente, el Holiday Inn Express y el Diana Princess son buenas opciones para una noche cerca del aeropuerto.
   tips:
     - "🌺 Sube a El Merendón para ver la ciudad y comprar flores."
     - "🛍️ Visita el Mercado Guamilito para artesanías y comida típica."
@@ -354,6 +354,12 @@
         - label: "La Coca Cola"
           url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
           icon: "fa-brands fa-youtube"
+    - label: "Holiday Inn Express"
+      url: "https://www.booking.com/hotel/hn/holiday-inn-express-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-hotel"
+    - label: "Diana Princess"
+      url: "https://www.booking.com/hotel/hn/diana-princess-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-hotel"
 
 - id: puerto_cortes
   title: "Puerto Cortés y Omoa"
