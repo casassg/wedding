@@ -334,7 +334,7 @@
   long_description: |
     The second largest city offers excellent day trip options within 100km. [El Cusuco National Park](https://en.wikipedia.org/wiki/Cusuco_National_Park) is a cloud forest biological reserve with incredible biodiversity.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) offers hiking trails and canopy ziplines. [Guamilito Market](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail. Coffee lovers should also try [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), ranked #70 in the [World's 100 Best Coffee Shops](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/). If you're arriving late or flying out the next morning, the Intercity, Diana Princess, Aloft, Verona, Los Andes, AMP Suites, and Angeli Gardens Boutique are all great options for a night close to the airport.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) offers hiking trails and canopy ziplines. [Guamilito Market](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail. Coffee lovers should also try [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), ranked #70 in the [World's 100 Best Coffee Shops](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/). For a place to stay, the [Intercity](https://www.booking.com/hotel/hn/holiday-inn-express-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us) and [Diana Princess](https://www.booking.com/hotel/hn/diana-princess-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us) are close to the airport, while the [Aloft](https://www.booking.com/hotel/hn/aloft-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us), [Verona](https://www.booking.com/hotel/hn/verona.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us), [Los Andes](https://www.booking.com/hotel/hn/los-andes-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us), [AMP Suites](https://www.booking.com/hotel/hn/amp-suites-copantl.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us), and [Angeli Gardens Boutique](https://www.booking.com/hotel/hn/angeli-gardens-boutique.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us) are all good places in San Pedro.
   tips:
     - "🌺 Visit the hydrangea fields of El Merendón in bloom season."
     - "🛍️ Guamilito Market for authentic Honduran handicrafts."
@@ -364,30 +364,6 @@
         - label: "La Coca Cola Hike"
           url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
           icon: "fa-brands fa-youtube"
-    - title: "Where to stay"
-      icon: "fa-solid fa-bed"
-      links:
-        - label: "Intercity"
-          url: "https://www.booking.com/hotel/hn/holiday-inn-express-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "Diana Princess"
-          url: "https://www.booking.com/hotel/hn/diana-princess-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "Aloft"
-          url: "https://www.booking.com/hotel/hn/aloft-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "Verona"
-          url: "https://www.booking.com/hotel/hn/verona.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "Los Andes"
-          url: "https://www.booking.com/hotel/hn/los-andes-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "AMP Suites Copantl"
-          url: "https://www.booking.com/hotel/hn/amp-suites-copantl.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
-        - label: "Angeli Gardens Boutique"
-          url: "https://www.booking.com/hotel/hn/angeli-gardens-boutique.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=en-us"
-          icon: "fa-solid fa-hotel"
 
 - id: puerto_cortes
   title: "Puerto Cortés & Omoa"
