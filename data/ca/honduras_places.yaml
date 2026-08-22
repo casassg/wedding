@@ -206,7 +206,7 @@
   long_description: |
     Fundada el 1578 als vessants del cerro El Picacho, Tegucigalpa és la capital política d'Hondures i una ciutat de contrastos. El centre històric alberga la [Catedral de San Miguel](https://en.wikipedia.org/wiki/Cathedral_of_Saint_Michael_the_Archangel,_Tegucigalpa) (s. XVIII), la Galeria Nacional d'Art a l'antic Paraninfo i l'animat Mercat San Isidro. La [Basílica de Suyapa](https://en.wikipedia.org/wiki/Basilica_of_Our_Lady_of_Suyapa), dedicada a la petita imatge patrona d'Hondures, rep pelegrins tot l'any, especialment el 3 de febrer.
 
-    Tres poblets comparteixen la mateixa carretera a només 30 minuts de la ciutat. **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** és un preciós poble colonial de muntanya famós per la seva artesania, carrers empedrats i mercats de cap de setmana. **San Juancito** és un antic poble miner, i **Santa Lucía** ofereix les millors vistes de la vall.
+    Tres poblets comparteixen la mateixa carretera a només 30 minuts de la ciutat. **[Valle de Ángeles](https://en.wikipedia.org/wiki/Valle_de_%C3%81ngeles)** és un preciós poble colonial de muntanya famós per la seva artesania, carrers empedrats i mercats de cap de setmana. **San Juancito** és un antic poble miner, i **Santa Lucía** ofereix les millors vistes de la vall. Més al sud, **Santa Ana** i **Ojojona** són dos pobles colonials de muntanya més, encantadors per a una escapada tranquil·la: l'[Hostal Las Victorias](https://hostallasvictorias.com/) és al costat del parc eòlic de Santa Ana.
 
     Més a prop de la ciutat, el **Crist del Picacho** és la versió més petita del Crist Redemptor de Rio: una estàtua al cim amb vistes panoràmiques, restaurants i llocs de vi, a uns 15 minuts del centre. A uns 40 minuts, **Finca La Catadora** és un peculiar vinyar de móres amb bon menjar i vistes. Per als amants de l'aire lliure, el **[Parc Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park)** és un bosc ennuvolat amb excel·lents senders, una de les àrees protegides més antigues del país.
 
@@ -239,6 +239,9 @@
     - label: "Cafetano Roasters"
       url: "https://www.instagram.com/cafetanohnd/"
       icon: "fa-brands fa-instagram"
+    - label: "Hostal Las Victorias"
+      url: "https://hostallasvictorias.com/"
+      icon: "fa-solid fa-bed"
 
 - id: tela
   title: "Tela"
