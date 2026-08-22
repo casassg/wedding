@@ -334,7 +334,7 @@
   long_description: |
     La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El [Parc Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) és una reserva de bosc ennuvolat amb una gran biodiversitat.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola. Els amants del cafè també haurien de provar [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), al lloc #70 del rànquing de les [100 millors cafeteries del món](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/).
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola. Els amants del cafè també haurien de provar [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), al lloc #70 del rànquing de les [100 millors cafeteries del món](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/). Si arribes tard o vols un vol d'hora l'endemà, l'Intercity, el Diana Princess, l'Aloft, el Verona, el Los Andes, l'AMP Suites i l'Angeli Gardens Boutique són bones opcions per passar una nit prop de l'aeroport.
   tips:
     - "🌺 Visita els camps d'hortènsies d'El Merendón quan floreixen."
     - "🛍️ Mercat Guamilito per a artesania hondurenya autèntica."
@@ -364,6 +364,30 @@
         - label: "La Coca Cola"
           url: "https://www.youtube.com/watch?v=d8WSI7vLcBQ"
           icon: "fa-brands fa-youtube"
+    - title: "On allotjar-se"
+      icon: "fa-solid fa-bed"
+      links:
+        - label: "Intercity"
+          url: "https://www.booking.com/hotel/hn/holiday-inn-express-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "Diana Princess"
+          url: "https://www.booking.com/hotel/hn/diana-princess-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "Aloft"
+          url: "https://www.booking.com/hotel/hn/aloft-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "Verona"
+          url: "https://www.booking.com/hotel/hn/verona.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "Los Andes"
+          url: "https://www.booking.com/hotel/hn/los-andes-san-pedro-sula.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "AMP Suites Copantl"
+          url: "https://www.booking.com/hotel/hn/amp-suites-copantl.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
+        - label: "Angeli Gardens Boutique"
+          url: "https://www.booking.com/hotel/hn/angeli-gardens-boutique.html?checkin=2026-12-20&checkout=2026-12-22&group_adults=2&no_rooms=1&lang=ca"
+          icon: "fa-solid fa-hotel"
 
 - id: puerto_cortes
   title: "Puerto Cortés i Omoa"
