@@ -209,7 +209,7 @@
 
     Más cerca de la ciudad, el **Cristo del Picacho** es la versión más pequeña del Cristo Redentor de Río: una estatua en la cima con vistas panorámicas, restaurantes y sitios de vino, a unos 15 minutos del centro. A unos 40 minutos, **Finca La Catadora** es un peculiar viñedo de moras con buena comida y vistas. Para los amantes del aire libre, el **[Parque Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park)** es un bosque nuboso con excelentes senderos, una de las áreas protegidas más antiguas del país.
 
-    De vuelta en la ciudad, **9 Patrias** ofrece un menú degustación de 7 platos nacido de un programa universitario de gastronomía: ingredientes locales inspirados en tribus antiguas de Honduras, como pescado cocinado con cacao, con cada plato explicado, una experiencia estilo Michelin a un nivel más accesible. Para la historia, no te pierdas el [Museo para la Identidad Nacional](https://share.google/adcS2XJ4qalKy4lGi).
+    De vuelta en la ciudad, **9 Patrias** ofrece un menú degustación de 7 platos nacido de un programa universitario de gastronomía: ingredientes locales inspirados en tribus antiguas de Honduras, como pescado cocinado con cacao, con cada plato explicado, una experiencia estilo Michelin a un nivel más accesible. Para la historia, no te pierdas el [Museo para la Identidad Nacional](https://share.google/adcS2XJ4qalKy4lGi). Los amantes del café también deberían probar [Café Nativo](https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/) y [Cafetano Coffee Roasters](https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/), clasificadas en el ranking [100 mejores cafeterías del mundo](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/) en los puestos #63 y #91.
   tips:
     - "🌿 El Parque Nacional La Tigra está a solo 30 minutos del centro."
     - "☕ Cafeterías recomendadas en la ciudad: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
@@ -232,12 +232,6 @@
     - label: "Museo para la Identidad Nacional"
       url: "https://share.google/adcS2XJ4qalKy4lGi"
       icon: "fa-solid fa-landmark"
-    - label: "Café Nativo"
-      url: "https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/"
-      icon: "fa-solid fa-mug-hot"
-    - label: "Cafetano Roasters"
-      url: "https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/"
-      icon: "fa-solid fa-mug-hot"
 
 - id: tela
   title: "Tela"
@@ -333,7 +327,7 @@
   long_description: |
     La segunda ciudad más grande del país ofrece excelentes excursiones a menos de 100 km. El [Parque Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) es una reserva de bosque nuboso con gran biodiversidad.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofrece senderos y canopy. El [Mercado Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofrece senderos y canopy. El [Mercado Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) es ideal para comprar artesanías y flores. El Merendón cuenta con el famoso rótulo de Coca Cola y vistas panorámicas. Los amantes del café también deberían probar [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), clasificado en el puesto #70 del ranking [100 mejores cafeterías del mundo](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/).
   tips:
     - "🌺 Sube a El Merendón para ver la ciudad y comprar flores."
     - "🛍️ Visita el Mercado Guamilito para artesanías y comida típica."
@@ -348,9 +342,6 @@
     - label: "Angeli Gardens"
       url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
       icon: "fa-brands fa-youtube"
-    - label: "The Golden Pig"
-      url: "https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/"
-      icon: "fa-solid fa-mug-hot"
     - label: "Mercado Guamilito"
       url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
       icon: "fa-brands fa-youtube"

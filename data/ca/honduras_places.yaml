@@ -210,7 +210,7 @@
 
     Més a prop de la ciutat, el **Crist del Picacho** és la versió més petita del Crist Redemptor de Rio: una estàtua al cim amb vistes panoràmiques, restaurants i llocs de vi, a uns 15 minuts del centre. A uns 40 minuts, **Finca La Catadora** és un peculiar vinyar de móres amb bon menjar i vistes. Per als amants de l'aire lliure, el **[Parc Nacional La Tigra](https://en.wikipedia.org/wiki/La_Tigra_National_Park)** és un bosc ennuvolat amb excel·lents senders, una de les àrees protegides més antigues del país.
 
-    De tornada a la ciutat, **9 Patrias** ofereix un menú degustació de 7 plats nascut d'un programa universitari de gastronomia: ingredients locals inspirats en tribus antigues d'Hondures, com peix cuinat amb cacau, amb cada plat explicat, una experiència estil Michelin a un nivell més accessible. Per a la història, no us perdeu el [Museu per a la Identitat Nacional](https://share.google/adcS2XJ4qalKy4lGi).
+    De tornada a la ciutat, **9 Patrias** ofereix un menú degustació de 7 plats nascut d'un programa universitari de gastronomia: ingredients locals inspirats en tribus antigues d'Hondures, com peix cuinat amb cacau, amb cada plat explicat, una experiència estil Michelin a un nivell més accessible. Per a la història, no us perdeu el [Museu per a la Identitat Nacional](https://share.google/adcS2XJ4qalKy4lGi). Els amants del cafè també haurien de provar [Café Nativo](https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/) i [Cafetano Coffee Roasters](https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/), al rànquing de les [100 millors cafeteries del món](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/) als llocs #63 i #91.
   tips:
     - "🌿 El Parc Nacional La Tigra és a només 30 minuts del centre."
     - "☕ Cafeteries recomanades a la ciutat: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
@@ -233,12 +233,6 @@
     - label: "Museu per a la Identitat Nacional"
       url: "https://share.google/adcS2XJ4qalKy4lGi"
       icon: "fa-solid fa-landmark"
-    - label: "Café Nativo"
-      url: "https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/"
-      icon: "fa-solid fa-mug-hot"
-    - label: "Cafetano Roasters"
-      url: "https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/"
-      icon: "fa-solid fa-mug-hot"
 
 - id: tela
   title: "Tela"
@@ -334,7 +328,7 @@
   long_description: |
     La segona ciutat més gran ofereix opcions excel·lents d'excursions a menys de 100 km. El [Parc Nacional El Cusuco](https://en.wikipedia.org/wiki/Cusuco_National_Park) és una reserva de bosc ennuvolat amb una gran biodiversitat.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) ofereix senders i tirolines. El [mercat Guamilito](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) és el lloc ideal per comprar artesania hondurenya autèntica. El Merendón té uns camps d'hortènsies preciosos i la ruta de la Coca Cola. Els amants del cafè també haurien de provar [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), al lloc #70 del rànquing de les [100 millors cafeteries del món](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/).
   tips:
     - "🌺 Visita els camps d'hortènsies d'El Merendón quan floreixen."
     - "🛍️ Mercat Guamilito per a artesania hondurenya autèntica."
@@ -349,9 +343,6 @@
     - label: "Angeli Gardens"
       url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
       icon: "fa-brands fa-youtube"
-    - label: "The Golden Pig"
-      url: "https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/"
-      icon: "fa-solid fa-mug-hot"
     - label: "Mercat Guamilito"
       url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
       icon: "fa-brands fa-youtube"
