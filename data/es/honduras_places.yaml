@@ -232,6 +232,12 @@
     - label: "Museo para la Identidad Nacional"
       url: "https://share.google/adcS2XJ4qalKy4lGi"
       icon: "fa-solid fa-landmark"
+    - label: "Café Nativo"
+      url: "https://www.instagram.com/cafenativohn/"
+      icon: "fa-brands fa-instagram"
+    - label: "Cafetano Roasters"
+      url: "https://www.instagram.com/cafetanohnd/"
+      icon: "fa-brands fa-instagram"
 
 - id: tela
   title: "Tela"
@@ -342,6 +348,9 @@
     - label: "Angeli Gardens"
       url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
       icon: "fa-brands fa-youtube"
+    - label: "The Golden Pig"
+      url: "https://www.instagram.com/tgp.hn/"
+      icon: "fa-brands fa-instagram"
     - label: "Mercado Guamilito"
       url: "https://www.youtube.com/watch?v=l9ugdSmxoLQ"
       icon: "fa-brands fa-youtube"
