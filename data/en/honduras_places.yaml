@@ -210,7 +210,7 @@
 
     Closer to the city, the **Cristo del Picacho** is Tegucigalpa's smaller take on Rio's Christ the Redeemer: a hilltop statue with panoramic views, restaurants, and wine spots, about 15 minutes from downtown. About 40 minutes out, **Finca La Catadora** is a quirky blackberry vineyard with great food and views. For outdoor lovers, **[La Tigra National Park](https://en.wikipedia.org/wiki/La_Tigra_National_Park)** is a cloud forest with excellent hiking trails, one of Honduras's oldest protected areas.
 
-    Back in the city, **9 Patrias** serves a 7-course tasting menu born from a university gastronomy program: local ingredients inspired by ancient Honduran tribes, like fish cooked with cacao, with every dish explained, a Michelin-style experience at a friendlier level. For history, don't miss the [Museum of National Identity](https://share.google/adcS2XJ4qalKy4lGi).
+    Back in the city, **9 Patrias** serves a 7-course tasting menu born from a university gastronomy program: local ingredients inspired by ancient Honduran tribes, like fish cooked with cacao, with every dish explained, a Michelin-style experience at a friendlier level. For history, don't miss the [Museum of National Identity](https://share.google/adcS2XJ4qalKy4lGi). Coffee lovers should also stop by [Café Nativo](https://theworlds100bestcoffeeshops.com/locales/cafe-nativo/) and [Cafetano Coffee Roasters](https://theworlds100bestcoffeeshops.com/locales/cafetano-coffee-roasters/), both ranked in the [World's 100 Best Coffee Shops](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/) at #63 and #91.
   tips:
     - "🌿 La Tigra National Park is just 30 minutes from the city center."
     - "☕ Coffee picks in the city: Nativo, Cafetano, Plácido, La Montaña, Varietal, TGP, Crepería, Aroma."
@@ -233,6 +233,12 @@
     - label: "National Identity Museum"
       url: "https://share.google/adcS2XJ4qalKy4lGi"
       icon: "fa-solid fa-landmark"
+    - label: "Café Nativo"
+      url: "https://www.instagram.com/cafenativohn/"
+      icon: "fa-brands fa-instagram"
+    - label: "Cafetano Roasters"
+      url: "https://www.instagram.com/cafetanohnd/"
+      icon: "fa-brands fa-instagram"
 
 - id: tela
   title: "Tela"
@@ -328,7 +334,7 @@
   long_description: |
     The second largest city offers excellent day trip options within 100km. [El Cusuco National Park](https://en.wikipedia.org/wiki/Cusuco_National_Park) is a cloud forest biological reserve with incredible biodiversity.
 
-    [Angeli Gardens](https://www.instagram.com/angeligardens/) offers hiking trails and canopy ziplines. [Guamilito Market](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail.
+    [Angeli Gardens](https://www.instagram.com/angeligardens/) offers hiking trails and canopy ziplines. [Guamilito Market](https://www.google.com/maps/place/Guamilito+Market/@15.5026,-88.0284,17z/) is the place for authentic Honduran crafts. El Merendón features beautiful hydrangea fields and La Coca Cola hiking trail. Coffee lovers should also try [The Golden Pig](https://theworlds100bestcoffeeshops.com/locales/the-golden-pig/), ranked #70 in the [World's 100 Best Coffee Shops](https://theworlds100bestcoffeeshops.com/top-100-coffee-shops/).
   tips:
     - "🌺 Visit the hydrangea fields of El Merendón in bloom season."
     - "🛍️ Guamilito Market for authentic Honduran handicrafts."
@@ -343,6 +349,9 @@
     - label: "Angeli Gardens"
       url: "https://www.youtube.com/watch?v=DyoZZLWS6NI"
       icon: "fa-brands fa-youtube"
+    - label: "The Golden Pig"
+      url: "https://www.instagram.com/tgp.hn/"
+      icon: "fa-brands fa-instagram"
     - title: "Things to do"
       icon: "fa-solid fa-compass"
       links:
