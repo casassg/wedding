@@ -504,7 +504,6 @@
             invite: null,
             submitted: false,
             submitting: false,
-            validationAttempted: false,
             code: null,
             
             // Attendance state: null = undecided (main form), false = declining
@@ -603,6 +602,14 @@
                 const adults = this.invite.max_adults || 0;
                 return adults > 1 ? this.fillInfoPlural : this.fillInfo;
             },
+
+            get isRSVPComplete() {
+                return Boolean((!this.showPlusOne || this.formData.plusOne !== '')
+                    && (!this.showKids || this.formData.kidCount !== '')
+                    && this.formData.dietaryInfo.trim()
+                    && this.formData.song.trim()
+                    && this.formData.message.trim());
+            },
             
             async loadInvite() {
                 this.loading = true;
@@ -637,7 +644,6 @@
                 if (this.submitting) return;
                 
                 this.error = null;
-                this.validationAttempted = true;
                 
                 if (this.showPlusOne && this.formData.plusOne === '') {
                     this.error = this.errorMissingPlusOne;

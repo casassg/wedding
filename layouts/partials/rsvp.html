@@ -92,10 +92,10 @@
                                 <form @submit.prevent="submitRSVP()" novalidate class="space-y-5">
                                     <!-- Adult count (shown only when max_adults = 2) -->
                                     <fieldset x-show="showPlusOne" x-cloak>
-                                        <legend class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_plus_one_label" }}</legend>
+                                        <legend class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_plus_one_label" }} <span class="text-rose font-bold" aria-hidden="true">*</span></legend>
                                         <div class="mt-2 flex flex-col sm:flex-row gap-3">
                                             <label class="flex items-center gap-3 cursor-pointer rounded-2xl border border-gray-300 px-4 py-3 transition hover:border-mint/50"
-                                                   :class="formData.plusOne === 'yes' ? 'border-mint ring-2 ring-mint/30' : validationAttempted && formData.plusOne === '' ? 'border-rose ring-2 ring-rose/30' : ''">
+                                                   :class="formData.plusOne === 'yes' ? 'border-mint ring-2 ring-mint/30' : ''">
                                                 <input type="radio"
                                                        name="plus-one"
                                                        value="yes"
@@ -104,7 +104,7 @@
                                                 <span class="text-sm font-sans text-gray-700">{{ i18n "rsvp_plus_one_yes" }}</span>
                                             </label>
                                             <label class="flex items-center gap-3 cursor-pointer rounded-2xl border border-gray-300 px-4 py-3 transition hover:border-mint/50"
-                                                   :class="formData.plusOne === 'no' ? 'border-mint ring-2 ring-mint/30' : validationAttempted && formData.plusOne === '' ? 'border-rose ring-2 ring-rose/30' : ''">
+                                                   :class="formData.plusOne === 'no' ? 'border-mint ring-2 ring-mint/30' : ''">
                                                 <input type="radio"
                                                        name="plus-one"
                                                        value="no"
@@ -117,10 +117,9 @@
 
                                     <!-- Kids field -->
                                     <div x-show="showKids" x-cloak>
-                                        <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
+                                        <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }} <span class="text-rose font-bold" aria-hidden="true">*</span></label>
                                         <select x-model="formData.kidCount"
                                                  id="rsvp-kids"
-                                                 :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && formData.kidCount === '' }"
                                                  class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition">
                                             <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
                                             <template x-for="num in kidsOptions" :key="num">
@@ -132,48 +131,46 @@
 
                                     <div class="grid md:grid-cols-2 gap-4">
                                         <div>
-                                            <label for="rsvp-dietary" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_dietary_label" }}</label>
+                                            <label for="rsvp-dietary" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_dietary_label" }} <span class="text-rose font-bold" aria-hidden="true">*</span></label>
                                             <input x-model="formData.dietaryInfo"
                                                    id="rsvp-dietary"
                                                    type="text"
                                                    required
-                                                   :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.dietaryInfo.trim() }"
                                                    class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                    placeholder="{{ i18n "rsvp_dietary_placeholder" }}">
                                         </div>
                                         <div>
-                                            <label for="rsvp-song" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_song_label" }}</label>
+                                            <label for="rsvp-song" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_song_label" }} <span class="text-rose font-bold" aria-hidden="true">*</span></label>
                                             <input x-model="formData.song"
                                                    id="rsvp-song"
                                                    type="text"
                                                    required
-                                                   :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.song.trim() }"
                                                    class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                    placeholder="{{ i18n "rsvp_song_placeholder" }}">
                                         </div>
                                     </div>
 
                                     <div>
-                                        <label for="rsvp-message" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_message_label" }}</label>
+                                        <label for="rsvp-message" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_message_label" }} <span class="text-rose font-bold" aria-hidden="true">*</span></label>
                                         <textarea x-model="formData.message"
                                                   id="rsvp-message"
                                                   rows="2"
                                                   required
-                                                  :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.message.trim() }"
                                                   class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                   placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
                                     </div>
 
                                     <div class="flex flex-col sm:flex-row items-center gap-3">
                                         <button type="submit"
-                                                :disabled="submitting"
-                                                :class="{ 'opacity-70': submitting }"
+                                                :disabled="submitting || !isRSVPComplete"
+                                                :class="{ 'cursor-not-allowed opacity-50': submitting || !isRSVPComplete }"
                                                 class="w-full sm:w-auto rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
                                             <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
                                             <span x-show="submitting" x-cloak>
                                                 <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
                                             </span>
                                         </button>
+                                        <p x-show="!isRSVPComplete" class="text-sm text-rose font-sans">{{ i18n "rsvp_missing_information" }}</p>
                                         <button type="button"
                                                 @click="startDecline()"
                                                 class="w-full sm:w-auto rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-500 transition hover:border-gray-400 hover:text-gray-700">
