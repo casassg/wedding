@@ -504,6 +504,7 @@
             invite: null,
             submitted: false,
             submitting: false,
+            validationAttempted: false,
             code: null,
             
             // Attendance state: null = undecided (main form), false = declining
@@ -636,6 +637,7 @@
                 if (this.submitting) return;
                 
                 this.error = null;
+                this.validationAttempted = true;
                 
                 if (this.showPlusOne && this.formData.plusOne === '') {
                     this.error = this.errorMissingPlusOne;

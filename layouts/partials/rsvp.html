@@ -95,7 +95,7 @@
                                         <legend class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_plus_one_label" }}</legend>
                                         <div class="mt-2 flex flex-col sm:flex-row gap-3">
                                             <label class="flex items-center gap-3 cursor-pointer rounded-2xl border border-gray-300 px-4 py-3 transition hover:border-mint/50"
-                                                   :class="formData.plusOne === 'yes' ? 'border-mint ring-2 ring-mint/30' : ''">
+                                                   :class="formData.plusOne === 'yes' ? 'border-mint ring-2 ring-mint/30' : validationAttempted && formData.plusOne === '' ? 'border-rose ring-2 ring-rose/30' : ''">
                                                 <input type="radio"
                                                        name="plus-one"
                                                        value="yes"
@@ -104,7 +104,7 @@
                                                 <span class="text-sm font-sans text-gray-700">{{ i18n "rsvp_plus_one_yes" }}</span>
                                             </label>
                                             <label class="flex items-center gap-3 cursor-pointer rounded-2xl border border-gray-300 px-4 py-3 transition hover:border-mint/50"
-                                                   :class="formData.plusOne === 'no' ? 'border-mint ring-2 ring-mint/30' : ''">
+                                                   :class="formData.plusOne === 'no' ? 'border-mint ring-2 ring-mint/30' : validationAttempted && formData.plusOne === '' ? 'border-rose ring-2 ring-rose/30' : ''">
                                                 <input type="radio"
                                                        name="plus-one"
                                                        value="no"
@@ -119,8 +119,9 @@
                                     <div x-show="showKids" x-cloak>
                                         <label for="rsvp-kids" class="block text-sm font-semibold text-gray-700 font-sans">{{ i18n "rsvp_kids_label" }}</label>
                                         <select x-model="formData.kidCount"
-                                                id="rsvp-kids"
-                                                class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition">
+                                                 id="rsvp-kids"
+                                                 :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && formData.kidCount === '' }"
+                                                 class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition">
                                             <option value="" selected disabled>{{ i18n "rsvp_select_placeholder" }}</option>
                                             <template x-for="num in kidsOptions" :key="num">
                                                 <option :value="num" x-text="num"></option>
@@ -136,6 +137,7 @@
                                                    id="rsvp-dietary"
                                                    type="text"
                                                    required
+                                                   :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.dietaryInfo.trim() }"
                                                    class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                    placeholder="{{ i18n "rsvp_dietary_placeholder" }}">
                                         </div>
@@ -145,6 +147,7 @@
                                                    id="rsvp-song"
                                                    type="text"
                                                    required
+                                                   :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.song.trim() }"
                                                    class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                    placeholder="{{ i18n "rsvp_song_placeholder" }}">
                                         </div>
@@ -156,6 +159,7 @@
                                                   id="rsvp-message"
                                                   rows="2"
                                                   required
+                                                  :class="{ 'border-rose ring-2 ring-rose/30': validationAttempted && !formData.message.trim() }"
                                                   class="mt-2 w-full rounded-2xl border border-gray-300 bg-white px-4 py-3 text-gray-700 font-sans focus:border-mint focus:ring-2 focus:ring-mint/30 focus:outline-none transition"
                                                   placeholder="{{ i18n "rsvp_message_placeholder" }}"></textarea>
                                     </div>
