@@ -165,12 +165,12 @@
                                                 :disabled="submitting || !isRSVPComplete"
                                                 :class="{ 'cursor-not-allowed opacity-50': submitting || !isRSVPComplete }"
                                                 class="w-full sm:w-auto rounded-full bg-mint px-6 py-3 text-sm font-semibold uppercase tracking-widest text-white shadow-sm transition hover:bg-mint/90">
-                                            <span x-show="!submitting">{{ i18n "rsvp_submit" }}</span>
+                                            <span x-show="!submitting && isRSVPComplete">{{ i18n "rsvp_submit" }}</span>
+                                            <span x-show="!submitting && !isRSVPComplete">{{ i18n "rsvp_complete_required_fields" }}</span>
                                             <span x-show="submitting" x-cloak>
                                                 <i class="fa-solid fa-spinner fa-spin mr-2"></i>{{ i18n "rsvp_submitting" }}
                                             </span>
                                         </button>
-                                        <p x-show="!isRSVPComplete" class="text-sm text-rose font-sans">{{ i18n "rsvp_missing_information" }}</p>
                                         <button type="button"
                                                 @click="startDecline()"
                                                 class="w-full sm:w-auto rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-500 transition hover:border-gray-400 hover:text-gray-700">
