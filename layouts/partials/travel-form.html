@@ -21,14 +21,14 @@
 
     <!-- Bus schedule (hidden for Honduras guests, collapsed by default) -->
     <details x-show="!inHonduras" x-cloak class="mb-6">
-        <summary class="flex w-full cursor-pointer items-center justify-between rounded-xl bg-mint/10 px-4 py-3 text-sm font-medium text-mint transition-colors hover:bg-mint/15 font-sans select-none [&::-webkit-details-marker]:hidden">
+        <summary class="flex w-full cursor-pointer items-center justify-between py-2 text-sm font-semibold text-gray-700 transition-colors hover:text-gray-900 font-sans select-none [&::-webkit-details-marker]:hidden">
             <span class="flex items-center gap-2">
                 <i class="fa-solid fa-bus"></i>
                 {{ i18n "travel_form_bus_schedule_title" }}
             </span>
             <i class="fa-solid fa-chevron-down"></i>
         </summary>
-        <div class="tf-schedule-card rounded-2xl p-4 mt-3 overflow-x-auto">
+        <div class="mt-2 overflow-x-auto">
             <div class="tf-schedule-table text-xs text-gray-500 font-sans">
                 {{ i18n "travel_form_bus_schedule_body" | markdownify }}
             </div>
