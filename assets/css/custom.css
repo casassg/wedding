@@ -652,6 +652,10 @@ body.place-modal-open {
     padding: 0.5rem 1rem 0.5rem 0;
 }
 
+.tf-schedule-table tbody tr + tr {
+    border-top: 1px solid #e5e7eb;
+}
+
 .tf-schedule-table td:first-child {
     color: #4b5563;
     font-weight: 600;
