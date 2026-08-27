@@ -194,33 +194,34 @@ schedule_completed: "Completado"
 
 # Travel Form
 travel_form_retry: "No se pudo guardar. Haz otro cambio para reintentar."
-travel_form_bus_schedule_title: "Ver el horario completo de los autobuses"
+travel_form_bus_schedule_title: "Ver horarios de autobuses"
 travel_form_bus_schedule_body: |
   | Día | Salida | Llegada |
   | --- | --- | --- |
   | Jue. 17 de dic. | Welchez Café 3:00 PM (recogida SAP hasta 2:00 PM) | Copán ~7:00 PM, según el tráfico |
   | Vie. 18 de dic. | Welchez Café 2:00 PM (recogida SAP hasta 1:00 PM) | Copán ~6:00 PM, según el tráfico |
-  | Dom. 20 de dic. | Copán 8:00 AM (→ SAP, luego San Pedro) o 1:00 PM (→ solo San Pedro) | SAP ~12:15 PM; San Pedro ~1:00 PM/5:00 PM |
+  | Dom. 20 de dic. (mañana) | Copán 8:00 AM (→ SAP, luego San Pedro) | SAP ~12:15 PM; San Pedro ~1:00 PM |
+  | Dom. 20 de dic. (tarde) | Copán 1:00 PM (→ solo San Pedro) | San Pedro ~5:00 PM |
 
   Según las inscripciones, puede que haya más de un autobús o que salga antes de lo indicado — por favor llegad con tiempo.
 travel_form_intro: "Elige tus opciones de autobús compartido y comparte cualquier detalle de viaje a continuación. Si todavía no lo tienes claro, no pasa nada: **puedes modificar este formulario hasta el 1 de noviembre 📅**. Solo abre el enlace de la invitación que te enviamos y cambia tus respuestas."
 travel_form_intro_honduras: "Cuéntanos dónde te alojarás y cualquier otro detalle de viaje a continuación. Si todavía no lo tienes claro, no pasa nada: **puedes modificar este formulario hasta el 1 de noviembre 📅**. Solo abre el enlace de la invitación que te enviamos y cambia tus respuestas."
 travel_form_bus_to_label: "¿Quieres un lugar en nuestro autobús a Copán?"
 travel_form_bus_to_thursday: "🚌 Jueves, 17 de dic."
-travel_form_bus_to_thursday_sub: "Un solo autobús, sale de Welchez Café a las 3:00 PM (recogida en el aeropuerto SAP a las 2:00 PM)"
+travel_form_bus_to_thursday_sub: "**Un solo autobús**, sale de Welchez Café a las **3:00 PM** (*recogida en el aeropuerto SAP a las 2:00 PM*)"
 travel_form_bus_to_friday: "🚌 Viernes, 18 de dic."
-travel_form_bus_to_friday_sub: "Un solo autobús, sale de Welchez Café a las 2:00 PM (recogida en el aeropuerto SAP a la 1:00 PM)"
+travel_form_bus_to_friday_sub: "**Un solo autobús**, sale de Welchez Café a las **2:00 PM** (*recogida en el aeropuerto SAP a la 1:00 PM*)"
 travel_form_bus_to_none: "🚗 No, llegaré por mi cuenta"
 travel_form_bus_to_none_transport_pre: "¿Necesitas transporte privado?"
 travel_form_bus_to_none_transport_link: "Contacta a Daniel de Chelsy Tours"
 travel_form_bus_to_none_faq_link: "Consulta nuestras preguntas frecuentes para más opciones de transporte a Copán"
 travel_form_pickup_label: "¿Dónde subes al autobús?"
 travel_form_pickup_sap: "Aeropuerto SAP, San Pedro Sula"
-travel_form_pickup_sap_sub_thursday: "Solo para vuelos que aterricen a más tardar a la 1:30 PM, el autobús sale del aeropuerto a las 2:00 PM"
-travel_form_pickup_sap_sub_friday: "Solo para vuelos que aterricen a más tardar a la 12:30 PM, el autobús sale del aeropuerto a la 1:00 PM"
+travel_form_pickup_sap_sub_thursday: "*Solo para vuelos que aterricen a más tardar a la 1:30 PM*, el autobús sale del aeropuerto a las **2:00 PM**"
+travel_form_pickup_sap_sub_friday: "*Solo para vuelos que aterricen a más tardar a la 12:30 PM*, el autobús sale del aeropuerto a la **1:00 PM**"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub_thursday: "Punto de encuentro con aire acondicionado · llega a las 2:30 PM, salida 3:00 PM"
-travel_form_pickup_welchez_sub_friday: "Punto de encuentro con aire acondicionado · llega a la 1:30 PM, salida 2:00 PM"
+travel_form_pickup_welchez_sub_thursday: "*Punto de encuentro con aire acondicionado*, llega a las **2:30 PM**, salida a las **3:00 PM**"
+travel_form_pickup_welchez_sub_friday: "*Punto de encuentro con aire acondicionado*, llega a la **1:30 PM**, salida a las **2:00 PM**"
 travel_form_pickup_welchez_map: "Ver Welchez Café en Google Maps"
 travel_form_flight_label: "¿En qué vuelo llegas?"
 travel_form_flight_placeholder: "Busca por número de vuelo o ciudad..."
@@ -233,15 +234,15 @@ travel_form_saved_btn: "Guardado ✓"
 travel_form_retry_btn: "Reintentar"
 travel_form_bus_return_label: "¿Quieres un lugar en nuestro autobús de regreso hasta San Pedro?"
 travel_form_return_time_morning: "🚌 8:00 AM"
-travel_form_return_time_morning_sub: "Al aeropuerto SAP y luego a San Pedro Sula"
+travel_form_return_time_morning_sub: "Al **aeropuerto SAP** (llega **~12:15 PM**), y luego a *San Pedro Sula* (llega **~1:00 PM**)"
 travel_form_return_time_afternoon: "🚌 1:00 PM"
-travel_form_return_time_afternoon_sub: "Solo a San Pedro Sula, sin parada en el aeropuerto"
+travel_form_return_time_afternoon_sub: "Solo a **San Pedro Sula** (llega **~5:00 PM**), *sin parada en el aeropuerto*"
 travel_form_bus_return_none: "🚗 No necesito autobús"
 travel_form_return_dest_label: "¿A dónde te diriges?"
 travel_form_return_dest_sp: "🚐 San Pedro Sula"
-travel_form_return_dest_sp_sub_sunday: "Llega ~1:00 PM"
+travel_form_return_dest_sp_sub_sunday: "Llega **~1:00 PM**"
 travel_form_return_dest_sap: "✈️ Aeropuerto SAP"
-travel_form_return_dest_sap_sub_sunday: "Llega ~12:15 PM"
+travel_form_return_dest_sap_sub_sunday: "Llega **~12:15 PM**"
 travel_form_return_flight_label: "¿En qué vuelo te vas?"
 travel_form_return_flight_placeholder: "Busca por número de vuelo o ciudad..."
 travel_form_return_flight_note: "Solo mostramos vuelos a partir de la 1 PM: el autobús sale de Copán a las 8 AM en punto y el trayecto dura entre 4 y 4:15 horas, así que no llegaríamos a tiempo para vuelos anteriores. Además, tomar este autobús significa perderte el brunch de despedida (8-11 AM) — reserva un vuelo después de la 1 PM para no perderte la fiesta."
