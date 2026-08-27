@@ -197,31 +197,34 @@ schedule_completed: "Completed"
 
 # Travel Form
 travel_form_retry: "Couldn't save. Make another change to retry."
-travel_form_bus_schedule_title: "View full bus schedule"
+travel_form_bus_schedule_title: "View bus schedules"
 travel_form_bus_schedule_body: |
   | Day | Departure | Arrival |
   | --- | --- | --- |
   | Thu Dec 17 | Welchez Café 3:00 PM (SAP pickup by 2:00 PM) | Copán ~7:00 PM, traffic permitting |
   | Fri Dec 18 | Welchez Café 2:00 PM (SAP pickup by 1:00 PM) | Copán ~6:00 PM, traffic permitting |
-  | Sun Dec 20 | Copán 8:00 AM (→ SAP, then San Pedro) or 1:00 PM (→ San Pedro only) | SAP ~12:15 PM; San Pedro ~1:00 PM/5:00 PM |
+  | Sun Dec 20 (morning) | Copán 8:00 AM (→ SAP, then San Pedro) | SAP ~12:15 PM; San Pedro ~1:00 PM |
+  | Sun Dec 20 (afternoon) | Copán 1:00 PM (→ San Pedro only) | San Pedro ~5:00 PM |
 
   Depending on signups we may run more than one bus, or a bus may leave earlier than listed — please arrive with time to spare.
 travel_form_intro: "Choose your shared bus options and share any travel details below. If you're not sure yet, don't worry, **you can update this form until November 1 📅**. Just open the link from the invitation we sent and change your answers."
 travel_form_intro_honduras: "Share where you'll be staying and any travel notes below. If you're not sure yet, don't worry, **you can update this form until November 1 📅**. Just open the link from the invitation we sent and change your answers."
 travel_form_bus_to_label: "Do you want a seat on our bus to Copán?"
 travel_form_bus_to_thursday: "🚌 Thursday, Dec 17"
+travel_form_bus_to_thursday_sub: "**One bus only**, departs Welchez Café at **3:00 PM** (*SAP airport pickup at 2:00 PM*)"
 travel_form_bus_to_friday: "🚌 Friday, Dec 18"
+travel_form_bus_to_friday_sub: "**One bus only**, departs Welchez Café at **2:00 PM** (*SAP airport pickup at 1:00 PM*)"
 travel_form_bus_to_none: "🚗 No, I'll get there on my own"
 travel_form_bus_to_none_transport_pre: "Need private transport?"
 travel_form_bus_to_none_transport_link: "Contact Daniel at Chelsy Tours"
 travel_form_bus_to_none_faq_link: "Read our FAQ for more ways to get to Copán"
 travel_form_pickup_label: "Where will you board the bus?"
 travel_form_pickup_sap: "SAP airport, San Pedro Sula"
-travel_form_pickup_sap_sub_thursday: "Flight landing by 1:30 PM only"
-travel_form_pickup_sap_sub_friday: "Flight landing by 12:30 PM only"
+travel_form_pickup_sap_sub_thursday: "*Flight landing by 1:30 PM only*, bus departs airport at **2:00 PM**"
+travel_form_pickup_sap_sub_friday: "*Flight landing by 12:30 PM only*, bus departs airport at **1:00 PM**"
 travel_form_pickup_welchez: "Welchez Café, San Pedro"
-travel_form_pickup_welchez_sub_thursday: "Air-conditioned meeting point · be there by 2:30 PM, departs 3:00 PM"
-travel_form_pickup_welchez_sub_friday: "Air-conditioned meeting point · be there by 1:30 PM, departs 2:00 PM"
+travel_form_pickup_welchez_sub_thursday: "*Air-conditioned meeting point*, be there by **2:30 PM**, departs at **3:00 PM**"
+travel_form_pickup_welchez_sub_friday: "*Air-conditioned meeting point*, be there by **1:30 PM**, departs at **2:00 PM**"
 travel_form_pickup_welchez_map: "View Welchez Café on Google Maps"
 travel_form_flight_label: "Which flight do you arrive on?"
 travel_form_flight_placeholder: "Search by flight number or city..."
@@ -234,15 +237,15 @@ travel_form_saved_btn: "Saved ✓"
 travel_form_retry_btn: "Try again"
 travel_form_bus_return_label: "Which bus back are you taking, Sunday Dec 20?"
 travel_form_return_time_morning: "🚌 8:00 AM"
-travel_form_return_time_morning_sub: "To SAP airport, then San Pedro Sula"
+travel_form_return_time_morning_sub: "To **SAP airport** (arrives **~12:15 PM**), then *San Pedro Sula* (arrives **~1:00 PM**)"
 travel_form_return_time_afternoon: "🚌 1:00 PM"
-travel_form_return_time_afternoon_sub: "To San Pedro Sula only, no airport stop"
+travel_form_return_time_afternoon_sub: "To **San Pedro Sula only** (arrives **~5:00 PM**), *no airport stop*"
 travel_form_bus_return_none: "🚗 No bus needed"
 travel_form_return_dest_label: "Where are you heading?"
 travel_form_return_dest_sp: "🚐 San Pedro Sula"
-travel_form_return_dest_sp_sub_sunday: "Arrives ~1:00 PM"
+travel_form_return_dest_sp_sub_sunday: "Arrives **~1:00 PM**"
 travel_form_return_dest_sap: "✈️ SAP airport"
-travel_form_return_dest_sap_sub_sunday: "Arrives ~12:15 PM"
+travel_form_return_dest_sap_sub_sunday: "Arrives **~12:15 PM**"
 travel_form_return_flight_label: "Which flight are you departing on?"
 travel_form_return_flight_placeholder: "Search by flight number or city..."
 travel_form_return_flight_note: "We only show flights at or after 1 PM: the shuttle leaves Copán at 8 AM sharp and the drive takes 4-4:15 hours, so earlier flights are out of reach. Plus, taking this shuttle means missing the farewell brunch (8-11 AM) — book a flight after 1 PM so you don't miss out on the fun!"

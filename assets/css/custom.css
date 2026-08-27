@@ -636,11 +636,6 @@ body.place-modal-open {
     background: #f0f7ec;
 }
 
-.tf-schedule-card {
-    background: #f9fafb;
-    border: 1px solid #e5e7eb;
-}
-
 .tf-schedule-table table {
     width: 100%;
     table-layout: fixed;
@@ -658,7 +653,7 @@ body.place-modal-open {
 }
 
 .tf-schedule-table tbody tr + tr {
-    border-top: 1px solid rgb(143 168 118 / 20%);
+    border-top: 1px solid #e5e7eb;
 }
 
 .tf-schedule-table td:first-child {
