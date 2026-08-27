@@ -516,7 +516,7 @@
             envelopeAnimating: false,
             
             formData: {
-                plusOne: false,
+                plusOne: '',
                 kidCount: '',
                 dietaryInfo: '',
                 message: '',
@@ -524,7 +524,9 @@
             },
             
             // Localized messages from data attributes
+            errorMissingPlusOne: '',
             errorMissingKids: '',
+            errorMissingFields: '',
             errorGeneric: '',
             inviteSizeOne: '',
             inviteSizeOther: '',
@@ -534,7 +536,9 @@
             init() {
                 // Read config from data attributes
                 const el = this.$el;
+                this.errorMissingPlusOne = el.dataset.errorMissingPlusOne || 'Please tell us how many of you are coming.';
                 this.errorMissingKids = el.dataset.errorMissingKids || 'Please select the number of kids.';
+                this.errorMissingFields = el.dataset.errorMissingFields || 'Please fill in all the fields.';
                 this.errorGeneric = el.dataset.errorGeneric || 'Something went wrong. Please try again.';
                 this.inviteSizeOne = el.dataset.inviteSizeOne || '';
                 this.inviteSizeOther = el.dataset.inviteSizeOther || '';
@@ -598,6 +602,14 @@
                 const adults = this.invite.max_adults || 0;
                 return adults > 1 ? this.fillInfoPlural : this.fillInfo;
             },
+
+            get isRSVPComplete() {
+                return Boolean((!this.showPlusOne || this.formData.plusOne !== '')
+                    && (!this.showKids || this.formData.kidCount !== '')
+                    && this.formData.dietaryInfo.trim()
+                    && this.formData.song.trim()
+                    && this.formData.message.trim());
+            },
             
             async loadInvite() {
                 this.loading = true;
@@ -633,9 +645,18 @@
                 
                 this.error = null;
                 
-                // Validate kids field if applicable
+                if (this.showPlusOne && this.formData.plusOne === '') {
+                    this.error = this.errorMissingPlusOne;
+                    return;
+                }
+
                 if (this.showKids && this.formData.kidCount === '') {
                     this.error = this.errorMissingKids;
+                    return;
+                }
+
+                if (!this.formData.dietaryInfo.trim() || !this.formData.song.trim() || !this.formData.message.trim()) {
+                    this.error = this.errorMissingFields;
                     return;
                 }
                 
@@ -645,9 +666,9 @@
                     song_request: this.formData.song.trim()
                 };
                 
-                // Determine adult_count based on +1 checkbox
+                // Determine adult_count from the explicit adult-count choice.
                 if (this.invite.max_adults === 2) {
-                    payload.adult_count = this.formData.plusOne ? 2 : 1;
+                    payload.adult_count = this.formData.plusOne === 'yes' ? 2 : 1;
                 } else {
                     payload.adult_count = 1;
                 }
