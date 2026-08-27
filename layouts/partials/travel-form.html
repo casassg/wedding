@@ -20,20 +20,25 @@
     </p>
 
     <!-- Bus schedule (hidden for Honduras guests, collapsed by default) -->
-    <details x-show="!inHonduras" x-cloak class="mb-6">
-        <summary class="flex w-full cursor-pointer items-center justify-between py-2 text-sm font-semibold text-gray-700 transition-colors hover:text-gray-900 font-sans select-none [&::-webkit-details-marker]:hidden">
+    <div x-show="!inHonduras" x-cloak x-data="{ showBusSchedule: false }" class="mb-6">
+        <hr class="border-gray-200">
+        <button type="button" @click="showBusSchedule = !showBusSchedule"
+                :aria-expanded="showBusSchedule" aria-controls="bus-schedule"
+                class="flex w-full items-center justify-between py-3 text-sm font-medium text-gray-700 transition-colors hover:text-gray-900 font-sans">
             <span class="flex items-center gap-2">
                 <i class="fa-solid fa-bus"></i>
                 {{ i18n "travel_form_bus_schedule_title" }}
             </span>
-            <i class="fa-solid fa-chevron-down"></i>
-        </summary>
-        <div class="mt-2 overflow-x-auto">
+            <i class="fa-solid fa-chevron-down transition-transform duration-200"
+               :class="{ 'rotate-180': showBusSchedule }"></i>
+        </button>
+        <div id="bus-schedule" x-show="showBusSchedule" x-collapse x-cloak class="pb-3 overflow-x-auto">
             <div class="tf-schedule-table text-xs text-gray-500 font-sans">
                 {{ i18n "travel_form_bus_schedule_body" | markdownify }}
             </div>
         </div>
-    </details>
+        <hr class="border-gray-200">
+    </div>
 
     <div class="space-y-6">
 
