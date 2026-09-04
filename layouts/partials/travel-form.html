@@ -147,6 +147,7 @@
                                     <span class="font-semibold text-sm text-gray-800" x-text="f.flight"></span>
                                     <span class="text-xs text-gray-500 ml-1" x-text="f.airline"></span>
                                     <div class="text-xs text-gray-400 mt-0.5" x-text="f.from"></div>
+                                    <div x-show="f.tight" class="text-xs text-amber-600 mt-0.5">⚠️ {{ i18n "travel_form_flight_tight" }}</div>
                                 </div>
                                 <div class="text-right shrink-0">
                                     <span class="text-xs text-gray-500">{{ i18n "travel_form_flight_arrives" }}</span>
