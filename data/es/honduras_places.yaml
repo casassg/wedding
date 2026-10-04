@@ -408,3 +408,59 @@
         - label: "Video Tour"
           url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
           icon: "fa-brands fa-youtube"
+
+- id: amapala
+  title: "Amapala y la costa del Pacífico"
+  description: "El lado pacífico de Honduras en el golfo de Fonseca: la volcánica Isla del Tigre con el histórico puerto de Amapala, playas tranquilas de agua cálida, senderismo al volcán al amanecer y paseos en bote por los manglares. El contraste tranquilo y alternativo al Caribe."
+  icon: "fa-solid fa-volcano"
+  long_description: |
+    El golfo de Fonseca es la costa pacífica de Honduras, un golfo trinacional compartido con El Salvador y Nicaragua, donde islas volcánicas emergen del agua cálida y tranquila. La protagonista es la **[Isla del Tigre](https://en.wikipedia.org/wiki/Tiger_Island)**, un cono volcánico casi perfecto (783 m) que se puede subir para disfrutar del amanecer y el atardecer, rodeada de playas como Playa El Burro, Playa Grande y la de arena negra Playa Negra.
+
+    En la isla está **Amapala**, fundada en 1838 como el puerto colonial del Pacífico hondureño y una vez capital del país. Hoy es un pueblo tranquilo de edificios históricos, malecón junto al mar y algunos de los mariscos más frescos que puedas probar. Se llega en un corto viaje en lancha desde **Coyolito**, el pueblo pesquero de tierra firme donde está el muelle, a unos 2,5 km sobre el agua.
+
+    En tierra firme, **San Lorenzo** es el principal puerto del Pacífico hondureño y la capital del camarón: parada obligada para probar la *sopa marinera* y los restaurantes junto al agua de La Cabaña. **Choluteca**, la cabecera departamental sobre la carretera Panamericana, es un buen punto de partida con iglesias históricas y el centro cultural Casa Valle.
+
+    Los estuarios del golfo guardan algunos de los manglares mejor conservados de Centroamérica: los paseos en *cayuco* (canoa) al amanecer pasan entre fragatas, pelícanos, garzas y cigüeñas, y los proyectos comunitarios de tortugas marinas en **Playa El Venado** liberan crías (temporada de octubre a noviembre, a veces extendida al inicio del año).
+  tips:
+    - "🌋 Sube al volcán El Tigre (783 m) temprano en la mañana; los senderos salen de Amapala y de Playa El Burro."
+    - "⛴️ La lancha Coyolito → Amapala solo circula de día: cruza por la mañana y regresa bien antes del anochecer."
+    - "🏖️ Diciembre es temporada seca en el Pacífico: caluroso, soleado y alrededor de 33 °C, perfecto para la playa."
+    - "🦩 Reserva un tour de manglares en cayuco al amanecer para ver fragatas, pelícanos y garzas; lleva repelente."
+    - "🐢 Pregunta localmente por las liberaciones de tortugas en Playa El Venado; de octubre a noviembre, a veces hasta dic-ene."
+    - "🍤 Prueba la sopa marinera en San Lorenzo, la capital del camarón de Honduras."
+    - "💵 Lleva efectivo en lempiras: las fondas de playa y los lancheros rara vez aceptan tarjeta."
+    - "🛺 Recorre la isla en tuk-tuk por el camino de 18 km entre tranquilos pueblos pesqueros."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/H3FsKmkURo5dFTkv8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Wikipedia"
+      url: "https://es.wikipedia.org/wiki/Amapala"
+      icon: "fa-solid fa-landmark"
+    - title: "Actividades"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Guía de Amapala"
+          url: "https://hondurastravel.com/southern-honduras/amapala-isla-del-tigre-aka-tiger-island/"
+          icon: "fa-solid fa-book"
+        - label: "Isla del Tigre"
+          url: "https://en.wikivoyage.org/wiki/Isla_del_Tigre"
+          icon: "fa-solid fa-globe"
+        - label: "Tours de manglares"
+          url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
+          icon: "fa-solid fa-ship"
+    - title: "Alrededores"
+      icon: "fa-solid fa-location-dot"
+      links:
+        - label: "Isla del Tigre"
+          url: "https://en.wikipedia.org/wiki/Tiger_Island"
+          icon: "fa-solid fa-volcano"
+        - label: "Golfo de Fonseca"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca"
+          icon: "fa-solid fa-water"
+        - label: "San Lorenzo"
+          url: "https://en.wikipedia.org/wiki/San_Lorenzo,_Honduras"
+          icon: "fa-solid fa-city"
+        - label: "Choluteca"
+          url: "https://en.wikipedia.org/wiki/Choluteca,_Choluteca"
+          icon: "fa-solid fa-church"

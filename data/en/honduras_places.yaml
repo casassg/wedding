@@ -409,3 +409,59 @@
         - label: "Video Tour"
           url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
           icon: "fa-brands fa-youtube"
+
+- id: amapala
+  title: "Amapala & the Pacific Coast"
+  description: "Honduras's Pacific side in the Gulf of Fonseca: the volcanic Isla del Tigre with the historic port town of Amapala, warm calm-water beaches, sunrise volcano hikes, and mangrove boat tours. The quiet, off-the-beaten-path contrast to the Caribbean."
+  icon: "fa-solid fa-volcano"
+  long_description: |
+    The Gulf of Fonseca is Honduras's Pacific shoreline, a tri-national gulf shared with El Salvador and Nicaragua, where volcanic islands rise straight out of calm, warm water. The star is **[Isla del Tigre (Tiger Island)](https://en.wikipedia.org/wiki/Tiger_Island)**, a near-perfect volcanic cone (783 m) you can hike for spectacular sunrise and sunset views, ringed by beaches like Playa El Burro, Playa Grande, and black-sand Playa Negra.
+
+    On the island sits **Amapala**, founded in 1838 as the colonial-era port of the Honduran Pacific and once the country's capital. Today it is a tranquil town of historic buildings, a waterfront malecón, and some of the freshest seafood anywhere. Reach it by a short boat ride from **Coyolito**, the mainland fishing village where the ferry dock sits about 2.5 km across the water.
+
+    On the mainland, **San Lorenzo** is Honduras's main Pacific port and shrimp capital: stop for *sopa marinera* (seafood soup) and waterfront restaurants around La Cabaña. **Choluteca**, the departmental capital on the Pan-American Highway, is a good staging point with historic churches and the Casa Valle cultural center.
+
+    The gulf's estuaries hold some of Central America's best-preserved mangroves: early-morning *cayuco* (dugout canoe) tours glide past frigatebirds, pelicans, herons, and storks, and community turtle projects at **Playa El Venado** release hatchlings (October-November season, sometimes extending into the new year).
+  tips:
+    - "🌋 Hike the El Tigre volcano (783 m) early in the morning; trails start from Amapala town and Playa El Burro."
+    - "⛴️ The Coyolito → Amapala boat runs in daylight only: cross in the morning and return well before dark."
+    - "🏖️ December is dry season on the Pacific: hot, sunny, and around 33°C, perfect for beach days."
+    - "🦩 Book a dawn mangrove cayuco tour for frigatebirds, pelicans, and herons; bring insect repellent."
+    - "🐢 Ask locally about sea turtle releases at Playa El Venado; October-November, sometimes into Dec-Jan."
+    - "🍤 Try sopa marinera in San Lorenzo, the shrimp capital of Honduras."
+    - "💵 Bring cash in lempiras: beach restaurants and boat operators rarely take cards."
+    - "🛺 Circle the island by tuk-tuk on the 18 km road through quiet fishing villages."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/H3FsKmkURo5dFTkv8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Amapala"
+      icon: "fa-solid fa-landmark"
+    - title: "Things to do"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Amapala Guide"
+          url: "https://hondurastravel.com/southern-honduras/amapala-isla-del-tigre-aka-tiger-island/"
+          icon: "fa-solid fa-book"
+        - label: "Isla del Tigre"
+          url: "https://en.wikivoyage.org/wiki/Isla_del_Tigre"
+          icon: "fa-solid fa-globe"
+        - label: "Mangrove Tours"
+          url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
+          icon: "fa-solid fa-ship"
+    - title: "Nearby"
+      icon: "fa-solid fa-location-dot"
+      links:
+        - label: "Tiger Island"
+          url: "https://en.wikipedia.org/wiki/Tiger_Island"
+          icon: "fa-solid fa-volcano"
+        - label: "Gulf of Fonseca"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca"
+          icon: "fa-solid fa-water"
+        - label: "San Lorenzo"
+          url: "https://en.wikipedia.org/wiki/San_Lorenzo,_Honduras"
+          icon: "fa-solid fa-city"
+        - label: "Choluteca"
+          url: "https://en.wikipedia.org/wiki/Choluteca,_Choluteca"
+          icon: "fa-solid fa-church"
