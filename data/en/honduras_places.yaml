@@ -421,9 +421,16 @@
 
     On the mainland, **San Lorenzo** is Honduras's main Pacific port and shrimp capital: stop for *sopa marinera* (seafood soup) and waterfront restaurants around La Cabaña. **Choluteca**, the departmental capital on the Pan-American Highway, is a good staging point with historic churches and the Casa Valle cultural center.
 
-    The gulf's estuaries hold some of Central America's best-preserved mangroves: early-morning *cayuco* (dugout canoe) tours glide past frigatebirds, pelicans, herons, and storks, and community turtle projects at **Playa El Venado** release hatchlings (October-November season, sometimes extending into the new year).
+    The gulf's estuaries hold some of Central America's best-preserved mangroves, a [BirdLife Important Bird Area](https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves): early-morning *cayuco* (dugout canoe) tours glide past frigatebirds, pelicans, herons, storks, reddish egrets, and Bat Falcons, and community turtle projects at **Playa El Venado** release hatchlings (October-November season, sometimes extending into the new year). The **Isla del Tigre loop** is logged as a birding spot on [eBird](https://ebird.org/region/HN/bird-list?yr=all&rank=lrec): bird at dawn, and check the mudflats at low tide for sandpipers and terns.
+
+    The **volcano hike** is the island's signature adventure: two trails reach the 783 m summit (one from Playa El Burro in the north, one from Amapala town), plus a dirt road for a gentler grade. Plan 2-3 hours round trip, start at dawn to beat the heat, and bring plenty of water and hiking shoes. The reward is a sunrise or sunset over the whole gulf, with El Salvador and Nicaragua on the horizon. For sunsets without the climb, head to the El Mirador de Amapala restaurant viewpoint or Faro Victoria.
   tips:
     - "🌋 Hike the El Tigre volcano (783 m) early in the morning; trails start from Amapala town and Playa El Burro."
+    - "🥾 Plan 2-3 hours round trip for the summit; bring 2L of water, hiking shoes, and start at dawn."
+    - "🦅 The Honduran mangroves are a BirdLife Important Bird Area: reddish egrets, frigatebirds, Bat Falcons."
+    - "🔭 Bird the Isla del Tigre loop at dawn; check mudflats at low tide for sandpipers and terns."
+    - "🌅 Best sunsets: El Mirador de Amapala restaurant viewpoint or Faro Victoria."
+    - "🐟 Lunch at Velero, the beach restaurant at Playa El Burro."
     - "⛴️ The Coyolito → Amapala boat runs in daylight only: cross in the morning and return well before dark."
     - "🏖️ December is dry season on the Pacific: hot, sunny, and around 33°C, perfect for beach days."
     - "🦩 Book a dawn mangrove cayuco tour for frigatebirds, pelicans, and herons; bring insect repellent."
@@ -450,6 +457,15 @@
         - label: "Mangrove Tours"
           url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
           icon: "fa-solid fa-ship"
+    - title: "Birding"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "IBA: Gulf Mangroves"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves"
+          icon: "fa-solid fa-dove"
+        - label: "eBird Honduras"
+          url: "https://ebird.org/region/HN/bird-list?yr=all&rank=lrec"
+          icon: "fa-solid fa-list-check"
     - title: "Nearby"
       icon: "fa-solid fa-location-dot"
       links:

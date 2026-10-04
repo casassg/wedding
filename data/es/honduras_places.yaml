@@ -420,9 +420,16 @@
 
     En tierra firme, **San Lorenzo** es el principal puerto del Pacífico hondureño y la capital del camarón: parada obligada para probar la *sopa marinera* y los restaurantes junto al agua de La Cabaña. **Choluteca**, la cabecera departamental sobre la carretera Panamericana, es un buen punto de partida con iglesias históricas y el centro cultural Casa Valle.
 
-    Los estuarios del golfo guardan algunos de los manglares mejor conservados de Centroamérica: los paseos en *cayuco* (canoa) al amanecer pasan entre fragatas, pelícanos, garzas y cigüeñas, y los proyectos comunitarios de tortugas marinas en **Playa El Venado** liberan crías (temporada de octubre a noviembre, a veces extendida al inicio del año).
+    Los estuarios del golfo guardan algunos de los manglares mejor conservados de Centroamérica, un [Área Importante para las Aves de BirdLife](https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves): los paseos en *cayuco* (canoa) al amanecer pasan entre fragatas, pelícanos, garzas, cigüeñas, garcetas rojizas y halcones murcielagueros, y los proyectos comunitarios de tortugas marinas en **Playa El Venado** liberan crías (temporada de octubre a noviembre, a veces extendida al inicio del año). El **circuito de la Isla del Tigre** está registrado como punto de observación en [eBird](https://ebird.org/region/HN/bird-list?yr=all&rank=lrec): observa al amanecer y revisa los lodazales con marea baja para ver playeros y charranes.
+
+    La **subida al volcán** es la aventura insignia de la isla: dos senderos llegan a la cima de 783 m (uno desde Playa El Burro en el norte, otro desde el pueblo de Amapala), además de un camino de tierra de pendiente más suave. Calcula 2-3 horas ida y vuelta, sal al amanecer para evitar el calor y lleva mucha agua y buen calzado. La recompensa es un amanecer o atardecer sobre todo el golfo, con El Salvador y Nicaragua en el horizonte. Para atardeceres sin subir, ve al mirador del restaurante El Mirador de Amapala o al Faro Victoria.
   tips:
     - "🌋 Sube al volcán El Tigre (783 m) temprano en la mañana; los senderos salen de Amapala y de Playa El Burro."
+    - "🥾 Calcula 2-3 horas ida y vuelta para la cima; lleva 2L de agua, buen calzado y sal al amanecer."
+    - "🦅 Los manglares hondureños son un Área Importante para las Aves de BirdLife: garcetas rojizas, fragatas, halcones murcielagueros."
+    - "🔭 Observa aves en el circuito de Isla del Tigre al amanecer; con marea baja verás playeros y charranes."
+    - "🌅 Los mejores atardeceres: el mirador del restaurante El Mirador de Amapala o el Faro Victoria."
+    - "🐟 Almuerza en Velero, el restaurante de playa en Playa El Burro."
     - "⛴️ La lancha Coyolito → Amapala solo circula de día: cruza por la mañana y regresa bien antes del anochecer."
     - "🏖️ Diciembre es temporada seca en el Pacífico: caluroso, soleado y alrededor de 33 °C, perfecto para la playa."
     - "🦩 Reserva un tour de manglares en cayuco al amanecer para ver fragatas, pelícanos y garzas; lleva repelente."
@@ -449,6 +456,15 @@
         - label: "Tours de manglares"
           url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
           icon: "fa-solid fa-ship"
+    - title: "Aves"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "AICA: Manglares del golfo"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves"
+          icon: "fa-solid fa-dove"
+        - label: "eBird Honduras"
+          url: "https://ebird.org/region/HN/bird-list?yr=all&rank=lrec"
+          icon: "fa-solid fa-list-check"
     - title: "Alrededores"
       icon: "fa-solid fa-location-dot"
       links:

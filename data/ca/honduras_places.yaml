@@ -421,9 +421,16 @@
 
     A terra ferma, **San Lorenzo** és el principal port del Pacífic hondureny i la capital de la gamba: parada obligada per tastar la *sopa marinera* i els restaurants vora l'aigua de La Cabaña. **Choluteca**, la capital departamental sobre la carretera Panamericana, és un bon punt de partida amb esglésies històriques i el centre cultural Casa Valle.
 
-    Els estuaris del golf amaguen alguns dels manglars més ben conservats de Centreamèrica: les excursions en *cayuco* (canoa) a la matinada passen entre fragates, pelicans, garses i cigonyes, i els projectes comunitaris de tortugues marines a **Playa El Venado** alliberen cries (temporada d'octubre a novembre, de vegades allargada fins a principis d'any).
+    Els estuaris del golf amaguen alguns dels manglars més ben conservats de Centreamèrica, una [Àrea Important per a les Aus de BirdLife](https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves): les excursions en *cayuco* (canoa) a la matinada passen entre fragates, pelicans, garses, cigonyes, garsetes rogenques i falcons ratpenats, i els projectes comunitaris de tortugues marines a **Playa El Venado** alliberen cries (temporada d'octubre a novembre, de vegades allargada fins a principis d'any). El **circuit de l'Isla del Tigre** està registrat com a punt d'observació a [eBird](https://ebird.org/region/HN/bird-list?yr=all&rank=lrec): observa a la matinada i revisa els fanguissars amb marea baixa per veure corriols i xatracs.
+
+    La **pujada al volcà** és l'aventura insígnia de l'illa: dos senders arriben al cim de 783 m (un des de Playa El Burro al nord, un altre des del poble d'Amapala), a més d'un camí de terra de pendent més suau. Calcula 2-3 hores anada i tornada, surt a la matinada per evitar la calor i porta molta aigua i bon calçat. La recompensa és una sortida o posta de sol sobre tot el golf, amb El Salvador i Nicaragua a l'horitzó. Per a postes de sol sense pujar, ves al mirador del restaurant El Mirador de Amapala o al Faro Victoria.
   tips:
     - "🌋 Puja al volcà El Tigre (783 m) ben d'hora al matí; els senders surten d'Amapala i de Playa El Burro."
+    - "🥾 Calcula 2-3 hores anada i tornada per al cim; porta 2L d'aigua, bon calçat i surt a la matinada."
+    - "🦅 Els manglars hondurenys són una Àrea Important per a les Aus de BirdLife: garsetes rogenques, fragates, falcons ratpenats."
+    - "🔭 Observa ocells al circuit de l'Isla del Tigre a la matinada; amb marea baixa veuràs corriols i xatracs."
+    - "🌅 Les millors postes de sol: el mirador del restaurant El Mirador de Amapala o el Faro Victoria."
+    - "🐟 Dina a Velero, el restaurant de platja a Playa El Burro."
     - "⛴️ La llanxa Coyolito → Amapala només funciona de dia: creua al matí i torna molt abans que es faci fosc."
     - "🏖️ El desembre és temporada seca al Pacífic: calor, sol i uns 33 °C, perfecte per a la platja."
     - "🦩 Reserva una excursió de manglars en cayuco a la matinada per veure fragates, pelicans i garses; porta repel·lent."
@@ -450,6 +457,15 @@
         - label: "Tours de manglars"
           url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
           icon: "fa-solid fa-ship"
+    - title: "Ocells"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "IBA: Manglars del golf"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves"
+          icon: "fa-solid fa-dove"
+        - label: "eBird Honduras"
+          url: "https://ebird.org/region/HN/bird-list?yr=all&rank=lrec"
+          icon: "fa-solid fa-list-check"
     - title: "Voltants"
       icon: "fa-solid fa-location-dot"
       links:
