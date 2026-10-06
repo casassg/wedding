@@ -409,3 +409,75 @@
         - label: "Video Tour"
           url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
           icon: "fa-brands fa-youtube"
+
+- id: amapala
+  title: "Amapala i la costa del Pacífic"
+  description: "La costa pacífica d'Hondures al golf de Fonseca: la volcànica Isla del Tigre amb l'històric port d'Amapala, platges tranquil·les d'aigua càlida, excursions al volcà a la sortida del sol i passejos en barca pels manglars. El contrast tranquil i alternatiu al Carib."
+  icon: "fa-solid fa-volcano"
+  long_description: |
+    El golf de Fonseca és la costa pacífica d'Hondures, un golf trinacional compartit amb El Salvador i Nicaragua, on illes volcàniques emergeixen de l'aigua càlida i tranquil·la. La protagonista és la **[Isla del Tigre](https://en.wikipedia.org/wiki/Tiger_Island)**, un con volcànic gairebé perfecte (783 m) que es pot pujar per gaudir de la sortida i la posta del sol, envoltada de platges com Playa El Burro, Playa Grande i la de sorra negra Playa Negra.
+
+    A l'illa hi ha **Amapala**, fundada el 1838 com a port colonial del Pacífic hondureny i en el seu moment capital del país. Avui és un poble tranquil d'edificis històrics, passeig marítim i alguns dels mariscos més frescos que puguis tastar. S'hi arriba amb un curt trajecte en llanxa des de **Coyolito**, el poble pesquer de terra ferma on hi ha el moll, a uns 2,5 km sobre l'aigua.
+
+    A terra ferma, **San Lorenzo** és el principal port del Pacífic hondureny i la capital de la gamba: parada obligada per tastar la *sopa marinera* i els restaurants vora l'aigua de La Cabaña. **Choluteca**, la capital departamental sobre la carretera Panamericana, és un bon punt de partida amb esglésies històriques i el centre cultural Casa Valle.
+
+    Els estuaris del golf amaguen alguns dels manglars més ben conservats de Centreamèrica, una [Àrea Important per a les Aus de BirdLife](https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves): les excursions en *cayuco* (canoa) a la matinada passen entre fragates, pelicans, garses, cigonyes, garsetes rogenques i falcons ratpenats, i els projectes comunitaris de tortugues marines a **Playa El Venado** alliberen cries (temporada d'octubre a novembre, de vegades allargada fins a principis d'any). El **circuit de l'Isla del Tigre** està registrat com a punt d'observació a [eBird](https://ebird.org/region/HN/bird-list?yr=all&rank=lrec): observa a la matinada i revisa els fanguissars amb marea baixa per veure corriols i xatracs.
+
+    La **pujada al volcà** és l'aventura insígnia de l'illa: dos senders arriben al cim de 783 m (un des de Playa El Burro al nord, un altre des del poble d'Amapala), a més d'un camí de terra de pendent més suau. Calcula 2-3 hores anada i tornada, surt a la matinada per evitar la calor i porta molta aigua i bon calçat. La recompensa és una sortida o posta de sol sobre tot el golf, amb El Salvador i Nicaragua a l'horitzó. Per a postes de sol sense pujar, ves al mirador del restaurant El Mirador de Amapala o al Faro Victoria.
+  tips:
+    - "🌋 Puja al volcà El Tigre (783 m) ben d'hora al matí; els senders surten d'Amapala i de Playa El Burro."
+    - "🥾 Calcula 2-3 hores anada i tornada per al cim; porta 2L d'aigua, bon calçat i surt a la matinada."
+    - "🦅 Els manglars hondurenys són una Àrea Important per a les Aus de BirdLife: garsetes rogenques, fragates, falcons ratpenats."
+    - "🔭 Observa ocells al circuit de l'Isla del Tigre a la matinada; amb marea baixa veuràs corriols i xatracs."
+    - "🌅 Les millors postes de sol: el mirador del restaurant El Mirador de Amapala o el Faro Victoria."
+    - "🐟 Dina a Velero, el restaurant de platja a Playa El Burro."
+    - "⛴️ La llanxa Coyolito → Amapala només funciona de dia: creua al matí i torna molt abans que es faci fosc."
+    - "🏖️ El desembre és temporada seca al Pacífic: calor, sol i uns 33 °C, perfecte per a la platja."
+    - "🦩 Reserva una excursió de manglars en cayuco a la matinada per veure fragates, pelicans i garses; porta repel·lent."
+    - "🐢 Pregunta localment per les alliberacions de tortugues a Playa El Venado; d'octubre a novembre, de vegades fins a des-gen."
+    - "🍤 Tasta la sopa marinera a San Lorenzo, la capital de la gamba d'Hondures."
+    - "💵 Porta efectiu en lempires: els xiringuitos de platja i els barquers gairebé mai accepten targeta."
+    - "🛺 Recorre l'illa en tuk-tuk pel camí de 18 km entre tranquils pobles pesquers."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/H3FsKmkURo5dFTkv8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Viquipèdia"
+      url: "https://ca.wikipedia.org/wiki/Amapala"
+      icon: "fa-solid fa-landmark"
+    - title: "Activitats"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Guia d'Amapala"
+          url: "https://hondurastravel.com/southern-honduras/amapala-isla-del-tigre-aka-tiger-island/"
+          icon: "fa-solid fa-book"
+        - label: "Isla del Tigre"
+          url: "https://en.wikivoyage.org/wiki/Isla_del_Tigre"
+          icon: "fa-solid fa-globe"
+        - label: "Tours de manglars"
+          url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
+          icon: "fa-solid fa-ship"
+    - title: "Ocells"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "IBA: Manglars del golf"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves"
+          icon: "fa-solid fa-dove"
+        - label: "eBird Honduras"
+          url: "https://ebird.org/region/HN/bird-list?yr=all&rank=lrec"
+          icon: "fa-solid fa-list-check"
+    - title: "Voltants"
+      icon: "fa-solid fa-location-dot"
+      links:
+        - label: "Isla del Tigre"
+          url: "https://en.wikipedia.org/wiki/Tiger_Island"
+          icon: "fa-solid fa-volcano"
+        - label: "Golf de Fonseca"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca"
+          icon: "fa-solid fa-water"
+        - label: "San Lorenzo"
+          url: "https://en.wikipedia.org/wiki/San_Lorenzo,_Honduras"
+          icon: "fa-solid fa-city"
+        - label: "Choluteca"
+          url: "https://en.wikipedia.org/wiki/Choluteca,_Choluteca"
+          icon: "fa-solid fa-church"
