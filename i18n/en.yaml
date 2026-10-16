@@ -39,7 +39,6 @@ rsvp_fill_info: "We hope you can join us! Please complete the following informat
 rsvp_fill_info_plural: "We hope you can join us! Please complete the following information to confirm your attendance."
 rsvp_invite_size_one: "💌 Invitation valid for {n} person."
 rsvp_invite_size_other: "💌 Invitation valid for {n} people."
-rsvp_deadline: "We would appreciate if you can confirm your attendance by the **end of September**."
 rsvp_plus_one_label: "This RSVP is for:"
 rsvp_plus_one_yes: "2 of us"
 rsvp_plus_one_no: "Just 1 (me)"
