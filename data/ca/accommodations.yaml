@@ -52,6 +52,7 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
+  price_from: "Des de $80 per nit, $160 per les dues nits sense imposts (+19%)"
   description: "Hotel d'estil colonial al costat de la plaça principal amb piscina, restaurant i bar. Serveis: WiFi gratuït, aparcament gratuït, piscina i aire condicionat."
 
 - id: plaza_magdalena
@@ -69,6 +70,7 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
+  price_from: "Des de $96 per nit, $192 per les dues nits sense imposts (+19%)"
   description: "Ubicació cèntrica amb fàcil accés a restaurants i les ruïnes. Serveis: WiFi gratuït, aparcament gratuït i aire condicionat."
 
 - id: yatbalam
