@@ -75,21 +75,10 @@
 
 - id: yatbalam
   name: "Hotel Yat B'alam"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 10
-    rates:
-      - type: "Double"
-        price: 95
-        subtitle: "10 rooms across two buildings"
-    notes:
-      - "Free WiFi"
-      - "Free parking"
-      - "Air conditioning"
-      - "Café with breakfast"
   links:
+    - label: "Book on Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-yat-b-39-alam.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=en-us"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserve via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50432438585&text=Hello!%20I%27d%20like%20to%20reserve%20a%20room%20for%20Boda%20Casas%20Paz%20(Dec%2018-20%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -99,4 +88,5 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  description: "Boutique hotel with colonial charm, cozy café, and 10 rooms across two buildings."
+  price_from: "From $74 per night, $148 for both nights before taxes (+19%)"
+  description: "Boutique hotel with colonial charm, cozy café, and 10 rooms across two buildings. Amenities: free WiFi, free parking, air conditioning and a café with breakfast."

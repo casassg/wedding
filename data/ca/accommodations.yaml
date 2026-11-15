@@ -75,21 +75,10 @@
 
 - id: yatbalam
   name: "Hotel Yat B'alam"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 10
-    rates:
-      - type: "Doble"
-        price: 95
-        subtitle: "10 habitacions en dos edificis"
-    notes:
-      - "WiFi gratuït"
-      - "Aparcament gratuït"
-      - "Aire condicionat"
-      - "Cafeteria amb esmorzar"
   links:
+    - label: "Reservar a Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-yat-b-39-alam.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50432438585&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -99,4 +88,5 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  description: "Hotel boutique amb encant colonial, cafeteria acollidora i 10 habitacions en dos edificis."
+  price_from: "Des de $74 per nit, $148 per les dues nits sense imposts (+19%)"
+  description: "Hotel boutique amb encant colonial, cafeteria acollidora i 10 habitacions en dos edificis. Serveis: WiFi gratuït, aparcament gratuït, aire condicionat i cafeteria amb esmorzar."
