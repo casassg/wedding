@@ -170,6 +170,7 @@ accommodation_mention_name: "Menciona {name} al reservar per obtenir el nostre {
 accommodation_mention_block: "Menciona {name} en reservar per utilitzar la nostra reserva de grup."
 accommodation_view_rates: "Veure tarifes"
 accommodation_rates_disclaimer: "Els preus inclouen el 19% d'impostos (15% ISV + 4% turisme). Per nit."
+accommodation_price_heading: "Preu"
 
 # Place Card Modal
 place_learn_more: "Més informació"

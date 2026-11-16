@@ -52,7 +52,9 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
-  price_from: "Desde $80 por noche, $160 por las dos noches sin impuestos (+19%)"
+  price:
+    type: "Habitación con camas individuales y balcón"
+    per_night: 95.2
   description: "Hotel de estilo colonial junto a la plaza principal con piscina, restaurante y bar. Servicios: WiFi gratuito, estacionamiento gratuito, piscina y aire acondicionado."
 
 - id: plaza_magdalena
@@ -70,7 +72,9 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
-  price_from: "Desde $96 por noche, $192 por las dos noches sin impuestos (+19%)"
+  price:
+    type: "Habitación con dos camas matrimoniales"
+    per_night: 114.24
   description: "Ubicación céntrica con fácil acceso a restaurantes y las ruinas. Servicios: WiFi gratuito, estacionamiento gratuito y aire acondicionado."
 
 - id: yatbalam
@@ -88,5 +92,7 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  price_from: "Desde $74 por noche, $148 por las dos noches sin impuestos (+19%)"
+  price:
+    type: "Habitación con cama king"
+    per_night: 88.06
   description: "Hotel boutique con encanto colonial, cafetería acogedora y 10 habitaciones en dos edificios. Servicios: WiFi gratuito, estacionamiento gratuito, aire acondicionado y cafetería con desayuno."

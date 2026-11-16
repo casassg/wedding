@@ -52,7 +52,9 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
-  price_from: "From $80 per night, $160 for both nights before taxes (+19%)"
+  price:
+    type: "Twin room with balcony"
+    per_night: 95.2
   description: "Colonial style hotel next to the main plaza with pool, restaurant, and bar. Amenities: free WiFi, free parking, pool and air conditioning."
 
 - id: plaza_magdalena
@@ -70,7 +72,9 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
-  price_from: "From $96 per night, $192 for both nights before taxes (+19%)"
+  price:
+    type: "Room with two full beds"
+    per_night: 114.24
   description: "Convenient location near the center with easy access to restaurants and the ruins. Amenities: free WiFi, free parking and air conditioning."
 
 - id: yatbalam
@@ -88,5 +92,7 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  price_from: "From $74 per night, $148 for both nights before taxes (+19%)"
+  price:
+    type: "King room"
+    per_night: 88.06
   description: "Boutique hotel with colonial charm, cozy café, and 10 rooms across two buildings. Amenities: free WiFi, free parking, air conditioning and a café with breakfast."
