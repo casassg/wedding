@@ -39,20 +39,10 @@
 
 - id: plaza_copan
   name: "Hotel Plaza Copan"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 5
-    rates:
-      - type: "Doble"
-        price: 95
-    notes:
-      - "WiFi gratuït"
-      - "Aparcament gratuït"
-      - "Piscina"
-      - "Aire condicionat"
   links:
+    - label: "Reservar a Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-copan-copan.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50489498022&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -62,23 +52,19 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
-  description: "Hotel d'estil colonial al costat de la plaça principal amb piscina, restaurant i bar."
+  price:
+    rooms:
+      - type: "Habitació amb llits individuals i balcó"
+        occupancy: 2
+        per_night: 95.2
+  description: "Hotel d'estil colonial al costat de la plaça principal amb piscina, restaurant i bar. Serveis: WiFi gratuït, aparcament gratuït, piscina i aire condicionat."
 
 - id: plaza_magdalena
   name: "Hotel Plaza Magdalena"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 5
-    rates:
-      - type: "Doble"
-        price: 95
-    notes:
-      - "WiFi gratuït"
-      - "Aparcament gratuït"
-      - "Aire condicionat"
   links:
+    - label: "Reservar a Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-magdalena.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50431782034&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -88,25 +74,25 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
-  description: "Ubicació cèntrica amb fàcil accés a restaurants i les ruïnes."
+  price:
+    rooms:
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 2
+        per_night: 128.52
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 3
+        per_night: 138.04
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 4
+        per_night: 143.99
+  description: "Ubicació cèntrica amb fàcil accés a restaurants i les ruïnes. Serveis: WiFi gratuït, aparcament gratuït i aire condicionat."
 
 - id: yatbalam
   name: "Hotel Yat B'alam"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 10
-    rates:
-      - type: "Doble"
-        price: 95
-        subtitle: "10 habitacions en dos edificis"
-    notes:
-      - "WiFi gratuït"
-      - "Aparcament gratuït"
-      - "Aire condicionat"
-      - "Cafeteria amb esmorzar"
   links:
+    - label: "Reservar a Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-yat-b-39-alam.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva via WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50432438585&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -116,4 +102,15 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  description: "Hotel boutique amb encant colonial, cafeteria acollidora i 10 habitacions en dos edificis."
+  price:
+    rooms:
+      - type: "Habitació amb llit king"
+        occupancy: 2
+        per_night: 96.39
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 3
+        per_night: 104.72
+      - type: "Dos llits individuals i un de matrimoni"
+        occupancy: 3
+        per_night: 109.48
+  description: "Hotel boutique amb encant colonial, cafeteria acollidora i 10 habitacions en dos edificis. Serveis: WiFi gratuït, aparcament gratuït, aire condicionat i cafeteria amb esmorzar."

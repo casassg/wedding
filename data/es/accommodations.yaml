@@ -39,20 +39,10 @@
 
 - id: plaza_copan
   name: "Hotel Plaza Copan"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 5
-    rates:
-      - type: "Doble"
-        price: 95
-    notes:
-      - "WiFi gratuito"
-      - "Estacionamiento gratuito"
-      - "Piscina"
-      - "Aire acondicionado"
   links:
+    - label: "Reservar en Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-copan-copan.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva vía WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50489498022&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -62,23 +52,19 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
-  description: "Hotel de estilo colonial junto a la plaza principal con piscina, restaurante y bar."
+  price:
+    rooms:
+      - type: "Habitación con camas individuales y balcón"
+        occupancy: 2
+        per_night: 95.2
+  description: "Hotel de estilo colonial junto a la plaza principal con piscina, restaurante y bar. Servicios: WiFi gratuito, estacionamiento gratuito, piscina y aire acondicionado."
 
 - id: plaza_magdalena
   name: "Hotel Plaza Magdalena"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 5
-    rates:
-      - type: "Doble"
-        price: 95
-    notes:
-      - "WiFi gratuito"
-      - "Estacionamiento gratuito"
-      - "Aire acondicionado"
   links:
+    - label: "Reservar en Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-magdalena.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva vía WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50431782034&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -88,25 +74,25 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
-  description: "Ubicación céntrica con fácil acceso a restaurantes y las ruinas."
+  price:
+    rooms:
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 2
+        per_night: 128.52
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 3
+        per_night: 138.04
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 4
+        per_night: 143.99
+  description: "Ubicación céntrica con fácil acceso a restaurantes y las ruinas. Servicios: WiFi gratuito, estacionamiento gratuito y aire acondicionado."
 
 - id: yatbalam
   name: "Hotel Yat B'alam"
-  room_block:
-    name: "Boda Casas Paz"
-    date_start: 2026-12-18
-    date_end: 2026-12-20
-    rooms: 10
-    rates:
-      - type: "Doble"
-        price: 95
-        subtitle: "10 habitaciones en dos edificios"
-    notes:
-      - "WiFi gratuito"
-      - "Estacionamiento gratuito"
-      - "Aire acondicionado"
-      - "Cafetería con desayuno"
   links:
+    - label: "Reservar en Booking.com"
+      url: "https://www.booking.com/hotel/hn/plaza-yat-b-39-alam.html?checkin=2026-12-18&checkout=2026-12-20&group_adults=2&no_rooms=1&lang=es"
+      icon: "fa-solid fa-calendar-check"
     - label: "Reserva vía WhatsApp"
       url: "https://api.whatsapp.com/send/?phone=50432438585&text=%C2%A1Hola!%20Quisiera%20reservar%20para%20Boda%20Casas%20Paz%20(18-20%20Dic%2C%202026)&type=phone_number"
       icon: "fa-brands fa-whatsapp"
@@ -116,4 +102,15 @@
     - label: "Instagram"
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
-  description: "Hotel boutique con encanto colonial, cafetería acogedora y 10 habitaciones en dos edificios."
+  price:
+    rooms:
+      - type: "Habitación con cama king"
+        occupancy: 2
+        per_night: 96.39
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 3
+        per_night: 104.72
+      - type: "Dos camas individuales y una matrimonial"
+        occupancy: 3
+        per_night: 109.48
+  description: "Hotel boutique con encanto colonial, cafetería acogedora y 10 habitaciones en dos edificios. Servicios: WiFi gratuito, estacionamiento gratuito, aire acondicionado y cafetería con desayuno."

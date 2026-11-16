@@ -545,6 +545,34 @@
         <div class="flex-grow overflow-y-auto p-6 md:p-8 pt-2 space-y-6">
             <p class="text-gray-600 font-sans leading-relaxed">{{ $hotel.description }}</p>
 
+            {{- with $hotel.price }}
+            <div class="bg-{{ $color }}/10 p-4 rounded-xl space-y-2">
+                <h4 class="font-semibold text-gray-800 flex items-center gap-2">
+                    <i class="fa-solid fa-tag text-{{ $color }}"></i>
+                    {{ i18n "accommodation_price_heading" }}
+                </h4>
+                <div class="bg-white/50 rounded-lg p-3 space-y-2">
+                    {{- range .rooms }}
+                    <div class="flex justify-between items-start text-sm">
+                        <div>
+                            <span class="text-gray-700 font-sans">{{ .type }}</span>
+                            <span class="block text-xs text-gray-500 font-sans">
+                                {{ i18n "accommodation_price_occupancy" | replaceRE `\{n\}` (printf "%d" .occupancy) }}
+                            </span>
+                        </div>
+                        <span class="font-semibold text-gray-800 shrink-0 ml-2">
+                            {{ lang.FormatCurrency 0 "USD" .per_night }}
+                        </span>
+                    </div>
+                    {{- end }}
+                    <p class="text-xs text-gray-500 pt-2 border-t border-gray-200 mt-2 font-sans">
+                        {{ i18n "accommodation_rates_disclaimer" }}
+                        {{ i18n "accommodation_price_source" }}
+                    </p>
+                </div>
+            </div>
+            {{- end }}
+
             {{- with $block }}
             {{- $startDate := time .date_start -}}
             {{- $endDate := time .date_end -}}
