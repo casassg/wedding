@@ -53,8 +53,10 @@
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitació amb llits individuals i balcó"
-    per_night: 95.2
+    rooms:
+      - type: "Habitació amb llits individuals i balcó"
+        occupancy: 2
+        per_night: 95.2
   description: "Hotel d'estil colonial al costat de la plaça principal amb piscina, restaurant i bar. Serveis: WiFi gratuït, aparcament gratuït, piscina i aire condicionat."
 
 - id: plaza_magdalena
@@ -73,8 +75,16 @@
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitació amb dos llits de matrimoni"
-    per_night: 114.24
+    rooms:
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 2
+        per_night: 128.52
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 3
+        per_night: 138.04
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 4
+        per_night: 143.99
   description: "Ubicació cèntrica amb fàcil accés a restaurants i les ruïnes. Serveis: WiFi gratuït, aparcament gratuït i aire condicionat."
 
 - id: yatbalam
@@ -93,6 +103,14 @@
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitació amb llit king"
-    per_night: 88.06
+    rooms:
+      - type: "Habitació amb llit king"
+        occupancy: 2
+        per_night: 96.39
+      - type: "Habitació amb dos llits de matrimoni"
+        occupancy: 3
+        per_night: 104.72
+      - type: "Dos llits individuals i un de matrimoni"
+        occupancy: 3
+        per_night: 109.48
   description: "Hotel boutique amb encant colonial, cafeteria acollidora i 10 habitacions en dos edificis. Serveis: WiFi gratuït, aparcament gratuït, aire condicionat i cafeteria amb esmorzar."

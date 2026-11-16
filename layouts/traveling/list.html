@@ -552,12 +552,19 @@
                     {{ i18n "accommodation_price_heading" }}
                 </h4>
                 <div class="bg-white/50 rounded-lg p-3 space-y-2">
+                    {{- range .rooms }}
                     <div class="flex justify-between items-start text-sm">
-                        <span class="text-gray-700 font-sans">{{ .type }}</span>
+                        <div>
+                            <span class="text-gray-700 font-sans">{{ .type }}</span>
+                            <span class="block text-xs text-gray-500 font-sans">
+                                {{ i18n "accommodation_price_occupancy" | replaceRE `\{n\}` (printf "%d" .occupancy) }}
+                            </span>
+                        </div>
                         <span class="font-semibold text-gray-800 shrink-0 ml-2">
                             {{ lang.FormatCurrency 0 "USD" .per_night }}
                         </span>
                     </div>
+                    {{- end }}
                     <p class="text-xs text-gray-500 pt-2 border-t border-gray-200 mt-2 font-sans">
                         {{ i18n "accommodation_rates_disclaimer" }}
                     </p>

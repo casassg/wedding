@@ -53,8 +53,10 @@
       url: "https://www.instagram.com/plazacopanhotel/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitación con camas individuales y balcón"
-    per_night: 95.2
+    rooms:
+      - type: "Habitación con camas individuales y balcón"
+        occupancy: 2
+        per_night: 95.2
   description: "Hotel de estilo colonial junto a la plaza principal con piscina, restaurante y bar. Servicios: WiFi gratuito, estacionamiento gratuito, piscina y aire acondicionado."
 
 - id: plaza_magdalena
@@ -73,8 +75,16 @@
       url: "https://www.instagram.com/plazamagdalenahn/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitación con dos camas matrimoniales"
-    per_night: 114.24
+    rooms:
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 2
+        per_night: 128.52
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 3
+        per_night: 138.04
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 4
+        per_night: 143.99
   description: "Ubicación céntrica con fácil acceso a restaurantes y las ruinas. Servicios: WiFi gratuito, estacionamiento gratuito y aire acondicionado."
 
 - id: yatbalam
@@ -93,6 +103,14 @@
       url: "https://www.instagram.com/plazayatbalamhn/"
       icon: "fa-brands fa-instagram"
   price:
-    type: "Habitación con cama king"
-    per_night: 88.06
+    rooms:
+      - type: "Habitación con cama king"
+        occupancy: 2
+        per_night: 96.39
+      - type: "Habitación con dos camas matrimoniales"
+        occupancy: 3
+        per_night: 104.72
+      - type: "Dos camas individuales y una matrimonial"
+        occupancy: 3
+        per_night: 109.48
   description: "Hotel boutique con encanto colonial, cafetería acogedora y 10 habitaciones en dos edificios. Servicios: WiFi gratuito, estacionamiento gratuito, aire acondicionado y cafetería con desayuno."

@@ -170,7 +170,8 @@ accommodation_mention_name: "Mention {name} when reserving to get our {discount}
 accommodation_mention_block: "Mention {name} when reserving to use our block reservation."
 accommodation_view_rates: "View room rates"
 accommodation_rates_disclaimer: "Prices include 19% tax (15% ISV + 4% tourism). Per night."
-accommodation_price_heading: "Price"
+accommodation_price_heading: "Prices"
+accommodation_price_occupancy: "Up to {n} people"
 
 # Place Card Modal
 place_learn_more: "Learn more"
