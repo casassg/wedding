@@ -172,6 +172,7 @@ accommodation_view_rates: "View room rates"
 accommodation_rates_disclaimer: "Prices include 19% tax (15% ISV + 4% tourism). Per night."
 accommodation_price_heading: "Prices"
 accommodation_price_occupancy: "Up to {n} people"
+accommodation_price_source: "Prices from Booking.com as of 15 November 2026."
 
 # Place Card Modal
 place_learn_more: "Learn more"
