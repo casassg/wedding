@@ -848,7 +848,9 @@
             },
 
             // Both buses pick up at SAP at 2 PM. Flights landing by 1:30 PM are
-            // comfortable; landings up to 1:50 PM are shown but flagged as tight.
+            // comfortable; landings up to 1:50 PM are flagged as tight. Later
+            // landings are still listed but flagged as no pickup: those guests
+            // should take the Friday bus and stay in San Pedro Sula.
             get visibleFlights() {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return [];
@@ -860,14 +862,13 @@
                 return this.allFlights
                     .filter(f => {
                         if (f.localDate !== busDate) return false;
-                        const [h, m] = f.localTime.split(':').map(Number);
-                        if (h * 60 + m > cutoffMinutes) return false;
                         if (!q) return true;
                         return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
                     })
                     .map(f => {
                         const [h, m] = f.localTime.split(':').map(Number);
-                        return { ...f, tight: h * 60 + m > comfortMinutes };
+                        const mins = h * 60 + m;
+                        return { ...f, tight: mins > comfortMinutes && mins <= cutoffMinutes, noPickup: mins > cutoffMinutes };
                     });
             },
 
