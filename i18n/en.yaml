@@ -194,6 +194,12 @@ schedule_error: "Could not load the schedule. Please try again."
 schedule_retry: "Try again"
 schedule_empty: "No upcoming events at this time."
 schedule_completed: "Completed"
+hero_view_schedule: "View Schedule"
+schedule_now: "Now"
+schedule_show_earlier: "Show earlier events"
+schedule_hide_earlier: "Hide earlier events"
+schedule_ends_prefix: "ends"
+schedule_ended_prefix: "ended"
 
 # Travel Form
 travel_form_retry: "Couldn't save. Make another change to retry."

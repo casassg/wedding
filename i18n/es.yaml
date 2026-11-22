@@ -195,6 +195,12 @@ schedule_error: "No se pudo cargar el horario. Por favor, inténtalo de nuevo."
 schedule_retry: "Intentar de nuevo"
 schedule_empty: "No hay eventos próximos en este momento."
 schedule_completed: "Completado"
+hero_view_schedule: "Ver el Horario"
+schedule_now: "Ahora"
+schedule_show_earlier: "Ver eventos anteriores"
+schedule_hide_earlier: "Ocultar eventos anteriores"
+schedule_ends_prefix: "termina"
+schedule_ended_prefix: "terminó"
 
 # Travel Form
 travel_form_retry: "No se pudo guardar. Haz otro cambio para reintentar."
