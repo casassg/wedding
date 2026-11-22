@@ -847,24 +847,28 @@
                 returnDetail: '', // departure flight label (returnDest=sap) or drop-off text (returnDest=san_pedro)
             },
 
-            // Only flights that land on the bus day at or before that day's landing
-            // cutoff. Thursday's bus leaves Welchez Café at 3 PM (cutoff 1:30 PM);
-            // Friday's leaves an hour earlier, at 2 PM (cutoff 12:30 PM). Previous-day
-            // and late-arriving flights are excluded entirely.
+            // Both buses pick up at SAP at 2 PM. Flights landing by 1:30 PM are
+            // comfortable; landings up to 1:50 PM are shown but flagged as tight.
             get visibleFlights() {
                 const day = this.travel.busto;
                 if (!day || day === 'none') return [];
                 const busDate = day === 'thursday' ? this.thursdayDate : this.fridayDate;
                 if (!busDate) return [];
-                const cutoffMinutes = day === 'friday' ? 12 * 60 + 30 : 13 * 60 + 30;
+                const cutoffMinutes = 13 * 60 + 50;
+                const comfortMinutes = 13 * 60 + 30;
                 const q = (this.travel.flightInput || '').toLowerCase().trim();
-                return this.allFlights.filter(f => {
-                    if (f.localDate !== busDate) return false;
-                    const [h, m] = f.localTime.split(':').map(Number);
-                    if (h * 60 + m > cutoffMinutes) return false;
-                    if (!q) return true;
-                    return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
-                });
+                return this.allFlights
+                    .filter(f => {
+                        if (f.localDate !== busDate) return false;
+                        const [h, m] = f.localTime.split(':').map(Number);
+                        if (h * 60 + m > cutoffMinutes) return false;
+                        if (!q) return true;
+                        return (f.flight + ' ' + f.airline + ' ' + f.from + ' ' + f.label).toLowerCase().includes(q);
+                    })
+                    .map(f => {
+                        const [h, m] = f.localTime.split(':').map(Number);
+                        return { ...f, tight: h * 60 + m > comfortMinutes };
+                    });
             },
 
             // Only Sunday departures leaving at or after 13:00 local time — the

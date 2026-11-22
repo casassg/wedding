@@ -85,9 +85,6 @@
                                     <p class="text-gray-700 font-sans">
                                         <span x-text="inviteSizeMessage" class="font-semibold"></span>
                                     </p>
-                                    <p class="text-gray-700 font-sans">
-                                        {{ i18n "rsvp_deadline" | markdownify }}
-                                    </p>
                                 </div>
                                 <form @submit.prevent="submitRSVP()" novalidate class="space-y-5">
                                     <!-- Adult count (shown only when max_adults = 2) -->

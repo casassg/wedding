@@ -409,3 +409,75 @@
         - label: "Video Tour"
           url: "https://www.youtube.com/watch?v=QBRrNOe4tVY"
           icon: "fa-brands fa-youtube"
+
+- id: amapala
+  title: "Amapala & the Pacific Coast"
+  description: "Honduras's Pacific side in the Gulf of Fonseca: the volcanic Isla del Tigre with the historic port town of Amapala, warm calm-water beaches, sunrise volcano hikes, and mangrove boat tours. The quiet, off-the-beaten-path contrast to the Caribbean."
+  icon: "fa-solid fa-volcano"
+  long_description: |
+    The Gulf of Fonseca is Honduras's Pacific shoreline, a tri-national gulf shared with El Salvador and Nicaragua, where volcanic islands rise straight out of calm, warm water. The star is **[Isla del Tigre (Tiger Island)](https://en.wikipedia.org/wiki/Tiger_Island)**, a near-perfect volcanic cone (783 m) you can hike for spectacular sunrise and sunset views, ringed by beaches like Playa El Burro, Playa Grande, and black-sand Playa Negra.
+
+    On the island sits **Amapala**, founded in 1838 as the colonial-era port of the Honduran Pacific and once the country's capital. Today it is a tranquil town of historic buildings, a waterfront malecón, and some of the freshest seafood anywhere. Reach it by a short boat ride from **Coyolito**, the mainland fishing village where the ferry dock sits about 2.5 km across the water.
+
+    On the mainland, **San Lorenzo** is Honduras's main Pacific port and shrimp capital: stop for *sopa marinera* (seafood soup) and waterfront restaurants around La Cabaña. **Choluteca**, the departmental capital on the Pan-American Highway, is a good staging point with historic churches and the Casa Valle cultural center.
+
+    The gulf's estuaries hold some of Central America's best-preserved mangroves, a [BirdLife Important Bird Area](https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves): early-morning *cayuco* (dugout canoe) tours glide past frigatebirds, pelicans, herons, storks, reddish egrets, and Bat Falcons, and community turtle projects at **Playa El Venado** release hatchlings (October-November season, sometimes extending into the new year). The **Isla del Tigre loop** is logged as a birding spot on [eBird](https://ebird.org/region/HN/bird-list?yr=all&rank=lrec): bird at dawn, and check the mudflats at low tide for sandpipers and terns.
+
+    The **volcano hike** is the island's signature adventure: two trails reach the 783 m summit (one from Playa El Burro in the north, one from Amapala town), plus a dirt road for a gentler grade. Plan 2-3 hours round trip, start at dawn to beat the heat, and bring plenty of water and hiking shoes. The reward is a sunrise or sunset over the whole gulf, with El Salvador and Nicaragua on the horizon. For sunsets without the climb, head to the El Mirador de Amapala restaurant viewpoint or Faro Victoria.
+  tips:
+    - "🌋 Hike the El Tigre volcano (783 m) early in the morning; trails start from Amapala town and Playa El Burro."
+    - "🥾 Plan 2-3 hours round trip for the summit; bring 2L of water, hiking shoes, and start at dawn."
+    - "🦅 The Honduran mangroves are a BirdLife Important Bird Area: reddish egrets, frigatebirds, Bat Falcons."
+    - "🔭 Bird the Isla del Tigre loop at dawn; check mudflats at low tide for sandpipers and terns."
+    - "🌅 Best sunsets: El Mirador de Amapala restaurant viewpoint or Faro Victoria."
+    - "🐟 Lunch at Velero, the beach restaurant at Playa El Burro."
+    - "⛴️ The Coyolito → Amapala boat runs in daylight only: cross in the morning and return well before dark."
+    - "🏖️ December is dry season on the Pacific: hot, sunny, and around 33°C, perfect for beach days."
+    - "🦩 Book a dawn mangrove cayuco tour for frigatebirds, pelicans, and herons; bring insect repellent."
+    - "🐢 Ask locally about sea turtle releases at Playa El Venado; October-November, sometimes into Dec-Jan."
+    - "🍤 Try sopa marinera in San Lorenzo, the shrimp capital of Honduras."
+    - "💵 Bring cash in lempiras: beach restaurants and boat operators rarely take cards."
+    - "🛺 Circle the island by tuk-tuk on the 18 km road through quiet fishing villages."
+  links:
+    - label: "Google Maps"
+      url: "https://maps.app.goo.gl/H3FsKmkURo5dFTkv8"
+      icon: "fa-solid fa-map-location-dot"
+    - label: "Wikipedia"
+      url: "https://en.wikipedia.org/wiki/Amapala"
+      icon: "fa-solid fa-landmark"
+    - title: "Things to do"
+      icon: "fa-solid fa-compass"
+      links:
+        - label: "Amapala Guide"
+          url: "https://hondurastravel.com/southern-honduras/amapala-isla-del-tigre-aka-tiger-island/"
+          icon: "fa-solid fa-book"
+        - label: "Isla del Tigre"
+          url: "https://en.wikivoyage.org/wiki/Isla_del_Tigre"
+          icon: "fa-solid fa-globe"
+        - label: "Mangrove Tours"
+          url: "https://hondurastravel.com/things-to-do/touring-the-mangroves-in-the-gulf-of-fonseca/"
+          icon: "fa-solid fa-ship"
+    - title: "Birding"
+      icon: "fa-solid fa-binoculars"
+      links:
+        - label: "IBA: Gulf Mangroves"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca_mangroves"
+          icon: "fa-solid fa-dove"
+        - label: "eBird Honduras"
+          url: "https://ebird.org/region/HN/bird-list?yr=all&rank=lrec"
+          icon: "fa-solid fa-list-check"
+    - title: "Nearby"
+      icon: "fa-solid fa-location-dot"
+      links:
+        - label: "Tiger Island"
+          url: "https://en.wikipedia.org/wiki/Tiger_Island"
+          icon: "fa-solid fa-volcano"
+        - label: "Gulf of Fonseca"
+          url: "https://en.wikipedia.org/wiki/Gulf_of_Fonseca"
+          icon: "fa-solid fa-water"
+        - label: "San Lorenzo"
+          url: "https://en.wikipedia.org/wiki/San_Lorenzo,_Honduras"
+          icon: "fa-solid fa-city"
+        - label: "Choluteca"
+          url: "https://en.wikipedia.org/wiki/Choluteca,_Choluteca"
+          icon: "fa-solid fa-church"

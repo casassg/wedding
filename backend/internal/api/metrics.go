@@ -2,16 +2,39 @@ package api
 
 import (
 	"regexp"
+	"unicode/utf8"
 
 	"github.com/prometheus/client_golang/prometheus"
 )
 
 var inviteCodeRe = regexp.MustCompile(`/api/v1/invite/[^/]+`)
 
-// normalizeRoute replaces invite codes in URL paths with a placeholder
-// so metrics don't explode in cardinality from brute-force guesses.
+// normalizeRoute maps a request path to a bounded set of metric label
+// values. It replaces invite codes with a placeholder and buckets every
+// other path that is not a known route as "/unknown", so metrics don't
+// explode in cardinality from brute-force guesses or scanner probes.
+//
+// Unknown paths must never be used as a label value verbatim: a probe
+// such as "/%C0" decodes to invalid UTF-8 ("/\xc0"), and Prometheus
+// panics on label values that are not valid UTF-8. That panic in the
+// Logging middleware is what Sentry reported as PURPLE-SNOW-9170-3.
 func normalizeRoute(path string) string {
-	return inviteCodeRe.ReplaceAllString(path, "/api/v1/invite/:code")
+	if !utf8.ValidString(path) {
+		return "/unknown"
+	}
+	path = inviteCodeRe.ReplaceAllString(path, "/api/v1/invite/:code")
+	switch path {
+	case "/",
+		"/health",
+		"/api/v1/schedule",
+		"/api/v1/invite/:code",
+		"/api/v1/invite/:code/",
+		"/api/v1/invite/:code/rsvp",
+		"/api/v1/invite/:code/travel":
+		return path
+	default:
+		return "/unknown"
+	}
 }
 
 var (
