@@ -1182,6 +1182,8 @@
             loading: true,
             error: null,
             events: [],
+            now: new Date(),
+            showEarlier: false,
             timezone: null,
             timezoneOffset: null,
             lastUpdated: null,
@@ -1189,7 +1191,12 @@
             lang: lang, // Language passed from Hugo template
             COPAN_TZ: 'America/Tegucigalpa', // Copan, Honduras timezone (UTC-6, no DST)
             
+            endsPrefix: '',
+            endedPrefix: '',
+
             init() {
+                this.endsPrefix = this.$el.dataset.endsPrefix || '';
+                this.endedPrefix = this.$el.dataset.endedPrefix || '';
                 this.fetchSchedule();
                 // Auto-refresh every 30 seconds
                 this.refreshInterval = setInterval(() => this.fetchSchedule(), 30000);
@@ -1242,6 +1249,7 @@
                         this.error = err.message;
                     }
                 } finally {
+                    this.now = new Date();
                     this.loading = false;
                 }
             },
@@ -1252,17 +1260,22 @@
                 return new Date(isoString);
             },
             
-            // Format time in Copan, Honduras timezone (not user's local time)
-            // All events happen in Copan so we always show Copan time
             formatLocalTime(isoString) {
                 const date = this.parseDateTime(isoString);
                 if (!date) return '';
                 
                 return date.toLocaleTimeString(this.locale, { 
-                    hour: '2-digit', 
+                    hour: this.lang === 'en' ? 'numeric' : '2-digit', 
                     minute: '2-digit',
                     timeZone: this.COPAN_TZ
                 });
+            },
+            
+            formatTimeRange(startIso, endIso) {
+                const start = this.formatLocalTime(startIso);
+                const end = this.formatLocalTime(endIso);
+                if (end && end !== start) return `${start} \u2013 ${end}`;
+                return start;
             },
             
             // Extract date string (YYYY-MM-DD) from ISO datetime for grouping
@@ -1277,40 +1290,103 @@
                 return formatter.format(date); // en-CA returns YYYY-MM-DD
             },
             
-            // Check if an event is in the past
-            isEventPast(endTimeIso, startTimeIso) {
-                const eventEnd = this.parseDateTime(endTimeIso || startTimeIso);
-                if (!eventEnd) return false;
-                return eventEnd < new Date();
+            parseEventEnd(startIso, endIso) {
+                const end = this.parseDateTime(endIso);
+                if (!end) return null;
+                const start = this.parseDateTime(startIso);
+                if (start && end < start) {
+                    return new Date(end.getTime() + 86400000);
+                }
+                return end;
             },
             
-            // Get visible events (filter out past events except the most recent one)
+            isEventCurrent(startTimeIso, endTimeIso, now = this.now) {
+                const start = this.parseDateTime(startTimeIso);
+                const end = this.parseEventEnd(startTimeIso, endTimeIso);
+                if (!start || !end) return false;
+                return now >= start && now < end;
+            },
+            
+            isEventPast(endTimeIso, startTimeIso, now = this.now) {
+                const eventEnd = this.parseEventEnd(startTimeIso, endTimeIso);
+                if (eventEnd) return eventEnd <= now;
+                const eventStart = this.parseDateTime(startTimeIso);
+                if (eventStart) return eventStart < now;
+                return false;
+            },
+            
+            get processedEvents() {
+                const now = this.now;
+                return this.events.map(event => {
+                    const dateKey = this.getDateKey(event.start_time);
+                    const isCurrent = this.isEventCurrent(event.start_time, event.end_time, now);
+                    const isPast = this.isEventPast(event.end_time, event.start_time, now);
+                    const timeDisplay = this.formatTimeRange(event.start_time, event.end_time);
+                    const relativeTime = this.formatRelativeTime(event.start_time, event.end_time, dateKey, isCurrent, isPast, now);
+                    return {
+                        ...event,
+                        dateKey,
+                        localStartTime: this.formatLocalTime(event.start_time),
+                        localEndTime: this.formatLocalTime(event.end_time),
+                        timeDisplay,
+                        relativeTime,
+                        displayTime: relativeTime || timeDisplay,
+                        isCurrent,
+                        isPast,
+                        localizedName: this.localizedText(event.name),
+                        localizedDescription: this.localizedText(event.description)
+                    };
+                });
+            },
+
+            formatRelativeTime(startIso, endIso, dateKey, isCurrent, isPast, now = this.now) {
+                if (!dateKey || dateKey !== this.getDateKey(now.toISOString())) return '';
+                if (typeof Intl === 'undefined' || !Intl.RelativeTimeFormat) return '';
+                const start = this.parseDateTime(startIso);
+                const end = this.parseEventEnd(startIso, endIso);
+                let diffMs = null;
+                if (isCurrent) {
+                    diffMs = end ? end - now : null;
+                } else if (isPast) {
+                    diffMs = (end || start) ? (end || start) - now : null;
+                } else {
+                    diffMs = start ? start - now : null;
+                }
+                if (diffMs === null) return '';
+                const absMin = Math.abs(diffMs) / 60000;
+                const sign = diffMs < 0 ? -1 : 1;
+                let value, unit;
+                if (absMin < 60) {
+                    value = sign * Math.max(1, Math.round(absMin));
+                    unit = 'minute';
+                } else {
+                    value = sign * Math.max(1, Math.round(absMin / 60));
+                    unit = 'hour';
+                }
+                const rtf = new Intl.RelativeTimeFormat(this.locale, { numeric: 'always', style: 'long' });
+                const rel = rtf.format(value, unit);
+                if (isCurrent) return this.endsPrefix ? `${this.endsPrefix} ${rel}` : rel;
+                if (isPast) return (end && this.endedPrefix) ? `${this.endedPrefix} ${rel}` : rel;
+                return rel;
+            },
+            
+            get hiddenPastCount() {
+                const pastCount = this.processedEvents.filter(e => e.isPast).length;
+                return Math.max(0, pastCount - 1);
+            },
+            
+            // Visible events (past events collapsed to the most recent one unless expanded)
             get visibleEvents() {
                 if (!this.events.length) return [];
                 
-                const processed = this.events.map(event => ({
-                    ...event,
-                    dateKey: this.getDateKey(event.start_time),
-                    localStartTime: this.formatLocalTime(event.start_time),
-                    localEndTime: this.formatLocalTime(event.end_time),
-                    isPast: this.isEventPast(event.end_time, event.start_time),
-                    // Resolve localized name and description
-                    localizedName: this.localizedText(event.name),
-                    localizedDescription: this.localizedText(event.description)
-                }));
+                const processed = this.processedEvents;
+                if (this.showEarlier) return processed;
                 
-                // Find the last past event (to show as greyed)
                 const pastEvents = processed.filter(e => e.isPast);
                 const futureEvents = processed.filter(e => !e.isPast);
                 
-                // Show the most recent past event (greyed) + all future events
-                if (pastEvents.length > 0 && futureEvents.length > 0) {
+                if (pastEvents.length > 0) {
                     return [pastEvents[pastEvents.length - 1], ...futureEvents];
-                }
-                
-                // If all events are past, show just the last one
-                if (pastEvents.length > 0 && futureEvents.length === 0) {
-                    return [pastEvents[pastEvents.length - 1]];
                 }
                 
                 return futureEvents;
@@ -1332,11 +1408,12 @@
             // dateStr is YYYY-MM-DD from getDateKey (already in Copan TZ)
             formatDateHeader(dateStr) {
                 const date = new Date(dateStr + 'T12:00:00');
-                return date.toLocaleDateString(this.locale, {
+                const formatted = date.toLocaleDateString(this.locale, {
                     weekday: 'long',
                     month: 'long',
                     day: 'numeric'
                 });
+                return formatted ? formatted.charAt(0).toUpperCase() + formatted.slice(1) : '';
             }
         }));
     });

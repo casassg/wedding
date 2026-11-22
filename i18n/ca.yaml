@@ -196,6 +196,12 @@ schedule_error: "No s'ha pogut carregar l'horari. Si us plau, torna-ho a provar.
 schedule_retry: "Tornar-ho a provar"
 schedule_empty: "No hi ha esdeveniments propers en aquest moment."
 schedule_completed: "Completat"
+hero_view_schedule: "Veure l'Horari"
+schedule_now: "Ara"
+schedule_show_earlier: "Veure esdeveniments anteriors"
+schedule_hide_earlier: "Ocultar esdeveniments anteriors"
+schedule_ends_prefix: "acaba"
+schedule_ended_prefix: "va acabar"
 
 # Travel Form
 travel_form_retry: "No s'ha pogut guardar. Fes un altre canvi per tornar-ho a provar."

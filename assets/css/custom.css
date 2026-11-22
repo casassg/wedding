@@ -679,3 +679,42 @@ body.place-modal-open {
 .tf-autocomplete li + li {
     border-top: 1px solid #f3f4f6;
 }
+
+/* Schedule */
+.schedule-list > article + article {
+    border-top: 1px solid rgba(229, 231, 235, 0.8);
+}
+
+.schedule-row-current {
+    background-color: rgba(155, 140, 191, 0.08);
+}
+
+.schedule-list > .schedule-row-current,
+.schedule-list > .schedule-row-current + article {
+    border-top-color: transparent;
+}
+
+.schedule-live-dot {
+    animation: schedule-live-pulse 2.4s ease-in-out infinite;
+}
+
+@keyframes schedule-live-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.35; }
+}
+
+.schedule-skeleton {
+    animation: schedule-skeleton-pulse 1.6s ease-in-out infinite;
+}
+
+@keyframes schedule-skeleton-pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .schedule-live-dot,
+    .schedule-skeleton {
+        animation: none;
+    }
+}

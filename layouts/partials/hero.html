@@ -89,7 +89,17 @@
             <span class="mx-3 text-marigold">•</span>
             {{ .Site.Params.location }}
         </p>
-
+        {{- if .Site.Params.showSchedule }}
+        <div class="mt-8">
+            <a href="{{ "schedule/" | relLangURL }}"
+               class="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-white/95 hover:bg-white text-gray-800 hover:text-lavender shadow-lg text-xs md:text-sm font-bold uppercase tracking-widest font-sans transition">
+                <i class="fa-regular fa-calendar text-lavender"></i>
+                <span>{{ i18n "hero_view_schedule" }}</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+        </div>
+        {{- end }}
+    </div>
 
     <!-- Scroll Indicator -->
     <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
