@@ -237,7 +237,7 @@ travel_form_flight_placeholder: "Busca por número de vuelo o ciudad..."
 travel_form_flight_hint: "Opcional — nos ayuda a coordinar la recogida. Si tu vuelo cumple el horario pero no aparece, escríbelo libremente."
 travel_form_flight_arrives: "Llega"
 travel_form_flight_tight: "Conexión ajustada — preferimos un vuelo más temprano si es posible, el autobús sale puntualmente de SAP a las 2:00 PM"
-travel_form_flight_no_pickup: "No hay recogida disponible para este vuelo. Elige el autobús del viernes y quédate en San Pedro Sula."
+travel_form_flight_no_pickup: "Sin recogida para este vuelo. Te recomendamos quedarte en San Pedro Sula y tomar el autobús del viernes, o contáctanos para un transporte a medida."
 
 travel_form_save: "Guardar"
 travel_form_saving_btn: "Guardando..."

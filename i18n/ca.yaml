@@ -236,7 +236,7 @@ travel_form_flight_placeholder: "Cerca per número de vol o ciutat..."
 travel_form_flight_hint: "Opcional — ens ajuda a coordinar la recollida. Si el teu vol compleix l'horari però no apareix, escriu-lo lliurement."
 travel_form_flight_arrives: "Arriba"
 travel_form_flight_tight: "Connexió ajustada — preferim un vol més d'hora si és possible, el bus surt puntualment de SAP a les 2:00 PM"
-travel_form_flight_no_pickup: "No hi ha recollida disponible per a aquest vol. Tria el bus de divendres i queda't a San Pedro Sula."
+travel_form_flight_no_pickup: "Sense recollida per a aquest vol. Et recomanem quedar-te a San Pedro Sula i agafar el bus de divendres, o contacta'ns per a un transport a mida."
 
 travel_form_save: "Desar"
 travel_form_saving_btn: "Desant..."

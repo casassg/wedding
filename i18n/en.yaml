@@ -236,7 +236,7 @@ travel_form_flight_placeholder: "Search by flight number or city..."
 travel_form_flight_hint: "Optional — helps us time your airport pickup. If your eligible flight isn't listed, type it in freely."
 travel_form_flight_arrives: "Arrives"
 travel_form_flight_tight: "Tight connection — we prefer an earlier flight if possible, the bus leaves SAP at 2:00 PM sharp"
-travel_form_flight_no_pickup: "No pickup available for this flight. Please select the Friday bus and stay in San Pedro Sula."
+travel_form_flight_no_pickup: "No pickup available for this flight. We recommend staying in San Pedro Sula and taking the Friday bus, or contact us for custom travel arrangements."
 
 travel_form_save: "Save"
 travel_form_saving_btn: "Saving..."
