@@ -230,6 +230,64 @@
     // Alpine.js Component Definitions
     // ===================
     document.addEventListener('alpine:init', () => {
+        Alpine.data('wifiModal', () => ({
+            open: false,
+            copied: false,
+            password: '',
+            _copyTimer: null,
+            init() {
+                this.password = this.$el.dataset.wifiPassword || '';
+            },
+            openModal() {
+                this.open = true;
+                document.body.classList.add('wifi-modal-open');
+                this.$nextTick(() => this.$refs.closeBtn?.focus());
+            },
+            closeModal() {
+                if (!this.open) return;
+                this.open = false;
+                this.copied = false;
+                clearTimeout(this._copyTimer);
+                document.body.classList.remove('wifi-modal-open');
+                this.$nextTick(() => this.$refs.trigger?.focus());
+            },
+            async copyPassword() {
+                if (!this.password) return;
+                let ok = false;
+                if (navigator.clipboard && window.isSecureContext) {
+                    try {
+                        await navigator.clipboard.writeText(this.password);
+                        ok = true;
+                    } catch (e) {
+                        ok = false;
+                    }
+                }
+                if (!ok) {
+                    const ta = document.createElement('textarea');
+                    ta.value = this.password;
+                    ta.setAttribute('readonly', '');
+                    ta.style.position = 'fixed';
+                    ta.style.left = '-9999px';
+                    document.body.appendChild(ta);
+                    try {
+                        ta.select();
+                        ok = document.execCommand('copy');
+                    } catch (e) {
+                        ok = false;
+                    } finally {
+                        ta.remove();
+                    }
+                }
+                if (!ok) return;
+                this.copied = true;
+                clearTimeout(this._copyTimer);
+                this._copyTimer = setTimeout(() => { this.copied = false; }, 2500);
+            },
+            destroy() {
+                clearTimeout(this._copyTimer);
+                if (this.open) document.body.classList.remove('wifi-modal-open');
+            },
+        }));
         
         // -----------------------
         // Navigation Component (mobile menu + scroll shadow)
