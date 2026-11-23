@@ -16,10 +16,6 @@ disableKinds = ["taxonomy", "term", "RSS", "sitemap"]
   contactEmail = "hello@lauraygerard.com"
   showSchedule = false  # Set to true to show schedule link in navigation
 
-[params.wifi]
-  ssid = "Centro de Convenciones"
-  password = "hmarina2019"
-
 [languages]
   [languages.en]
     languageName = "EN"
