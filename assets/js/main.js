@@ -233,12 +233,38 @@
         Alpine.data('wifiModal', () => ({
             open: false,
             copied: false,
-            password: '',
+            networks: [],
+            active: null,
             _copyTimer: null,
+            _dateTimer: null,
+            _onVisibility: null,
             init() {
-                this.password = this.$el.dataset.wifiPassword || '';
+                try {
+                    this.networks = JSON.parse(this.$el.dataset.wifiNetworks || '[]');
+                } catch (e) {
+                    this.networks = [];
+                }
+                this.updateActive();
+                this._dateTimer = setInterval(() => this.updateActive(), 60000);
+                this._onVisibility = () => { if (!document.hidden) this.updateActive(); };
+                document.addEventListener('visibilitychange', this._onVisibility);
+            },
+            currentCopanDate(now = new Date()) {
+                const shifted = new Date(now.getTime() - 4 * 60 * 60 * 1000);
+                return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Tegucigalpa', year: 'numeric', month: '2-digit', day: '2-digit' }).format(shifted);
+            },
+            updateActive() {
+                const today = this.currentCopanDate();
+                const match = this.networks.find((n) => n.date === today) || null;
+                if (!match && this.open) this.closeModal();
+                if (match && this.active && match.date !== this.active.date) {
+                    clearTimeout(this._copyTimer);
+                    this.copied = false;
+                }
+                this.active = match;
             },
             openModal() {
+                if (!this.active) return;
                 this.open = true;
                 document.body.classList.add('wifi-modal-open');
                 this.$nextTick(() => this.$refs.closeBtn?.focus());
@@ -252,11 +278,12 @@
                 this.$nextTick(() => this.$refs.trigger?.focus());
             },
             async copyPassword() {
-                if (!this.password) return;
+                const password = this.active?.password || '';
+                if (!password) return;
                 let ok = false;
                 if (navigator.clipboard && window.isSecureContext) {
                     try {
-                        await navigator.clipboard.writeText(this.password);
+                        await navigator.clipboard.writeText(password);
                         ok = true;
                     } catch (e) {
                         ok = false;
@@ -264,7 +291,7 @@
                 }
                 if (!ok) {
                     const ta = document.createElement('textarea');
-                    ta.value = this.password;
+                    ta.value = password;
                     ta.setAttribute('readonly', '');
                     ta.style.position = 'fixed';
                     ta.style.left = '-9999px';
@@ -285,6 +312,8 @@
             },
             destroy() {
                 clearTimeout(this._copyTimer);
+                clearInterval(this._dateTimer);
+                document.removeEventListener('visibilitychange', this._onVisibility);
                 if (this.open) document.body.classList.remove('wifi-modal-open');
             },
         }));

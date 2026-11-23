@@ -1,0 +1,6 @@
+# Per-day venue Wi-Fi shown on /schedule on the matching Copan date (4 AM rollover).
+# Add entries for cocktail (2026-12-18) or brunch (2026-12-20) once confirmed.
+- date: "2026-12-19"
+  ssid: "Centro de Convenciones"
+  password: "hmarina2019"
+  qr: "images/wifi-2026-12-19.png"
