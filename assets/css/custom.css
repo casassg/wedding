@@ -306,7 +306,8 @@ html {
 }
 
 /* Place Card Modal - body scroll lock handled by Alpine */
-body.place-modal-open {
+body.place-modal-open,
+body.wifi-modal-open {
     overflow: hidden;
 }
 
